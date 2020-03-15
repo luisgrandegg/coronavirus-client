@@ -1,0 +1,29 @@
+$media-only-mobile: (
+    columns: 12,
+    gutter: $spacer-s,
+    media: "(max-width: #{$breakpoint-tablet})",
+) !default;
+
+$media-from-mobile: (
+    columns: 12,
+    gutter: $spacer-s,
+    media: "(min-width: #{$breakpoint-tablet + 1})",
+) !default;
+
+$media-up-to-tablet: (
+    columns: 12,
+    gutter: $spacer-s,
+    media: "(max-width: #{$breakpoint-desktop})",
+) !default;
+
+$media-only-tablet: (
+    columns: 12,
+    gutter: $spacer-s,
+    media: "(min-width: #{$breakpoint-tablet + 1}) and (max-width: #{$breakpoint-desktop})",
+) !default;
+
+$media-only-desktop: (
+    columns: 12,
+    gutter: $spacer,
+    media: "(min-width: #{$breakpoint-desktop + 1})",
+) !default;

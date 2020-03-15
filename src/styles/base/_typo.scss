@@ -1,0 +1,116 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: $spacer;
+}
+
+h1 {
+    font-size: $h1---font-size;
+}
+
+h2 {
+    font-size: $h2---font-size;
+}
+
+h3 {
+    font-size: $h3---font-size;
+}
+
+h4 {
+    font-size: $h4---font-size;
+}
+
+h5 {
+    font-size: $h5---font-size;
+}
+
+h6 {
+    font-size: $h6---font-size;
+}
+
+small {
+    font-size: $small---font-size;
+}
+
+%typo--heading-1 {
+    font-size: rem($font-size-xxxxl);
+    font-weight: $font-weight-normal;
+    line-height: get-line-height($font-size-xxxxl, $line-height-xxl);
+}
+
+%typo--heading-2 {
+    font-size: rem($font-size-xxxl);
+    font-weight: $font-weight-bold;
+    line-height: get-line-height($font-size-xxxl, $line-height-xl);
+}
+
+%typo--heading-3 {
+    font-size: rem($font-size-xxl);
+    font-weight: $font-weight-normal;
+    line-height: get-line-height($font-size-xxl, $line-height-l);
+}
+
+%typo--heading-4 {
+    font-size: rem($font-size-xl);
+    font-weight: $font-weight-normal;
+    line-height: get-line-height($font-size-xl, $line-height-l);
+}
+
+%typo--heading-5 {
+    font-size: rem($font-size-l);
+    font-weight: $font-weight-semibold;
+    line-height: get-line-height($font-size-l, $line-height-m);
+}
+
+%typo--subtitle-1 {
+    font-size: rem($font-size-m);
+    font-weight: $font-weight-normal;
+    line-height: get-line-height($font-size-m, $line-height-m);
+}
+
+%typo--subtitle-2 {
+    font-size: rem($font-size-s);
+    font-weight: $font-weight-semibold;
+    line-height: get-line-height($font-size-s, $line-height-m);
+}
+
+%typo--body-1 {
+    font-size: rem($font-size-m);
+    font-weight: $font-weight-normal;
+    line-height: get-line-height($font-size-m, $line-height-m);
+}
+
+%typo--body-2 {
+    font-size: rem($font-size-s);
+    font-weight: $font-weight-normal;
+    line-height: get-line-height($font-size-s, $line-height-m);
+}
+
+%typo--link {
+    font-size: rem($font-size-s);
+    font-weight: $font-weight-semibold;
+    line-height: get-line-height($font-size-s, $line-height-m);
+}
+
+%typo--button {
+    font-size: rem($typo--button---font-size);
+    font-weight: $typo--button---font-weight;
+    line-height: get-line-height($typo--button---font-size, $typo--button---line-height);
+    text-transform: $typo--button---text-transform;
+}
+
+%typo--caption {
+    font-size: rem($font-size-xs);
+    font-weight: $font-weight-normal;
+    line-height: get-line-height($font-size-xs, $line-height-s);
+}
+
+%typo--overline {
+    font-size: rem($font-size-xxs);
+    font-weight: $font-weight-normal;
+    line-height: get-line-height($font-size-xxs, $line-height-s);
+}

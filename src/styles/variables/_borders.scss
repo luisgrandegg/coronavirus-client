@@ -1,0 +1,19 @@
+$border-radius-base: 2px !default;
+
+$border-radius-s: $border-radius-base !default;
+$border-radius: $border-radius-base * 2 !default;
+$border-radius-m: $border-radius-base * 4 !default;
+$border-radius-l: $border-radius-base * 8 !default;
+$border-radius-xl: $border-radius-base * 16 !default;
+
+$border-color: $gray--light !default;
+
+/* stylelint-disable property-no-unknown */
+:export {
+    border-color: $border-color;
+    border-radius-s: $border-radius-s;
+    border-radius: $border-radius;
+    border-radius-m: $border-radius-m;
+    border-radius-l: $border-radius-l;
+    border-radius-xl: $border-radius-xl;
+}

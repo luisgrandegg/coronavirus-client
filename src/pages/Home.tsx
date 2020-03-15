@@ -1,23 +1,59 @@
+import { Button } from '@material-ui/core';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link as RouterLink } from 'react-router-dom';
 
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { ButtonColor, LinkButton } from '../components/Button';
 import { Routes } from '../router/Routes';
 
 export const Home: React.FunctionComponent = (): JSX.Element => {
+    const { t } = useTranslation();
+
     return (
         <>
             <Header/>
-            <main className="main">
-                <LinkButton
-                    color={ButtonColor.PRIMARY}
-                    href={Routes.REGISTER_DOCTOR}
-                >Soy un médico</LinkButton>
-                <LinkButton
-                    color={ButtonColor.PRIMARY}
-                    href={Routes.REGISTER_PATIENT}
-                >Soy un paciente</LinkButton>
+            <main className="home">
+                <div className="container">
+                    <section className="home__section">
+                        <header className="home__section-header">
+                            <h1 className="home__section-title">{t('home.what-is.title')}</h1>
+                        </header>
+                        <p dangerouslySetInnerHTML={{__html: t('home.what-is.first-paragraph')}}/>
+                        <p dangerouslySetInnerHTML={{__html: t('home.what-is.second-paragraph')}}/>
+                    </section>
+                    <section className="home__section">
+                        <header className="home__section-header">
+                            <h1 className="home__section-title">{t('home.what-is-not.title')}</h1>
+                        </header>
+                        <p dangerouslySetInnerHTML={{__html: t('home.what-is-not.first-paragraph')}}/>
+                        <p dangerouslySetInnerHTML={{__html: t('home.what-is-not.second-paragraph')}}/>
+                    </section>
+                    <section className="home__section home__section--cta">
+                        <header className="home__section-header">
+                            <h1 className="home__section-title">{t('home.pacient.title')}</h1>
+                        </header>
+                        <p>{t('home.pacient.first-paragraph')}</p>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            component={RouterLink}
+                            to={Routes.REGISTER_PATIENT}
+                        >{t('home.pacient.cta')}</Button>
+                    </section>
+                    <section className="home__section home__section--cta">
+                        <header className="home__section-header">
+                            <h1 className="home__section-title">{t('home.doctor.title')}</h1>
+                        </header>
+                        <p>{t('home.doctor.first-paragraph')}</p>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            component={RouterLink}
+                            to={Routes.REGISTER_PATIENT}
+                        >{t('home.doctor.cta')}</Button>
+                    </section>
+                </div>
             </main>
             <Footer/>
         </>

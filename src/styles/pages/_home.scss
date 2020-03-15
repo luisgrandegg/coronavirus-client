@@ -1,0 +1,23 @@
+.home {
+    padding: $spacer 0;
+
+    &__section {
+        width: 100%;
+        &.home__section--cta {
+            width: 50%;
+        }
+
+        + .home__section {
+            margin-top: $spacer;
+        }
+    }
+
+    &__section-title {
+        color: black;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

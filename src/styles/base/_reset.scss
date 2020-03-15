@@ -1,0 +1,36 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: $font-family;
+    font-size: $font-size-base;
+    font-weight: $font-weight;
+    color: $font-color;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+}

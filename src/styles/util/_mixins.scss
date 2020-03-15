@@ -1,0 +1,98 @@
+
+/*
+*  Hide only visually, but have it available for screenreaders: h5bp.com/v
+*/
+
+/* stylelint-disable aditayvm/at-rule-no-children */
+@mixin visuallyhidden() {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+    // Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p
+
+    &.focusable:active,
+    &.focusable:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+    }
+}
+/* stylelint-enable aditayvm/at-rule-no-children */
+
+/*
+*  Makes visuallyhidden items visible again
+*/
+
+@mixin visible() {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+* @name
+*     media-query
+*
+* @description
+*
+*     Responsive breakpoint manager.
+*     `media-query` allows to change the properties of an element based on a media query
+*     for applying responsive styles.
+*
+*     This `media-query` is compatible with the variables defined to use Bourbon `grid-media`.
+*
+* @param {map} $media
+*
+*     This map should include the `media` property to determinate the expression
+*     for the media query.
+*
+* @content
+*
+*     Here it's possible to define different properties for the responsive
+*     within the media query specified in the parameter `$media`.
+*
+* @example scss
+*
+*     $custom-media: (
+*         media: "(min-width: 768px)"
+*     );
+*
+*     .element {
+*         @include media-query($custom-media) {
+*             border-color: #fabada;
+*         }
+*     }
+*
+* @example css
+*
+*     @media (min-width: 768px) {
+*         .element {
+*             border-color: #fabada;
+*         }
+*     }
+*
+*/
+
+@mixin media-query($media) {
+    @if type-of($media) == 'map' and map-has-key($media, media) {
+        @media #{map-get($media, media)} {
+            @content;
+        }
+    }
+
+    @else {
+        @warn 'Invalid media query: #{$media}.';
+    }
+}

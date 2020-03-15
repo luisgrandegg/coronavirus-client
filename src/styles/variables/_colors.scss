@@ -1,0 +1,67 @@
+$primary: #ff5f00 !default;
+$primary--light: #ffcdb8 !default;
+$primary--ultralight: #fce9e6 !default;
+$primary--dark: #d94900 !default;
+
+$secondary: #174470 !default;
+$secondary--light: #bcdaea !default;
+$secondary--ultralight: #e4f0f6 !default;
+$secondary--dark: #002c52 !default;
+
+$error: #df341c !default;
+$error--light: #fac8ca !default;
+$error--dark: #b31511 !default;
+
+$success: #56b652 !default;
+$success--light: #bfe3be !default;
+$success--dark: #368334 !default;
+
+$alert: #ffc032 !default;
+$alert--light: #ffebb7 !default;
+$alert--dark: #fc902a !default;
+
+$info: #37aad5 !default;
+$info--light: #b6e5f0 !default;
+$info--dark: #2279a2 !default;
+
+$black: #000 !default;
+$white: #fff !default;
+$gray: #9b9b9b !default;
+$gray--light: #dedede !default;
+$gray--ultralight: #ececec !default;
+$gray--megalight: #fafafa !default;
+$gray--dark: #5e5e5e !default;
+
+$font-color: $gray--dark !default;
+$headings---color: $font-color !default;
+
+/* stylelint-disable property-no-unknown */
+:export {
+    primary: $primary;
+    primary--light: $primary--light;
+    primary--ultralight: $primary--ultralight;
+    primary--dark: $primary--dark;
+    secondary: $secondary;
+    secondary--light: $secondary--light;
+    secondary--ultralight: $secondary--ultralight;
+    secondary--dark: $secondary--dark;
+    error: $error;
+    error--light: $error--light;
+    error--dark: $error--dark;
+    success: $success;
+    success--light: $success--light;
+    success--dark: $success--dark;
+    alert: $alert;
+    alert--light: $alert--light;
+    alert--dark: $alert--dark;
+    info: $info;
+    info--light: $info--light;
+    info--dark: $info--dark;
+    black: $black;
+    white: $white;
+    gray: $gray;
+    gray--light: $gray--light;
+    gray--ultralight: $gray--ultralight;
+    gray--megalight: $gray--megalight;
+    gray--dark: $gray--dark;
+}

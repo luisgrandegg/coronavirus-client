@@ -1,0 +1,10 @@
+$icon---size: 24px !default;
+$icon--small---size: 14px !default;
+$icon--large---size: $icon---size*2 !default;
+
+/* stylelint-disable property-no-unknown */
+:export {
+    icon---size: $icon---size;
+    icon--large---size: $icon--large---size;
+    icon--small---size: $icon--small---size;
+}

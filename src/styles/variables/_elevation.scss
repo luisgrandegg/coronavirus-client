@@ -1,0 +1,39 @@
+$z-index--base: 1000 !default;
+$elevations: 0, 1, 2, 3, 4, 6, 8, 12, 16, 24 !default;
+$elevations---color: rgba($black, 0.12) !default;
+
+@mixin get-elevation-z-index($z-index--delta) {
+    z-index: $z-index--base + $z-index--delta;
+}
+
+@mixin get-elevation-box-shadow(
+    $offset-y,
+    $offset-x: 0,
+    $blur-radius: 22px,
+    $spread-radius: 0,
+    $color: $elevations---color
+) {
+    box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+}
+
+@mixin get-elevation($elevation) {
+    @include get-elevation-box-shadow(#{$elevation}px);
+    @include get-elevation-z-index($elevation);
+}
+
+/* stylelint-disable aditayvm/at-rule-no-children */
+@each $elevation in $elevations {
+    @if $elevation == 0 {
+        %elevation--#{$elevation} {
+            box-shadow: none;
+
+            @include get-elevation-z-index(0);
+        }
+    }
+
+    @else {
+        %elevation--#{$elevation} {
+            @include get-elevation($elevation);
+        }
+    }
+}

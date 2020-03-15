@@ -1,0 +1,75 @@
+$line-height-base: 1.15 !default;
+
+$font-weight-light: 200 !default;
+$font-weight-normal: 400 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+
+$font-size-xxs: 10px !default;
+$font-size-xs: 12px !default;
+$font-size-s: 14px !default;
+$font-size-m: 16px !default;
+$font-size-l: 18px !default;
+$font-size-xl: 22px !default;
+$font-size-xxl: 24px !default;
+$font-size-xxxl: 30px !default;
+$font-size-xxxxl: 38px !default;
+
+$line-height-s: 16px !default;
+$line-height-m: 24px !default;
+$line-height-l: 32px !default;
+$line-height-xl: 48px !default;
+$line-height-xxl: 96px !default;
+
+$h1---font-size: $font-size-xxxxl !default;
+$h2---font-size: $font-size-xxxl !default;
+$h3---font-size: $font-size-xxl !default;
+$h4---font-size: $font-size-xl !default;
+$h5---font-size: $font-size-l !default;
+$h6---font-size: $font-size-m !default;
+$small---font-size: $font-size-xs !default;
+
+$font-size-base: $font-size-m !default;
+$font-size-small: $font-size-s !default;
+
+$font-family: 'proxima-nova', sans-serif !default;
+$font-weight: $font-weight-normal !default;
+
+$typo--button---font-size: $font-size-s !default;
+$typo--button---font-weight: $font-weight-semibold !default;
+$typo--button---line-height: $line-height-m !default;
+$typo--button---text-transform: uppercase !default;
+
+/* stylelint-disable property-no-unknown */
+:export {
+    font-family: $font-family;
+    font-size-base: $font-size-base;
+    font-size-l: $font-size-l;
+    font-size-m: $font-size-m;
+    font-size-s: $font-size-s;
+    font-size-small: $font-size-small;
+    font-size-xl: $font-size-xl;
+    font-size-xs: $font-size-xs;
+    font-size-xxl: $font-size-xxl;
+    font-size-xxs: $font-size-xxs;
+    font-size-xxxl: $font-size-xxxl;
+    font-size-xxxxl: $font-size-xxxxl;
+    font-weight-bold: $font-weight-bold;
+    font-weight-light: $font-weight-light;
+    font-weight-normal: $font-weight-normal;
+    font-weight-semibold: $font-weight-semibold;
+    font-weight: $font-weight;
+    h1---font-size: $h1---font-size;
+    h2---font-size: $h2---font-size;
+    h3---font-size: $h3---font-size;
+    h4---font-size: $h4---font-size;
+    h5---font-size: $h5---font-size;
+    h6---font-size: $h6---font-size;
+    line-height-base: $line-height-base;
+    line-height-l: $line-height-l;
+    line-height-m: $line-height-m;
+    line-height-s: $line-height-s;
+    line-height-xl: $line-height-xl;
+    line-height-xxl: $line-height-xxl;
+    small---font-size: $small---font-size;
+}

@@ -1,0 +1,27 @@
+$spacer-base: 8px !default;
+
+$spacer-xxs: $spacer-base * 0.5 !default;
+$spacer-xs: $spacer-base !default;
+$spacer-s: $spacer-base * 2 !default;
+$spacer: $spacer-base * 3 !default;
+$spacer-m: $spacer-base * 4 !default;
+$spacer-l: $spacer-base * 6 !default;
+$spacer-xl: $spacer-base * 8 !default;
+$spacer-xxl: $spacer-base * 9 !default;
+$spacer-xxxl: $spacer-base * 12 !default;
+
+/* Exported variables need to be camelCase due to gatsby css-loader configuration */
+
+/* stylelint-disable property-no-unknown, property-case */
+:export {
+    spacerXxs: $spacer-xxs;
+    spacer-base: $spacer-base;
+    spacerXs: $spacer-xs;
+    spacerS: $spacer-s;
+    spacer: $spacer;
+    spacerM: $spacer-m;
+    spacerL: $spacer-l;
+    spacerXl: $spacer-xl;
+    spacerXxl: $spacer-xxl;
+    spacerXxxl: $spacer-xxxl;
+}

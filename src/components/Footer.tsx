@@ -5,7 +5,9 @@ export const Footer: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
     return (
         <footer className="footer">
-            {t('footer.powered-by')}
+            <div className="container">
+                {t('footer.powered-by')}
+            </div>
         </footer>
     )
 };

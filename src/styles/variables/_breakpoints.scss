@@ -1,0 +1,10 @@
+$breakpoint-mobile: 360px !default;
+$breakpoint-tablet: 768px !default;
+$breakpoint-desktop: 1280px !default;
+
+/* stylelint-disable property-no-unknown */
+:export {
+    desktop: $breakpoint-desktop;
+    mobile: $breakpoint-mobile;
+    tablet: $breakpoint-tablet;
+}
