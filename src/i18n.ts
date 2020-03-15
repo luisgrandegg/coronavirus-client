@@ -34,6 +34,14 @@ const resources = {
                 }
             },
             'register-doctor': {
+                confirmation: {
+                    header: {
+                        title: 'Solicitud recibida'
+                    },
+                    content: {
+                        message: 'Recibirás una llamada telefónica para verificar tus datos. Muchísimas gracias por unirte a esta iniciativa.'
+                    }
+                },
                 header: {
                     title: '¿Como funciona Cita Médica en Casa para profesionales?'
                 },
@@ -60,6 +68,14 @@ const resources = {
                 }
             },
             'register-patient': {
+                confirmation: {
+                    header: {
+                        title: 'Solicitud recibida'
+                    },
+                    content: {
+                        message: 'Recibirás un email confimándola con un link para acceder a una consulta online, o con una respuesta a tu consulta.'
+                    }
+                },
                 header: {
                     title: '¿Como funciona Cita Médica en Casa para pacientes?'
                 },

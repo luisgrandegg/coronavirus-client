@@ -1,6 +1,10 @@
 .register-form {
     &__title {
         color: black;
+
+        &.register-form__title--confirmation {
+            color: #9BD870;
+        }
     }
 
     &__section {
