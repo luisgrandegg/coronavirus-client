@@ -13,7 +13,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
     return (
         <>
             <Header/>
-            <main className="home">
+            <main className="main home">
                 <div className="container">
                     <section className="home__section">
                         <header className="home__section-header">
@@ -50,7 +50,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
                             variant="contained"
                             color="primary"
                             component={RouterLink}
-                            to={Routes.REGISTER_PATIENT}
+                            to={Routes.REGISTER_DOCTOR}
                         >{t('home.doctor.cta')}</Button>
                     </section>
                 </div>

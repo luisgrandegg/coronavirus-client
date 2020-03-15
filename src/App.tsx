@@ -2,18 +2,17 @@ import React, { Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Redirect, Route } from "react-router-dom";
 
-import './App.css';
 import { DoctorRoute, PatientRoute } from './router/PrivateRoute';
-import { Login } from './pages/Login';
 import { Routes } from './router/Routes';
 import { Spinner } from './components/Spinner';
 import { DoctorDashbord } from './pages/DoctorDashboard';
 import { PatientDashbord } from './pages/PatientDashboard';
 import { getAuth } from './store/selectors/status';
 import { sdk } from './sdk';
-import { Register } from './pages/Register';
-import { UserType } from './entities/User';
 import { Home } from './pages/Home';
+import { Login } from './pages/Login';
+import { RegisterDoctor } from './pages/RegisterDoctor';
+import { RegisterPatient } from './pages/RegisterPatient';
 
 export const App: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
@@ -30,10 +29,10 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                         <Login/>
                     </Route>
                     <Route path={Routes.REGISTER_DOCTOR}>
-                        <Register userType={UserType.DOCTOR}/>
+                        <RegisterDoctor/>
                     </Route>
                     <Route path={Routes.REGISTER_PATIENT}>
-                        <Register userType={UserType.PATIENT}/>
+                        <RegisterPatient/>
                     </Route>
                     <DoctorRoute path={Routes.DOCTOR_DASHBOARD}>
                         <DoctorDashbord/>

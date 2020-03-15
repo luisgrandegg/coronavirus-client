@@ -1,0 +1,19 @@
+.register-form {
+    &__title {
+        color: black;
+    }
+
+    &__section {
+        + .register-form__section {
+            margin-top: $spacer;
+        }
+    }
+
+    &__section-title {
+        color: black;
+    }
+
+    .MuiFormControl-root + .MuiFormControl-root {
+        margin-top: $spacer-s;
+    }
+}

@@ -4,7 +4,8 @@ import { ApiClient } from './ApiClient';
 import { Auth, IAuthApiResponse } from '../entities/Auth';
 import { AxiosResponse } from 'axios';
 import { Users } from './Users';
-import { UserType } from '../entities/User';
+import { RegisterDoctorDto } from '../dto/RegisterDoctorDto';
+import { RegisterPatientDto } from '../dto/RegisterPatientDto';
 
 export class Sdk {
     public users: Users;
@@ -23,13 +24,14 @@ export class Sdk {
             .then((response: AxiosResponse<IAuthApiResponse>) => Auth.createFromResponse(response.data))
     }
 
-    async register(username: string, password: string, userType: UserType): Promise<Auth> {
-        return this.apiClient.post<IAuthApiResponse>('/register', {
-            password,
-            username,
-            userType
-        })
-        .then((response: AxiosResponse<IAuthApiResponse>) => Auth.createFromResponse(response.data))
+    async registerDoctor(registerDoctorDto: RegisterDoctorDto): Promise<Auth> {
+        return this.apiClient.post<IAuthApiResponse>('/register/doctor', registerDoctorDto)
+            .then((response: AxiosResponse<IAuthApiResponse>) => Auth.createFromResponse(response.data));
+    }
+
+    async registerPatient(patientDoctorDto: RegisterPatientDto): Promise<Auth> {
+        return this.apiClient.post<IAuthApiResponse>('/register/patient', patientDoctorDto)
+            .then((response: AxiosResponse<IAuthApiResponse>) => Auth.createFromResponse(response.data));
     }
 
     setAuthorization(auth: Auth): void {
