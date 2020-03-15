@@ -15,7 +15,6 @@
     "formik": "^2.1.4",
     "i18next": "^19.3.2",
     "js-cookie": "^2.2.1",
-    "material-ui-formik-components": "^0.6.0",
     "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
     "react": "^16.13.0",

@@ -35,7 +35,7 @@ const resources = {
             },
             'register-doctor': {
                 header: {
-                    title: 'Alta como médico'
+                    title: '¿Como funciona Cita Médica en Casa para profesionales?'
                 },
                 content: {
                     'first-paragraph': 'Muchas gracias por prestar tu ayuda.',
@@ -60,6 +60,24 @@ const resources = {
                 }
             },
             'register-patient': {
+                header: {
+                    title: '¿Como funciona Cita Médica en Casa para pacientes?'
+                },
+                content: {
+                    'first-paragraph': '¿Cómo funciona Cita Médica en Casa para pacientes?',
+                    'list-item-1': 'Rellenas un formulario contándonos cuál es tu dolencia.',
+                    'list-item-2': 'Estos datos se enviaran a un doctor o doctora para que concierte una cita contigo o para que resuelva tu consulta por escrito',
+                    'list-item-3': 'Te llegará un email con la respuesta o para confirmar tu cita.',
+                    'list-item-4': 'Si se trata de una consulta online utilizaréis Hangouts de Google, te enviaremos un link.',
+                    'third-paragraph': 'Por favor, para para plantear tu consulta dinos:'
+                },
+                fields: {
+                    age: 'Edad',
+                    email: 'Email (para enviarte la cita)',
+                    speciality: 'Especialidad (opcional)',
+                    summary: 'Resumen de tu problema',
+                    'summary-placeholder': 'Dinos cuánto hace que lo tienes, si tomas medicación, enfermedades que tengas como por ejemplo diabetes, alergias... todo lo que nos pueda ayudar a entenderlo mejor.'
+                }
 
             },
             'register-form': {

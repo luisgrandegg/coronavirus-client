@@ -1,6 +1,5 @@
 import { Button } from '@material-ui/core';
 import { Formik, Form, Field } from 'formik'
-import { TextField } from 'material-ui-formik-components/TextField'
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as yup from 'yup';
@@ -8,6 +7,7 @@ import * as yup from 'yup';
 import { Auth } from '../entities/Auth';
 import { RegisterDoctorDto } from '../dto/RegisterDoctorDto';
 import { sdk } from '../sdk';
+import { TextField } from './Form/TextField';
 
 export interface IRegisterDoctorFormProps {
     onRegisterSuccess: (auth: Auth) => void;
@@ -15,14 +15,14 @@ export interface IRegisterDoctorFormProps {
 }
 
 export interface IRegisterDoctorForm {
-    'firstName': string;
-    'surname': string;
-    'speciality': string;
-    'license': string;
-    'email': string;
-    'phone': string;
-    'password': string;
-    'confirmPassword': string;
+    firstName: string;
+    surname: string;
+    speciality: string;
+    license: string;
+    email: string;
+    phone: string;
+    password: string;
+    confirmPassword: string;
 }
 
 export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProps> = (
@@ -33,40 +33,39 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
     const [loading, setLoading] = useState(false);
 
     const initialValues = {
-        'firstName': '',
-        'surname': '',
-        'speciality': '',
-        'license': '',
-        'email': '',
-        'phone': '',
-        'password': '',
-        'confirmPassword': '',
+        firstName: '',
+        surname: '',
+        speciality: '',
+        license: '',
+        email: '',
+        phone: '',
+        password: '',
+        confirmPassword: '',
     };
 
     const validationSchema = yup.object().shape({
-        'firstName': yup.string()
+        firstName: yup.string()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.name') })),
-        'surname': yup.string()
+        surname: yup.string()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.surname') })),
-        'speciality': yup.string()
+        speciality: yup.string()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.speciality') })),
-        'license': yup.string()
+        license: yup.string()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.license') })),
-        'email': yup.string().trim()
+        email: yup.string().trim()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.email') }))
-            .email(t('register-form', { field: t('register-doctor.fields.email') })),
-        'phone': yup.string().trim()
+            .email(t('register-form.error.format', { field: t('register-doctor.fields.email') })),
+        phone: yup.string().trim()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.phone') })),
-        'password': yup.string()
+        password: yup.string()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.password') })),
-        'confirmPassword': yup.string()
+        confirmPassword: yup.string()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.confirm-password') })),
     });
 
     const onSubmit = async (values: IRegisterDoctorForm): Promise<void> => {
         const { firstName, surname, speciality, license, email, phone, password, confirmPassword } = values;
         setLoading(true);
-        console.log('@@@ values', values);
         sdk.registerDoctor(new RegisterDoctorDto(
             firstName,
             surname,
@@ -98,49 +97,41 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
                         name="firstName"
                         label={t('register-doctor.fields.name')}
                         component={TextField}
-                        variant="outlined"
                     />
                     <Field
                         name="surname"
                         label={t('register-doctor.fields.surname')}
                         component={TextField}
-                        variant="outlined"
                     />
                     <Field
                         name="speciality"
                         label={t('register-doctor.fields.speciality')}
                         component={TextField}
-                        variant="outlined"
                     />
                     <Field
                         name="license"
                         label={t('register-doctor.fields.license')}
                         component={TextField}
-                        variant="outlined"
                     />
                     <Field
                         name="email"
                         label={t('register-doctor.fields.email')}
                         component={TextField}
-                        variant="outlined"
                     />
                     <Field
                         name="phone"
                         label={t('register-doctor.fields.phone')}
                         component={TextField}
-                        variant="outlined"
                     />
                     <Field
                         name="password"
                         label={t('register-doctor.fields.password')}
                         component={TextField}
-                        variant="outlined"
                     />
                     <Field
                         name="confirmPassword"
                         label={t('register-doctor.fields.confirm-password')}
                         component={TextField}
-                        variant="outlined"
                     />
                     <Button
                         variant="contained"

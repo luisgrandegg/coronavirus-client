@@ -17,7 +17,7 @@ export const RegisterDoctor: React.FunctionComponent = (): JSX.Element => {
     };
 
     const onRegisterError = (): void => {
-
+        // TODO: Notificate error
     };
 
     return (
@@ -29,8 +29,8 @@ export const RegisterDoctor: React.FunctionComponent = (): JSX.Element => {
                         <h2 className="register-form__title">{t('register-doctor.header.title')}</h2>
                     </header>
                     <section className="register-form__section">
-                        <p>{t('register-doctor.content.first-paragraph')}</p>
-                        <p>{t('register-doctor.content.second-paragraph')}</p>
+                        <h3>{t('register-doctor.content.first-paragraph')}</h3>
+                        <h3>{t('register-doctor.content.second-paragraph')}</h3>
                         <ol>
                             <li>{t('register-doctor.content.list-item-1')}</li>
                             <li>{t('register-doctor.content.list-item-2')}</li>
@@ -39,7 +39,7 @@ export const RegisterDoctor: React.FunctionComponent = (): JSX.Element => {
                             <li>{t('register-doctor.content.list-item-5')}</li>
                             <li>{t('register-doctor.content.list-item-6')}</li>
                         </ol>
-                        <p>{t('register-doctor.content.third-paragraph')}</p>
+                        <h4>{t('register-doctor.content.third-paragraph')}</h4>
                     </section>
                     <RegisterDoctorForm
                         onRegisterSuccess={onRegisterSuccess}

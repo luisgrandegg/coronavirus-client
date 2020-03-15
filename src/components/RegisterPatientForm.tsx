@@ -1,11 +1,12 @@
-import { Button, FormControl, TextField } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import { Formik, Form, Field } from 'formik'
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import * as yup from 'yup';
 
+import { TextField } from './Form/TextField';
 import { sdk } from '../sdk';
 import { Auth } from '../entities/Auth';
-import { login } from '../store/actions/status';
-import { useDispatch } from 'react-redux';
 import { RegisterPatientDto } from '../dto/RegisterPatientDto';
 
 export interface IRegisterPatientFormProps {
@@ -13,85 +14,99 @@ export interface IRegisterPatientFormProps {
     onRegisterError: () => void;
 }
 
+export interface IRegisterPatientForm {
+    age: string;
+    email: string;
+    speciality: string;
+    summary: string;
+}
+
 export const RegisterPatientForm: React.FunctionComponent<IRegisterPatientFormProps> = (
     props: IRegisterPatientFormProps
 ): JSX.Element => {
     const { onRegisterError, onRegisterSuccess } = props;
     const { t } = useTranslation();
-    const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
-    const [name, setName] = useState('');
-    const [surname, setSurname] = useState('');
-    const [speciality, setSpeciality] = useState('');
-    const [license, setLicense] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
 
-    const onInputChange = (
-        stateSetter: (state: string) => void
-    ): (event: React.ChangeEvent<HTMLInputElement>) => void =>
-        (event: React.ChangeEvent<HTMLInputElement>): void => stateSetter(event.currentTarget.value);
+    const initialValues = {
+        age: '',
+        email: '',
+        speciality: '',
+        summary: '',
+    };
 
-        const onSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
-            event.preventDefault();
-            setLoading(true);
-            sdk.registerPatient(new RegisterPatientDto(
-                name,
-                surname,
-                speciality,
-                license,
-                email,
-                phone,
-                password,
-                confirmPassword
-            ))
-                .then((auth: Auth) => {
-                    dispatch(login(auth));
-                    onRegisterSuccess(auth);
-                })
-                .catch(() => {
-                    onRegisterError();
-                    setError('Register error');
-                    setLoading(false);
-                });
-        }
+    const validationSchema = yup.object().shape({
+        age: yup.number()
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.name') }))
+            .positive(t('register-form.error.required', { field: t('register-patient.fields.age') })),
+        email: yup.string().trim()
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.email') }))
+            .email(t('register-form.error.format', { field: t('register-doctor.fields.email') })),
+        speciality: yup.string(),
+        summary: yup.string()
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.license') }))
+    });
+
+    const onSubmit = async (values: IRegisterPatientForm): Promise<void> => {
+        const { age, email, speciality, summary } = values;
+        setLoading(true);
+        sdk.registerPatient(new RegisterPatientDto(
+            age,
+            email,
+            speciality,
+            summary
+        )).then((auth: Auth) => {
+            onRegisterSuccess(auth);
+        }).catch(() => {
+            onRegisterError();
+        }).finally(() => {
+            setLoading(false);
+        });
+    };
 
     return (
-        <form className="register-form" noValidate autoComplete="off" onSubmit={onSubmit}>
-            <FormControl fullWidth={true}>
-                <TextField label={t('register-doctor.fields.name')} onChange={onInputChange(setName)} variant="outlined"/>
-            </FormControl>
-            <FormControl fullWidth={true}>
-                <TextField label={t('register-doctor.fields.surname')} onChange={onInputChange(setSurname)} variant="outlined"/>
-            </FormControl>
-            <FormControl fullWidth={true}>
-                <TextField label={t('register-doctor.fields.speciality')} onChange={onInputChange(setSpeciality)} variant="outlined"/>
-            </FormControl>
-            <FormControl fullWidth={true}>
-                <TextField label={t('register-doctor.fields.license')} onChange={onInputChange(setLicense)} variant="outlined"/>
-            </FormControl>
-            <FormControl fullWidth={true}>
-                <TextField label={t('register-doctor.fields.email')} onChange={onInputChange(setEmail)} variant="outlined"/>
-            </FormControl>
-            <FormControl fullWidth={true}>
-                <TextField label={t('register-doctor.fields.phone')} onChange={onInputChange(setPhone)} variant="outlined"/>
-            </FormControl>
-            <FormControl fullWidth={true}>
-                <TextField label={t('register-doctor.fields.password')} onChange={onInputChange(setPassword)} variant="outlined"/>
-            </FormControl>
-            <FormControl fullWidth={true}>
-                <TextField label={t('register-doctor.fields.confirm-password')} onChange={onInputChange(setConfirmPassword)} variant="outlined"/>
-            </FormControl>
-            {error && <p>{error}</p>}
-            <Button
-                variant="contained"
-                color="primary"
-                type="submit"
-                disabled={loading}
-            >{t('register-form.submit')}</Button>
-        </form>
+        <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={onSubmit}
+            validateOnMount={true}
+        >
+            {formik => (
+                <Form>
+                    <Field
+                        name="age"
+                        label={t('register-patient.fields.age')}
+                        component={TextField}
+                        type="number"
+                    />
+                    <Field
+                        name="email"
+                        label={t('register-patient.fields.email')}
+                        component={TextField}
+                    />
+                    <Field
+                        name="speciality"
+                        label={t('register-patient.fields.speciality')}
+                        component={TextField}
+                    />
+                    <Field
+                        name="summary"
+                        label={t('register-patient.fields.summary')}
+                        placeholder={t('register-patient.fields.summary-placeholder')}
+                        component={TextField}
+                        multiline
+                        rows="5"
+                    />
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                        disabled={!formik.isValid || formik.isSubmitting || loading}
+                    >
+                        {t('register-form.submit')}
+                    </Button>
+                </Form>
+            )}
+        </Formik>
     );
 };
