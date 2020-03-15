@@ -63,7 +63,11 @@ const resources = {
 
             },
             'register-form': {
-                submit: 'Enviar'
+                submit: 'Enviar',
+                error: {
+                    required: 'El campo {{field}} es requerido',
+                    format: 'El campo {{field}} tiene un formato incorrecto',
+                }
             },
         }
     }

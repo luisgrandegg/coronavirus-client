@@ -1,20 +1,28 @@
-import { Button, FormControl, TextField } from '@material-ui/core';
-import {
-    Formik, Form, Field, ErrorMessage,
-} from 'formik';
+import { Button } from '@material-ui/core';
+import { Formik, Form, Field } from 'formik'
+import { TextField } from 'material-ui-formik-components/TextField'
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import * as Yup from 'yup';
+import * as yup from 'yup';
 
-import { sdk } from '../sdk';
 import { Auth } from '../entities/Auth';
-import { login } from '../store/actions/status';
-import { useDispatch } from 'react-redux';
 import { RegisterDoctorDto } from '../dto/RegisterDoctorDto';
+import { sdk } from '../sdk';
 
 export interface IRegisterDoctorFormProps {
     onRegisterSuccess: (auth: Auth) => void;
     onRegisterError: () => void;
+}
+
+export interface IRegisterDoctorForm {
+    'firstName': string;
+    'surname': string;
+    'speciality': string;
+    'license': string;
+    'email': string;
+    'phone': string;
+    'password': string;
+    'confirmPassword': string;
 }
 
 export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProps> = (
@@ -22,78 +30,128 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
 ): JSX.Element => {
     const { onRegisterError, onRegisterSuccess } = props;
     const { t } = useTranslation();
-    const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
 
-    return (
-        <p>Uncomment the code pls</p>
-    );
-    // const onSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
-    //     event.preventDefault();
-    //     setLoading(true);
-    //     sdk.registerDoctor(new RegisterDoctorDto(
-    //         name,
-    //         surname,
-    //         speciality,
-    //         license,
-    //         email,
-    //         phone,
-    //         password,
-    //         confirmPassword
-    //     ))
-    //         .then((auth: Auth) => {
-    //             dispatch(login(auth));
-    //             onRegisterSuccess(auth);
-    //         })
-    //         .catch(() => {
-    //             onRegisterError();
-    //             setError('Register error');
-    //             setLoading(false);
-    //         });
-    // };
+    const initialValues = {
+        'firstName': '',
+        'surname': '',
+        'speciality': '',
+        'license': '',
+        'email': '',
+        'phone': '',
+        'password': '',
+        'confirmPassword': '',
+    };
 
-    // return (
-    //     <Formik
-    //         initialValues={initialValues}
-    //         onSubmit={onSubmit}
-    //         validationSchema={validationSchema}
-    //     >
-    //         {(props) => {
-    //             return (
-    //                 <form className="register-form" noValidate autoComplete="off" onSubmit={onSubmit}>
-    //                     <FormControl fullWidth={true}>
-    //                         <TextField label={t('register-doctor.fields.name')} onChange={onInputChange(setName)} variant="outlined"/>
-    //                     </FormControl>
-    //                     <FormControl fullWidth={true}>
-    //                         <TextField label={t('register-doctor.fields.surname')} onChange={onInputChange(setSurname)} variant="outlined"/>
-    //                     </FormControl>
-    //                     <FormControl fullWidth={true}>
-    //                         <TextField label={t('register-doctor.fields.speciality')} onChange={onInputChange(setSpeciality)} variant="outlined"/>
-    //                     </FormControl>
-    //                     <FormControl fullWidth={true}>
-    //                         <TextField label={t('register-doctor.fields.license')} onChange={onInputChange(setLicense)} variant="outlined"/>
-    //                     </FormControl>
-    //                     <FormControl fullWidth={true}>
-    //                         <TextField label={t('register-doctor.fields.email')} onChange={onInputChange(setEmail)} variant="outlined"/>
-    //                     </FormControl>
-    //                     <FormControl fullWidth={true}>
-    //                         <TextField label={t('register-doctor.fields.phone')} onChange={onInputChange(setPhone)} variant="outlined"/>
-    //                     </FormControl>
-    //                     <FormControl fullWidth={true}>
-    //                         <TextField label={t('register-doctor.fields.password')} onChange={onInputChange(setPassword)} variant="outlined"/>
-    //                     </FormControl>
-    //                     <FormControl fullWidth={true}>
-    //                         <TextField label={t('register-doctor.fields.confirm-password')} onChange={onInputChange(setConfirmPassword)} variant="outlined"/>
-    //                     </FormControl>
-    //                     <Button
-    //                         variant="contained"
-    //                         color="primary"
-    //                         type="submit"
-    //                         disabled={loading}
-    //                     >{t('register-form.submit')}</Button>
-    //                 </form>
-    //             );
-    //         }}
-    //     </Formik>
-    // );
+    const validationSchema = yup.object().shape({
+        'firstName': yup.string()
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.name') })),
+        'surname': yup.string()
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.surname') })),
+        'speciality': yup.string()
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.speciality') })),
+        'license': yup.string()
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.license') })),
+        'email': yup.string().trim()
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.email') }))
+            .email(t('register-form', { field: t('register-doctor.fields.email') })),
+        'phone': yup.string().trim()
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.phone') })),
+        'password': yup.string()
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.password') })),
+        'confirmPassword': yup.string()
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.confirm-password') })),
+    });
+
+    const onSubmit = async (values: IRegisterDoctorForm): Promise<void> => {
+        const { firstName, surname, speciality, license, email, phone, password, confirmPassword } = values;
+        setLoading(true);
+        console.log('@@@ values', values);
+        sdk.registerDoctor(new RegisterDoctorDto(
+            firstName,
+            surname,
+            speciality,
+            license,
+            email,
+            phone,
+            password,
+            confirmPassword
+        )).then((auth: Auth) => {
+            onRegisterSuccess(auth);
+        }).catch(() => {
+            onRegisterError();
+        }).finally(() => {
+            setLoading(false);
+        });
+    };
+
+    return (
+        <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={onSubmit}
+            validateOnMount={true}
+        >
+            {formik => (
+                <Form>
+                    <Field
+                        name="firstName"
+                        label={t('register-doctor.fields.name')}
+                        component={TextField}
+                        variant="outlined"
+                    />
+                    <Field
+                        name="surname"
+                        label={t('register-doctor.fields.surname')}
+                        component={TextField}
+                        variant="outlined"
+                    />
+                    <Field
+                        name="speciality"
+                        label={t('register-doctor.fields.speciality')}
+                        component={TextField}
+                        variant="outlined"
+                    />
+                    <Field
+                        name="license"
+                        label={t('register-doctor.fields.license')}
+                        component={TextField}
+                        variant="outlined"
+                    />
+                    <Field
+                        name="email"
+                        label={t('register-doctor.fields.email')}
+                        component={TextField}
+                        variant="outlined"
+                    />
+                    <Field
+                        name="phone"
+                        label={t('register-doctor.fields.phone')}
+                        component={TextField}
+                        variant="outlined"
+                    />
+                    <Field
+                        name="password"
+                        label={t('register-doctor.fields.password')}
+                        component={TextField}
+                        variant="outlined"
+                    />
+                    <Field
+                        name="confirmPassword"
+                        label={t('register-doctor.fields.confirm-password')}
+                        component={TextField}
+                        variant="outlined"
+                    />
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                        disabled={!formik.isValid || formik.isSubmitting || loading}
+                    >
+                        {t('register-form.submit')}
+                    </Button>
+                </Form>
+            )}
+        </Formik>
+    );
 };
