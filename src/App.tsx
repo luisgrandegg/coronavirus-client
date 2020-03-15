@@ -13,6 +13,7 @@ import { getAuth } from './store/selectors/status';
 import { sdk } from './sdk';
 import { Register } from './pages/Register';
 import { UserType } from './entities/User';
+import { Home } from './pages/Home';
 
 export const App: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
@@ -22,6 +23,9 @@ export const App: React.FunctionComponent = (): JSX.Element => {
         <Suspense fallback={<Spinner/>}>
             <Router>
                 <Switch>
+                    <Route exact path={Routes.ROOT}>
+                        <Home/>
+                    </Route>
                     <Route path={Routes.LOGIN}>
                         <Login/>
                     </Route>
@@ -38,7 +42,6 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                         <PatientDashbord/>
                     </PatientRoute>
                     <Redirect exact={true} from={Routes.REGISTER} to={Routes.REGISTER_PATIENT}/>
-                    <Redirect exact={true} from={Routes.ROOT} to={Routes.LOGIN}/>
                 </Switch>
             </Router>
         </Suspense>

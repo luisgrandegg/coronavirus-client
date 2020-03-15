@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { Button } from './Button';
+import { Button, ButtonColor } from './Button/Button';
 import { sdk } from '../sdk';
 import { login } from '../store/actions/status';
 import { Auth } from '../entities/Auth';
@@ -53,7 +53,7 @@ export const LoginForm: React.FunctionComponent<ILoginFormProps> = (
                 <input type="password" name="password" id="loginFormPassword" onChange={onInputChange(setPassword)}/>
             </div>
             {error && <p>{error}</p>}
-            <Button type="submit" disabled={loading}>Login</Button>
+            <Button color={ButtonColor.PRIMARY} type="submit" disabled={loading}>Login</Button>
         </form>
     )
 }
