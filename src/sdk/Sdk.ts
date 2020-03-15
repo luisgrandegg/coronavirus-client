@@ -4,6 +4,7 @@ import { ApiClient } from './ApiClient';
 import { Auth, IAuthApiResponse } from '../entities/Auth';
 import { AxiosResponse } from 'axios';
 import { Users } from './Users';
+import { UserType } from '../entities/User';
 
 export class Sdk {
     public users: Users;
@@ -22,10 +23,11 @@ export class Sdk {
             .then((response: AxiosResponse<IAuthApiResponse>) => Auth.createFromResponse(response.data))
     }
 
-    async register(username: string, password: string): Promise<Auth> {
+    async register(username: string, password: string, userType: UserType): Promise<Auth> {
         return this.apiClient.post<IAuthApiResponse>('/register', {
             password,
-            username
+            username,
+            userType
         })
         .then((response: AxiosResponse<IAuthApiResponse>) => Auth.createFromResponse(response.data))
     }
