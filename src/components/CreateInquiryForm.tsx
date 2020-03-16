@@ -42,20 +42,20 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
 
     const validationSchema = yup.object().shape({
         age: yup.number()
-            .required(t('register-form.error.required', { field: t('register-doctor.fields.name') }))
+            .required(t('register-form.error.required', { field: t('register-patient.fields.age') }))
             .positive(t('register-form.error.required', { field: t('register-patient.fields.age') })),
         email: yup.string().trim()
-            .required(t('register-form.error.required', { field: t('register-doctor.fields.email') }))
-            .email(t('register-form.error.format', { field: t('register-doctor.fields.email') })),
+            .required(t('register-form.error.required', { field: t('register-patient.fields.email') }))
+            .email(t('register-form.error.format', { field: t('register-patient.fields.email') })),
         speciality: yup.string(),
         summary: yup.string()
-            .required(t('register-form.error.required', { field: t('register-doctor.fields.license') })),
+            .required(t('register-form.error.required', { field: t('register-patient.fields.summary') })),
         terms: yup.bool()
             .oneOf([true], t('register-form.error.accept'))
-            .required(t('register-form.error.required', { field: t('register-doctor.fields.terms') })),
+            .required(t('register-form.error.required', { field: t('register-patient.fields.terms') })),
         privacy: yup.bool()
             .oneOf([true], t('register-form.error.accept'))
-            .required(t('register-form.error.required', { field: t('register-doctor.fields.privacy') })),
+            .required(t('register-form.error.required', { field: t('register-patient.fields.privacy') })),
     });
 
     const onSubmit = async (values: ICreateInquiryForm): Promise<void> => {
