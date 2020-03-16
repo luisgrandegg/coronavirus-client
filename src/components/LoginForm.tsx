@@ -1,4 +1,3 @@
-import { Button } from '@material-ui/core';
 import { Formik, Form, Field } from 'formik';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -8,7 +7,8 @@ import * as yup from 'yup';
 import { sdk } from '../sdk';
 import { login } from '../store/actions/status';
 import { Auth } from '../entities/Auth';
-import { TextField } from './Form';
+import { TextField } from './Form/TextField';
+import { SubmitButton } from './Form/SubmitButton';
 
 export interface ILoginFormProps {
     onLoginError: () => void,
@@ -75,14 +75,10 @@ export const LoginForm: React.FunctionComponent<ILoginFormProps> = (
                         label={t('login-form.fields.password')}
                         component={TextField}
                     />
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        type="submit"
+                    <SubmitButton
+                        label={t('login-form.submit')}
                         disabled={!formik.isValid || formik.isSubmitting || loading}
-                    >
-                        {t('login-form.submit')}
-                    </Button>
+                    />
                 </Form>
             )}
         </Formik>
