@@ -103,6 +103,17 @@ const resources = {
                     format: 'El campo {{field}} tiene un formato incorrecto',
                 }
             },
+            'login-form': {
+                submit: 'Enviar',
+                error: {
+                    required: 'El campo {{field}} es requerido',
+                    format: 'El campo {{field}} tiene un formato incorrecto',
+                },
+                fields: {
+                    email: 'Email',
+                    password: 'Contraseña'
+                }
+            }
         }
     }
 };

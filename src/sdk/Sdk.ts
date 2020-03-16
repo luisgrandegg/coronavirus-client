@@ -16,10 +16,10 @@ export class Sdk {
         this.users = new Users(apiClient);
     }
 
-    async login(username: string, password: string): Promise<Auth> {
+    async login(email: string, password: string): Promise<Auth> {
         return this.apiClient.post<IAuthApiResponse>('/login', {
-                password,
-                username
+                email,
+                password
             })
             .then((response: AxiosResponse<IAuthApiResponse>) => Auth.createFromResponse(response.data))
     }

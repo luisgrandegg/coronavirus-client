@@ -1,6 +1,6 @@
+import { Button } from '@material-ui/core';
 import React, { useState } from 'react';
 
-import { Button, ButtonColor } from './Button/Button';
 import { sdk } from '../sdk';
 import { Temperature } from '../entities/Temperature';
 
@@ -46,7 +46,12 @@ export const TemperatureForm: React.FunctionComponent<ITemperatureFormProps> = (
                 <input type="number" step="0.1" name="measure" id="temperatureFormMeasure" onChange={onInputChange(setMeasure)}/>
             </div>
             {error && <p>{error}</p>}
-            <Button color={ButtonColor.PRIMARY} type="submit" disabled={loading}>Submit temperature</Button>
+            <Button
+                variant="contained"
+                color="primary"
+                type="submit"
+                disabled={loading}
+            >Submit temperature</Button>
         </form>
     )
 }

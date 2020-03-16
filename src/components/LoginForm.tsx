@@ -1,59 +1,90 @@
+import { Button } from '@material-ui/core';
+import { Formik, Form, Field } from 'formik';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
+import * as yup from 'yup';
 
-import { Button, ButtonColor } from './Button/Button';
 import { sdk } from '../sdk';
 import { login } from '../store/actions/status';
 import { Auth } from '../entities/Auth';
+import { TextField } from './Form';
 
 export interface ILoginFormProps {
     onLoginError: () => void,
-    onLoginValidation: () => void,
     onLoginSuccess: (auth: Auth) => void,
+}
+
+export interface ILoginForm {
+    email: string;
+    password: string;
 }
 
 export const LoginForm: React.FunctionComponent<ILoginFormProps> = (
     props: ILoginFormProps
 ): JSX.Element => {
     const { onLoginError, onLoginSuccess } = props;
+    const { t } = useTranslation();
     const dispatch = useDispatch();
-    const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
-    const [password, setPassword] = useState('');
-    const [username, setUsername] = useState('');
+    const initialValues = {
+        email: '',
+        password: ''
+    };
 
-    const onInputChange = (
-        stateSetter: (state: string) => void
-    ): (event: React.ChangeEvent<HTMLInputElement>) => void =>
-        (event: React.ChangeEvent<HTMLInputElement>): void => stateSetter(event.currentTarget.value);
+    const validationSchema = yup.object().shape({
+        email: yup.string().trim()
+            .required(t('login-form.error.required', { field: t('login-form.fields.email') }))
+            .email(t('login-form.error.format', { field: t('login-form.fields.email') })),
+        password: yup.string()
+            .required(t('login-form.error.required', { field: t('login-form.fields.password') })),
+    });
 
-    const onLoginSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
-        event.preventDefault();
+    const onSubmit = async (values: ILoginForm): Promise<void> => {
+        const { email, password } = values;
         setLoading(true);
-        sdk.login(username, password)
-            .then((auth: Auth) => {
-                dispatch(login(auth));
-                onLoginSuccess(auth);
-            })
-            .catch(() => {
-                onLoginError();
-                setError('Login error');
-                setLoading(false);
-            });
-    }
+        sdk.login(
+            email,
+            password
+        ).then((auth: Auth) => {
+            dispatch(login(auth));
+            onLoginSuccess(auth);
+        }).catch(() => {
+            onLoginError();
+        }).finally(() => {
+            setLoading(false);
+        });
+    };
 
     return (
-        <form className="login-form" onSubmit={onLoginSubmit}>
-            <div className="form-group">
-                <label htmlFor="loginFormUsername"/>
-                <input type="text" name="username" id="loginFormUsername" onChange={onInputChange(setUsername)}/>
-            </div>
-            <div className="form-group">
-                <label htmlFor="loginFormPassword"/>
-                <input type="password" name="password" id="loginFormPassword" onChange={onInputChange(setPassword)}/>
-            </div>
-            {error && <p>{error}</p>}
-            <Button color={ButtonColor.PRIMARY} type="submit" disabled={loading}>Login</Button>
-        </form>
-    )
+        <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={onSubmit}
+            validateOnMount={true}
+        >
+            {formik => (
+                <Form>
+                    <Field
+                        name="email"
+                        label={t('login-form.fields.email')}
+                        component={TextField}
+                    />
+                    <Field
+                        name="password"
+                        label={t('login-form.fields.password')}
+                        component={TextField}
+                    />
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                        disabled={!formik.isValid || formik.isSubmitting || loading}
+                    >
+                        {t('login-form.submit')}
+                    </Button>
+                </Form>
+            )}
+        </Formik>
+    );
 }

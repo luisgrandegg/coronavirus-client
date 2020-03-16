@@ -30,18 +30,17 @@ export const Login: React.FunctionComponent = (): JSX.Element => {
 
     };
 
-    const onLoginValidation = (): void => {
-
-    };
-
     return (
         <>
             <Header/>
-            <LoginForm
-                onLoginSuccess={onLoginSuccess}
-                onLoginError={onLoginError}
-                onLoginValidation={onLoginValidation}
-            />
+            <main className="main login-form">
+                <div className="container">
+                    <LoginForm
+                        onLoginSuccess={onLoginSuccess}
+                        onLoginError={onLoginError}
+                    />
+                </div>
+            </main>
             <Footer/>
         </>
     )
