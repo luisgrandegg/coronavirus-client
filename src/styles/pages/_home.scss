@@ -2,7 +2,15 @@
     &__section {
         width: 100%;
         &.home__section--cta {
-            width: 50%;
+            + .home__section--cta {
+                margin-top: 2 * $spacer;
+                @media (min-width: $breakpoint-tablet) {
+                    margin-top: $spacer;
+                }
+            }
+            @media (min-width: $breakpoint-tablet) {
+                width: 50%;
+            }
         }
 
         + .home__section {
@@ -14,8 +22,26 @@
         color: black;
     }
 
-    .container {
+    &__drawing {
+        display: none;
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        @media (min-width: $breakpoint-tablet) {
+            display: block;
+        }
+    }
+
+    .section {
+        display: flex;
+    }
+
+    .content {
         display: flex;
         flex-wrap: wrap;
+        @media (min-width: $breakpoint-tablet) {
+            flex: 0 0  percentage(2/3);
+        }
     }
 }

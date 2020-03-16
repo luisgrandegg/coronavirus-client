@@ -13,6 +13,10 @@ body {
     font-size: $font-size-base;
     font-weight: $font-weight;
     color: $font-color;
+    background-color: white;
+    @media (min-width: $breakpoint-tablet) {
+        background-color: #F5F5F5;
+    }
 }
 
 ul,
