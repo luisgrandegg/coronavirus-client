@@ -13,6 +13,7 @@ import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { RegisterDoctor } from './pages/RegisterDoctor';
 import { CreateInquiry } from './pages/CreateInquiry';
+import { InquiryDetail } from './pages/InquiryDetail';
 
 export const App: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
@@ -34,8 +35,11 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                     <Route path={Routes.REGISTER_PATIENT}>
                         <CreateInquiry/>
                     </Route>
-                    <DoctorRoute path={Routes.DOCTOR_DASHBOARD}>
+                    <DoctorRoute exact={true} path={Routes.DOCTOR_DASHBOARD}>
                         <DoctorDashbord/>
+                    </DoctorRoute>
+                    <DoctorRoute path={Routes.INQUIRY_DETAIL}>
+                        <InquiryDetail/>
                     </DoctorRoute>
                     <PatientRoute path={Routes.PATIENT_DASHBOARD}>
                         <PatientDashbord/>
