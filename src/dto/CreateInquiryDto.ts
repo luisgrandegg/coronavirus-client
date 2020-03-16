@@ -1,17 +1,17 @@
 import { UserType } from "../entities/User";
 
-export interface IRegisterPatientDto {
+export interface ICreateInquiryDto {
     age: string;
     email: string;
     speciality: string | null;
     summary: string;
 }
 
-export class RegisterPatientDto {
+export class CreateInquiryDto {
     public userType: UserType = UserType.PATIENT;
 
-    static deserialize(data: IRegisterPatientDto): RegisterPatientDto {
-        return new RegisterPatientDto(
+    static deserialize(data: ICreateInquiryDto): CreateInquiryDto {
+        return new CreateInquiryDto(
             data.age,
             data.email,
             data.speciality || null,
@@ -26,7 +26,7 @@ export class RegisterPatientDto {
         public summary: string,
     ) {}
 
-    toJSON(): IRegisterPatientDto {
+    toJSON(): ICreateInquiryDto {
         return {
             age: this.age,
             email: this.email,

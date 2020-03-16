@@ -12,7 +12,7 @@ import { sdk } from './sdk';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { RegisterDoctor } from './pages/RegisterDoctor';
-import { RegisterPatient } from './pages/RegisterPatient';
+import { CreateInquiry } from './pages/CreateInquiry';
 
 export const App: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
@@ -32,7 +32,7 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                         <RegisterDoctor/>
                     </Route>
                     <Route path={Routes.REGISTER_PATIENT}>
-                        <RegisterPatient/>
+                        <CreateInquiry/>
                     </Route>
                     <DoctorRoute path={Routes.DOCTOR_DASHBOARD}>
                         <DoctorDashbord/>

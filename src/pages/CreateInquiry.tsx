@@ -3,17 +3,17 @@ import { useTranslation } from 'react-i18next';
 
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { RegisterPatientForm } from '../components/RegisterPatientForm';
+import { CreateInquiryForm } from '../components/CreateInquiryForm';
 
-export const RegisterPatient: React.FunctionComponent = (): JSX.Element => {
+export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
-    const [registerFormSuccess, setRegisterFormSuccess] = useState(false);
+    const [createFromSuccess, setCreateFromSuccess] = useState(false);
 
-    const onRegisterSuccess = (): void => {
-        setRegisterFormSuccess(true);
+    const onCreateSuccess = (): void => {
+        setCreateFromSuccess(true);
     };
 
-    const onRegisterError = (): void => {
+    const onCreateError = (): void => {
         // TODO: Notificate error
     };
 
@@ -46,9 +46,9 @@ export const RegisterPatient: React.FunctionComponent = (): JSX.Element => {
                 </ol>
                 <p>{t('register-patient.content.third-paragraph')}</p>
             </section>
-            <RegisterPatientForm
-                onRegisterSuccess={onRegisterSuccess}
-                onRegisterError={onRegisterError}
+            <CreateInquiryForm
+                onCreateSuccess={onCreateSuccess}
+                onCreateError={onCreateError}
             />
         </>
     )
@@ -58,7 +58,7 @@ export const RegisterPatient: React.FunctionComponent = (): JSX.Element => {
             <Header/>
             <main className="main register-form">
                 <div className="container">
-                    {registerFormSuccess ? renderConfirmation() : renderRegisterForm() }
+                    {createFromSuccess ? renderConfirmation() : renderRegisterForm() }
                 </div>
             </main>
             <Footer/>

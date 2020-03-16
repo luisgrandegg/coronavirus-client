@@ -5,14 +5,16 @@ import { Auth, IAuthApiResponse } from '../entities/Auth';
 import { AxiosResponse } from 'axios';
 import { Users } from './Users';
 import { RegisterDoctorDto } from '../dto/RegisterDoctorDto';
-import { RegisterPatientDto } from '../dto/RegisterPatientDto';
+import { Inquiries } from './Inquiries';
 
 export class Sdk {
+    public inquiries: Inquiries;
     public users: Users;
 
     constructor(
         private apiClient: ApiClient
     ) {
+        this.inquiries = new Inquiries(apiClient);
         this.users = new Users(apiClient);
     }
 
@@ -26,11 +28,6 @@ export class Sdk {
 
     async registerDoctor(registerDoctorDto: RegisterDoctorDto): Promise<Auth> {
         return this.apiClient.post<IAuthApiResponse>('/register/doctor', registerDoctorDto)
-            .then((response: AxiosResponse<IAuthApiResponse>) => Auth.createFromResponse(response.data));
-    }
-
-    async registerPatient(patientDoctorDto: RegisterPatientDto): Promise<Auth> {
-        return this.apiClient.post<IAuthApiResponse>('/register/patient', patientDoctorDto)
             .then((response: AxiosResponse<IAuthApiResponse>) => Auth.createFromResponse(response.data));
     }
 

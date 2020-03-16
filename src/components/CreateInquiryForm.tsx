@@ -6,25 +6,25 @@ import * as yup from 'yup';
 
 import { TextField } from './Form/TextField';
 import { sdk } from '../sdk';
-import { Auth } from '../entities/Auth';
-import { RegisterPatientDto } from '../dto/RegisterPatientDto';
+import { CreateInquiryDto } from '../dto/CreateInquiryDto';
+import { Inquiry } from '../entities/Inquiry';
 
-export interface IRegisterPatientFormProps {
-    onRegisterSuccess: (auth: Auth) => void;
-    onRegisterError: () => void;
+export interface ICreateInquiryFormProps {
+    onCreateSuccess: (inquiry: Inquiry) => void;
+    onCreateError: () => void;
 }
 
-export interface IRegisterPatientForm {
+export interface ICreateInquiryForm {
     age: string;
     email: string;
     speciality: string;
     summary: string;
 }
 
-export const RegisterPatientForm: React.FunctionComponent<IRegisterPatientFormProps> = (
-    props: IRegisterPatientFormProps
+export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps> = (
+    props: ICreateInquiryFormProps
 ): JSX.Element => {
-    const { onRegisterError, onRegisterSuccess } = props;
+    const { onCreateError, onCreateSuccess } = props;
     const { t } = useTranslation();
     const [loading, setLoading] = useState(false);
 
@@ -47,18 +47,18 @@ export const RegisterPatientForm: React.FunctionComponent<IRegisterPatientFormPr
             .required(t('register-form.error.required', { field: t('register-doctor.fields.license') }))
     });
 
-    const onSubmit = async (values: IRegisterPatientForm): Promise<void> => {
+    const onSubmit = async (values: ICreateInquiryForm): Promise<void> => {
         const { age, email, speciality, summary } = values;
         setLoading(true);
-        sdk.registerPatient(new RegisterPatientDto(
+        sdk.inquiries.create(new CreateInquiryDto(
             age,
             email,
             speciality,
             summary
-        )).then((auth: Auth) => {
-            onRegisterSuccess(auth);
+        )).then((inquiry: Inquiry) => {
+            onCreateSuccess(inquiry);
         }).catch(() => {
-            onRegisterError();
+            onCreateError();
         }).finally(() => {
             setLoading(false);
         });
