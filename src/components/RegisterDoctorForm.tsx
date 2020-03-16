@@ -75,7 +75,7 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
     });
 
     const onSubmit = async (values: IRegisterDoctorForm): Promise<void> => {
-        const { firstName, surname, speciality, license, email, phone, password, confirmPassword } = values;
+        const { firstName, surname, speciality, license, email, phone, password, confirmPassword, terms, privacy } = values;
         setLoading(true);
         sdk.registerDoctor(new RegisterDoctorDto(
             firstName,
@@ -85,7 +85,9 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
             email,
             phone,
             password,
-            confirmPassword
+            confirmPassword,
+            terms,
+            privacy
         )).then((auth: Auth) => {
             onRegisterSuccess(auth);
         }).catch(() => {

@@ -59,13 +59,15 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
     });
 
     const onSubmit = async (values: ICreateInquiryForm): Promise<void> => {
-        const { age, email, speciality, summary } = values;
+        const { age, email, speciality, summary, terms, privacy } = values;
         setLoading(true);
         sdk.inquiries.create(new CreateInquiryDto(
             age,
             email,
             speciality,
-            summary
+            summary,
+            terms,
+            privacy
         )).then((inquiry: Inquiry) => {
             onCreateSuccess(inquiry);
         }).catch(() => {
