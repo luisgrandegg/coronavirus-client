@@ -5,6 +5,8 @@ export interface ICreateInquiryDto {
     email: string;
     speciality: string | null;
     summary: string;
+    terms: boolean;
+    privacy: boolean;
 }
 
 export class CreateInquiryDto {
@@ -16,6 +18,8 @@ export class CreateInquiryDto {
             data.email,
             data.speciality || null,
             data.summary,
+            data.terms,
+            data.privacy,
         );
     }
 
@@ -24,6 +28,8 @@ export class CreateInquiryDto {
         public email: string,
         public speciality: string | null,
         public summary: string,
+        public terms: boolean,
+        public privacy: boolean,
     ) {}
 
     toJSON(): ICreateInquiryDto {
@@ -32,6 +38,8 @@ export class CreateInquiryDto {
             email: this.email,
             speciality: this.speciality,
             summary: this.summary,
+            terms: this.terms,
+            privacy: this.privacy,
         };
     }
 }
