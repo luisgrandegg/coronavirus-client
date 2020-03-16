@@ -33,6 +33,10 @@ const resources = {
                     'second-paragraph': 'Cita Médica en Casa, no es un sustituto del Sistema Nacional de Salud ni de la cita previa con tu médico.'
                 }
             },
+            inquiry: {
+                attend: 'Atender petición',
+                'created-at': 'Recibido el {{createdAt}}'
+            },
             'register-doctor': {
                 confirmation: {
                     header: {
