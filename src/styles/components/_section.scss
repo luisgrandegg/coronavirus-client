@@ -1,0 +1,12 @@
+.section-wrapper {
+  display: flex;
+  &__content {
+    @media (min-width: $breakpoint-tablet) {
+        flex: 0 0  percentage(2/3);
+    }
+    > div {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}

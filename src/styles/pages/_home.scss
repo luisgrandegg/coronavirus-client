@@ -32,16 +32,4 @@
             display: block;
         }
     }
-
-    .section {
-        display: flex;
-    }
-
-    .content {
-        display: flex;
-        flex-wrap: wrap;
-        @media (min-width: $breakpoint-tablet) {
-            flex: 0 0  percentage(2/3);
-        }
-    }
 }
