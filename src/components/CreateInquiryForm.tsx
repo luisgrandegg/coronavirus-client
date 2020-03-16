@@ -1,13 +1,14 @@
-import { Button } from '@material-ui/core';
 import { Formik, Form, Field } from 'formik'
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as yup from 'yup';
 
-import { TextField } from './Form/TextField';
-import { sdk } from '../sdk';
 import { CreateInquiryDto } from '../dto/CreateInquiryDto';
 import { Inquiry } from '../entities/Inquiry';
+import { sdk } from '../sdk';
+import { TextField } from './Form/TextField';
+import { Checkbox } from './Form/Checkbox';
+import { SubmitButton } from './Form/SubmitButton';
 
 export interface ICreateInquiryFormProps {
     onCreateSuccess: (inquiry: Inquiry) => void;
@@ -19,6 +20,8 @@ export interface ICreateInquiryForm {
     email: string;
     speciality: string;
     summary: string;
+    terms: boolean;
+    privacy: boolean;
 }
 
 export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps> = (
@@ -33,6 +36,8 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
         email: '',
         speciality: '',
         summary: '',
+        terms: false,
+        privacy: false,
     };
 
     const validationSchema = yup.object().shape({
@@ -44,7 +49,13 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
             .email(t('register-form.error.format', { field: t('register-doctor.fields.email') })),
         speciality: yup.string(),
         summary: yup.string()
-            .required(t('register-form.error.required', { field: t('register-doctor.fields.license') }))
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.license') })),
+        terms: yup.bool()
+            .oneOf([true], t('register-form.error.accept'))
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.terms') })),
+        privacy: yup.bool()
+            .oneOf([true], t('register-form.error.accept'))
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.privacy') })),
     });
 
     const onSubmit = async (values: ICreateInquiryForm): Promise<void> => {
@@ -97,14 +108,20 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                         multiline
                         rows="5"
                     />
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        type="submit"
+                    <Field
+                        name="terms"
+                        label={t('register-doctor.fields.terms')}
+                        component={Checkbox}
+                    />
+                    <Field
+                        name="privacy"
+                        label={t('register-doctor.fields.privacy')}
+                        component={Checkbox}
+                    />
+                    <SubmitButton
+                        label={t('register-form.submit')}
                         disabled={!formik.isValid || formik.isSubmitting || loading}
-                    >
-                        {t('register-form.submit')}
-                    </Button>
+                    />
                 </Form>
             )}
         </Formik>

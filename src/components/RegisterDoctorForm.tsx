@@ -1,4 +1,3 @@
-import { Button } from '@material-ui/core';
 import { Formik, Form, Field } from 'formik'
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -8,6 +7,8 @@ import { Auth } from '../entities/Auth';
 import { RegisterDoctorDto } from '../dto/RegisterDoctorDto';
 import { sdk } from '../sdk';
 import { TextField } from './Form/TextField';
+import { Checkbox } from './Form/Checkbox';
+import { SubmitButton } from './Form/SubmitButton';
 
 export interface IRegisterDoctorFormProps {
     onRegisterSuccess: (auth: Auth) => void;
@@ -23,6 +24,8 @@ export interface IRegisterDoctorForm {
     phone: string;
     password: string;
     confirmPassword: string;
+    terms: boolean;
+    privacy: boolean;
 }
 
 export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProps> = (
@@ -41,6 +44,8 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
         phone: '',
         password: '',
         confirmPassword: '',
+        terms: false,
+        privacy: false,
     };
 
     const validationSchema = yup.object().shape({
@@ -61,6 +66,12 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
             .required(t('register-form.error.required', { field: t('register-doctor.fields.password') })),
         confirmPassword: yup.string()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.confirm-password') })),
+        terms: yup.bool()
+            .oneOf([true], t('register-form.error.accept'))
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.terms') })),
+        privacy: yup.bool()
+            .oneOf([true], t('register-form.error.accept'))
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.privacy') })),
     });
 
     const onSubmit = async (values: IRegisterDoctorForm): Promise<void> => {
@@ -133,14 +144,20 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
                         label={t('register-doctor.fields.confirm-password')}
                         component={TextField}
                     />
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        type="submit"
+                    <Field
+                        name="terms"
+                        label={t('register-doctor.fields.terms')}
+                        component={Checkbox}
+                    />
+                    <Field
+                        name="privacy"
+                        label={t('register-doctor.fields.privacy')}
+                        component={Checkbox}
+                    />
+                    <SubmitButton
+                        label={t('register-form.submit')}
                         disabled={!formik.isValid || formik.isSubmitting || loading}
-                    >
-                        {t('register-form.submit')}
-                    </Button>
+                    />
                 </Form>
             )}
         </Formik>

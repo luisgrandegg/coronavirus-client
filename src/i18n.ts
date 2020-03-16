@@ -65,6 +65,8 @@ const resources = {
                     phone: 'Teléfono (no será visible a los pacientes)',
                     password: 'Contraseña',
                     'confirm-password': 'Confirma contraseña',
+                    'terms': 'Acepto que mis datos se incorporen a Cita médica en Casa.',
+                    'privacy': 'Me comprometo a no hacer públicos datos de pacientes.',
                 }
             },
             'register-patient': {
@@ -92,15 +94,17 @@ const resources = {
                     email: 'Email (para enviarte la cita)',
                     speciality: 'Especialidad (opcional)',
                     summary: 'Resumen de tu problema',
-                    'summary-placeholder': 'Dinos cuánto hace que lo tienes, si tomas medicación, enfermedades que tengas como por ejemplo diabetes, alergias... todo lo que nos pueda ayudar a entenderlo mejor.'
+                    'summary-placeholder': 'Dinos cuánto hace que lo tienes, si tomas medicación, enfermedades que tengas como por ejemplo diabetes, alergias... todo lo que nos pueda ayudar a entenderlo mejor.',
+                    'terms': 'Acepto compartir mis datos personales con el personal médico.',
+                    'privacy': 'Acepto la política de privacidad y la protección de datos.',
                 }
-
             },
             'register-form': {
                 submit: 'Enviar',
                 error: {
                     required: 'El campo {{field}} es requerido',
                     format: 'El campo {{field}} tiene un formato incorrecto',
+                    accept: 'Es necesario aceptar los términos',
                 }
             },
             'login-form': {
@@ -108,6 +112,7 @@ const resources = {
                 error: {
                     required: 'El campo {{field}} es requerido',
                     format: 'El campo {{field}} tiene un formato incorrecto',
+                    accept: 'Es necesario aceptar los términos',
                 },
                 fields: {
                     email: 'Email',

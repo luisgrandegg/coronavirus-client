@@ -2,16 +2,16 @@ import React from 'react'
 import MaterialTextField, { OutlinedTextFieldProps } from '@material-ui/core/TextField' 
 import { getIn, FormikProps, FieldInputProps } from 'formik'
 
-export type ITextField = OutlinedTextFieldProps & {
+export type ITextFieldProps = OutlinedTextFieldProps & {
     field: FieldInputProps<string>;
     form: FormikProps<any>;
 };
 
-export const TextField: React.FunctionComponent<ITextField> = (props: ITextField) => {
+export const TextField: React.FunctionComponent<ITextFieldProps> = (props: ITextFieldProps) => {
     const { label, field, form, ...other } = props;
     const { touched, errors } = form;
-    const errorText = getIn(errors, field.name)
-    const touchedVal = getIn(touched, field.name)
+    const errorText = getIn(errors, field.name);
+    const touchedVal = getIn(touched, field.name);
     const hasError = touchedVal && errorText !== undefined
 
     return (
