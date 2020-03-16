@@ -8,11 +8,14 @@ import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { Routes } from '../router/Routes';
 import { InquiryListParams } from '../dto/InquiryListParams';
+import { useSelector } from 'react-redux';
+import { getAuth } from '../store/selectors/status';
+import { Auth } from '../entities/Auth';
 
-export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
+export const DoctorInquiries: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
     const history = useHistory();
-
+    const auth = useSelector(getAuth);
 
     const a11yProps = (index: any): any => {
         return {
@@ -31,18 +34,19 @@ export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
     };
 
     const inquiryListParams: InquiryListParams = InquiryListParams.deserialize({
-        attended: false
+        attended: true,
+        doctorId: (auth as Auth).userId
     });
 
     return(
         <>
             <Header>
-                <Tabs value={0} onChange={handleChange} aria-label="simple tabs example">
+                <Tabs value={1} onChange={handleChange} aria-label="simple tabs example">
                     <Tab label={t('header.doctor.pending')} {...a11yProps(0)} />
                     <Tab label={t('header.doctor.own')} {...a11yProps(1)} />
                 </Tabs>
             </Header>
-            <main className="main doctor-dashboard">
+            <main className="main doctor-inquiries">
                 <div className="container">
                     <InquiryList inquiryListParams={inquiryListParams}/>
                 </div>

@@ -14,6 +14,7 @@ import { Login } from './pages/Login';
 import { RegisterDoctor } from './pages/RegisterDoctor';
 import { CreateInquiry } from './pages/CreateInquiry';
 import { InquiryDetail } from './pages/InquiryDetail';
+import { DoctorInquiries } from './pages/DoctorInquiries';
 
 export const App: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
@@ -29,19 +30,22 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                     <Route path={Routes.LOGIN}>
                         <Login/>
                     </Route>
-                    <Route path={Routes.REGISTER_DOCTOR}>
+                    <Route exact={true} path={Routes.REGISTER_DOCTOR}>
                         <RegisterDoctor/>
                     </Route>
-                    <Route path={Routes.REGISTER_PATIENT}>
+                    <Route exact={true} path={Routes.REGISTER_PATIENT}>
                         <CreateInquiry/>
                     </Route>
                     <DoctorRoute exact={true} path={Routes.DOCTOR_DASHBOARD}>
                         <DoctorDashbord/>
                     </DoctorRoute>
+                    <DoctorRoute exact={true} path={Routes.DOCTOR_INQUIRIES}>
+                        <DoctorInquiries/>
+                    </DoctorRoute>
                     <DoctorRoute path={Routes.INQUIRY_DETAIL}>
                         <InquiryDetail/>
                     </DoctorRoute>
-                    <PatientRoute path={Routes.PATIENT_DASHBOARD}>
+                    <PatientRoute exact={true} path={Routes.PATIENT_DASHBOARD}>
                         <PatientDashbord/>
                     </PatientRoute>
                     <Redirect exact={true} from={Routes.REGISTER} to={Routes.REGISTER_PATIENT}/>

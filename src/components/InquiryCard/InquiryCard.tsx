@@ -1,8 +1,8 @@
+import { Card, CardContent, Typography, CardActions } from '@material-ui/core';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Inquiry } from '../../entities/Inquiry';
-import { Card, CardContent, Typography, CardActions, Button } from '@material-ui/core';
 
 export interface IInquiryCardProps {
     children: React.ReactNode;

@@ -8,6 +8,10 @@ const resources = {
                 'powered-by': 'Hecho con mucho cariño en Madrid :)'
             },
             header: {
+                doctor: {
+                    pending: 'Pendientes',
+                    own: 'Mis peticiones'
+                },
                 login: 'login',
                 title: 'Cita Médica en Casa',
                 dashboard: 'dashboard'
