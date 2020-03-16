@@ -30,28 +30,30 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
     );
 
     const renderRegisterForm = (): React.ReactNode => (
-        <>
-            <header className="register-form__header">
-                <h2 className="register-form__title">{t('register-patient.header.title')}</h2>
-            </header>
-            <section className="register-form__section">
-                <p>{t('register-patient.content.first-paragraph')}</p>
-                <p>{t('register-patient.content.second-paragraph')}</p>
-                <ol>
-                    <li>{t('register-patient.content.list-item-1')}</li>
-                    <li>{t('register-patient.content.list-item-2')}</li>
-                    <li>{t('register-patient.content.list-item-3')}</li>
-                    <li>{t('register-patient.content.list-item-4')}</li>
-                    <li>{t('register-patient.content.list-item-5')}</li>
-                    <li>{t('register-patient.content.list-item-6')}</li>
-                </ol>
-                <p>{t('register-patient.content.third-paragraph')}</p>
-            </section>
-            <CreateInquiryForm
-                onCreateSuccess={onCreateSuccess}
-                onCreateError={onCreateError}
-            />
-        </>
+        <div className="section">
+            <div className="content">
+                <header className="register-form__header">
+                    <h2 className="register-form__title">{t('register-patient.header.title')}</h2>
+                </header>
+                <section className="register-form__section">
+                    <ol className="register-form__list">
+                        <li className="register-form__list-item">{t('register-patient.content.list-item-1')}</li>
+                        <li className="register-form__list-item">{t('register-patient.content.list-item-2')}</li>
+                        <li className="register-form__list-item">{t('register-patient.content.list-item-3')}</li>
+                        <li className="register-form__list-item">{t('register-patient.content.list-item-4')}</li>
+                    </ol>
+                </section>
+                <div className="register-form__section--form">
+                    <header className="register-form__header">
+                        <h3>{t('register-patient.content.form-header')}</h3>
+                    </header>
+                    <CreateInquiryForm
+                        onCreateSuccess={onCreateSuccess}
+                        onCreateError={onCreateError}
+                    />
+                </div>
+            </div>
+        </div>
     )
 
     const InquiryProcess = (): JSX.Element => (
