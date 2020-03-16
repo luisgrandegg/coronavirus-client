@@ -9,7 +9,8 @@ const resources = {
             },
             header: {
                 login: 'login',
-                title: 'Cita Médica en Casa'
+                title: 'Cita Médica en Casa',
+                dashboard: 'dashboard'
             },
             home: {
                 'doctor': {
@@ -50,15 +51,13 @@ const resources = {
                     title: '¿Como funciona Cita Médica en Casa para profesionales?'
                 },
                 content: {
-                    'first-paragraph': 'Muchas gracias por prestar tu ayuda.',
-                    'second-paragraph': '¿Como funciona xxxxxxx para profesionales?',
                     'list-item-1': 'Debes rellenar el formulario que verás a continuación.',
                     'list-item-2': 'Validamos, mediante una llamada telefónica, que efectivamente eres profesional de la medicina.',
                     'list-item-3': 'Te creamos una cuenta de Gsuite, te enviaremos instrucciones acerca de cómo funciona.',
                     'list-item-4': 'Te damos acceso a la base de datos de consultas de pacientes, accedes con tu email y contraseña que has creado en el formulario.',
                     'list-item-5': 'Escoges al próximo paciente en la lista. Le mandas un email con un enlace de Hangouts o una respuesta por escrito a su consulta.',
                     'list-item-6': 'Marcas esa consulta como reservada, para no duplicar consultas.',
-                    'third-paragraph': 'Para añadirte a nuestra base de datos y que puedas atender pacientes necesitamos:'
+                    'form-header': 'Para añadirte a nuestra base de datos y que puedas atender pacientes necesitamos:'
                 },
                 fields: {
                     name: 'Nombre',
@@ -86,12 +85,11 @@ const resources = {
                     title: '¿Como funciona Cita Médica en Casa para pacientes?'
                 },
                 content: {
-                    'first-paragraph': '¿Cómo funciona Cita Médica en Casa para pacientes?',
                     'list-item-1': 'Rellenas un formulario contándonos cuál es tu dolencia.',
                     'list-item-2': 'Estos datos se enviaran a un doctor o doctora para que concierte una cita contigo o para que resuelva tu consulta por escrito',
                     'list-item-3': 'Te llegará un email con la respuesta o para confirmar tu cita.',
                     'list-item-4': 'Si se trata de una consulta online utilizaréis Hangouts de Google, te enviaremos un link.',
-                    'third-paragraph': 'Por favor, para para plantear tu consulta dinos:'
+                    'form-header': 'Por favor, para para plantear tu consulta dinos:'
                 },
                 fields: {
                     age: 'Edad',

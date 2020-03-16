@@ -29,28 +29,32 @@ export const RegisterDoctor: React.FunctionComponent = (): JSX.Element => {
     );
 
     const renderRegisterForm = (): React.ReactNode => (
-        <>
-            <header className="register-form__header">
-                <h2 className="register-form__title">{t('register-doctor.header.title')}</h2>
-            </header>
-            <section className="register-form__section">
-                <h3>{t('register-doctor.content.first-paragraph')}</h3>
-                <h3>{t('register-doctor.content.second-paragraph')}</h3>
-                <ol>
-                    <li>{t('register-doctor.content.list-item-1')}</li>
-                    <li>{t('register-doctor.content.list-item-2')}</li>
-                    <li>{t('register-doctor.content.list-item-3')}</li>
-                    <li>{t('register-doctor.content.list-item-4')}</li>
-                    <li>{t('register-doctor.content.list-item-5')}</li>
-                    <li>{t('register-doctor.content.list-item-6')}</li>
-                </ol>
-                <h4>{t('register-doctor.content.third-paragraph')}</h4>
-            </section>
-            <RegisterDoctorForm
-                onRegisterSuccess={onRegisterSuccess}
-                onRegisterError={onRegisterError}
-            />
-        </>
+        <div className="section">
+            <div className="content">
+                <header className="register-form__header">
+                    <h2 className="register-form__title">{t('register-doctor.header.title')}</h2>
+                </header>
+                <section className="register-form__section">
+                    <ol className="register-form__list">
+                        <li className="register-form__list-item">{t('register-doctor.content.list-item-1')}</li>
+                        <li className="register-form__list-item">{t('register-doctor.content.list-item-2')}</li>
+                        <li className="register-form__list-item">{t('register-doctor.content.list-item-3')}</li>
+                        <li className="register-form__list-item">{t('register-doctor.content.list-item-4')}</li>
+                        <li className="register-form__list-item">{t('register-doctor.content.list-item-5')}</li>
+                        <li className="register-form__list-item">{t('register-doctor.content.list-item-6')}</li>
+                    </ol>
+                </section>
+                <div className="register-form__section--form">
+                    <header className="register-form__header">
+                        <h3>{t('register-doctor.content.form-header')}</h3>
+                    </header>
+                    <RegisterDoctorForm
+                        onRegisterSuccess={onRegisterSuccess}
+                        onRegisterError={onRegisterError}
+                    />
+                </div>
+            </div>
+        </div>
     )
 
     return (

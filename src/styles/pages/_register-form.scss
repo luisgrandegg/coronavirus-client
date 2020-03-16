@@ -8,6 +8,17 @@
     }
 
     &__section {
+        width: 100%;
+
+        &--form {
+            margin-top: $spacer-l;
+            display: flex;
+            flex-wrap: wrap;
+            @media (min-width: $breakpoint-tablet) {
+                flex: 0 0 percentage(2/3);
+            }
+        }
+
         + .register-form__section {
             margin-top: $spacer;
         }
@@ -17,7 +28,23 @@
         color: black;
     }
 
-    .MuiFormControl-root + .MuiFormControl-root {
-        margin-top: $spacer-s;
+    &__list {
+        padding-left: $spacer-s;
+    }
+
+    &__list-item {
+        padding: $spacer-xs / 2;
+    }
+
+    .section {
+        display: flex;
+    }
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        @media (min-width: $breakpoint-tablet) {
+            flex: 0 0 1;
+        }
     }
 }
