@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { Section } from '../components/Section';
 import { CreateInquiryForm } from '../components/CreateInquiryForm';
 
 export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
@@ -53,15 +54,21 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
         </>
     )
 
+    const InquiryProcess = (): JSX.Element => (
+        <>
+            {createFromSuccess ? renderConfirmation() : renderRegisterForm()}
+        </>
+    );
+
     return (
         <>
-            <Header/>
+            <Header />
             <main className="main register-form">
                 <div className="container">
-                    {createFromSuccess ? renderConfirmation() : renderRegisterForm() }
+                    <Section content={<InquiryProcess />} />
                 </div>
             </main>
-            <Footer/>
+            <Footer />
         </>
     )
 };

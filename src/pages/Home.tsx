@@ -12,7 +12,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
 
     const Content = (): JSX.Element => (
-        <div>
+        <>
             <section className="home__section">
                 <header className="home__section-header">
                     <h2 className="home__section-title">{t('home.what-is.title')}</h2>
@@ -51,7 +51,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
                     to={Routes.REGISTER_DOCTOR}
                 >{t('home.doctor.cta')}</Button>
             </section>
-        </div>
+        </>
     );
 
     const Aside = (): JSX.Element => (

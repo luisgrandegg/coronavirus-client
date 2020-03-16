@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface ISectionProps {
-    aside: JSX.Element,
+    aside?: JSX.Element,
     content: JSX.Element
 };
 

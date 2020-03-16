@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { Section } from '../components/Section';
 import { RegisterDoctorForm } from '../components/RegisterDoctorForm';
 
 
@@ -53,15 +54,21 @@ export const RegisterDoctor: React.FunctionComponent = (): JSX.Element => {
         </>
     )
 
+    const RegisterProcess = (): JSX.Element => (
+        <>
+            {registerFormSuccess ? renderConfirmation() : renderRegisterForm()}
+        </>
+    );
+
     return (
         <>
-            <Header/>
+            <Header />
             <main className="main register-form">
                 <div className="container">
-                    {registerFormSuccess ? renderConfirmation() : renderRegisterForm() }
+                    <Section content={<RegisterProcess />} />
                 </div>
             </main>
-            <Footer/>
+            <Footer />
         </>
     )
 };
