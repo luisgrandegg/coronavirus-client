@@ -52,6 +52,7 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
                         onCreateError={onCreateError}
                     />
                 </div>
+                <p>{t('register-patient.content.responsability')}</p>
             </div>
         </div>
     )

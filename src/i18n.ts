@@ -85,7 +85,8 @@ const resources = {
                     'list-item-4': 'Te damos acceso a la base de datos de consultas de pacientes, accedes con tu email y contraseña que has creado en el formulario.',
                     'list-item-5': 'Escoges al próximo paciente en la lista. Le mandas un email con un enlace de Hangouts o una respuesta por escrito a su consulta.',
                     'list-item-6': 'Marcas esa consulta como reservada, para no duplicar consultas.',
-                    'form-header': 'Para añadirte a nuestra base de datos y que puedas atender pacientes necesitamos:'
+                    'form-header': 'Para añadirte a nuestra base de datos y que puedas atender pacientes necesitamos:',
+                    'responsability': 'Cita Médica en casa no se hace responsable de los contenidos ni de las opiniones intercambiadas entre profesionales de la medicina y ciudadanos.'
                 },
                 fields: {
                     name: 'Nombre',
@@ -117,7 +118,8 @@ const resources = {
                     'list-item-2': 'Estos datos se enviaran a un doctor o doctora para que concierte una cita contigo o para que resuelva tu consulta por escrito',
                     'list-item-3': 'Te llegará un email con la respuesta o para confirmar tu cita.',
                     'list-item-4': 'Si se trata de una consulta online utilizaréis Hangouts de Google, te enviaremos un link.',
-                    'form-header': 'Por favor, para para plantear tu consulta dinos:'
+                    'form-header': 'Por favor, para para plantear tu consulta dinos:',
+                    'responsability': 'Cita Médica en casa no se hace responsable de los contenidos ni de las opiniones intercambiadas entre profesionales de la medicina y ciudadanos.'
                 },
                 fields: {
                     age: 'Edad',
