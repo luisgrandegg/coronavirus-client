@@ -99,8 +99,8 @@ const resources = {
                     phone: 'Teléfono (no será visible a los pacientes)',
                     password: 'Contraseña',
                     'confirm-password': 'Confirma contraseña',
-                    'terms': 'Acepto que mis datos se incorporen a Cita médica en Casa.',
-                    'privacy': 'Me comprometo a no hacer públicos datos de pacientes.',
+                    'terms': '<a href="/static/consentimiento.pdf">Acepto que mis datos se incorporen a Cita médica en Casa.</a>',
+                    'privacy': '<a href="/static/politica_privacidad.pdf.pdf">Me comprometo a no hacer públicos datos de pacientes.</a>',
                 }
             },
             'register-patient': {
@@ -129,8 +129,8 @@ const resources = {
                     speciality: 'Especialidad (opcional)',
                     summary: 'Resumen de tu problema',
                     'summary-placeholder': 'Dinos cuánto hace que lo tienes, si tomas medicación, enfermedades que tengas como por ejemplo diabetes, alergias... todo lo que nos pueda ayudar a entenderlo mejor.',
-                    'terms': 'Acepto compartir mis datos personales con el personal médico.',
-                    'privacy': 'Acepto la política de privacidad y la protección de datos.',
+                    'terms': '<a href="/static/consentimiento.pdf">Acepto compartir mis datos personales con el personal médico.</a>',
+                    'privacy': '<a href="/static/politica_privacidad.pdf.pdf">Acepto la política de privacidad y la protección de datos.</a>',
                 }
             },
             'register-form': {

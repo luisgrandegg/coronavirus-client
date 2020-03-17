@@ -148,12 +148,16 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
                     />
                     <Field
                         name="terms"
-                        label={t('register-doctor.fields.terms')}
+                        label={(
+                            <span dangerouslySetInnerHTML={{__html: t('register-doctor.fields.terms')}}/>
+                        )}
                         component={Checkbox}
                     />
                     <Field
                         name="privacy"
-                        label={t('register-doctor.fields.privacy')}
+                        label={(
+                            <span dangerouslySetInnerHTML={{__html: t('register-doctor.fields.privacy')}}/>
+                        )}
                         component={Checkbox}
                     />
                     <SubmitButton
