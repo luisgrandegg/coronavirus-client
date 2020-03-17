@@ -1,5 +1,6 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import Promise from 'bluebird';
+import PubSub from 'pubsub-js';
 
 import { Auth } from '../entities/Auth';
 
@@ -146,6 +147,15 @@ export class ApiClient {
         client.defaults.headers.common['Content-Type'] = 'application/json';
         client.defaults.headers.common.Authorization = `Bearer ${authToken}`;
 
+        client.interceptors.response.use((response: AxiosResponse<any>) => {
+            return response;
+        }, (error: AxiosError<any>) => {
+            if (401 === error.response?.status) {
+                PubSub.publish('auth::delete', null);
+            } else {
+                return Promise.reject(error);
+            }
+        });
         return client;
     }
 }

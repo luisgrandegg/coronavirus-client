@@ -31,8 +31,7 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
         getInquiries();
         const interval = setInterval(() => { getInquiries(); }, 5000)
         return (): void => { clearInterval(interval); }
-// eslint-disable-next-line
-    }, []);
+    });
 
     const renderInquiryCardContent = (inquiry: Inquiry): React.ReactNode => {
         if (props.inquiryListParams?.attended) {

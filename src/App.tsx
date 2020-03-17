@@ -1,5 +1,6 @@
-import React, { Suspense } from 'react';
-import { useSelector } from 'react-redux';
+import PubSub from 'pubsub-js';
+import React, { Suspense, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Redirect, Route } from "react-router-dom";
 
 import { DoctorRoute, PatientRoute } from './router/PrivateRoute';
@@ -15,11 +16,21 @@ import { RegisterDoctor } from './pages/RegisterDoctor';
 import { CreateInquiry } from './pages/CreateInquiry';
 import { InquiryDetail } from './pages/InquiryDetail';
 import { DoctorInquiries } from './pages/DoctorInquiries';
+import { logout } from './store/actions/status';
 
 export const App: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
+    const dispatch = useDispatch();
 
     auth && sdk.setAuthorization(auth);
+
+    useEffect((): () => void => {
+        const subscriptions = [
+            PubSub.subscribe('auth::delete', (): void => { dispatch(logout()); }),
+        ];
+        return (): void => { subscriptions.forEach((subscription: string): void => PubSub.unsubscribe(subscription)); };
+    }, [dispatch]);
+
     return (
         <Suspense fallback={<Spinner/>}>
             <Router>
@@ -49,6 +60,7 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                         <PatientDashbord/>
                     </PatientRoute>
                     <Redirect exact={true} from={Routes.REGISTER} to={Routes.REGISTER_PATIENT}/>
+                    <Redirect to={Routes.ROOT}/>
                 </Switch>
             </Router>
         </Suspense>
