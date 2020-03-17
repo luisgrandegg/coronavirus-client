@@ -43,7 +43,7 @@ const resources = {
                 },
                 'what-is': {
                     title: 'Qué y quiénes somos',
-                    'first-paragraph': 'Cita Médica en Casa <strong>no es un servicio médico</strong>, solo intermedia entre ciudadanos y médicos para evitar las visitas innecesarias a centros de salud. <strong>Cita Médica en casa no se hace responsable de los contenidos ni de las opiniones intercambiados entre profesionales de la medicina y ciudadanos</strong>.',
+                    'first-paragraph': 'Cita Médica en Casa <strong>no es un servicio médico</strong>, solo intermedia entre ciudadanos y médicos para evitar las visitas innecesarias a centros de salud. <strong>Cita Médica en Casa no se hace responsable de los contenidos ni de las opiniones intercambiados entre profesionales de la medicina y ciudadanos</strong>.',
                     'second-paragraph': 'Tanto el equipo que ha creado y mantiene esta plataforma, como los médicos y médicas que colaboran <strong>somos voluntarios</strong>. Simplemente queremos echar una mano ante la situación creada por el Coronavirus.'
                 },
                 privacy: {
@@ -88,7 +88,7 @@ const resources = {
                     'list-item-5': 'Escoges al próximo paciente en la lista. Le mandas un email con un enlace de Hangouts o una respuesta por escrito a su consulta.',
                     'list-item-6': 'Marcas esa consulta como reservada, para no duplicar consultas.',
                     'form-header': 'Para añadirte a nuestra base de datos y que puedas atender pacientes necesitamos:',
-                    'responsability': 'Cita Médica en casa no se hace responsable de los contenidos ni de las opiniones intercambiadas entre profesionales de la medicina y ciudadanos.'
+                    'responsability': 'Cita Médica en Casa no se hace responsable de los contenidos ni de las opiniones intercambiadas entre profesionales de la medicina y ciudadanos.'
                 },
                 fields: {
                     name: 'Nombre',
