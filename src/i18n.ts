@@ -22,12 +22,12 @@ const resources = {
                 },
                 'how-does-it-work': {
                     title: '¿Cómo funciona?',
-                    'first-paragraph': 'Ponemos en contacto a médicos y ciudadanos <strong>a través de email o videollamada</strong>, para resolver dudas sobre sus dolencias. Queremos reducir la sobrecarga de hospitales y centros de salud en consultas leves.'
+                    'first-paragraph': 'Ponemos en contacto a médicos y ciudadanos <strong>a través de email o videollamada</strong>, para resolver dudas. Queremos reducir la sobrecarga de hospitales y centros de salud en consultas leves. '
 
                 },
                 'pacient': {
                     title: 'Para ciudadanos/as',
-                    'first-paragraph': 'Realiza una consulta sobre tu malestar o dolencia, excepto sobre el Coronavirus. <strong>Si tienes una emergencia <a href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm">aquí tienes un listado de teléfonos de las autoridades sanitarias</a>, no esperes a que te atendamos en esta web.</strong>',
+                    'first-paragraph': 'Plantea una duda médica, excepto sobre el Coronavirus. <strong>Si tienes una emergencia <a href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm">aquí tienes un listado de teléfonos de las autoridades sanitarias</a>, no esperes a que te atendamos en esta web.</strong>',
                     cta: 'Realizar una consulta'
                 },
                 'doctor': {
@@ -56,7 +56,7 @@ const resources = {
                     'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y las bases de datos serán borradas. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
                 },
                 'privacy-patient': {
-                    title: 'Si eres paciente',
+                    title: 'Si eres ciudadano/a',
                     'first-paragraph': '<strong>Nunca los cederemos a terceros</strong>, ni se utilizarán para otro fin que no sea el de esta plataforma.',
                     'second-paragraph': '<strong>Los datos del formulario que has rellenado solo los verá personal médico</strong>.',
                     'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa</strong> desaparecerá y las bases de datos serán borradas. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
