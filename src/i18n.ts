@@ -13,25 +13,49 @@ const resources = {
                 dashboard: 'dashboard'
             },
             home: {
-                'doctor': {
-                    title: 'Médico',
-                    'first-paragraph': 'Si quieres prestar tu ayuda aquí te explicamos cómo.',
-                    cta: 'Acceder como profesional'
+                'claim': {
+                    title: '#QuédateEnCasa y consulta a un médico'
+                },
+                'how-does-it-work': {
+                    title: '¿Cómo funciona?',
+                    'first-paragraph': 'Ponemos en contacto a médicos y ciudadanos <strong>a través de email o videollamada</strong>, para resolver dudas sobre sus dolencias. Queremos reducir la sobrecarga de hospitales y centros de salud en consultas leves.'
+
                 },
                 'pacient': {
-                    title: 'Paciente',
-                    'first-paragraph': 'Accede para solicitar una cita online.',
-                    cta: 'Solicitar cita'
+                    title: 'Para ciudadanos/as',
+                    'first-paragraph': 'Realiza una consulta sobre tu malestar o dolencia, excepto sobre el Coronavirus. <strong>Si tienes una emergencia llama al 112</strong>, no esperes a que te atendamos en esta web.',
+                    cta: 'Realizar una consulta'
                 },
-                'what-is': {
-                    title: '¿Qué es Cita Médica en Casa?',
-                    'first-paragraph': 'Una plataforma creada con la finalidad de aliviar la saturación del sistema público de salud. Ponemos en contacto a profesionales de la medicina con pacientes, para resolver dudas sobre sus dolencias y evitar así desplazamientos innecesarios a centros de salud y hospitales.',
-                    'second-paragraph': '<strong>Si tienes una emergencia llama al 112</strong>, no esperes a que te atendamos en esta web.'
+                'doctor': {
+                    title: 'Para Médicos/as',
+                    'first-paragraph': 'Presta tu ayuda a personas que no pueden acudir a una consulta.',
+                    'register-button': 'Registrarme',
+                    cta: 'Acceder como profesional'
                 },
                 'what-is-not': {
                     title: '¿Qué no es Cita Médica en Casa?',
-                    'first-paragraph': '<strong>No acudas aquí</strong> si tienes síntomas asociados a al Coronavirus COVID-19 o si sospechas que puedes tenerlo, <strong>sigue las recomendaciones de las autoridades sanitarias</strong>, llama al 112 o a los teléfonos habilitados por las comunidades autónomas.',
-                    'second-paragraph': 'Cita Médica en Casa, no es un sustituto del Sistema Nacional de Salud ni de la cita previa con tu médico.'
+                    'first-paragraph': '<strong>No acudas aquí</strong> si tienes síntomas asociados a al Coronavirus COVID-19 o si sospechas que puedes tenerlo, <strong>sigue las recomendaciones de las autoridades sanitarias</strong> o <strong>llama a los teléfonos habilitados por las comunidades autónomas</strong> para este fin.',
+                    'second-paragraph': 'Cita Médica en Casa, <strong>no es un sustituto del Sistema Nacional de Salud</strong> ni de la cita previa con tu médico.'
+                },
+                'what-is': {
+                    title: 'Qué y quiénes somos',
+                    'first-paragraph': 'Cita Médica en Casa <strong>no es un servicio médico</strong>, solo intermedia entre ciudadanos y médicos para evitar las visitas innecesarias a centros de salud. <strong>Cita Médica en casa no se hace responsable de los contenidos ni de las opiniones intercambiados entre profesionales de la medicina y ciudadanos</strong>.',
+                    'second-paragraph': 'Tanto el equipo que ha creado y mantiene esta plataforma, como los médicos y médicas que colaboran <strong>somos voluntarios</strong>. Simplemente queremos echar una mano ante la situación creada por el Coronavirus.'
+                },
+                privacy: {
+                    title: '¿Cómo trataremos tus datos?'
+                },
+                'privacy-doctor': {
+                    title: 'Si eres profesional',
+                    'first-paragraph': '<strong>Nunca los cederemos a terceros</strong>, ni se utilizarán para otro fin que no sea el de esta plataforma.',
+                    'second-paragraph': '<strong>Los pacientes solo verán tu email</strong>. Por eso, te creamos uno específico para esta plataforma, preservamos tu intimidad.',
+                    'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y las bases de datos serán borradas. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:admin@citamedicaencasa.com">admin@citamedicaencasa.com</a> solicitándolo.'
+                },
+                'privacy-patient': {
+                    title: 'Si eres paciente',
+                    'first-paragraph': '<strong>Nunca los cederemos a terceros</strong>, ni se utilizarán para otro fin que no sea el de esta plataforma.',
+                    'second-paragraph': '<strong>Los datos del formulario que has rellenado solo los verá personal médico</strong>.',
+                    'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa</strong> desaparecerá y las bases de datos serán borradas. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:admin@citamedicaencasa.com">admin@citamedicaencasa.com</a> solicitándolo.'
                 }
             },
             inquiry: {
@@ -131,7 +155,7 @@ i18n
         resources,
         lng: "es",
         interpolation: {
-        escapeValue: false
+            escapeValue: false
         }
     });
 

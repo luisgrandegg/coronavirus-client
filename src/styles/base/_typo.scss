@@ -13,10 +13,8 @@ h1 {
 }
 
 h2 {
+    font-family: $font-family--secondary;
     font-size: $h2---font-size;
-    @media (min-width: $breakpoint-tablet) {
-        font-family: $font-family--secondary;
-    }
 }
 
 h3 {
@@ -36,6 +34,7 @@ h6 {
 }
 
 p {
+    font-family: $font-family--tertiary;
     font-size: $font-size-l;
     line-height: $line-height-m;
 }

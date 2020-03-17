@@ -44,7 +44,7 @@ export const Header: React.FunctionComponent = (): JSX.Element => {
                     <RouterLink to={Routes.ROOT}>{t('header.title')}</RouterLink>
                 </h1>
                 <ul className="header__menu">
-                    {!auth ? renderAnonymousMenuItems() : renderMenuItems() }
+                    {!auth ? renderAnonymousMenuItems() : renderMenuItems()}
                 </ul>
             </div>
         </header>

@@ -1,10 +1,23 @@
 .section-wrapper {
   display: flex;
+
   &__content {
     display: flex;
     flex-wrap: wrap;
+
     @media (min-width: $breakpoint-tablet) {
         flex: 0 0  percentage(2/3);
     }
+  }
+
+  &__white {
+    padding: $spacer;
+    margin-right: -$spacer;
+    margin-left: -$spacer;
+    background-color: white;
+  }
+
+  + .section-wrapper {
+    margin-top: $spacer;
   }
 }
