@@ -111,7 +111,7 @@ const resources = {
                     }
                 },
                 header: {
-                    title: '¿Como funciona Cita Médica en Casa para pacientes?'
+                    title: '¿Como funciona Cita Médica en Casa para ciudadanos?'
                 },
                 content: {
                     'list-item-1': 'Rellenas un formulario contándonos cuál es tu dolencia.',
