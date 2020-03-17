@@ -36,7 +36,7 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
     const renderInquiryCardContent = (inquiry: Inquiry): React.ReactNode => {
         if (props.inquiryListParams?.attended) {
             return (
-                <span>{inquiry.email}</span>
+                <span>{t('inquiry.email')} {inquiry.email}</span>
             );
         } else {
             return (

@@ -26,7 +26,7 @@ export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
                     })}
                 </Typography>
                 <Typography>
-                    {inquiry.speciality}
+                    {t('inquiry.speciality')} {inquiry.speciality}
                 </Typography>
                 <Typography color="textSecondary">
                     {inquiry.summary}

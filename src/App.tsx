@@ -3,6 +3,7 @@ import React, { Suspense, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Redirect, Route } from "react-router-dom";
 import { ThemeProvider } from '@material-ui/core/styles';
+import CookieConsent from "react-cookie-consent";
 
 import { DoctorRoute, PatientRoute } from './router/PrivateRoute';
 import { Routes } from './router/Routes';
@@ -67,6 +68,11 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                         <Redirect to={Routes.ROOT} />
                     </Switch>
                 </Router>
+                <CookieConsent
+                    buttonText="Acepto"
+                >
+                    Usamos cookies para mejorar la experiencia de nuestras usuarios.
+                </CookieConsent>
             </Suspense>
         </ThemeProvider>
     );

@@ -64,7 +64,9 @@ const resources = {
             },
             inquiry: {
                 attend: 'Atender petición',
-                'created-at': 'Recibido el {{createdAtDate}} a las {{createdAtTime}}'
+                'created-at': 'Recibido el {{createdAtDate}} a las {{createdAtTime}}',
+                email: 'Email del ciudadano:',
+                speciality: 'Especialidad:'
             },
             'register-doctor': {
                 confirmation: {
