@@ -1,35 +1,12 @@
-import { Tabs, Tab } from '@material-ui/core';
 import React from 'react';
 
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { InquiryList } from '../components/InquiryList';
-import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router-dom';
-import { Routes } from '../router/Routes';
 import { InquiryListParams } from '../dto/InquiryListParams';
+import { DoctorTabs } from '../components/DoctorTabs';
 
 export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
-    const { t } = useTranslation();
-    const history = useHistory();
-
-
-    const a11yProps = (index: any): any => {
-        return {
-            id: `simple-tab-${index}`,
-            'aria-controls': `simple-tabpanel-${index}`,
-        };
-    };
-
-    const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-        switch (newValue) {
-            case 0:
-                return history.push(Routes.DOCTOR_DASHBOARD)
-            case 1:
-                return history.push(Routes.DOCTOR_INQUIRIES)
-        }
-    };
-
     const inquiryListParams: InquiryListParams = InquiryListParams.deserialize({
         attended: false
     });
@@ -37,10 +14,7 @@ export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
     return(
         <>
             <Header>
-                <Tabs value={0} onChange={handleChange} aria-label="simple tabs example">
-                    <Tab label={t('header.doctor.pending')} {...a11yProps(0)} />
-                    <Tab label={t('header.doctor.own')} {...a11yProps(1)} />
-                </Tabs>
+                <DoctorTabs value={0}/>
             </Header>
             <main className="main doctor-dashboard">
                 <div className="container">
