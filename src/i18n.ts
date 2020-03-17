@@ -53,13 +53,13 @@ const resources = {
                     title: 'Si eres profesional',
                     'first-paragraph': '<strong>Nunca los cederemos a terceros</strong>, ni se utilizarán para otro fin que no sea el de esta plataforma.',
                     'second-paragraph': '<strong>Los pacientes solo verán tu email</strong>. Por eso, te creamos uno específico para esta plataforma, preservamos tu intimidad.',
-                    'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y las bases de datos serán borradas. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:admin@citamedicaencasa.com">admin@citamedicaencasa.com</a> solicitándolo.'
+                    'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y las bases de datos serán borradas. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
                 },
                 'privacy-patient': {
                     title: 'Si eres paciente',
                     'first-paragraph': '<strong>Nunca los cederemos a terceros</strong>, ni se utilizarán para otro fin que no sea el de esta plataforma.',
                     'second-paragraph': '<strong>Los datos del formulario que has rellenado solo los verá personal médico</strong>.',
-                    'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa</strong> desaparecerá y las bases de datos serán borradas. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:admin@citamedicaencasa.com">admin@citamedicaencasa.com</a> solicitándolo.'
+                    'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa</strong> desaparecerá y las bases de datos serán borradas. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
                 }
             },
             inquiry: {
