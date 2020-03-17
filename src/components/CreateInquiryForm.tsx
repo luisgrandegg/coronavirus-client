@@ -125,7 +125,7 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                         component={Checkbox}
                     />
                     <SubmitButton
-                        label={t('register-form.submit')}
+                        label={t('register-patient.fields.submit')}
                         disabled={!formik.isValid || formik.isSubmitting || loading}
                     />
                 </Form>

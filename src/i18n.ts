@@ -44,7 +44,7 @@ const resources = {
                 'what-is': {
                     title: 'Qué y quiénes somos',
                     'first-paragraph': 'Cita Médica en Casa <strong>no es un servicio médico</strong>, solo intermedia entre ciudadanos y médicos para evitar las visitas innecesarias a centros de salud. <strong>Cita Médica en Casa no se hace responsable de los contenidos ni de las opiniones intercambiados entre profesionales de la medicina y ciudadanos</strong>.',
-                    'second-paragraph': 'Tanto el equipo que ha creado y mantiene esta plataforma, como los médicos y médicas que colaboran <strong>somos voluntarios</strong>. Simplemente queremos echar una mano ante la situación creada por el Coronavirus.'
+                    'second-paragraph': 'Tanto el equipo que ha creado y mantiene esta plataforma, como los médicos(comprobamos su número de colegiado/a) que colaboran <strong>somos voluntarios</strong>. Simplemente queremos echar una mano ante la situación creada por el Coronavirus.'
                 },
                 privacy: {
                     title: '¿Cómo trataremos tus datos?'
@@ -116,9 +116,9 @@ const resources = {
                     title: '¿Como funciona Cita Médica en Casa para ciudadanos?'
                 },
                 content: {
-                    'list-item-1': 'Rellenas un formulario contándonos cuál es tu dolencia.',
-                    'list-item-2': 'Estos datos se enviaran a un doctor o doctora para que concierte una cita contigo o para que resuelva tu consulta por escrito',
-                    'list-item-3': 'Te llegará un email con la respuesta o para confirmar tu cita.',
+                    'list-item-1': 'Rellenas un formulario con tu duda.',
+                    'list-item-2': 'Estos datos se enviaran a un doctor o doctora para que concierte una videollamada contigo o para que resuelva tu consulta por email.',
+                    'list-item-3': 'Te llegará un email con la respuesta o para confirmar tu videollamada.',
                     'list-item-4': 'Si se trata de una consulta online utilizaréis Hangouts de Google, te enviaremos un link.',
                     'form-header': 'Por favor, para para plantear tu consulta dinos:',
                     'responsability': 'Cita Médica en casa no se hace responsable de los contenidos ni de las opiniones intercambiadas entre profesionales de la medicina y ciudadanos.'
@@ -128,13 +128,14 @@ const resources = {
                     email: 'Email (para enviarte la cita)',
                     speciality: 'Especialidad (opcional)',
                     summary: 'Resumen de tu problema',
-                    'summary-placeholder': 'Dinos cuánto hace que lo tienes, si tomas medicación, enfermedades que tengas como por ejemplo diabetes, alergias... todo lo que nos pueda ayudar a entenderlo mejor.',
+                    'summary-placeholder': 'Resumen de tu duda: Dinos cuánto hace que lo tienes, si tomas medicación, enfermedades que tengas como por ejemplo diabetes, alergias... todo lo que nos pueda ayudar a entenderlo mejor. No escribas aquí tus datos personales.',
                     'terms': '<a target="_blank" href="/static/consentimiento.pdf">Acepto compartir mis datos personales con el personal médico.</a>',
                     'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf">Acepto la política de privacidad y la protección de datos.</a>',
+                    'submit': 'Enviar duda'
                 }
             },
             'register-form': {
-                submit: 'Enviar',
+                submit: 'Registrarme',
                 error: {
                     required: 'El campo es requerido',
                     format: 'El campo tiene un formato incorrecto',
