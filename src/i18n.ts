@@ -108,16 +108,16 @@ const resources = {
             'register-form': {
                 submit: 'Enviar',
                 error: {
-                    required: 'El campo {{field}} es requerido',
-                    format: 'El campo {{field}} tiene un formato incorrecto',
+                    required: 'El campo es requerido',
+                    format: 'El campo tiene un formato incorrecto',
                     accept: 'Es necesario aceptar los términos',
                 }
             },
             'login-form': {
                 submit: 'Enviar',
                 error: {
-                    required: 'El campo {{field}} es requerido',
-                    format: 'El campo {{field}} tiene un formato incorrecto',
+                    required: 'El campo es requerido',
+                    format: 'El campo tiene un formato incorrecto',
                     accept: 'Es necesario aceptar los términos',
                 },
                 fields: {
