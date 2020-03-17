@@ -34,7 +34,7 @@ const resources = {
                     title: 'Para Médicos/as',
                     'first-paragraph': 'Presta tu ayuda a personas que no pueden acudir a una consulta.',
                     'register-button': 'Registrarme',
-                    cta: 'Acceder como profesional'
+                    login: 'Acceder con mi cuenta'
                 },
                 'what-is-not': {
                     title: '¿Qué no es Cita Médica en Casa?',

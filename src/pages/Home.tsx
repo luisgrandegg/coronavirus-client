@@ -51,7 +51,13 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
                     color="primary"
                     component={RouterLink}
                     to={Routes.REGISTER_DOCTOR}
-                >{t('home.doctor.cta')}</Button>
+                >{t('home.doctor.register-button')}</Button>
+                <Button
+                    variant="outlined"
+                    color="primary"
+                    component={RouterLink}
+                    to={Routes.DOCTOR_DASHBOARD}
+                >{t('home.doctor.login')}</Button>
             </section>
         </>
     );

@@ -16,6 +16,17 @@
         + .home__section {
             margin-top: $spacer;
         }
+
+        .MuiButtonBase-root + .MuiButtonBase-root {
+            margin-top: $spacer;
+            margin-right: $spacer-m;
+
+            @media (min-width: 420px) {
+                margin-left: $spacer;
+                margin-right: 0;
+                margin-top: 0;
+            }
+        }
     }
 
     &__section-title {
