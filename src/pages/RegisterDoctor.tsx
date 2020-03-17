@@ -54,6 +54,7 @@ export const RegisterDoctor: React.FunctionComponent = (): JSX.Element => {
                         onRegisterError={onRegisterError}
                     />
                 </div>
+                <p>{t('register-doctor.content.responsability')}</p>
             </div>
         </div>
     )
