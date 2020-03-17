@@ -7,39 +7,60 @@ import { sdk } from '../sdk';
 import { Inquiry } from '../entities/Inquiry';
 import { Routes } from '../router/Routes';
 import { InquiryCard } from './InquiryCard';
+import { InquiryListParams } from '../dto/InquiryListParams';
 
-export const InquiryList: React.FunctionComponent = (): JSX.Element => {
+export interface IInquiryListProps {
+    inquiryListParams?: InquiryListParams;
+}
+
+export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
+    props: IInquiryListProps
+): JSX.Element => {
     const [inquiries, setInquiries] = useState<Inquiry[]>([]);
     const { t } = useTranslation();
 
-    const solveInquiry = (inquiry: Inquiry): () => void => {
-        return (): void => { sdk.inquiries.solve(inquiry.id); }
+    const attendInquiry = (inquiry: Inquiry): () => void => {
+        return (): void => { sdk.inquiries.attend(inquiry.id); }
     };
 
-    const getInquiries = () => { sdk.inquiries.get().then((inquiries: Inquiry[]) => setInquiries(inquiries)); };
+    const getInquiries = () => {
+        sdk.inquiries.get(props.inquiryListParams).then((inquiries: Inquiry[]) => setInquiries(inquiries));
+    };
 
     useEffect((): () => void => {
         getInquiries();
         const interval = setInterval(() => { getInquiries(); }, 5000)
         return (): void => { clearInterval(interval); }
-    }, []);
+    });
+
+    const renderInquiryCardContent = (inquiry: Inquiry): React.ReactNode => {
+        if (props.inquiryListParams?.attended) {
+            return (
+                <span>{inquiry.email}</span>
+            );
+        } else {
+            return (
+                <Button
+                    color="primary"
+                    to={{
+                        pathname: Routes.INQUIRY_DETAIL.replace(':id', inquiry.id),
+                        state: {
+                            inquiry
+                        }
+                    }}
+                    onClick={attendInquiry(inquiry)}
+                    type="button"
+                    component={RouterLink}
+                >
+                    {t('inquiry.attend')}
+                </Button>
+            );
+        }
+    };
 
     const renderInquiries = (): React.ReactNode => inquiries.map((inquiry: Inquiry) => (
         <InquiryCard inquiry={inquiry}>
-            <Button
-                color="primary"
-                to={{
-                    pathname: Routes.INQUIRY_DETAIL.replace(':id', inquiry.id),
-                    state: {
-                        inquiry
-                    }
-                }}
-                onClick={solveInquiry(inquiry)}
-                type="button"
-                component={RouterLink}
-            >
-                {t('inquiry.attend')}
-            </Button>
+            {renderInquiryCardContent(inquiry)}
         </InquiryCard>
     ));
 

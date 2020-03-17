@@ -1,8 +1,9 @@
+import { Card, CardContent, Typography, CardActions } from '@material-ui/core';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import moment from '../../utils/moment';
 import { Inquiry } from '../../entities/Inquiry';
-import { Card, CardContent, Typography, CardActions, Button } from '@material-ui/core';
 
 export interface IInquiryCardProps {
     children: React.ReactNode;
@@ -18,12 +19,13 @@ export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
     return (
         <Card className="inquiry">
             <CardContent>
-                <Typography color="textSecondary" gutterBottom>
+                <Typography variant="h5" component="h2" gutterBottom>
                     {t('inquiry.created-at', {
-                        createdAt: inquiry.createdAt
+                        createdAtDate: moment(inquiry.createdAt).format('dddd D '),
+                        createdAtTime: moment(inquiry.createdAt).format('H:m')
                     })}
                 </Typography>
-                <Typography variant="h5" component="h2">
+                <Typography>
                     {inquiry.speciality}
                 </Typography>
                 <Typography color="textSecondary">
