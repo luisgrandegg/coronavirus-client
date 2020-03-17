@@ -2,6 +2,7 @@ import PubSub from 'pubsub-js';
 import React, { Suspense, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Redirect, Route } from "react-router-dom";
+import { ThemeProvider } from '@material-ui/core/styles';
 
 import { DoctorRoute, PatientRoute } from './router/PrivateRoute';
 import { Routes } from './router/Routes';
@@ -18,6 +19,8 @@ import { InquiryDetail } from './pages/InquiryDetail';
 import { DoctorInquiries } from './pages/DoctorInquiries';
 import { logout } from './store/actions/status';
 
+import theme from "./theme";
+
 export const App: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
     const dispatch = useDispatch();
@@ -32,38 +35,40 @@ export const App: React.FunctionComponent = (): JSX.Element => {
     }, [dispatch]);
 
     return (
-        <Suspense fallback={<Spinner/>}>
-            <Router>
-                <Switch>
-                    <Route exact path={Routes.ROOT}>
-                        <Home/>
-                    </Route>
-                    <Route path={Routes.LOGIN}>
-                        <Login/>
-                    </Route>
-                    <Route exact={true} path={Routes.REGISTER_DOCTOR}>
-                        <RegisterDoctor/>
-                    </Route>
-                    <Route exact={true} path={Routes.REGISTER_PATIENT}>
-                        <CreateInquiry/>
-                    </Route>
-                    <DoctorRoute exact={true} path={Routes.DOCTOR_DASHBOARD}>
-                        <DoctorDashbord/>
-                    </DoctorRoute>
-                    <DoctorRoute exact={true} path={Routes.DOCTOR_INQUIRIES}>
-                        <DoctorInquiries/>
-                    </DoctorRoute>
-                    <DoctorRoute path={Routes.INQUIRY_DETAIL}>
-                        <InquiryDetail/>
-                    </DoctorRoute>
-                    <PatientRoute exact={true} path={Routes.PATIENT_DASHBOARD}>
-                        <PatientDashbord/>
-                    </PatientRoute>
-                    <Redirect exact={true} from={Routes.REGISTER} to={Routes.REGISTER_PATIENT}/>
-                    <Redirect to={Routes.ROOT}/>
-                </Switch>
-            </Router>
-        </Suspense>
+        <ThemeProvider theme={theme}>
+            <Suspense fallback={<Spinner />}>
+                <Router>
+                    <Switch>
+                        <Route exact path={Routes.ROOT}>
+                            <Home />
+                        </Route>
+                        <Route path={Routes.LOGIN}>
+                            <Login />
+                        </Route>
+                        <Route exact={true} path={Routes.REGISTER_DOCTOR}>
+                            <RegisterDoctor />
+                        </Route>
+                        <Route exact={true} path={Routes.REGISTER_PATIENT}>
+                            <CreateInquiry />
+                        </Route>
+                        <DoctorRoute exact={true} path={Routes.DOCTOR_DASHBOARD}>
+                            <DoctorDashbord />
+                        </DoctorRoute>
+                        <DoctorRoute exact={true} path={Routes.DOCTOR_INQUIRIES}>
+                            <DoctorInquiries />
+                        </DoctorRoute>
+                        <DoctorRoute path={Routes.INQUIRY_DETAIL}>
+                            <InquiryDetail />
+                        </DoctorRoute>
+                        <PatientRoute exact={true} path={Routes.PATIENT_DASHBOARD}>
+                            <PatientDashbord />
+                        </PatientRoute>
+                        <Redirect exact={true} from={Routes.REGISTER} to={Routes.REGISTER_PATIENT} />
+                        <Redirect to={Routes.ROOT} />
+                    </Switch>
+                </Router>
+            </Suspense>
+        </ThemeProvider>
     );
 };
 
