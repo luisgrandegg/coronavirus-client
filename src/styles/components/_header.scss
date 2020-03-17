@@ -27,5 +27,20 @@
 
     .container {
         display: flex;
+        flex-wrap: wrap;
+    }
+
+    .MuiTabs-root {
+        margin-bottom: -$spacer-s;
+        margin-left: -$spacer;
+        margin-right: -$spacer;
+        width: 100%;
+
+        @media (min-width: $breakpoint-tablet) {
+            margin-bottom: 0;
+            margin-left: 0;
+            margin-right: 0;
+            width: auto;
+        }
     }
 }
