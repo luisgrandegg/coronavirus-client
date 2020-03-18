@@ -1,0 +1,10 @@
+[context.production.environment]
+  REACT_APP_API_URL = "https://pandagarden-coronavirus-api.herokuapp.com/"
+
+[context.dev.environment]
+  REACT_APP_API_URL = "https://panda-coronavirus-api-staging.herokuapp.com/"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 302
