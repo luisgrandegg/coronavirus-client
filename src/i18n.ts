@@ -85,12 +85,11 @@ const resources = {
                     title: '¿Como funciona Cita Médica en Casa para profesionales?'
                 },
                 content: {
-                    'list-item-1': 'Debes rellenar el formulario que verás a continuación.',
-                    'list-item-2': 'Validamos, mediante una llamada telefónica, que efectivamente eres profesional de la medicina.',
-                    'list-item-3': 'Te creamos una cuenta de Gsuite, te enviaremos instrucciones acerca de cómo funciona.',
-                    'list-item-4': 'Te damos acceso a la base de datos de consultas de pacientes, accedes con tu email y contraseña que has creado en el formulario.',
-                    'list-item-5': 'Escoges al próximo paciente en la lista. Le mandas un email con un enlace de Hangouts o una respuesta por escrito a su consulta.',
-                    'list-item-6': 'Marcas esa consulta como reservada, para no duplicar consultas.',
+                    'list-item-1': 'Debes <strong>rellenar el formulario</strong> que verás a continuación.',
+                    'list-item-2': 'Te validamos, comprobando tu número de colegiado/a.',
+                    'list-item-3': '<strong>Puedes utilizar tu email personal o, si lo prefieres, te creamos una cuenta</strong> de Gsuite (Google), te enviaremos instrucciones acerca de cómo funciona.',
+                    'list-item-4': '<strong>Te damos acceso al recopilatorio de dudas</strong> de ciudadanos accedes con tu email y contraseña que has creado en el formulario.',
+                    'list-item-5': '<strong>Escoges a una duda de la lista y envías un email con una respuesta</strong> por escrito a su consulta. Si necesitas tener una videollamada con la persona que plantea la duda, escríbenos al email: <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> y te facilitaremos un enlace y los pasos a seguir',
                     'form-header': 'Para añadirte a nuestra base de datos y que puedas atender pacientes necesitamos:',
                     'responsability': 'Cita Médica en Casa no se hace responsable de los contenidos ni de las opiniones intercambiadas entre profesionales de la medicina y ciudadanos.'
                 },

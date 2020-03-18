@@ -37,12 +37,21 @@ export const RegisterDoctor: React.FunctionComponent = (): JSX.Element => {
                 </header>
                 <section className="register-form__section">
                     <ol className="register-form__list">
-                        <li className="register-form__list-item">{t('register-doctor.content.list-item-1')}</li>
-                        <li className="register-form__list-item">{t('register-doctor.content.list-item-2')}</li>
-                        <li className="register-form__list-item">{t('register-doctor.content.list-item-3')}</li>
-                        <li className="register-form__list-item">{t('register-doctor.content.list-item-4')}</li>
-                        <li className="register-form__list-item">{t('register-doctor.content.list-item-5')}</li>
-                        <li className="register-form__list-item">{t('register-doctor.content.list-item-6')}</li>
+                        <li
+                            className="register-form__list-item"
+                            dangerouslySetInnerHTML={{ __html: t('register-doctor.content.list-item-1') }} />
+                        <li
+                            className="register-form__list-item"
+                            dangerouslySetInnerHTML={{ __html: t('register-doctor.content.list-item-2') }} />
+                        <li
+                            className="register-form__list-item"
+                            dangerouslySetInnerHTML={{ __html: t('register-doctor.content.list-item-3') }} />
+                        <li
+                            className="register-form__list-item"
+                            dangerouslySetInnerHTML={{ __html: t('register-doctor.content.list-item-4') }} />
+                        <li
+                            className="register-form__list-item"
+                            dangerouslySetInnerHTML={{ __html: t('register-doctor.content.list-item-5') }} />
                     </ol>
                 </section>
                 <div className="register-form__section--form">
