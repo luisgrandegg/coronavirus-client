@@ -27,7 +27,7 @@ const resources = {
                 },
                 'pacient': {
                     title: 'Para ciudadanos/as',
-                    'first-paragraph': 'Plantea una duda médica, excepto sobre el Coronavirus. <strong>Si tienes una emergencia <a href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm">aquí tienes un listado de teléfonos de las autoridades sanitarias</a>, no esperes a que te atendamos en esta web.</strong>',
+                    'first-paragraph': 'Plantea una duda médica, excepto sobre el Coronavirus. <strong>Si tienes una emergencia <a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm">aquí tienes un listado de teléfonos de las autoridades sanitarias</a>, no esperes a que te atendamos en esta web.</strong>',
                     cta: 'Realizar una consulta'
                 },
                 'doctor': {
@@ -38,7 +38,7 @@ const resources = {
                 },
                 'what-is-not': {
                     title: '¿Qué no es Cita Médica en Casa?',
-                    'first-paragraph': '<strong>No acudas aquí</strong> si tienes síntomas asociados a el Coronavirus COVID-19 o si sospechas que puedes tenerlo, <strong><a href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/20200306_Preguntas_respuestas_2019-nCoV.pdf">sigue las recomendaciones de las autoridades sanitarias</a></strong> o <strong>llama a los teléfonos habilitados por las comunidades autónomas</strong> para este fin.',
+                    'first-paragraph': '<strong>No acudas aquí</strong> si tienes síntomas asociados a el Coronavirus COVID-19 o si sospechas que puedes tenerlo, <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/20200306_Preguntas_respuestas_2019-nCoV.pdf">sigue las recomendaciones de las autoridades sanitarias</a></strong> o <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm">llama a los teléfonos habilitados por las comunidades autónomas</a></strong> para este fin.',
                     'second-paragraph': 'Cita Médica en Casa, <strong>no es un sustituto del Sistema Nacional de Salud</strong> ni de la cita previa con tu médico.'
                 },
                 'what-is': {
