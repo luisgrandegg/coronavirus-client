@@ -6,7 +6,6 @@ import { Footer } from '../components/Footer';
 import { Section } from '../components/Section';
 import { RegisterDoctorForm } from '../components/RegisterDoctorForm';
 
-
 export const RegisterDoctor: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
     const [registerFormSuccess, setRegisterFormSuccess] = useState(false);

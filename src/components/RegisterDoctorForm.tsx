@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as yup from 'yup';
 
+import specialities from '../constants/specialities';
 import { Auth } from '../entities/Auth';
 import { RegisterDoctorDto } from '../dto/RegisterDoctorDto';
 import { sdk } from '../sdk';
 import { TextField } from './Form/TextField';
+import { Select } from './Form/Select';
 import { Checkbox } from './Form/Checkbox';
 import { SubmitButton } from './Form/SubmitButton';
 
@@ -120,7 +122,8 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
                     <Field
                         name="speciality"
                         label={t('register-doctor.fields.speciality')}
-                        component={TextField}
+                        component={Select}
+                        options={specialities}
                     />
                     <Field
                         name="license"

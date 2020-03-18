@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as yup from 'yup';
 
+import specialities from '../constants/specialities';
 import { CreateInquiryDto } from '../dto/CreateInquiryDto';
 import { Inquiry } from '../entities/Inquiry';
 import { sdk } from '../sdk';
 import { TextField } from './Form/TextField';
+import { Select } from './Form/Select';
 import { Checkbox } from './Form/Checkbox';
 import { SubmitButton } from './Form/SubmitButton';
 
@@ -111,7 +113,8 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                     <Field
                         name="speciality"
                         label={t('register-patient.fields.speciality')}
-                        component={TextField}
+                        component={Select}
+                        options={specialities}
                     />
                     <Field
                         name="summary"
