@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { Section } from '../components/Section';
 import { LoginForm } from '../components/LoginForm';
 import { Auth } from '../entities/Auth';
 import { UserType } from '../entities/User';
@@ -35,9 +36,11 @@ export const Login: React.FunctionComponent = (): JSX.Element => {
             <Header/>
             <main className="main login-form">
                 <div className="container">
-                    <LoginForm
-                        onLoginSuccess={onLoginSuccess}
-                        onLoginError={onLoginError}
+                    <Section content={
+                        <LoginForm
+                            onLoginSuccess={onLoginSuccess}
+                            onLoginError={onLoginError}
+                        />}
                     />
                 </div>
             </main>

@@ -65,7 +65,8 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
         password: yup.string()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.password') })),
         confirmPassword: yup.string()
-            .required(t('register-form.error.required', { field: t('register-doctor.fields.confirm-password') })),
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.confirm-password') }))
+            .oneOf([yup.ref('password')], t('register-form.error.confirm')),
         terms: yup.bool()
             .oneOf([true], t('register-form.error.accept'))
             .required(t('register-form.error.required', { field: t('register-doctor.fields.terms') })),
@@ -140,11 +141,13 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
                         name="password"
                         label={t('register-doctor.fields.password')}
                         component={TextField}
+                        type="password"
                     />
                     <Field
                         name="confirmPassword"
                         label={t('register-doctor.fields.confirm-password')}
                         component={TextField}
+                        type="password"
                     />
                     <Field
                         name="terms"

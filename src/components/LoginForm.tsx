@@ -74,6 +74,7 @@ export const LoginForm: React.FunctionComponent<ILoginFormProps> = (
                         name="password"
                         label={t('login-form.fields.password')}
                         component={TextField}
+                        type="password"
                     />
                     <SubmitButton
                         label={t('login-form.submit')}

@@ -18,6 +18,7 @@ export interface ICreateInquiryFormProps {
 export interface ICreateInquiryForm {
     age: string;
     email: string;
+    confirmEmail: string;
     speciality: string;
     summary: string;
     terms: boolean;
@@ -34,6 +35,7 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
     const initialValues = {
         age: '',
         email: '',
+        confirmEmail: '',
         speciality: '',
         summary: '',
         terms: false,
@@ -47,6 +49,10 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
         email: yup.string().trim()
             .required(t('register-form.error.required', { field: t('register-patient.fields.email') }))
             .email(t('register-form.error.format', { field: t('register-patient.fields.email') })),
+        confirmEmail: yup.string().trim()
+            .required(t('register-form.error.required', { field: t('register-patient.fields.email') }))
+            .email(t('register-form.error.format', { field: t('register-patient.fields.email') }))
+            .oneOf([yup.ref('email')], t('register-form.error.confirm')),
         speciality: yup.string(),
         summary: yup.string()
             .required(t('register-form.error.required', { field: t('register-patient.fields.summary') })),
@@ -95,6 +101,11 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                     <Field
                         name="email"
                         label={t('register-patient.fields.email')}
+                        component={TextField}
+                    />
+                    <Field
+                        name="confirmEmail"
+                        label={t('register-patient.fields.confirm-email')}
                         component={TextField}
                     />
                     <Field
