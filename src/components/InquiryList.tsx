@@ -23,6 +23,10 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
         return (): void => { sdk.inquiries.attend(inquiry.id); }
     };
 
+    const unattendInquiry = (inquiry: Inquiry): () => void => {
+        return (): void => { sdk.inquiries.unattend(inquiry.id); }
+    };
+
     const getInquiries = () => {
         sdk.inquiries.get(props.inquiryListParams).then((inquiries: Inquiry[]) => setInquiries(inquiries));
     };
@@ -31,12 +35,26 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
         getInquiries();
         const interval = setInterval(() => { getInquiries(); }, 5000)
         return (): void => { clearInterval(interval); }
-    });
+// eslint-disable-next-line
+    }, []);
 
     const renderInquiryCardContent = (inquiry: Inquiry): React.ReactNode => {
         if (props.inquiryListParams?.attended) {
             return (
-                <span>{t('inquiry.email')} {inquiry.email}</span>
+                <>
+                    <span>{t('inquiry.email')} {inquiry.email}</span>
+                    <Button
+                        color="primary"
+                        to={{
+                            pathname: Routes.DOCTOR_DASHBOARD
+                        }}
+                        onClick={unattendInquiry(inquiry)}
+                        type="button"
+                        component={RouterLink}
+                    >
+                        {t('inquiry.unattend')}
+                    </Button>
+                </>
             );
         } else {
             return (

@@ -64,6 +64,7 @@ const resources = {
             },
             inquiry: {
                 attend: 'Atender petición',
+                unattend: 'Desatender petición',
                 'created-at': 'Recibido el {{createdAtDate}} a las {{createdAtTime}}',
                 email: 'Email del ciudadano:',
                 speciality: 'Especialidad:'

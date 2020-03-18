@@ -29,4 +29,9 @@ export class Inquiries {
         return this.apiClient.post<IInquiryApiResponse>(`/inquiries/${inquiryId}/solve`)
             .then((response: AxiosResponse<IInquiryApiResponse>) => Inquiry.createFromResponse(response.data));
     }
+
+    async unattend(inquiryId: string): Promise<Inquiry> {
+        return this.apiClient.post<IInquiryApiResponse>(`/inquiries/${inquiryId}/unattend`)
+            .then((response: AxiosResponse<IInquiryApiResponse>) => Inquiry.createFromResponse(response.data));
+    }
 }

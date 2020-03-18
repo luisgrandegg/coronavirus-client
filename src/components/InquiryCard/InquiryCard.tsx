@@ -22,7 +22,7 @@ export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
                 <Typography variant="h5" component="h2" gutterBottom>
                     {t('inquiry.created-at', {
                         createdAtDate: moment(inquiry.createdAt).format('dddd D '),
-                        createdAtTime: moment(inquiry.createdAt).format('H:m')
+                        createdAtTime: moment(inquiry.createdAt).format('HH:mm')
                     })}
                 </Typography>
                 <Typography>
