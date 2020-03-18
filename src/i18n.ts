@@ -168,6 +168,15 @@ const resources = {
                 phone: 'Teléfono:',
                 speciality: 'Especialidad:',
                 validate: 'Validar'
+            },
+            'doctor-dashboard': {
+                header: {
+                    title: 'Listado de dudas planteadas'
+                },
+                content: {
+                    'first-paragraph': 'Cita Médica en Casa está pensada para la resolución de dudas sencillas de salud. No es un plataforma para diagnosticar o preescribir medicamentos, tampoco se atenderán preguntas sobre Coronavirus, ese tema está en manos de los canales oficiales del Estado.',
+                    'second-paragraph': 'Mil gracias de nuevo por tu ayuda.'
+                }
             }
         }
     }

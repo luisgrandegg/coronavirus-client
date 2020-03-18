@@ -1,0 +1,13 @@
+.doctor-dashboard {
+  .section-wrapper {
+    + .inquiry-list {
+      margin-top: $spacer;
+    }
+  }
+
+  &__title {
+      color: black;
+      font-size: $font-size-xxl;
+      line-height: $line-height-l;
+  }
+}
