@@ -6,14 +6,17 @@ import { AxiosResponse } from 'axios';
 import { Users } from './Users';
 import { RegisterDoctorDto } from '../dto/RegisterDoctorDto';
 import { Inquiries } from './Inquiries';
+import { Doctors } from './Doctors';
 
 export class Sdk {
+    public doctors: Doctors;
     public inquiries: Inquiries;
     public users: Users;
 
     constructor(
         private apiClient: ApiClient
     ) {
+        this.doctors = new Doctors(apiClient);
         this.inquiries = new Inquiries(apiClient);
         this.users = new Users(apiClient);
     }

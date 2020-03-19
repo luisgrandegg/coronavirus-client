@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Redirect, Route } from "react-router-d
 import { ThemeProvider } from '@material-ui/core/styles';
 import CookieConsent from "react-cookie-consent";
 
-import { DoctorRoute, PatientRoute } from './router/PrivateRoute';
+import { DoctorRoute, PatientRoute, AdminRoute } from './router/PrivateRoute';
 import { Routes } from './router/Routes';
 import { Spinner } from './components/Spinner';
 import { DoctorDashbord } from './pages/DoctorDashboard';
@@ -21,6 +21,7 @@ import { DoctorInquiries } from './pages/DoctorInquiries';
 import { logout } from './store/actions/status';
 
 import theme from "./theme";
+import { AdminDashboard } from './pages/AdminDashboard';
 
 export const App: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
@@ -64,6 +65,9 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                         <PatientRoute exact={true} path={Routes.PATIENT_DASHBOARD}>
                             <PatientDashbord />
                         </PatientRoute>
+                        <AdminRoute exact={true} path={Routes.ADMIN_DASHBOARD}>
+                            <AdminDashboard/>
+                        </AdminRoute>
                         <Redirect exact={true} from={Routes.REGISTER} to={Routes.REGISTER_PATIENT} />
                         <Redirect to={Routes.ROOT} />
                     </Switch>

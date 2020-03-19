@@ -8,6 +8,9 @@ const resources = {
                 'powered-by': 'Hecho con mucho cariño en Madrid :)'
             },
             header: {
+                admin: {
+                    doctors: 'Médicos por validar',
+                },
                 doctor: {
                     pending: 'Pendientes',
                     own: 'Mis peticiones'
@@ -34,7 +37,7 @@ const resources = {
                     title: 'Para Médicos/as',
                     'first-paragraph': 'Presta tu ayuda a personas que no pueden acudir a una consulta.',
                     'register-button': 'Registrarme',
-                    login: 'Acceder con mi cuenta'
+                    login: 'Acceder con mi cuenta',
                 },
                 'what-is-not': {
                     title: '¿Qué no es Cita Médica en Casa?',
@@ -156,6 +159,16 @@ const resources = {
                     email: 'Email',
                     password: 'Contraseña'
                 }
+            },
+            doctor: {
+                'created-at': 'Recibido el {{createdAtDate}} a las {{createdAtTime}}',
+                name: 'Nombre:',
+                surname: 'Apellidos:',
+                license: 'Número colegiado:',
+                email: 'Email:',
+                phone: 'Teléfono:',
+                speciality: 'Especialidad:',
+                validate: 'Validar'
             }
         }
     }
