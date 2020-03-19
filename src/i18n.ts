@@ -30,7 +30,7 @@ const resources = {
                 },
                 'pacient': {
                     title: 'Para ciudadanos/as',
-                    'first-paragraph': 'Plantea una duda médica, excepto sobre el Coronavirus. <strong>Si tienes una emergencia <a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm">aquí tienes un listado de teléfonos de las autoridades sanitarias</a>, no esperes a que te atendamos en esta web.</strong>',
+                    'first-paragraph': 'Plantea una duda médica excepto sobre el Coronavirus. <strong>Si tienes una emergencia llama al 112</strong>, no esperes a que te atendamos en esta web.',
                     cta: 'Realizar una consulta'
                 },
                 'doctor': {
