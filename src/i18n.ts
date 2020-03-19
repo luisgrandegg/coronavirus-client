@@ -41,13 +41,13 @@ const resources = {
                 },
                 'what-is-not': {
                     title: '¿Qué no es Cita Médica en Casa?',
-                    'first-paragraph': '<strong>No acudas aquí</strong> si tienes síntomas asociados a el Coronavirus COVID-19 o si sospechas que puedes tenerlo, <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/20200306_Preguntas_respuestas_2019-nCoV.pdf">sigue las recomendaciones de las autoridades sanitarias</a></strong> o <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm">llama a los teléfonos habilitados por las comunidades autónomas</a></strong> para este fin.',
-                    'second-paragraph': 'Cita Médica en Casa, <strong>no es un sustituto del Sistema Nacional de Salud</strong> ni de la cita previa con tu médico.'
+                    'first-paragraph': '<strong>No acudas aquí</strong> si tienes síntomas asociados a al Coronavirus COVID-19 o si sospechas que puedes tenerlo, <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/20200306_Preguntas_respuestas_2019-nCoV.pdf">sigue las recomendaciones de las autoridades sanitarias</a></strong> o <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm">llama a los teléfonos habilitados por las comunidades autónomas</a></strong> para este fin <strong><a target="_blank" href="https://www.coronamadrid.com/">o utiliza www.coronamadrid.com</a></strong>.',
+                    'second-paragraph': 'Cita Médica en Casa, <strong>no es un sustituto del Sistema Nacional de Salud ni de la cita presencial con tu médico. No es un servicio médico de diagnóstico ni de prescripción de tratamientos</strong> de ningún tipo.'
                 },
                 'what-is': {
                     title: 'Qué y quiénes somos',
-                    'first-paragraph': 'Cita Médica en Casa <strong>no es un servicio médico</strong>, solo intermedia entre ciudadanos y médicos para evitar las visitas innecesarias a centros de salud. <strong>Cita Médica en Casa no se hace responsable de los contenidos ni de las opiniones intercambiados entre profesionales de la medicina y ciudadanos</strong>.',
-                    'second-paragraph': 'Tanto el equipo que ha creado y mantiene esta plataforma, como los médicos(comprobamos su número de colegiado/a) que colaboran <strong>somos voluntarios</strong>. Simplemente queremos echar una mano ante la situación creada por el Coronavirus.'
+                    'first-paragraph': 'Cita Médica en Casa <strong>no es un servicio médico</strong>, solo intermedia entre ciudadanos y médicos para evitar las visitas innecesarias a centros de salud. <strong>Cita Médica en Casa no se hace responsable de los contenidos ni de las opiniones intercambiados entre profesionales de la salud y ciudadanos.</strong>',
+                    'second-paragraph': 'Tanto el equipo técnico y de diseño que ha creado esta plataforma, como los médicos (comprobamos su número de colegiado/a) que colaboran <strong>somos voluntarios</strong>. Simplemente queremos echar una mano ante la situación creada por el Coronavirus.',
                 },
                 privacy: {
                     title: '¿Cómo trataremos tus datos?'
@@ -55,14 +55,15 @@ const resources = {
                 'privacy-doctor': {
                     title: 'Si eres profesional',
                     'first-paragraph': '<strong>Nunca los cederemos a terceros</strong>, ni se utilizarán para otro fin que no sea el de esta plataforma.',
-                    'second-paragraph': '<strong>Los pacientes solo verán tu email</strong>. Por eso, te creamos uno específico para esta plataforma, preservamos tu intimidad.',
-                    'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y las bases de datos serán borradas. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
+                    'second-paragraph': '<strong>Los pacientes solo verán tu email</strong>. Si lo deseas, podrás crearte uno específico para la platafoma y preservar tu intimidad.',
+                    'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y será borrada. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
+
                 },
                 'privacy-patient': {
                     title: 'Si eres ciudadano/a',
                     'first-paragraph': '<strong>Nunca los cederemos a terceros</strong>, ni se utilizarán para otro fin que no sea el de esta plataforma.',
                     'second-paragraph': '<strong>Los datos del formulario que has rellenado solo los verá personal médico</strong>.',
-                    'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa</strong> desaparecerá y las bases de datos serán borradas. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
+                    'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y será borrada. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
                 }
             },
             inquiry: {
@@ -87,11 +88,11 @@ const resources = {
                 content: {
                     'list-item-1': 'Debes <strong>rellenar el formulario</strong> que verás a continuación.',
                     'list-item-2': 'Te validamos, comprobando tu número de colegiado/a.',
-                    'list-item-3': '<strong>Puedes utilizar tu email personal o, si lo prefieres, te creamos una cuenta</strong> de Gsuite (Google), te enviaremos instrucciones acerca de cómo funciona.',
+                    'list-item-3': '<strong>Puedes utilizar tu email personal o, si lo prefieres, crear una cuenta</strong> de Gsuite (Google), te enviaremos instrucciones acerca de cómo funciona.',
                     'list-item-4': '<strong>Te damos acceso al recopilatorio de dudas</strong> de ciudadanos accedes con tu email y contraseña que has creado en el formulario.',
                     'list-item-5': '<strong>Escoges a una duda de la lista y envías un email con una respuesta</strong> por escrito a su consulta. Si necesitas tener una videollamada con la persona que plantea la duda, escríbenos al email: <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> y te facilitaremos un enlace y los pasos a seguir',
                     'form-header': 'Para añadirte a nuestra base de datos y que puedas atender pacientes necesitamos:',
-                    'responsability': 'Cita Médica en Casa no se hace responsable de los contenidos ni de las opiniones intercambiadas entre profesionales de la medicina y ciudadanos.'
+                    'responsability': 'Recuerda que Cita Médica en Casa, no sustituye al Servicio nacional de salud, ni a la visita a tu médico y no te proporcionará un diagnóstico o un tratamiento. Cita Médica en casa no se hace responsable de los contenidos ni de las opiniones intercambiadas entre profesionales de la medicina y ciudadanos.'
                 },
                 fields: {
                     name: 'Nombre',
@@ -119,12 +120,12 @@ const resources = {
                     title: '¿Como funciona Cita Médica en Casa para ciudadanos?'
                 },
                 content: {
-                    'list-item-1': 'Rellenas un formulario con tu duda.',
+                    'list-item-1': 'Rellenas un formulario con tu duda que no tenga que ver con el Coronavirus, tus datos y tu pregunta serán cifrados para preservar su confidencialidad.',
                     'list-item-2': 'Estos datos se enviaran a un doctor o doctora para que concierte una videollamada contigo o para que resuelva tu consulta por email.',
                     'list-item-3': 'Te llegará un email con la respuesta o para confirmar tu videollamada.',
                     'list-item-4': 'Si se trata de una consulta online utilizaréis Hangouts de Google, te enviaremos un link.',
                     'form-header': 'Por favor, para para plantear tu consulta dinos:',
-                    'responsability': 'Cita Médica en casa no se hace responsable de los contenidos ni de las opiniones intercambiadas entre profesionales de la medicina y ciudadanos.'
+                    'responsability': 'Recuerda que Cita Médica en Casa, no sustituye al Servicio nacional de salud, ni a la visita a tu médico y no te proporcionará un diagnóstico o un tratamiento. Cita Médica en casa no se hace responsable de los contenidos ni de las opiniones intercambiadas entre profesionales de la medicina y ciudadanos.'
                 },
                 fields: {
                     age: 'Edad',
