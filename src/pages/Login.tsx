@@ -16,6 +16,8 @@ export const Login: React.FunctionComponent = (): JSX.Element => {
         switch(userType) {
             case UserType.DOCTOR:
                 return Routes.DOCTOR_DASHBOARD;
+            case UserType.DOCTOR_ADMIN:
+                return Routes.DOCTOR_DASHBOARD;
             case UserType.PATIENT:
                 return Routes.PATIENT_DASHBOARD;
             case UserType.ADMIN:

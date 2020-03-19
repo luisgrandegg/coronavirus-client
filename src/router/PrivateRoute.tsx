@@ -14,16 +14,16 @@ export interface IRouteProps extends RouteProps {
 }
 
 export interface IPrivateRouteProps extends IRouteProps {
-    userType: UserType
+    userTypes: UserType[]
 }
 
 export const PrivateRoute: React.FunctionComponent<IPrivateRouteProps> = (
     props: IPrivateRouteProps
 ): JSX.Element => {
-    const { children, userType, ...rest } = props;
+    const { children, userTypes = [], ...rest } = props;
 
     const auth = useSelector(getAuth);
-    const isAuthorized = auth && auth.userType === userType;
+    const isAuthorized = auth && userTypes.includes(auth.userType);
     return (
         <Route
             {...rest}
@@ -49,7 +49,7 @@ export const AdminRoute: React.FunctionComponent<IRouteProps> = (
     const { children, ...rest } = props;
 
     return (
-        <PrivateRoute userType={UserType.ADMIN} {...rest}>
+        <PrivateRoute userTypes={[UserType.ADMIN, UserType.DOCTOR_ADMIN]} {...rest}>
             {children}
         </PrivateRoute>
     )
@@ -61,7 +61,7 @@ export const DoctorRoute: React.FunctionComponent<IRouteProps> = (
     const { children, ...rest } = props;
 
     return (
-        <PrivateRoute userType={UserType.DOCTOR} {...rest}>
+        <PrivateRoute userTypes={[UserType.DOCTOR, UserType.DOCTOR_ADMIN]} {...rest}>
             {children}
         </PrivateRoute>
     )
@@ -73,7 +73,7 @@ export const PatientRoute: React.FunctionComponent<IRouteProps> = (
     const { children, ...rest } = props;
 
     return (
-        <PrivateRoute userType={UserType.PATIENT} {...rest}>
+        <PrivateRoute userTypes={[UserType.PATIENT]} {...rest}>
             {children}
         </PrivateRoute>
     )

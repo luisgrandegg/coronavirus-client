@@ -25,6 +25,14 @@
         padding: 0;
     }
 
+    .admin-button {
+        margin-left: auto;
+
+        @media (min-width: $breakpoint-tablet) {
+            margin-left: $spacer;
+        }
+    }
+
     .container {
         display: flex;
         flex-wrap: wrap;
