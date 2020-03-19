@@ -25,6 +25,7 @@ export interface ICreateInquiryForm {
     summary: string;
     terms: boolean;
     privacy: boolean;
+    confirmAge: boolean;
 }
 
 export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps> = (
@@ -42,6 +43,7 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
         summary: '',
         terms: false,
         privacy: false,
+        confirmAge: false,
     };
 
     const validationSchema = yup.object().shape({
@@ -64,10 +66,13 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
         privacy: yup.bool()
             .oneOf([true], t('register-form.error.accept'))
             .required(t('register-form.error.required', { field: t('register-patient.fields.privacy') })),
+        confirmAge: yup.bool()
+            .oneOf([true], t('register-form.error.accept'))
+            .required(t('register-form.error.required', { field: t('register-patient.fields.confirm-age') })),
     });
 
     const onSubmit = async (values: ICreateInquiryForm): Promise<void> => {
-        const { age, email, speciality, summary, terms, privacy } = values;
+        const { age, email, speciality, summary, terms, privacy, confirmAge } = values;
         setLoading(true);
         sdk.inquiries.create(new CreateInquiryDto(
             age,
@@ -75,7 +80,8 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
             speciality,
             summary,
             terms,
-            privacy
+            privacy,
+            confirmAge
         )).then((inquiry: Inquiry) => {
             onCreateSuccess(inquiry);
         }).catch(() => {
@@ -127,14 +133,21 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                     <Field
                         name="terms"
                         label={(
-                            <span dangerouslySetInnerHTML={{__html: t('register-patient.fields.terms')}}/>
+                            <span dangerouslySetInnerHTML={{ __html: t('register-patient.fields.terms') }} />
                         )}
                         component={Checkbox}
                     />
                     <Field
                         name="privacy"
                         label={(
-                            <span dangerouslySetInnerHTML={{__html: t('register-patient.fields.privacy')}}/>
+                            <span dangerouslySetInnerHTML={{ __html: t('register-patient.fields.privacy') }} />
+                        )}
+                        component={Checkbox}
+                    />
+                    <Field
+                        name="confirmAge"
+                        label={(
+                            <span dangerouslySetInnerHTML={{ __html: t('register-patient.fields.confirm-age') }} />
                         )}
                         component={Checkbox}
                     />
