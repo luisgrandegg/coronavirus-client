@@ -1,90 +1,91 @@
-export default [
-    {
-        label: 'Alergología',
-        value: 'Alergología',
-    }, {
-        label: 'Anestesiología',
-        value: 'Anestesiología',
-    }, {
-        label: 'Cardiología',
-        value: 'Cardiología',
-    }, {
-        label: 'Gastroenterología',
-        value: 'Gastroenterología',
-    }, {
-        label: 'Endocrinología',
-        value: 'Endocrinología',
-    }, {
-        label: 'Epidemiología',
-        value: 'Epidemiología',
-    }, {
-        label: 'Geriatría',
-        value: 'Geriatría',
-    }, {
-        label: 'Hematología',
-        value: 'Hematología',
-    }, {
-        label: 'Infectología',
-        value: 'Infectología',
-    }, {
-        label: 'Medicina aeroespacial',
-        value: 'Medicina aeroespacial',
-    }, {
-        label: 'Medicina del deporte',
-        value: 'Medicina del deporte',
-    }, {
-        label: 'Medicina del trabajo',
-        value: 'Medicina del trabajo',
-    }, {
-        label: 'Medicina de urgencias',
-        value: 'Medicina de urgencias',
-    }, {
-        label: 'Medicina familiar y comunitaria',
-        value: 'Medicina familiar y comunitaria',
-    }, {
-        label: 'Medicina física y rehabilitación',
-        value: 'Medicina física y rehabilitación',
-    }, {
-        label: 'Medicina intensiva',
-        value: 'Medicina intensiva',
-    }, {
-        label: 'Medicina interna',
-        value: 'Medicina interna',
-    }, {
-        label: 'Medicina forense',
-        value: 'Medicina forense',
-    }, {
-        label: 'Medicina preventiva y salud pública',
-        value: 'Medicina preventiva y salud pública',
-    }, {
-        label: 'Nefrología',
-        value: 'Nefrología',
-    }, {
-        label: 'Neumología',
-        value: 'Neumología',
-    }, {
-        label: 'Neurología',
-        value: 'Neurología',
-    }, {
-        label: 'Nutriología',
-        value: 'Nutriología',
-    }, {
-        label: 'Oncología médica',
-        value: 'Oncología médica',
-    }, {
-        label: 'Oncología radioterápica',
-        value: 'Oncología radioterápica',
-    }, {
-        label: 'Pediatría',
-        value: 'Pediatría',
-    }, {
-        label: 'Psiquiatría',
-        value: 'Psiquiatría',
-    }, {
-        label: 'Reumatología',
-        value: 'Reumatología',
-    }, {
-        label: 'Toxicología',
-        value: 'Toxicología',
-    }
-];
+export default [{
+	"label": "Medicina de familia",
+	"value": "medicina_de_familia"
+}, {
+	"label": "Pediatría",
+	"value": "pediatria"
+}, {
+	"label": "Traumatología y cirugía ortopédica",
+	"value": "traumatologia_y_cirugia_ortopedica"
+}, {
+	"label": "Otorrinolaringología",
+	"value": "otorrinolaringologia"
+}, {
+	"label": "Ginecología y obstetricia",
+	"value": "ginecologia_y_obstetricia"
+}, {
+	"label": "Oftalmología",
+	"value": "oftalmologia"
+}, {
+	"label": "Medicina interna",
+	"value": "medicina_interna"
+}, {
+	"label": "Aparato digestivo",
+	"value": "aparato_digestivo"
+}, {
+	"label": "Cardiología",
+	"value": "cardiologia"
+}, {
+	"label": "Dermatología",
+	"value": "dermatologia"
+}, {
+	"label": "Medicina física y rehabilitación",
+	"value": "medicina_fisica_y_rehabilitacion"
+}, {
+	"label": "Neumología",
+	"value": "neumologia"
+}, {
+	"label": "Psiquiatría",
+	"value": "psiquiatria"
+}, {
+	"label": "Cirugía vascular",
+	"value": "cirugia_vascular"
+}, {
+	"label": "Alergología",
+	"value": "alergologia"
+}, {
+	"label": "Anestesia",
+	"value": "anestesia"
+}, {
+	"label": "Cirugía cardiovascular",
+	"value": "cirugia_cardiovascular"
+}, {
+	"label": "Cirugía general y del aparato digestivo",
+	"value": "cirugia_general_y_del_aparato_digestivo"
+}, {
+	"label": "Cirugía maxilofacial",
+	"value": "cirugía maxilofacial"
+}, {
+	"label": "Cirugía plástica",
+	"value": "cirugia_plastica"
+}, {
+	"label": "Cirugía torácica",
+	"value": "cirugia_toracica"
+}, {
+	"label": "Endocrino y nutrición",
+	"value": "endocrino_y_nutricion"
+}, {
+	"label": "Geriatría",
+	"value": "geriatria"
+}, {
+	"label": "Hematología",
+	"value": "hematologia"
+}, {
+	"label": "Medicina intensiva",
+	"value": "medicina_intensiva"
+}, {
+	"label": "Nefrología",
+	"value": "nefrologia"
+}, {
+	"label": "Neurocirugía",
+	"value": "neurocirugia"
+}, {
+	"label": "Oncología",
+	"value": "oncologia"
+}, {
+	"label": "Reumatología",
+	"value": "reumatologia"
+}, {
+	"label": "Urología",
+	"value": "urologia"
+}];
