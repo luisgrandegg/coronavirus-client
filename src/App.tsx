@@ -22,6 +22,7 @@ import { logout } from './store/actions/status';
 
 import theme from "./theme";
 import { AdminDashboard } from './pages/AdminDashboard';
+import { ScrollToTop } from './components/ScrollToTop';
 
 export const App: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
@@ -41,17 +42,25 @@ export const App: React.FunctionComponent = (): JSX.Element => {
             <Suspense fallback={<Spinner />}>
                 <Router>
                     <Switch>
-                        <Route exact path={Routes.ROOT}>
-                            <Home />
+                        <Route exact={true} path={Routes.ROOT}>
+                            <ScrollToTop>
+                                <Home />
+                            </ScrollToTop>
                         </Route>
-                        <Route path={Routes.LOGIN}>
-                            <Login />
+                        <Route exact={true} path={Routes.LOGIN}>
+                            <ScrollToTop>
+                                <Login />
+                            </ScrollToTop>
                         </Route>
                         <Route exact={true} path={Routes.REGISTER_DOCTOR}>
-                            <RegisterDoctor />
+                            <ScrollToTop>
+                                <RegisterDoctor />
+                            </ScrollToTop>
                         </Route>
                         <Route exact={true} path={Routes.REGISTER_PATIENT}>
-                            <CreateInquiry />
+                            <ScrollToTop>
+                                <CreateInquiry />
+                            </ScrollToTop>
                         </Route>
                         <DoctorRoute exact={true} path={Routes.DOCTOR_DASHBOARD}>
                             <DoctorDashbord />

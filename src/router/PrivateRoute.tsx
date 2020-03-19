@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 import { getAuth } from '../store/selectors/status';
 import { UserType } from '../entities/User';
+import { ScrollToTop } from '../components/ScrollToTop';
 
 export interface IPrivateRouteLocationState {
     from: Location;
@@ -25,21 +26,23 @@ export const PrivateRoute: React.FunctionComponent<IPrivateRouteProps> = (
     const auth = useSelector(getAuth);
     const isAuthorized = auth && userTypes.includes(auth.userType);
     return (
-        <Route
-            {...rest}
-            render={({ location }) =>
-                isAuthorized ? (
-                    children
-                ) : (
-                    <Redirect
-                        to={{
-                            pathname: "/login",
-                            state: { from: location }
-                        }}
-                    />
-                )
-            }
-        />
+        <ScrollToTop>
+            <Route
+                {...rest}
+                render={({ location }) =>
+                    isAuthorized ? (
+                        children
+                    ) : (
+                        <Redirect
+                            to={{
+                                pathname: "/login",
+                                state: { from: location }
+                            }}
+                        />
+                    )
+                }
+            />
+        </ScrollToTop>
     );
 }
 
