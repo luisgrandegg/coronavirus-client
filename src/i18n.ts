@@ -33,13 +33,17 @@ const resources = {
                 'pacient': {
                     title: 'Para ciudadanos/as',
                     'first-paragraph': 'Plantea una duda médica excepto sobre el Coronavirus. <strong>Si tienes una emergencia llama al 112</strong>, no esperes a que te atendamos en esta web.',
-                    cta: 'Realizar una consulta'
+                    cta: 'Realizar una consulta',
+                    'counter-pre': 'Hemos atendido',
+                    'counter-post': 'consultas'
                 },
                 'doctor': {
                     title: 'Para Médicos/as',
                     'first-paragraph': 'Presta tu ayuda a personas que no pueden acudir a una consulta.',
                     'register-button': 'Registrarme',
                     login: 'Acceder con mi cuenta',
+                    'counter-pre': 'Ya somos',
+                    'counter-post': 'médicos'
                 },
                 'what-is-not': {
                     title: '¿Qué no es Cita Médica en Casa?',

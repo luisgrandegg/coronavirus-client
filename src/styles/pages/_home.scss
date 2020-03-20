@@ -1,4 +1,11 @@
 .home {
+    &__header-title {
+        color: black;
+        font-size: $font-size-xxl;
+        line-height: $line-height-l;
+        margin-bottom: $spacer-xs;
+    }
+
     &__section {
         width: 100%;
         &.home__section--cta {
@@ -38,11 +45,46 @@
     &__drawing {
         display: none;
         img {
-            max-width: 100%;
+            max-width: 90%;
             height: auto;
         }
         @media (min-width: $breakpoint-tablet) {
             display: block;
+        }
+    }
+
+    &__cta {
+        padding: $spacer;
+        margin-top: $spacer;
+        margin-right: -$spacer;
+        margin-left: -$spacer;
+        border-radius: $border-radius-m;
+        background-color: white;
+
+        .section-wrapper {
+            flex-direction: column-reverse;
+
+            @media (min-width: $breakpoint-tablet) {
+                flex-direction: row;
+            }
+
+            + .section-wrapper {
+                margin-top: $spacer-l;
+            }
+        }
+
+        + .section-wrapper {
+            margin-top: $spacer;
+        }
+
+        .counter {
+            margin-bottom: $spacer;
+    
+            @media (min-width: $breakpoint-tablet) {
+                padding-right: $spacer-l;
+                margin-bottom: initial;
+                justify-content: flex-end;
+            }
         }
     }
 }
