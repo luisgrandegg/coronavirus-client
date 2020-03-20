@@ -44,24 +44,6 @@ export default [{
 	"label": "Alergología",
 	"value": "alergologia"
 }, {
-	"label": "Anestesia",
-	"value": "anestesia"
-}, {
-	"label": "Cirugía cardiovascular",
-	"value": "cirugia_cardiovascular"
-}, {
-	"label": "Cirugía general y del aparato digestivo",
-	"value": "cirugia_general_y_del_aparato_digestivo"
-}, {
-	"label": "Cirugía maxilofacial",
-	"value": "cirugía maxilofacial"
-}, {
-	"label": "Cirugía plástica",
-	"value": "cirugia_plastica"
-}, {
-	"label": "Cirugía torácica",
-	"value": "cirugia_toracica"
-}, {
 	"label": "Endocrino y nutrición",
 	"value": "endocrino_y_nutricion"
 }, {
@@ -88,4 +70,7 @@ export default [{
 }, {
 	"label": "Urología",
 	"value": "urologia"
+}, {
+	"label": "Otros",
+	"value": "otros"
 }];

@@ -8,6 +8,7 @@ import { DoctorListParams } from '../dto/DoctorListParams';
 
 export const AdminDashboard: React.FunctionComponent = (): JSX.Element => {
     const doctorListParams: DoctorListParams = DoctorListParams.deserialize({
+        isActive: true,
         isValidated: false
     });
 
