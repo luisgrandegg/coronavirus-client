@@ -1,7 +1,7 @@
 .section-wrapper {
   display: flex;
 
-  @media (min-width: $breakpoint-tablet) {
+  @media (min-width: $breakpoint-desktop) {
       border-radius: $border-radius-m;
   }
 

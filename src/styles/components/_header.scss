@@ -1,6 +1,12 @@
 .header {
     background-color: white;
     padding: $spacer 0 $spacer-s 0;
+    margin-bottom: 40px;
+
+    @media (min-width: $breakpoint-tablet) {
+        margin-bottom: initial;
+    }
+
     &__title {
         display: flex;
         flex-direction: column;
@@ -25,6 +31,29 @@
         padding: 0;
     }
 
+    &__actions {
+        margin-bottom: -$spacer-s;
+        margin-left: -$spacer;
+        margin-right: -$spacer;
+        width: 100vw;
+
+        @media (min-width: $breakpoint-tablet) {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 0;
+            margin-left: auto;
+            margin-right: 0;
+            width: auto;
+        }
+
+        > * {
+            + > * {
+                margin-left: $spacer;
+            }
+        }
+    }
+
     .admin-button {
         margin-left: auto;
 
@@ -34,21 +63,30 @@
     }
 
     .container {
-        display: flex;
-        flex-wrap: wrap;
+        @media (min-width: $breakpoint-tablet) {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
 
-    .MuiTabs-root {
-        margin-bottom: -$spacer-s;
-        margin-left: -$spacer;
-        margin-right: -$spacer;
-        width: 100%;
+    .twitter-link {
+        position: absolute;
+        top: 80px;
+        left: $spacer;
+        display: flex;
+        align-items: center;
+        font-family: $font-family--tertiary;
+        text-decoration: none;
 
         @media (min-width: $breakpoint-tablet) {
-            margin-bottom: 0;
-            margin-left: auto;
-            margin-right: 0;
-            width: auto;
+            position: initial;
+        }
+
+        svg {
+            margin-left: $spacer-xs;
         }
     }
 }

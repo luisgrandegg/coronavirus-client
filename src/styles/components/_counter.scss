@@ -17,6 +17,7 @@
         background-color: $gray--megalight;
         border-radius: $border-radius;
         width: 100%;
+        min-width: 128px;
 
         @media (min-width: $breakpoint-tablet) {
             width: auto;

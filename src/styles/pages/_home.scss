@@ -58,8 +58,11 @@
         margin-top: $spacer;
         margin-right: -$spacer;
         margin-left: -$spacer;
-        border-radius: $border-radius-m;
         background-color: white;
+    
+        @media (min-width: $breakpoint-desktop) {
+            border-radius: $border-radius-m;
+        }
 
         .section-wrapper {
             flex-direction: column-reverse;

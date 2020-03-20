@@ -8,6 +8,8 @@ import { useSelector } from 'react-redux';
 import { getAuth } from '../store/selectors/status';
 import { UserType } from '../entities/User';
 
+import { TwitterIcon } from '../components/Social/Icons/TwitterIcon';
+
 export interface IHeaderProps {
     children?: React.ReactNode;
 }
@@ -18,9 +20,14 @@ export const Header: React.FunctionComponent<IHeaderProps> = (
     const { children } = props;
     const { t } = useTranslation();
     const auth = useSelector(getAuth);
+
+    const isDoctorAdmin = (): boolean => {
+        return auth?.userType === UserType.DOCTOR_ADMIN;
+    };
+
     //TODO:: pls if this grows change this
     const renderAdminButton = (): React.ReactNode =>
-        auth?.userType === UserType.DOCTOR_ADMIN ?
+        isDoctorAdmin() ?
             (
                 <Button
                     className="admin-button"
@@ -33,14 +40,31 @@ export const Header: React.FunctionComponent<IHeaderProps> = (
                 </Button>
             ) : null;
 
+    const renderTwitterLink = (): React.ReactNode =>
+        children === undefined && !isDoctorAdmin() ?
+            (
+                <a
+                    className="twitter-link"
+                    href="https://twitter.com/CitaMedicaCasa"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    @CitaMedicaCasa <TwitterIcon fill="currentColor" />
+                </a>
+            ) : (
+                null
+            );
+
     return (
         <header className="header">
             <div className="container">
                 <h1 className="header__title">
                     <RouterLink to={Routes.ROOT}>{t('header.title')}</RouterLink>
                 </h1>
-                {renderAdminButton()}
-                {children}
+                <div className="header__actions">
+                    {renderAdminButton()}
+                    {renderTwitterLink()}
+                    {children}
+                </div>
             </div>
         </header>
     );
