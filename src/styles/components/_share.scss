@@ -1,0 +1,25 @@
+.share {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    width: 50%;
+    margin-bottom: $spacer-m;
+    @media (min-width: $breakpoint-tablet) {
+      width: auto;
+      margin-right: $spacer;
+    }
+  }
+  &__button {
+    display: flex;
+    align-items: center;
+    font-family: $font-family--tertiary;
+    span {
+        margin-left: $spacer-xs;
+    }
+  }
+}

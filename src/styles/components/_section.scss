@@ -1,6 +1,10 @@
 .section-wrapper {
   display: flex;
 
+  @media (min-width: $breakpoint-tablet) {
+      border-radius: $border-radius-m;
+  }
+
   &__content {
     display: flex;
     flex-wrap: wrap;
@@ -8,6 +12,14 @@
     @media (min-width: $breakpoint-tablet) {
         flex: 0 0  percentage(2/3);
     }
+  }
+
+  &__primary {
+    padding: $spacer;
+    margin-right: -$spacer;
+    margin-left: -$spacer;
+    background-color: $primary;
+    color: white;
   }
 
   &__white {

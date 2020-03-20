@@ -5,6 +5,8 @@ const resources = {
     es: {
         translation: {
             footer: {
+                'title': '¿Nos ayudas a difundir?',
+                'first-paragraph': 'Ayúdanos compartiendo este servicio para que podamos ayudar a más gente.',
                 'powered-by': 'Hecho con mucho cariño en Madrid :)'
             },
             header: {
@@ -182,6 +184,10 @@ const resources = {
                     'first-paragraph': 'Cita Médica en Casa está pensada para la resolución de dudas sencillas de salud. No es un plataforma para diagnosticar o preescribir medicamentos, tampoco se atenderán preguntas sobre Coronavirus, ese tema está en manos de los canales oficiales del Estado.',
                     'second-paragraph': 'Mil gracias de nuevo por tu ayuda.'
                 }
+            },
+            share: {
+                title: 'Cita Médica en Casa',
+                text: 'Desde Cita Médica en Casa están ayudando a aliviar la saturación de la sanidad, visítales y pon tu grano de arena compartiendo'
             }
         }
     }
