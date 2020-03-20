@@ -1,0 +1,5 @@
+.doctor {
+    & + .doctor {
+        margin-top: $spacer;
+    }
+}

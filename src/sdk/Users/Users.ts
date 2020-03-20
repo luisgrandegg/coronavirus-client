@@ -2,8 +2,6 @@ import { AxiosResponse } from "axios";
 
 import { ApiClient } from "../ApiClient";
 import { User, IUserApiResponse } from "../../entities/User";
-import { Feeling, IFeelingApiResponse, FeelingType } from "../../entities/Feeling";
-import { Temperature, ITemperatureApiResponse } from "../../entities/Temperature";
 
 export class Users {
     constructor(
@@ -15,13 +13,23 @@ export class Users {
             .then((response: AxiosResponse<IUserApiResponse>): User => User.createFromResponse(response.data));
     }
 
-    async createFeeling(feelingType: FeelingType): Promise<Feeling> {
-        return this.apiClient.post<IFeelingApiResponse>('/users/feeling', { type: feelingType })
-            .then((response: AxiosResponse<IFeelingApiResponse>): Feeling => Feeling.createFromResponse(response.data));
+    async validate(userId: string): Promise<User> {
+        return this.apiClient.post<IUserApiResponse>(`/users/${userId}/validate`)
+            .then((response: AxiosResponse<IUserApiResponse>): User => User.createFromResponse(response.data));
     }
 
-    async createTemperature(measure: number): Promise<Temperature> {
-        return this.apiClient.post<ITemperatureApiResponse>('/users/temperature', { measure })
-            .then((response: AxiosResponse<ITemperatureApiResponse>): Temperature => Temperature.createFromResponse(response.data));
+    async invalidate(userId: string): Promise<User> {
+        return this.apiClient.post<IUserApiResponse>(`/users/${userId}/invalidate`)
+            .then((response: AxiosResponse<IUserApiResponse>): User => User.createFromResponse(response.data));
+    }
+
+    async activate(userId: string): Promise<User> {
+        return this.apiClient.post<IUserApiResponse>(`/users/${userId}/activate`)
+            .then((response: AxiosResponse<IUserApiResponse>): User => User.createFromResponse(response.data));
+    }
+
+    async deactivate(userId: string): Promise<User> {
+        return this.apiClient.post<IUserApiResponse>(`/users/${userId}/deactivate`)
+            .then((response: AxiosResponse<IUserApiResponse>): User => User.createFromResponse(response.data));
     }
 }

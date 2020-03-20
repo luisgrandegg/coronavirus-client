@@ -69,15 +69,3 @@ export const DoctorRoute: React.FunctionComponent<IRouteProps> = (
         </PrivateRoute>
     )
 }
-
-export const PatientRoute: React.FunctionComponent<IRouteProps> = (
-    props: IRouteProps
-): JSX.Element => {
-    const { children, ...rest } = props;
-
-    return (
-        <PrivateRoute userTypes={[UserType.PATIENT]} {...rest}>
-            {children}
-        </PrivateRoute>
-    )
-}

@@ -5,11 +5,10 @@ import { BrowserRouter as Router, Switch, Redirect, Route } from "react-router-d
 import { ThemeProvider } from '@material-ui/core/styles';
 import CookieConsent from "react-cookie-consent";
 
-import { DoctorRoute, PatientRoute, AdminRoute } from './router/PrivateRoute';
+import { DoctorRoute, AdminRoute } from './router/PrivateRoute';
 import { Routes } from './router/Routes';
 import { Spinner } from './components/Spinner';
 import { DoctorDashbord } from './pages/DoctorDashboard';
-import { PatientDashbord } from './pages/PatientDashboard';
 import { getAuth } from './store/selectors/status';
 import { sdk } from './sdk';
 import { Home } from './pages/Home';
@@ -71,9 +70,6 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                         <DoctorRoute path={Routes.INQUIRY_DETAIL}>
                             <InquiryDetail />
                         </DoctorRoute>
-                        <PatientRoute exact={true} path={Routes.PATIENT_DASHBOARD}>
-                            <PatientDashbord />
-                        </PatientRoute>
                         <AdminRoute exact={true} path={Routes.ADMIN_DASHBOARD}>
                             <AdminDashboard/>
                         </AdminRoute>

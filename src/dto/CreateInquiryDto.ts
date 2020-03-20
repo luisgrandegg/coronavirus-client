@@ -1,5 +1,3 @@
-import { UserType } from "../entities/User";
-
 export interface ICreateInquiryDto {
     age: string;
     email: string;
@@ -11,8 +9,6 @@ export interface ICreateInquiryDto {
 }
 
 export class CreateInquiryDto {
-    public userType: UserType = UserType.PATIENT;
-
     static deserialize(data: ICreateInquiryDto): CreateInquiryDto {
         return new CreateInquiryDto(
             data.age,

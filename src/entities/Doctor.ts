@@ -7,6 +7,7 @@ export interface IDoctor {
     email: string;
     phone: string;
     id: string;
+    userId: string;
 }
 
 export interface IDoctorApiResponse {
@@ -18,6 +19,7 @@ export interface IDoctorApiResponse {
     email: string;
     phone: string;
     id: string;
+    userId: string;
 }
 
 export class Doctor {
@@ -30,7 +32,8 @@ export class Doctor {
             response.license,
             response.email,
             response.phone,
-            response.id
+            response.id,
+            response.userId
         );
     }
 
@@ -42,7 +45,8 @@ export class Doctor {
         public license: string,
         public email: string,
         public phone: string,
-        public id: string
+        public id: string,
+        public userId: string
     ) {}
 
     toJSON(): IDoctor {
@@ -54,7 +58,8 @@ export class Doctor {
             speciality: this.speciality,
             license: this.license,
             email: this.email,
-            phone: this.phone
+            phone: this.phone,
+            userId: this.userId
         };
     }
 }

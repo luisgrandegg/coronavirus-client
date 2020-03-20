@@ -170,7 +170,9 @@ const resources = {
                 phone: 'Teléfono:',
                 speciality: 'Especialidad:',
                 validate: 'Validar',
-                deactivate: 'Deactivate'
+                invalidate: 'Invalidar',
+                activate: 'Activar',
+                deactivate: 'Desactivar'
             },
             'doctor-dashboard': {
                 header: {
