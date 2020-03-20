@@ -56,7 +56,7 @@ export const DoctorList: React.FunctionComponent<IDoctorListProps> = (
                     type="button"
                     variant="contained"
                 >
-                    {t('doctor.validate')}
+                    {t('doctor.deactivate')}
                 </Button>
             </>
         );

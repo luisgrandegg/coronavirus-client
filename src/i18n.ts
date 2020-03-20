@@ -169,7 +169,8 @@ const resources = {
                 email: 'Email:',
                 phone: 'Teléfono:',
                 speciality: 'Especialidad:',
-                validate: 'Validar'
+                validate: 'Validar',
+                deactivate: 'Deactivate'
             },
             'doctor-dashboard': {
                 header: {
