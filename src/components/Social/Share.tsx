@@ -24,6 +24,7 @@ export const Share: React.FunctionComponent = (): JSX.Element => {
                 <TwitterShareButton
                     className={buttonClassName}
                     url={shareUrl}
+                    via="CitaMedicaCasa"
                     title={t('share.text')}
                 >
                     <TwitterIcon />
@@ -34,7 +35,7 @@ export const Share: React.FunctionComponent = (): JSX.Element => {
                 <FacebookShareButton
                     className={buttonClassName}
                     url={shareUrl}
-                    title={t('share.text')}
+                    quote={t('share.text')}
                 >
                     <FacebookIcon />
                     <span>Facebook</span>
