@@ -23,6 +23,13 @@ export const DoctorList: React.FunctionComponent<IDoctorListProps> = (
         };
     };
 
+    const deactivateDoctor = (doctor: Doctor): () => void => {
+        return (): void => {
+            sdk.doctors.deactivate(doctor.id)
+                .then(() => { getDoctors(); });
+        };
+    };
+
     const getDoctors = () => {
         sdk.doctors.get(props.doctorListParams).then((doctors: Doctor[]) => setDoctors(doctors));
     };
@@ -38,6 +45,14 @@ export const DoctorList: React.FunctionComponent<IDoctorListProps> = (
                 <Button
                     color="primary"
                     onClick={validateDoctor(doctor)}
+                    type="button"
+                    variant="contained"
+                >
+                    {t('doctor.validate')}
+                </Button>
+                <Button
+                    color="secondary"
+                    onClick={deactivateDoctor(doctor)}
                     type="button"
                     variant="contained"
                 >
