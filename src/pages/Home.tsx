@@ -125,7 +125,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
                             aside={(
                                 <Counter
                                     pre={t('home.pacient.counter-pre')}
-                                    count={100}
+                                    count={130}
                                     post={t('home.pacient.counter-post')}
                                 />
                             )}
@@ -135,7 +135,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
                             aside={(
                                 <Counter
                                     pre={t('home.doctor.counter-pre')}
-                                    count={60}
+                                    count={25}
                                     post={t('home.doctor.counter-post')}
                                 />
                             )}
