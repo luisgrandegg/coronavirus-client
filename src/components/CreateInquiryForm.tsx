@@ -57,7 +57,8 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
             .required(t('register-form.error.required', { field: t('register-patient.fields.email') }))
             .email(t('register-form.error.format', { field: t('register-patient.fields.email') }))
             .oneOf([yup.ref('email')], t('register-form.error.confirm')),
-        speciality: yup.string(),
+        speciality: yup.string()
+            .required(t('register-form.error.required', { field: t('register-patient.fields.speciality') })),
         summary: yup.string()
             .required(t('register-form.error.required', { field: t('register-patient.fields.summary') })),
         terms: yup.bool()

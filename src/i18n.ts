@@ -139,7 +139,7 @@ const resources = {
                     age: 'Edad',
                     email: 'Email (para enviarte la cita)',
                     'confirm-email': 'Confirma email',
-                    speciality: 'Especialidad (opcional)',
+                    speciality: 'Especialidad',
                     summary: 'Resumen de tu problema',
                     'summary-placeholder': 'Resumen de tu duda: Dinos cuánto hace que lo tienes, si tomas medicación, enfermedades que tengas como por ejemplo diabetes, alergias... todo lo que nos pueda ayudar a entenderlo mejor. No escribas aquí tus datos personales.',
                     'terms': '<a target="_blank" href="/static/consentimiento.pdf">Acepto compartir mis datos personales con el personal médico.</a>',

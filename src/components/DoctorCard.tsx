@@ -33,7 +33,7 @@ export const DoctorCard: React.FunctionComponent<IDoctorCardProps> = (
                     {t('doctor.surname')} {doctor.surname}
                 </Typography>
                 <Typography>
-                    {t('doctor.speciality')} {doctor.speciality && getSpecialityLabel(doctor.speciality)}
+                    {t('doctor.speciality')} {getSpecialityLabel(doctor.speciality)}
                 </Typography>
                 <Typography>
                     {t('doctor.license')} {doctor.license}
