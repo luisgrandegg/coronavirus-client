@@ -21,7 +21,6 @@ export const AboutUs: React.FunctionComponent = (): JSX.Element => {
                                         <h2 className="about-us__section-title">{t('about-us.volunteers.title')}</h2>
                                     </header>
                                     <p dangerouslySetInnerHTML={{ __html: t('about-us.volunteers.first-paragraph') }} />
-                                    <p dangerouslySetInnerHTML={{ __html: t('about-us.volunteers.second-paragraph') }} />
                                 </section>
                                 <section className="about-us__section">
                                     <header className="about-us__section-header">

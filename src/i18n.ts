@@ -199,8 +199,7 @@ const resources = {
             'about-us': {
                 'volunteers': {
                     title: 'Somos voluntarios y voluntarias',
-                    'first-paragraph': 'No somos un servicio médico. Somos un equipo de personas que se han propuesto echar una mano durante el estado de alarma, para reducir la saturación de la sanidad.',
-                    'second-paragraph': 'En el equipo hay programadores, diseñadoras, gente de experiencia de usuario, SEO, contenidos... y por supuesto <strong>médicos y médicas, con número de colegiado comprobado uno por uno</strong>. Todos actuando de forma voluntaria sin ningún tipo de remuneración.',
+                    'first-paragraph': '<strong>No somos un servicio médico.</strong> Somos un equipo formado por personas expertas en distintas disciplinas: desarrollo, diseño, experiencia de usuario, SEO, contenidos... y por supuesto: Medicina. <strong>Todos los profesionales médicos también son voluntarios y están colegiados; nos encargamos de comprobarlo uno por uno.</strong>',
                 },
                 'our-goal': {
                     title: 'Nuestro objetivo',
