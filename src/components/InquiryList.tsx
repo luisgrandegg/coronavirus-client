@@ -49,11 +49,11 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
 
     useEffect((): () => void => {
         const interval = isLive ?
-            setInterval(() => { getInquiries(); }, 5000):
+            setInterval(() => { getInquiries(); }, 5000) :
             null;
         return (): void => { interval && clearInterval(interval); }
 
-// eslint-disable-next-line
+        // eslint-disable-next-line
     }, []);
 
     useEffect((): void => {
@@ -62,7 +62,7 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
     }, [props.inquiryListParams]);
 
 
-    const renderDeactivateContent = (inquiry: Inquiry): React. ReactNode => {
+    const renderDeactivateContent = (inquiry: Inquiry): React.ReactNode => {
         if (props.inquiryListParams?.flagged) {
             return (
                 <Button
@@ -145,8 +145,8 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
             )}
             <div className="button-group">
                 {admin ?
-                     renderDeactivateContent(inquiry) :
-                     renderInquiryAttendContent(inquiry)
+                    renderDeactivateContent(inquiry) :
+                    renderInquiryAttendContent(inquiry)
                 }
             </div>
             <div className="button-group">
