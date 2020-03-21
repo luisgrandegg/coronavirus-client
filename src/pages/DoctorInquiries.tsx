@@ -14,6 +14,7 @@ export const DoctorInquiries: React.FunctionComponent = (): JSX.Element => {
 
     const inquiryListParams: InquiryListParams = InquiryListParams.deserialize({
         attended: true,
+        flagged: false,
         doctorId: (auth as Auth).userId
     });
 
