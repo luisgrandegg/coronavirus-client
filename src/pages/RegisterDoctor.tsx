@@ -67,14 +67,16 @@ export const RegisterDoctor: React.FunctionComponent = (): JSX.Element => {
         </div>
     )
 
-    const Aside = (): JSX.Element => (
-        <div className="home__drawing">
-            <img
-                src="/images/doctor.svg"
-                alt={t('home.drawing.alt')}
-            />
-        </div>
-    );
+    const Aside = (): JSX.Element | null => {
+        return registerFormSuccess ? null : (
+            <div className="home__drawing">
+                <img
+                    src="/images/doctor.svg"
+                    alt={t('home.drawing.alt')}
+                />
+            </div>
+        );
+    };
 
     const RegisterProcess = (): JSX.Element => (
         <>

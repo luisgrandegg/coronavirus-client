@@ -116,21 +116,17 @@ export const DoctorList: React.FunctionComponent<IDoctorListProps> = (
         }
     };
 
-    const renderDoctorCardContent = (doctor: Doctor): React.ReactNode => {
-        return (
-            <>
-                {renderValidateActions(doctor, doctorListParams)}
-                {renderActiveActions(doctor, doctorListParams)}
-            </>
-        );
-    };
+    const renderDoctorCardContent = (doctor: Doctor): React.ReactNode => (
+        <>
+            {renderValidateActions(doctor, doctorListParams)}
+            {renderActiveActions(doctor, doctorListParams)}
+        </>
+    );
 
     const renderDoctors = (): React.ReactNode => doctors.map((doctor: Doctor) => (
-        <>
-            <DoctorCard doctor={doctor}>
-                {renderDoctorCardContent(doctor)}
-            </DoctorCard>
-        </>
+        <DoctorCard key={doctor.id} doctor={doctor}>
+            {renderDoctorCardContent(doctor)}
+        </DoctorCard>
     ));
 
     return (

@@ -4,6 +4,11 @@ import { initReactI18next } from "react-i18next";
 const resources = {
     es: {
         translation: {
+            'admin-dashboard': {
+                container: {
+                    'link-to-doctor': '← Volver al panel de citas',
+                },
+            },
             footer: {
                 'title': '¿Nos ayudas a difundir?',
                 'first-paragraph': 'Ayúdanos compartiendo este servicio para que podamos ayudar a más gente.',

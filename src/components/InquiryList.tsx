@@ -138,7 +138,7 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
     }
 
     const renderInquiries = (): React.ReactNode => inquiries.map((inquiry: Inquiry) => (
-        <InquiryCard inquiry={inquiry}>
+        <InquiryCard key={inquiry.id} inquiry={inquiry}>
             <div className="button-group">
                 {admin ?
                      renderDeactivateContent(inquiry) :

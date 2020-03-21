@@ -64,14 +64,16 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
         </>
     );
 
-    const Aside = (): JSX.Element => (
-        <div className="home__drawing">
-            <img
-                src="/images/inquiry.svg"
-                alt={t('home.drawing.alt')}
-            />
-        </div>
-    );
+    const Aside = (): JSX.Element | null => {
+        return createFromSuccess ? null : (
+            <div className="home__drawing">
+                <img
+                    src="/images/inquiry.svg"
+                    alt={t('home.drawing.alt')}
+                />
+            </div>
+        );
+    }
 
     return (
         <>

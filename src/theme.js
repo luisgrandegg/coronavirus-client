@@ -19,6 +19,11 @@ export default createMuiTheme({
           backgroundColor: "#1d99bf",
         }
       }
-    }
-  }
+    },
+    MuiTypography: {
+      colorPrimary: {
+        color: "#20ABD6",
+      }
+    },
+  },
 });

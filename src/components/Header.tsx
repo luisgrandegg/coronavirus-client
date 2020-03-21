@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -24,6 +24,13 @@ export const Header: React.FunctionComponent<IHeaderProps> = (
     const isDoctorAdmin = (): boolean => {
         return auth?.userType === UserType.DOCTOR_ADMIN;
     };
+
+    useEffect(() => {
+        const currentLocation = window && window.location.href;
+        if (!currentLocation.includes('admin')) {
+            sessionStorage.setItem('lastNonAdminPageLoaded', currentLocation);
+        }
+    }, []);
 
     //TODO:: pls if this grows change this
     const renderAdminButton = (): React.ReactNode =>
