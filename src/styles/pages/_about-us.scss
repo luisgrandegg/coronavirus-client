@@ -1,0 +1,34 @@
+.about-us {
+    &__header-title {
+        color: $gray--ultradark;
+        font-size: $font-size-xxl;
+        line-height: $line-height-l;
+        margin-bottom: $spacer-xs;
+    }
+
+    &__section {
+        width: 100%;
+
+        + .about-us__section {
+            margin-top: $spacer;
+        }
+    }
+
+    &__section-title {
+        color: $gray--ultradark;
+        font-size: $font-size-xxl;
+        line-height: $line-height-l;
+    }
+
+    &__list {
+        padding-left: $spacer;
+    }
+
+    &__list {
+        font-size: $font-size-l;
+        line-height: $line-height-m;
+        + &__list {
+            margin-top: $spacer-xs;
+        }
+    }
+}

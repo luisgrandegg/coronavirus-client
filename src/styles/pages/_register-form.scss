@@ -1,6 +1,6 @@
 .register-form {
     &__title {
-        color: black;
+        color: $gray--ultradark;
 
         &.register-form__title--confirmation {
             color: #9BD870;
@@ -25,7 +25,7 @@
     }
 
     &__section-title {
-        color: black;
+        color: $gray--ultradark;
     }
 
     &__list {

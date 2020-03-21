@@ -73,10 +73,10 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
             </section>
             <section className="home__section">
                 <header className="home__section-header">
-                    <h2 className="home__section-title">{t('home.what-is.title')}</h2>
+                    <h2 className="home__section-title">
+                        <RouterLink to={Routes.ABOUT_US}>{t('home.what-is.title')}</RouterLink>
+                    </h2>
                 </header>
-                <p dangerouslySetInnerHTML={{ __html: t('home.what-is.first-paragraph') }} />
-                <p dangerouslySetInnerHTML={{ __html: t('home.what-is.second-paragraph') }} />
             </section>
             <section className="home__section">
                 <header className="home__section-header">

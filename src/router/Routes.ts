@@ -1,4 +1,5 @@
 export enum Routes {
+    ABOUT_US = '/about-us',
     ADMIN_DASHBOARD = '/admin/dashboard',
     ADMIN_MODERATE = '/admin/moderate',
     DOCTOR_DASHBOARD = '/dashboard/doctor',

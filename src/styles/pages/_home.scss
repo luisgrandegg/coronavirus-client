@@ -1,6 +1,6 @@
 .home {
     &__header-title {
-        color: black;
+        color: $gray--ultradark;
         font-size: $font-size-xxl;
         line-height: $line-height-l;
         margin-bottom: $spacer-xs;
@@ -37,7 +37,7 @@
     }
 
     &__section-title {
-        color: black;
+        color: $gray--ultradark;
         font-size: $font-size-xxl;
         line-height: $line-height-l;
     }

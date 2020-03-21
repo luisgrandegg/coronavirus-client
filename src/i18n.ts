@@ -51,9 +51,7 @@ const resources = {
                     'second-paragraph': 'Cita Médica en Casa, <strong>no es un sustituto del Sistema Nacional de Salud ni de la cita presencial con tu médico. No es un servicio médico de diagnóstico ni de prescripción de tratamientos</strong> de ningún tipo.'
                 },
                 'what-is': {
-                    title: 'Qué y quiénes somos',
-                    'first-paragraph': 'Cita Médica en Casa <strong>no es un servicio médico</strong>, solo intermedia entre ciudadanos y médicos para evitar las visitas innecesarias a centros de salud. <strong>Cita Médica en Casa no se hace responsable de los contenidos ni de las opiniones intercambiados entre profesionales de la salud y ciudadanos.</strong>',
-                    'second-paragraph': 'Tanto el equipo técnico y de diseño que ha creado esta plataforma, como los médicos (comprobamos su número de colegiado/a) que colaboran <strong>somos voluntarios</strong>. Simplemente queremos echar una mano ante la situación creada por el Coronavirus.',
+                    title: 'Aquí te contamos en detalle quiénes somos',
                 },
                 privacy: {
                     title: '¿Cómo trataremos tus datos?'
@@ -192,6 +190,30 @@ const resources = {
             share: {
                 title: 'Cita Médica en Casa',
                 text: 'Desde Cita Médica en Casa están ayudando a aliviar la saturación de la sanidad, visítales y pon tu grano de arena compartiendo'
+            },
+            'about-us': {
+                'volunteers': {
+                    title: 'Somos voluntarios y voluntarias',
+                    'first-paragraph': 'No somos un servicio médico. Somos un equipo de personas que se han propuesto echar una mano durante el estado de alarma, para reducir la saturación de la sanidad.',
+                    'second-paragraph': 'En el equipo hay programadores, diseñadoras, gente de experiencia de usuario, SEO, contenidos... y por supuesto <strong>médicos y médicas, con número de colegiado comprobado uno por uno</strong>. Todos actuando de forma voluntaria sin ningún tipo de remuneración.',
+                },
+                'our-goal': {
+                    title: 'Nuestro objetivo',
+                    'first-paragraph': '<strong>Poner en contacto a los ciudadanos con profesionales médicos</strong>. Dadas las restricciones de movimiento, creemos que <strong>las dudas sencillas de salud pueden ser resueltas a distancia</strong>, reduciendo los desplazamientos innecesarios.',
+                    'second-paragraph': 'Tenemos la seguridad de que <strong>resolver esas dudas</strong>, aunque sean sencillas, también <strong>ayuda a tranquilizar en estos momentos de confinamiento.</strong>',
+                },
+                'collaboration': {
+                    title: 'Colaboramos, no sustituimos',
+                    'first-paragraph': '<strong>Cita Médica en Casa no sustituye al sistema nacional de salud ni a una cita con un médico de cabecera o especialista</strong>. Admiramos la labor que está desempeñado el personal sanitario en estos momentos y queremos echar una mano aliviando su trabajo, pero nunca interfiriendo.',
+                    'second-paragraph': '<strong>En Cita médica en Casa no se realizan diagnósticos ni se prescriben tratamientos</strong>. Por eso, si sospechas que tienes una patología grave, necesitas ayuda urgente, estás siguiendo un tratamiento o ya tienes cita con tu médico, no lo sustituyas por esta plataforma.',
+                    'list-item-1': '<strong>En caso de urgencia llama al 112.</strong>',
+                    'list-item-2': '<strong>Si sospechas que puedes estar infectado/a por COVID-19</strong> llama a los <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm">teléfonos habilitados por las comunidades autónomas</a></strong> y si estás <strong><a target="_blank" href="https://www.coronamadrid.com/">en Madrid descarga la app oficial</a></strong>.',
+                },
+                'security': {
+                    title: 'La seguridad de la información que nos envías',
+                    'first-paragraph': '<strong>Todas las consultas que nos envías son encriptadas</strong> para preservar la información, es el personal médico el que las lee y nunca se cederán a terceros. Además, una vez finalizado el estado de alarma se borrarán. ',
+                    'second-paragraph': 'En cualquier caso, puedes pedir su borrado cuando tú quieras escribiendo un email a: <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a>',
+                }
             }
         }
     }

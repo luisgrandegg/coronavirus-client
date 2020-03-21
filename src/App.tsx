@@ -13,6 +13,7 @@ import { getAuth } from './store/selectors/status';
 import { sdk } from './sdk';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
+import { AboutUs } from './pages/AboutUs';
 import { RegisterDoctor } from './pages/RegisterDoctor';
 import { CreateInquiry } from './pages/CreateInquiry';
 import { InquiryDetail } from './pages/InquiryDetail';
@@ -46,6 +47,11 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                                 <Home />
                             </ScrollToTop>
                         </Route>
+                        <Route exact={true} path={Routes.ABOUT_US}>
+                            <ScrollToTop>
+                                <AboutUs />
+                            </ScrollToTop>
+                        </Route>
                         <Route exact={true} path={Routes.LOGIN}>
                             <ScrollToTop>
                                 <Login />
@@ -71,7 +77,7 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                             <InquiryDetail />
                         </DoctorRoute>
                         <AdminRoute exact={true} path={Routes.ADMIN_DASHBOARD}>
-                            <AdminDashboard/>
+                            <AdminDashboard />
                         </AdminRoute>
                         <Redirect exact={true} from={Routes.REGISTER} to={Routes.REGISTER_PATIENT} />
                         <Redirect to={Routes.ROOT} />
