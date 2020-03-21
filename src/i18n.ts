@@ -24,11 +24,11 @@ const resources = {
             },
             home: {
                 'claim': {
-                    title: '#QuédateEnCasa y consulta a un médico'
+                    title: '¿Necesitas consejo médico?<br>#QuédateEnCasa y consulta a profesionales'
                 },
                 'how-does-it-work': {
-                    title: '¿Cómo funciona?',
-                    'first-paragraph': 'Ponemos en contacto a médicos y ciudadanos <strong>a través de email o videollamada</strong>, para resolver dudas. Queremos reducir la sobrecarga de hospitales y centros de salud en consultas leves. '
+                    title: 'Así funciona Cita Médica en Casa',
+                    'first-paragraph': 'Ponemos en contacto a <strong>profesionales colegiados y ciudadanos</strong> a través de email o videollamada, para resolver dudas. Queremos reducir la sobrecarga de hospitales y centros de salud en consultas leves.'
 
                 },
                 'pacient': {

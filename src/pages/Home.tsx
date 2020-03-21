@@ -15,7 +15,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
     const ContentHowDoesItWork = (): JSX.Element => (
         <>
             <header className="home__header">
-                <h2 className="home__header-title">{t('home.claim.title')}</h2>
+                <h2 className="home__header-title" dangerouslySetInnerHTML={{ __html: t('home.claim.title') }} />
             </header>
             <section className="home__section">
                 <header className="home__section-header">
