@@ -194,7 +194,7 @@ const resources = {
             },
             share: {
                 title: 'Cita Médica en Casa',
-                text: 'Desde Cita Médica en Casa están ayudando a aliviar la saturación de la sanidad, visítales y pon tu grano de arena compartiendo'
+                text: 'Si necesitas consejo médico, desde #CitaMédicaEnCasa te ponen en contacto con profesionales voluntarios. Así aliviamos la saturación de la sanidad. Visítales y si no lo necesitas, pon tu grano de arena compartiendo'
             },
             'about-us': {
                 'volunteers': {
