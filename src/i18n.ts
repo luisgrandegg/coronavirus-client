@@ -23,6 +23,9 @@ const resources = {
                 dashboard: 'dashboard'
             },
             home: {
+                drawing: {
+                    alt: 'Cita Médica en Casa'
+                },
                 'claim': {
                     title: '¿Necesitas consejo médico?<br>#QuédateEnCasa y consulta a profesionales'
                 },
@@ -82,6 +85,9 @@ const resources = {
                 deactivate: 'Eliminar'
             },
             'register-doctor': {
+                drawing: {
+                    alt: 'Cita Médica en Casa para profesionales'
+                },
                 confirmation: {
                     header: {
                         title: 'Solicitud recibida'
@@ -116,6 +122,9 @@ const resources = {
                 }
             },
             'register-patient': {
+                drawing: {
+                    alt: 'Cita Médica en Casa para ciudadanos'
+                },
                 confirmation: {
                     header: {
                         title: 'Solicitud recibida'

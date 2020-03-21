@@ -64,12 +64,24 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
         </>
     );
 
+    const Aside = (): JSX.Element => (
+        <div className="home__drawing">
+            <img
+                src="/images/inquiry.svg"
+                alt={t('home.drawing.alt')}
+            />
+        </div>
+    );
+
     return (
         <>
             <Header />
             <main className="main register-form">
                 <div className="container">
-                    <Section content={<InquiryProcess />} />
+                    <Section
+                        aside={<Aside />}
+                        content={<InquiryProcess />}
+                    />
                 </div>
             </main>
             <Footer />

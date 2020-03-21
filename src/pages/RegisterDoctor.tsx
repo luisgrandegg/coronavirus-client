@@ -67,6 +67,15 @@ export const RegisterDoctor: React.FunctionComponent = (): JSX.Element => {
         </div>
     )
 
+    const Aside = (): JSX.Element => (
+        <div className="home__drawing">
+            <img
+                src="/images/doctor.svg"
+                alt={t('home.drawing.alt')}
+            />
+        </div>
+    );
+
     const RegisterProcess = (): JSX.Element => (
         <>
             {registerFormSuccess ? renderConfirmation() : renderRegisterForm()}
@@ -78,7 +87,9 @@ export const RegisterDoctor: React.FunctionComponent = (): JSX.Element => {
             <Header />
             <main className="main register-form">
                 <div className="container">
-                    <Section content={<RegisterProcess />} />
+                    <Section
+                        aside={<Aside />}
+                        content={<RegisterProcess />} />
                 </div>
             </main>
             <Footer />
