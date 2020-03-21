@@ -11,7 +11,9 @@ import { DoctorTabs } from '../components/DoctorTabs';
 export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
     const inquiryListParams: InquiryListParams = InquiryListParams.deserialize({
-        attended: false
+        active: true,
+        attended: false,
+        flagged: false
     });
 
     const Content = (): JSX.Element => (

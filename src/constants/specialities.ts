@@ -1,4 +1,19 @@
-export default [{
+export interface ISpeciality {
+    label: string;
+    value: string;
+}
+
+export const getSpecialityLabel = (value: string): string => {
+    const speciality = specialites.filter((speciality: ISpeciality) => {
+        return speciality.value === value;
+    })[0];
+
+    return speciality ?
+        speciality.label :
+        value;
+};
+
+export const specialites = [{
 	"label": "Medicina de familia",
 	"value": "medicina_de_familia"
 }, {
@@ -74,3 +89,5 @@ export default [{
 	"label": "Otros",
 	"value": "otros"
 }];
+
+export default specialites;

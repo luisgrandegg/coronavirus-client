@@ -4,11 +4,12 @@ import { useTranslation } from 'react-i18next';
 
 import moment from '../../utils/moment';
 import { Inquiry } from '../../entities/Inquiry';
-
+import { getSpecialityLabel } from '../../constants/specialities';
 export interface IInquiryCardProps {
     children: React.ReactNode;
     inquiry: Inquiry;
 }
+
 
 export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
     props: IInquiryCardProps
@@ -26,7 +27,7 @@ export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
                     })}
                 </Typography>
                 <Typography>
-                    {t('inquiry.speciality')} {inquiry.speciality}
+                    {t('inquiry.speciality')} {inquiry.speciality && getSpecialityLabel(inquiry.speciality)}
                 </Typography>
                 <Typography color="textSecondary">
                     {inquiry.summary}
