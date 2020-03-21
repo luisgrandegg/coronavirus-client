@@ -131,6 +131,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
                             )}
                             content={<ContentCTAPatient />}
                         />
+                        <p className="divider"/>
                         <Section
                             aside={(
                                 <Counter
