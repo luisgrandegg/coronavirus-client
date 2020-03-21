@@ -91,7 +91,7 @@ const resources = {
                     }
                 },
                 header: {
-                    title: '¿Como funciona Cita Médica en Casa para profesionales?'
+                    title: '¿Cómo funciona Cita Médica en Casa para profesionales?'
                 },
                 content: {
                     'list-item-1': 'Debes <strong>rellenar el formulario</strong> que verás a continuación.',
@@ -121,11 +121,12 @@ const resources = {
                         title: 'Solicitud recibida'
                     },
                     content: {
-                        message: 'Recibirás un email confimándola con un link para acceder a una consulta online, o con una respuesta a tu consulta.'
+                        'message-1': 'Recibirás un email confimándola con un link para acceder a una consulta online, o con una respuesta a tu consulta.',
+                        'message-2': '<strong>Importante:</strong> revisa por favor el buzon de Spam de tu email, a veces las respuestas llegan allí.'
                     }
                 },
                 header: {
-                    title: '¿Como funciona Cita Médica en Casa para ciudadanos?'
+                    title: '¿Cómo funciona Cita Médica en Casa para ciudadanos?'
                 },
                 content: {
                     'list-item-1': 'Rellenas un formulario con tu duda que no tenga que ver con el Coronavirus, tus datos y tu pregunta serán cifrados para preservar su confidencialidad.',
