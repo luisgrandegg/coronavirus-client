@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import { useTranslation } from 'react-i18next';
 
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -15,11 +17,14 @@ interface IInquiryDetailLocationState {
 export const InquiryDetail: React.FunctionComponent = (): JSX.Element => {
     let { id: inquiryId } = useParams<IInquiryDetailLocationState>();
     const [inquiry, setInquiry] = useState<Inquiry | null>(null);
+    const { t } = useTranslation();
 
     const renderInquiry = (inquiryToRender: Inquiry): React.ReactNode => {
         return (
             <InquiryCard inquiry={inquiryToRender}>
-                {inquiryToRender.email}
+                <CopyToClipboard text={inquiryToRender.email}>
+                    <span>{t('inquiry.email')} {inquiryToRender.email}</span>
+                </CopyToClipboard>
             </InquiryCard>
         );
     };

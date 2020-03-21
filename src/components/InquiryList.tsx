@@ -2,6 +2,7 @@ import { Button } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
 import { sdk } from '../sdk';
 import { Inquiry } from '../entities/Inquiry';
@@ -79,7 +80,9 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
         if (props.inquiryListParams?.attended) {
             return (
                 <>
-                    <span>{t('inquiry.email')} {inquiry.email}</span>
+                    <CopyToClipboard text={inquiry.email}>
+                        <span>{t('inquiry.email')} {inquiry.email}</span>
+                    </CopyToClipboard>
                     <Button
                         color="primary"
                         onClick={unattendInquiry(inquiry)}

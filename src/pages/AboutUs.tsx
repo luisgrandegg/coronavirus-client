@@ -1,13 +1,9 @@
-import { Button } from '@material-ui/core';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link as RouterLink } from 'react-router-dom';
 
-import { Counter } from '../components/Counter';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Section } from '../components/Section';
-import { Routes } from '../router/Routes';
 
 export const AboutUs: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
