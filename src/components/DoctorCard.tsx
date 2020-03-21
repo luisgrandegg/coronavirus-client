@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import moment from '../utils/moment';
 import { Doctor } from '../entities/Doctor';
+import { getSpecialityLabel } from '../constants/specialities';
 
 export interface IDoctorCardProps {
     children: React.ReactNode;
@@ -32,7 +33,7 @@ export const DoctorCard: React.FunctionComponent<IDoctorCardProps> = (
                     {t('doctor.surname')} {doctor.surname}
                 </Typography>
                 <Typography>
-                    {t('doctor.speciality')} {doctor.speciality}
+                    {t('doctor.speciality')} {doctor.speciality && getSpecialityLabel(doctor.speciality)}
                 </Typography>
                 <Typography>
                     {t('doctor.license')} {doctor.license}

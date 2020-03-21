@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { InquiryCard } from '../components/InquiryCard';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Inquiry } from '../entities/Inquiry';
 import { DoctorTabs } from '../components/DoctorTabs';
+import { sdk } from '../sdk';
 
 interface IInquiryDetailLocationState {
-    inquiry: Inquiry;
+    id: string;
 }
 
 export const InquiryDetail: React.FunctionComponent = (): JSX.Element => {
-    const { inquiry } = useLocation<IInquiryDetailLocationState>().state;
+    let { id: inquiryId } = useParams<IInquiryDetailLocationState>();
+    const [inquiry, setInquiry] = useState<Inquiry | null>(null);
+
+    const renderInquiry = (inquiryToRender: Inquiry): React.ReactNode => {
+        return (
+            <InquiryCard inquiry={inquiryToRender}>
+                {inquiryToRender.email}
+            </InquiryCard>
+        );
+    };
+
+    useEffect((): void => {
+        sdk.inquiries.getOne(inquiryId)
+            .then((inquiry: Inquiry) => { setInquiry(inquiry); });
+    }, [inquiryId]);
 
     return (
         <>
@@ -21,9 +36,7 @@ export const InquiryDetail: React.FunctionComponent = (): JSX.Element => {
             </Header>
             <main className="main inquiry-detail">
                 <div className="container">
-                <InquiryCard inquiry={inquiry}>
-                    {inquiry.email}
-                </InquiryCard>
+                {inquiry && renderInquiry(inquiry)}
                 </div>
             </main>
             <Footer/>

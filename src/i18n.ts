@@ -11,7 +11,8 @@ const resources = {
             },
             header: {
                 admin: {
-                    doctors: 'Médicos por validar',
+                    doctors: 'Médicos',
+                    moderate: 'Moderar'
                 },
                 doctor: {
                     pending: 'Pendientes',
@@ -75,7 +76,10 @@ const resources = {
                 unattend: 'Desatender petición',
                 'created-at': 'Recibido el {{createdAtDate}} a las {{createdAtTime}}',
                 email: 'Email del ciudadano:',
-                speciality: 'Especialidad:'
+                speciality: 'Especialidad:',
+                flag: 'Marcar como inapropiado',
+                unflag: 'Desmarcar como inapropiado',
+                deactivate: 'Eliminar'
             },
             'register-doctor': {
                 confirmation: {
