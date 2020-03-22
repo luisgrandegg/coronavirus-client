@@ -54,8 +54,6 @@ function useMultipleOptionsFilter(
         return groups;
     };
 
-    const groups = chunk(options, 3);
-
     const handleClickOpen = () => {
         setOpen(true);
     };
