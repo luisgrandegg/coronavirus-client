@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
@@ -80,9 +80,6 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
         if (props.inquiryListParams?.attended) {
             return (
                 <>
-                    <CopyToClipboard text={inquiry.email}>
-                        <span>{t('inquiry.email')} {inquiry.email}</span>
-                    </CopyToClipboard>
                     <Button
                         color="primary"
                         onClick={unattendInquiry(inquiry)}
@@ -139,6 +136,13 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
 
     const renderInquiries = (): React.ReactNode => inquiries.map((inquiry: Inquiry) => (
         <InquiryCard key={inquiry.id} inquiry={inquiry}>
+            {props.inquiryListParams?.attended && (
+                <CopyToClipboard text={inquiry.email}>
+                    <Typography className="inquiry__email">
+                        <strong>{t('inquiry.email')}</strong> {inquiry.email}
+                    </Typography>
+                </CopyToClipboard>
+            )}
             <div className="button-group">
                 {admin ?
                      renderDeactivateContent(inquiry) :
