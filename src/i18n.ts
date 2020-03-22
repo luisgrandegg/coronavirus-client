@@ -103,7 +103,8 @@ const resources = {
                 speciality: 'Especialidad:',
                 flag: 'Marcar como inapropiado',
                 unflag: 'Desmarcar como inapropiado',
-                deactivate: 'Eliminar'
+                deactivate: 'Eliminar',
+                age: 'Edad'
             },
             'register-doctor': {
                 drawing: {
