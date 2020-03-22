@@ -21,6 +21,7 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
 ): JSX.Element => {
     const { admin = false, isLive = true } = props;
     const [inquiries, setInquiries] = useState<Inquiry[]>([]);
+    const [loading, setLoading] = useState<boolean | null>(null);
     const { t } = useTranslation();
 
     const attendInquiry = (inquiry: Inquiry): () => void => {
@@ -44,7 +45,10 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
     };
 
     const getInquiries = () => {
-        sdk.inquiries.get(props.inquiryListParams).then((inquiries: Inquiry[]) => setInquiries(inquiries));
+        setLoading(true);
+        sdk.inquiries.get(props.inquiryListParams)
+            .then((inquiries: Inquiry[]) => setInquiries(inquiries))
+            .finally(() => setLoading(false));
     };
 
     useEffect((): () => void => {
@@ -155,11 +159,15 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
         </InquiryCard>
     ));
 
-    const renderEmptyState = (): React.ReactNode => (
-        <div className="inquiry-list__empty">
-            {t('inquiry-list.empty')}
-        </div>
-    )
+    const renderEmptyState = (): React.ReactNode =>
+        inquiries.length === 0 && loading === false ?
+            (
+                <div className="inquiry-list__empty">
+                    {t('inquiry-list.empty')}
+                </div>
+            ) : (
+                null
+            );
 
     return (
         <section className="inquiry-list">
