@@ -1,5 +1,5 @@
 import { Button } from '@material-ui/core';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -8,9 +8,12 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Section } from '../components/Section';
 import { Routes } from '../router/Routes';
+import { sdk } from '../sdk';
+import { IStatsApiResponse } from '../entities/Stats';
 
 export const Home: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
+    const [stats, setStats] = useState<IStatsApiResponse>({});
 
     const ContentHowDoesItWork = (): JSX.Element => (
         <>
@@ -111,6 +114,10 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
         </div>
     );
 
+    useEffect(() => {
+        sdk.getStats().then((stats: IStatsApiResponse) => setStats(stats))
+    }, [])
+
     return (
         <>
             <Header />
@@ -121,27 +128,27 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
                         content={<ContentHowDoesItWork />}
                     />
                     <div className="home__cta">
-                        <Section
+                        {stats?.total?.inquiries_attended && <Section
                             aside={(
                                 <Counter
                                     pre={t('home.pacient.counter-pre')}
-                                    count={130}
+                                    count={stats?.total?.inquiries_attended }
                                     post={t('home.pacient.counter-post')}
                                 />
                             )}
                             content={<ContentCTAPatient />}
-                        />
+                        />}
                         <p className="divider"/>
-                        <Section
+                        {stats?.total?.doctors_validated && <Section
                             aside={(
                                 <Counter
                                     pre={t('home.doctor.counter-pre')}
-                                    count={25}
+                                    count={stats?.total?.doctors_validated}
                                     post={t('home.doctor.counter-post')}
                                 />
                             )}
                             content={<ContentCTADoctor />}
-                        />
+                        />}
                     </div>
                     <Section
                         content={<ContentPrivacy />}

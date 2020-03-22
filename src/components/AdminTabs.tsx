@@ -27,6 +27,8 @@ export const AdminTabs: React.FunctionComponent<IAdminTabsProps> = (props: IAdmi
                 return history.push(Routes.ADMIN_DASHBOARD)
             case 1:
                 return history.push(Routes.ADMIN_MODERATE)
+            case 2:
+                return history.push(Routes.ADMIN_STATS)
         }
     };
 
@@ -34,6 +36,7 @@ export const AdminTabs: React.FunctionComponent<IAdminTabsProps> = (props: IAdmi
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" variant={'fullWidth'}>
             <Tab label={t('header.admin.doctors')} {...a11yProps(0)} />
             <Tab label={t('header.admin.moderate')} {...a11yProps(1)} />
+            <Tab label={t('header.admin.stats')} {...a11yProps(2)} />
         </Tabs>
     );
 };

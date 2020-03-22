@@ -4,6 +4,21 @@ import { initReactI18next } from "react-i18next";
 const resources = {
     es: {
         translation: {
+            admin: {
+                stats: {
+                    period: {
+                        total: 'Total'
+                    },
+                    type: {
+                        inquiries_banned: 'Consultas baneadas',
+                        inquiries: 'Consultas',
+                        inquiries_attended: 'Consultas atendidas',
+                        inquiries_flagged: 'Consultas flaggeadas',
+                        doctors: 'Médicos',
+                        doctors_validated: 'Médicos validados'
+                    }
+                }
+            },
             'admin-dashboard': {
                 container: {
                     'link-to-doctor': '← Volver al panel de citas',
@@ -17,7 +32,8 @@ const resources = {
             header: {
                 admin: {
                     doctors: 'Médicos',
-                    moderate: 'Moderar'
+                    moderate: 'Moderar',
+                    stats: 'Stats'
                 },
                 doctor: {
                     pending: 'Pendientes',
@@ -87,7 +103,8 @@ const resources = {
                 speciality: 'Especialidad:',
                 flag: 'Marcar como inapropiado',
                 unflag: 'Desmarcar como inapropiado',
-                deactivate: 'Eliminar'
+                deactivate: 'Eliminar',
+                age: 'Edad (de quien necesita consejo):'
             },
             'register-doctor': {
                 drawing: {
@@ -151,7 +168,7 @@ const resources = {
                     'responsability': 'Recuerda que Cita Médica en Casa, no sustituye al Servicio nacional de salud, ni a la visita a tu médico y no te proporcionará un diagnóstico o un tratamiento. Cita Médica en casa no se hace responsable de los contenidos ni de las opiniones intercambiadas entre profesionales de la medicina y ciudadanos.'
                 },
                 fields: {
-                    age: 'Edad',
+                    age: 'Edad (de quien necesita consejo)',
                     email: 'Email (para enviarte la cita)',
                     'confirm-email': 'Confirma email',
                     speciality: 'Especialidad',
@@ -195,7 +212,8 @@ const resources = {
                 validate: 'Validar',
                 invalidate: 'Invalidar',
                 activate: 'Activar',
-                deactivate: 'Desactivar'
+                deactivate: 'Desactivar',
+                'inquiries-attended': 'Consultas respondidas:'
             },
             'doctor-dashboard': {
                 header: {
