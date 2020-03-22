@@ -1,9 +1,19 @@
 .inquiry {
+    &__email {
+        padding-left: $spacer-xs;
+        width: 100%;
+    }
+
     & + .inquiry {
         margin-top: $spacer;
     }
 
+    .MuiTypography-root.inquiry__email {
+        margin-bottom: $spacer;
+    }
+
     .MuiCardActions-root {
+        flex-wrap: wrap;
         .button-group + .button-group {
             margin-left: auto;
         }
