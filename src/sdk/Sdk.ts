@@ -8,8 +8,10 @@ import { RegisterDoctorDto } from '../dto/RegisterDoctorDto';
 import { Inquiries } from './Inquiries';
 import { Doctors } from './Doctors';
 import { IStatsApiResponse } from '../entities/Stats';
+import { Admin } from './Admin';
 
 export class Sdk {
+    public admin: Admin;
     public doctors: Doctors;
     public inquiries: Inquiries;
     public users: Users;
@@ -17,6 +19,7 @@ export class Sdk {
     constructor(
         private apiClient: ApiClient
     ) {
+        this.admin = new Admin(apiClient);
         this.doctors = new Doctors(apiClient);
         this.inquiries = new Inquiries(apiClient);
         this.users = new Users(apiClient);

@@ -24,6 +24,7 @@ import theme from "./theme";
 import { AdminDashboard } from './pages/AdminDashboard';
 import { ScrollToTop } from './components/ScrollToTop';
 import { AdminModerate } from './pages/AdminModerate';
+import { AdminStats } from './pages/AdminStats';
 
 export const App: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
@@ -82,6 +83,9 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                         </AdminRoute>
                         <AdminRoute exact={true} path={Routes.ADMIN_MODERATE}>
                             <AdminModerate/>
+                        </AdminRoute>
+                        <AdminRoute exact={true} path={Routes.ADMIN_STATS}>
+                            <AdminStats/>
                         </AdminRoute>
                         <Redirect exact={true} from={Routes.REGISTER} to={Routes.REGISTER_PATIENT} />
                         <Redirect to={Routes.ROOT} />

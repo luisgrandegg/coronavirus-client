@@ -4,6 +4,21 @@ import { initReactI18next } from "react-i18next";
 const resources = {
     es: {
         translation: {
+            admin: {
+                stats: {
+                    period: {
+                        total: 'Total'
+                    },
+                    type: {
+                        inquiries_banned: 'Consultas baneadas',
+                        inquiries: 'Consultas',
+                        inquiries_attended: 'Consultas atendidas',
+                        inquiries_flagged: 'Consultas flaggeadas',
+                        doctors: 'Médicos',
+                        doctors_validated: 'Médicos validados'
+                    }
+                }
+            },
             'admin-dashboard': {
                 container: {
                     'link-to-doctor': '← Volver al panel de citas',
@@ -17,7 +32,8 @@ const resources = {
             header: {
                 admin: {
                     doctors: 'Médicos',
-                    moderate: 'Moderar'
+                    moderate: 'Moderar',
+                    stats: 'Stats'
                 },
                 doctor: {
                     pending: 'Pendientes',

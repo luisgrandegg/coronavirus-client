@@ -49,6 +49,9 @@ export const specialities = [
     	"label": "Nefrología",
     	"value": "nefrologia"
     }, {
+    	"label": "Neurología",
+    	"value": "neurologia"
+    }, {
     	"label": "Neumología",
     	"value": "neumologia"
     }, {
