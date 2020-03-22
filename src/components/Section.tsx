@@ -2,7 +2,7 @@ import React from 'react';
 
 export interface ISectionProps {
     content: JSX.Element,
-    aside?: JSX.Element,
+    aside?: React.ReactNode,
     styleName?: String
 };
 

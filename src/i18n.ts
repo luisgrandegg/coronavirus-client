@@ -55,7 +55,7 @@ const resources = {
                     'first-paragraph': 'Ponemos en contacto a <strong>profesionales colegiados y ciudadanos</strong> a través de email o videollamada, para resolver dudas. Queremos reducir la sobrecarga de hospitales y centros de salud en consultas leves.'
 
                 },
-                'pacient': {
+                'patient': {
                     title: 'Para ciudadanos/as',
                     'first-paragraph': 'Plantea una duda médica excepto sobre el Coronavirus. <strong>Si tienes una emergencia llama al 112</strong>, no esperes a que te atendamos en esta web.',
                     cta: 'Realizar una consulta',
