@@ -1,7 +1,7 @@
 .inquiry-list {
     &__empty {
-        padding: $spacer-xl;
-        text-align: center;
-        background-color: $gray--light;
+        font-family: $font-family--secondary;
+        font-size: $font-size-xxl;
+        color: $primary;
     }
 }

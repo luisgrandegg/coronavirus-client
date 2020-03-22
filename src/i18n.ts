@@ -96,7 +96,7 @@ const resources = {
                 }
             },
             'inquiry-list': {
-                empty: 'No hay consultas con los filtros que tienes seleccionados.'
+                empty: '* No hay consultas con los filtros que tienes seleccionados *'
             },
             inquiry: {
                 attend: 'Atender petición',
