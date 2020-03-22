@@ -195,7 +195,8 @@ const resources = {
                 validate: 'Validar',
                 invalidate: 'Invalidar',
                 activate: 'Activar',
-                deactivate: 'Desactivar'
+                deactivate: 'Desactivar',
+                'inquiries-attended': 'Consultas respondidas:'
             },
             'doctor-dashboard': {
                 header: {

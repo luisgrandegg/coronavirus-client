@@ -7,6 +7,7 @@ import { Users } from './Users';
 import { RegisterDoctorDto } from '../dto/RegisterDoctorDto';
 import { Inquiries } from './Inquiries';
 import { Doctors } from './Doctors';
+import { IStatsApiResponse } from '../entities/Stats';
 
 export class Sdk {
     public doctors: Doctors;
@@ -32,6 +33,11 @@ export class Sdk {
     async registerDoctor(registerDoctorDto: RegisterDoctorDto): Promise<Auth> {
         return this.apiClient.post<IAuthApiResponse>('/register/doctor', registerDoctorDto)
             .then((response: AxiosResponse<IAuthApiResponse>) => Auth.createFromResponse(response.data));
+    }
+
+    async getStats(): Promise<IStatsApiResponse> {
+        return this.apiClient.get<IStatsApiResponse>('/stats')
+            .then((response: AxiosResponse<IStatsApiResponse>) => response.data)
     }
 
     setAuthorization(auth: Auth): void {
