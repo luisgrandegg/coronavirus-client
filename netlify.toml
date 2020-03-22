@@ -5,6 +5,12 @@
   REACT_APP_API_URL = "https://panda-coronavirus-api-staging.herokuapp.com/"
 
 [[redirects]]
+  from = "https://www.citamedicaencasa.com/*"
+  to = "http://citamedicaencasa.es/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "https://citamedicaencasa.com/*"
   to = "http://citamedicaencasa.es/:splat"
   status = 301
