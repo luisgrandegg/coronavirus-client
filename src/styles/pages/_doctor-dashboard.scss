@@ -10,4 +10,10 @@
       font-size: $font-size-xxl;
       line-height: $line-height-l;
   }
+
+  .multiple-options-filter {
+    + .section-wrapper {
+      margin-top: $spacer;
+    }
+  }
 }

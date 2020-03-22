@@ -1,0 +1,84 @@
+.multiple-options-filter {
+  .multiple-options-filter__open-button, .multiple-options-filter__list-item {
+    margin-right: $spacer-xs;
+    margin-bottom: $spacer-s;
+  }
+
+  .multiple-options-filter__list {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: scroll;
+  }
+
+  .multiple-options-filter__list-item  {
+    text-transform: uppercase;
+  }
+}
+
+.multiple-options-filter__dialog {
+  .MuiPaper-root {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    border-radius: 0;
+
+    @media (min-width: $breakpoint-tablet) {
+        max-width: 960px;
+        max-height: calc(100% - #{$spacer-xxl});
+    }
+  }
+
+  .multiple-options-filter__dialog-header {
+    padding: $spacer;
+
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+
+    .multiple-options-filter__dialog-header-title {
+      margin: 0;
+      font-family: $font-family--secondary;
+      font-size: $font-size-xl;
+      color: $primary;
+    }
+  }
+
+  .MuiDialogTitle-root {
+    position: relative;
+    background-color: $primary;
+    color: white;
+
+    .MuiTypography-root {
+      width: 100%;
+      font-size: $font-size-m;
+      text-align: center;
+    }
+
+    .multiple-options-filter__dialog-close-button {
+      position: absolute;
+      top: $spacer-xxs;
+      right: 0;
+      color: white;
+    }
+  }
+
+  .MuiDialogContent-root {
+    background-color: $gray--megalight;
+  }
+
+  .multiple-options-filter__form {
+    @media (min-width: $breakpoint-tablet) {
+        display: flex;
+        justify-content: space-between;
+    }
+  }
+
+  .MuiDialogActions-root {
+    justify-content: center;
+
+    @media (min-width: $breakpoint-tablet) {
+      background-color: $gray--megalight;
+    }
+  }
+}

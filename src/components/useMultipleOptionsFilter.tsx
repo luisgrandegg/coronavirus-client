@@ -1,4 +1,5 @@
 import { Formik, Form, Field, FormikProps, FieldInputProps } from 'formik'
+import { Close } from '@material-ui/icons';
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
@@ -6,6 +7,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import IconButton from '@material-ui/core/IconButton';
 import * as yup from 'yup';
 
 import { Checkbox } from './Form/Checkbox';
@@ -41,6 +43,18 @@ function useMultipleOptionsFilter(
         options: yup.array(),
     });
 
+    const chunk = (items: IOption[], size: number) => {
+        let groups = [];
+        let itemsPerGroup = Math.ceil(items.length / size);
+
+        for (let i = 0; i < size; i++) {
+            groups.push(items.slice(i * itemsPerGroup, (i + 1) * itemsPerGroup));
+        }
+
+        return groups;
+    };
+
+    const groups = chunk(options, 3);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -67,6 +81,7 @@ function useMultipleOptionsFilter(
     const MultipleOptionsFilter = () => (
         <div className="multiple-options-filter">
             <Button
+                className="multiple-options-filter__open-button"
                 variant="outlined"
                 color="primary"
                 onClick={handleClickOpen}
@@ -83,13 +98,24 @@ function useMultipleOptionsFilter(
                     ))}
             </div>
             <Dialog
+                className="multiple-options-filter__dialog"
                 fullWidth={true}
                 maxWidth="md"
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="multiple-options-filter__dialog"
             >
-                <DialogTitle id="multiple-options-filter__dialog">{title}</DialogTitle>
+                <div className="multiple-options-filter__dialog-header">
+                    <h1 className="multiple-options-filter__dialog-header-title">Cita Médica en Casa</h1>
+                </div>
+                <DialogTitle id="multiple-options-filter__dialog">
+                    <span >{title}</span>
+                    <IconButton
+                        className="multiple-options-filter__dialog-close-button"
+                        onClick={handleClose}>
+                        <Close />
+                    </IconButton>
+                </DialogTitle>
                 <DialogContent>
                     <Formik
                         initialValues={initialValues}
@@ -98,32 +124,39 @@ function useMultipleOptionsFilter(
                         validateOnMount={true}
                     >
                         <Form
-                            id="multiple-options-filter__form">
-                            {options.map((option, index) => (
-                                <Field
-                                    key={`option-${index}`}
-                                    name="options">
-                                    {({ field, form }: IFieldProps) => (
-                                        <Checkbox
-                                            label={option.label}
-                                            checked={field.value.includes(option.value)}
-                                            field={field}
-                                            formikProps={form}
-                                            onChange={(event: React.ChangeEvent<any>) => {
-                                                event.target.value = option.value;
-                                                field.onChange(field.name)(event);
-                                                form.setFieldTouched(field.name, true);
-                                            }}
-                                        />
-                                    )}
-                                </Field>
+                            id="multiple-options-filter__form"
+                            className="multiple-options-filter__form">
+                            {chunk(options, 3).map((group, index) => (
+                                <div
+                                    key={`multiple-options-filter__form-group-${index}`}
+                                    className="multiple-options-filter__form-group">
+                                    {group.map(option => (
+                                        <Field
+                                            key={`option--${option.value}`}
+                                            name="options">
+                                            {({ field, form }: IFieldProps) => (
+                                                <Checkbox
+                                                    label={option.label}
+                                                    checked={field.value.includes(option.value)}
+                                                    field={field}
+                                                    formikProps={form}
+                                                    onChange={(event: React.ChangeEvent<any>) => {
+                                                        event.target.value = option.value;
+                                                        field.onChange(field.name)(event);
+                                                        form.setFieldTouched(field.name, true);
+                                                    }}
+                                                />
+                                            )}
+                                        </Field>
+                                    ))}
+                                </div>
                             ))}
                         </Form>
                     </Formik>
                 </DialogContent>
                 <DialogActions>
                     <Button
-                        variant="outlined"
+                        variant="contained"
                         color="primary"
                         type="submit"
                         form="multiple-options-filter__form"
