@@ -54,7 +54,7 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
         return (): void => { interval && clearInterval(interval); }
 
         // eslint-disable-next-line
-    }, []);
+    }, [props.inquiryListParams]);
 
     useEffect((): void => {
         getInquiries();
