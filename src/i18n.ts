@@ -95,6 +95,9 @@ const resources = {
                     'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y será borrada. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
                 }
             },
+            'inquiry-list': {
+                empty: 'No hay consultas con los filtros que tienes seleccionados.'
+            },
             inquiry: {
                 attend: 'Atender petición',
                 unattend: 'Desatender petición',

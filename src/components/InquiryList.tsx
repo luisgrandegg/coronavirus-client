@@ -155,9 +155,15 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
         </InquiryCard>
     ));
 
+    const renderEmptyState = (): React.ReactNode => (
+        <div className="inquiry-list__empty">
+            {t('inquiry-list.empty')}
+        </div>
+    )
+
     return (
         <section className="inquiry-list">
-            {renderInquiries()}
+            {inquiries.length ? renderInquiries() : renderEmptyState()}
         </section>
     )
 };
