@@ -104,7 +104,7 @@ const resources = {
                 flag: 'Marcar como inapropiado',
                 unflag: 'Desmarcar como inapropiado',
                 deactivate: 'Eliminar',
-                age: 'Edad'
+                age: 'Edad (de quien necesita consejo):'
             },
             'register-doctor': {
                 drawing: {
@@ -168,7 +168,7 @@ const resources = {
                     'responsability': 'Recuerda que Cita Médica en Casa, no sustituye al Servicio nacional de salud, ni a la visita a tu médico y no te proporcionará un diagnóstico o un tratamiento. Cita Médica en casa no se hace responsable de los contenidos ni de las opiniones intercambiadas entre profesionales de la medicina y ciudadanos.'
                 },
                 fields: {
-                    age: 'Edad',
+                    age: 'Edad (de quien necesita consejo)',
                     email: 'Email (para enviarte la cita)',
                     'confirm-email': 'Confirma email',
                     speciality: 'Especialidad',
