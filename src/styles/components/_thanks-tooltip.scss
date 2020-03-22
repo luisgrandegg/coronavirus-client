@@ -1,0 +1,61 @@
+.thanks-tooltip {
+    @include get-elevation-z-index(24);
+
+    position: absolute;
+    top: -180px;
+    right: 0;
+    display: none;
+    width: 100%;
+    max-width: 360px;
+    padding: $spacer-s;
+    color: white;
+    border-radius: $border-radius;
+    background-color: $primary;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
+    &::after {
+        position: absolute;
+        bottom: -8px;
+        right: 22px;
+        display: block;
+        content: '';
+        width: 18px;
+        height: 18px;
+        background-color: $primary;
+        transform: rotate(45deg);
+        box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    &__text {
+        margin: 0;
+        font-size: $font-size-s;
+        line-height: $line-height-m;
+    }
+
+    &__share {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        li {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 0 1 42px;
+            height: 42px;
+            margin-left: $spacer-xs;
+            border: 1px solid white;
+            border-radius: 50%;
+            padding: 2px;
+        }
+    }
+
+    &__button {
+        height: 36px;
+    }
+
+    &--open {
+        display: block;
+    }
+}

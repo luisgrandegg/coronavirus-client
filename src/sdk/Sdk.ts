@@ -9,6 +9,7 @@ import { Inquiries } from './Inquiries';
 import { Doctors } from './Doctors';
 import { IStatsApiResponse } from '../entities/Stats';
 import { Admin } from './Admin';
+import { Stat, IStat, IStatApiResponse } from '../entities/Stat';
 
 export class Sdk {
     public admin: Admin;
@@ -23,6 +24,16 @@ export class Sdk {
         this.doctors = new Doctors(apiClient);
         this.inquiries = new Inquiries(apiClient);
         this.users = new Users(apiClient);
+    }
+
+    async getClaps(): Promise<Stat> {
+        return this.apiClient.get<IStat>('/claps')
+            .then((response: AxiosResponse<IStatApiResponse>) => Stat.createFromResponse(response.data));
+    }
+
+    async clap(): Promise<Stat> {
+        return this.apiClient.post<IStat>('/claps')
+            .then((response: AxiosResponse<IStatApiResponse>) => Stat.createFromResponse(response.data));
     }
 
     async login(email: string, password: string): Promise<Auth> {

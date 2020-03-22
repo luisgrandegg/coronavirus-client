@@ -1,0 +1,9 @@
+.thanks-counter {
+    &__count {
+        font-weight: $font-weight-semibold;
+    }
+
+    &__text {
+        font-size: $font-size-s;
+    }
+}
