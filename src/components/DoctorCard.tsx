@@ -44,6 +44,9 @@ export const DoctorCard: React.FunctionComponent<IDoctorCardProps> = (
                 <Typography>
                     {t('doctor.phone')} {doctor.phone}
                 </Typography>
+                <Typography>
+                    {t('doctor.inquiries-attended')} {doctor.inquiriesAttended}
+                </Typography>
             </CardContent>
             <CardActions>
                 {children}

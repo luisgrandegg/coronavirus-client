@@ -7,8 +7,11 @@ import { Users } from './Users';
 import { RegisterDoctorDto } from '../dto/RegisterDoctorDto';
 import { Inquiries } from './Inquiries';
 import { Doctors } from './Doctors';
+import { IStatsApiResponse } from '../entities/Stats';
+import { Admin } from './Admin';
 
 export class Sdk {
+    public admin: Admin;
     public doctors: Doctors;
     public inquiries: Inquiries;
     public users: Users;
@@ -16,6 +19,7 @@ export class Sdk {
     constructor(
         private apiClient: ApiClient
     ) {
+        this.admin = new Admin(apiClient);
         this.doctors = new Doctors(apiClient);
         this.inquiries = new Inquiries(apiClient);
         this.users = new Users(apiClient);
@@ -32,6 +36,11 @@ export class Sdk {
     async registerDoctor(registerDoctorDto: RegisterDoctorDto): Promise<Auth> {
         return this.apiClient.post<IAuthApiResponse>('/register/doctor', registerDoctorDto)
             .then((response: AxiosResponse<IAuthApiResponse>) => Auth.createFromResponse(response.data));
+    }
+
+    async getStats(): Promise<IStatsApiResponse> {
+        return this.apiClient.get<IStatsApiResponse>('/stats')
+            .then((response: AxiosResponse<IStatsApiResponse>) => response.data)
     }
 
     setAuthorization(auth: Auth): void {
