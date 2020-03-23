@@ -1,4 +1,5 @@
 import { UserType } from "../entities/User";
+import { DoctorType } from "../entities/Doctor";
 
 export interface IRegisterDoctorDto {
     name: string;
@@ -12,6 +13,7 @@ export interface IRegisterDoctorDto {
     terms: boolean;
     privacy: boolean;
     userType: UserType;
+    doctorType: DoctorType
 }
 
 export class RegisterDoctorDto {
@@ -28,7 +30,8 @@ export class RegisterDoctorDto {
             data.password,
             data.confirmPassword,
             data.terms,
-            data.privacy
+            data.privacy,
+            data.doctorType
         );
     }
 
@@ -42,7 +45,8 @@ export class RegisterDoctorDto {
         public password: string,
         public confirmPassword: string,
         public terms: boolean,
-        public privacy: boolean
+        public privacy: boolean,
+        public doctorType: DoctorType
     ) {}
 
     toJSON(): IRegisterDoctorDto {
@@ -57,7 +61,8 @@ export class RegisterDoctorDto {
             confirmPassword: this.confirmPassword,
             terms: this.terms,
             privacy: this.privacy,
-            userType: this.userType
+            userType: this.userType,
+            doctorType: this.doctorType
         };
     }
 }

@@ -1,3 +1,7 @@
+export enum DoctorType {
+    REGULAR = 'regular',
+    PSYCHOLOGIST = 'psychologist'
+}
 export interface IDoctor {
     createdAt: string;
     name: string;

@@ -6,6 +6,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Counter } from '../components/Counter';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { ThanksBox } from '../components/ThanksBox/ThanksBox';
 import { Section } from '../components/Section';
 import { Routes } from '../router/Routes';
 import { sdk } from '../sdk';
@@ -162,6 +163,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
                 </div>
             </main>
             <Footer />
+            <ThanksBox />
         </>
     )
 };
