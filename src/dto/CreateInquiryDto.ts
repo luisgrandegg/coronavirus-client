@@ -1,6 +1,7 @@
 export interface ICreateInquiryDto {
     age: string;
     email: string;
+    doctorType: string | null;
     speciality: string | null;
     summary: string;
     terms: boolean;
@@ -14,6 +15,7 @@ export class CreateInquiryDto {
         return new CreateInquiryDto(
             data.age,
             data.email,
+            data.doctorType || null,
             data.speciality || null,
             data.summary,
             data.terms,
@@ -26,6 +28,7 @@ export class CreateInquiryDto {
     constructor(
         public age: string,
         public email: string,
+        public doctorType: string | null,
         public speciality: string | null,
         public summary: string,
         public terms: boolean,
@@ -38,6 +41,7 @@ export class CreateInquiryDto {
         return {
             age: this.age,
             email: this.email,
+            doctorType: this.doctorType,
             speciality: this.speciality,
             summary: this.summary,
             terms: this.terms,
