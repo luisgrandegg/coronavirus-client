@@ -11,6 +11,7 @@ import { TextField } from './Form/TextField';
 import { Select } from './Form/Select';
 import { Checkbox } from './Form/Checkbox';
 import { SubmitButton } from './Form/SubmitButton';
+import { DoctorType } from '../entities/Doctor';
 
 export interface IRegisterDoctorFormProps {
     onRegisterSuccess: (auth: Auth) => void;
@@ -90,7 +91,8 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
             password,
             confirmPassword,
             terms,
-            privacy
+            privacy,
+            DoctorType.REGULAR
         )).then((auth: Auth) => {
             onRegisterSuccess(auth);
         }).catch(() => {
