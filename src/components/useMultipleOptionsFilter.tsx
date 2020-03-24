@@ -63,7 +63,6 @@ function useMultipleOptionsFilter(
     };
 
     const handleDelete = (option: string): void => {
-        console.log(option);
         const set = new Set(selectedOptions);
         set.delete(option);
         updateSelectedOptions(Array.from(set));
@@ -71,7 +70,6 @@ function useMultipleOptionsFilter(
 
     const onSubmit = (values: IMultipleOptionsFilter): void => {
         const { options } = values;
-        debugger;
         updateSelectedOptions(options);
         setOpen(false);
     };
@@ -137,7 +135,7 @@ function useMultipleOptionsFilter(
                                                     label={option.label}
                                                     checked={field.value.includes(option.value)}
                                                     field={field}
-                                                    formikProps={form}
+                                                    form={form}
                                                     onChange={(event: React.ChangeEvent<any>) => {
                                                         event.target.value = option.value;
                                                         field.onChange(field.name)(event);
