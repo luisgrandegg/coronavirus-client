@@ -1,0 +1,64 @@
+.thanks-box {
+    height: 128px;
+    color: white;
+    background-color: $primary;
+
+    @media (min-width: $breakpoint-tablet) {
+        height: 108px;
+    }
+
+    &__container {
+        @include get-elevation-z-index(24);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding-top: $spacer;
+        padding-bottom: $spacer;
+        background-color: $primary;
+    }
+
+    &__content {
+        position: relative;
+        display: flex;
+    }
+
+    &__text {
+        flex: 0 1 percentage(3/4);
+        padding-right: $spacer-xs;
+        
+        p {
+            margin-top: 0;
+            margin-bottom: $spacer-xs;
+            font-size: $font-size-m;
+            line-height: $line-height-m;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__button {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        flex: 0 1 percentage(1/4);
+        
+        button {
+            width: 60px;
+            height: 60px;
+            font-size: 32px;
+            line-height: 1;
+            border-radius: 50%;
+            background-color: white;
+            cursor: pointer;
+
+            &:active,
+            &:hover {
+                background-color: white;
+            }
+        }
+    }
+}

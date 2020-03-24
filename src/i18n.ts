@@ -258,6 +258,15 @@ const resources = {
                     'first-paragraph': '<strong>Todas las consultas que nos envías son encriptadas</strong> para preservar la información, es el personal médico el que las lee y nunca se cederán a terceros. Además, una vez finalizado el estado de alarma se borrarán. ',
                     'second-paragraph': 'En cualquier caso, puedes pedir su borrado cuando tú quieras escribiendo un email a: <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a>',
                 }
+            },
+            'thanks-box': {
+                text: 'Manda un fuerte aplauso a todos los médicos voluntarios',
+                'quantity-type': 'aplausos',
+                tooltip: {
+                    text: 'Ayúdanos a difundir el proyecto en tu red social favorita',
+                    message: '👏👏👏👏👏👏👏👏👏👏👏👏 Un gran aplauso por todo el personal sanitario, que no dejan de ayudar ni aunque se tengan que quedar en casa!',
+                    'message-alternative': 'Un gran aplauso por todo el personal sanitario, que no dejan de ayudar ni aunque se tengan que quedar en casa!'
+                }
             }
         }
     }
