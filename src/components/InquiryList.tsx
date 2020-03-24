@@ -21,6 +21,7 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
 ): JSX.Element => {
     const { admin = false, isLive = true } = props;
     const [inquiries, setInquiries] = useState<Inquiry[]>([]);
+    const [loading, setLoading] = useState<boolean | null>(null);
     const { t } = useTranslation();
 
     const attendInquiry = (inquiry: Inquiry): () => void => {
@@ -44,17 +45,20 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
     };
 
     const getInquiries = () => {
-        sdk.inquiries.get(props.inquiryListParams).then((inquiries: Inquiry[]) => setInquiries(inquiries));
+        setLoading(true);
+        sdk.inquiries.get(props.inquiryListParams)
+            .then((inquiries: Inquiry[]) => setInquiries(inquiries))
+            .finally(() => setLoading(false));
     };
 
     useEffect((): () => void => {
         const interval = isLive ?
-            setInterval(() => { getInquiries(); }, 5000):
+            setInterval(() => { getInquiries(); }, 5000) :
             null;
         return (): void => { interval && clearInterval(interval); }
 
-// eslint-disable-next-line
-    }, []);
+        // eslint-disable-next-line
+    }, [props.inquiryListParams]);
 
     useEffect((): void => {
         getInquiries();
@@ -62,7 +66,7 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
     }, [props.inquiryListParams]);
 
 
-    const renderDeactivateContent = (inquiry: Inquiry): React. ReactNode => {
+    const renderDeactivateContent = (inquiry: Inquiry): React.ReactNode => {
         if (props.inquiryListParams?.flagged) {
             return (
                 <Button
@@ -145,8 +149,8 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
             )}
             <div className="button-group">
                 {admin ?
-                     renderDeactivateContent(inquiry) :
-                     renderInquiryAttendContent(inquiry)
+                    renderDeactivateContent(inquiry) :
+                    renderInquiryAttendContent(inquiry)
                 }
             </div>
             <div className="button-group">
@@ -155,9 +159,19 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
         </InquiryCard>
     ));
 
+    const renderEmptyState = (): React.ReactNode =>
+        inquiries.length === 0 && loading === false ?
+            (
+                <div className="inquiry-list__empty">
+                    {t('inquiry-list.empty')}
+                </div>
+            ) : (
+                null
+            );
+
     return (
         <section className="inquiry-list">
-            {renderInquiries()}
+            {inquiries.length ? renderInquiries() : renderEmptyState()}
         </section>
     )
 };
