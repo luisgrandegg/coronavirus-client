@@ -95,6 +95,9 @@ const resources = {
                     'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y será borrada. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
                 }
             },
+            'inquiry-list': {
+                empty: '* No hay consultas con los filtros que tienes seleccionados *'
+            },
             inquiry: {
                 attend: 'Atender petición',
                 unattend: 'Desatender petición',
@@ -222,6 +225,11 @@ const resources = {
                 content: {
                     'first-paragraph': 'Cita Médica en Casa está pensada para la resolución de dudas sencillas de salud. No es un plataforma para diagnosticar o preescribir medicamentos, tampoco se atenderán preguntas sobre Coronavirus, ese tema está en manos de los canales oficiales del Estado.',
                     'second-paragraph': 'Mil gracias de nuevo por tu ayuda.'
+                },
+                filter: {
+                    'open-modal': 'Filtra por especialidad',
+                    title: '¿Qué tipo de dudas deseas atender?',
+                    'apply-button': 'Filtra por especialidad'
                 }
             },
             share: {

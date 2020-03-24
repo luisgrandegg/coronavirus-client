@@ -32,6 +32,8 @@ export const Header: React.FunctionComponent<IHeaderProps> = (
         }
     }, []);
 
+    const canRenderTwitterLink = () => (children === undefined && !isDoctorAdmin())
+
     //TODO:: pls if this grows change this
     const renderAdminButton = (): React.ReactNode =>
         isDoctorAdmin() ?
@@ -48,7 +50,7 @@ export const Header: React.FunctionComponent<IHeaderProps> = (
             ) : null;
 
     const renderTwitterLink = (): React.ReactNode =>
-        children === undefined && !isDoctorAdmin() ?
+        canRenderTwitterLink() ?
             (
                 <a
                     className="twitter-link"
@@ -62,8 +64,8 @@ export const Header: React.FunctionComponent<IHeaderProps> = (
             );
 
     return (
-        <header className="header">
-            <div className="container">
+        <header className={`header ${canRenderTwitterLink() ? 'header__rrss' : ''}`}>
+            < div className="container" >
                 <h1 className="header__title">
                     <RouterLink to={Routes.ROOT}>{t('header.title')}</RouterLink>
                 </h1>
@@ -72,7 +74,7 @@ export const Header: React.FunctionComponent<IHeaderProps> = (
                     {renderTwitterLink()}
                     {children}
                 </div>
-            </div>
-        </header>
+            </div >
+        </header >
     );
 };
