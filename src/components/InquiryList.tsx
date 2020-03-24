@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import Pagination from '@material-ui/lab/Pagination';
 
 import { sdk } from '../sdk';
-import { Inquiry } from '../entities/Inquiry';
+import { Inquiry, InquiryPagination, IInquiryPaginated } from '../entities/Inquiry';
 import { Routes } from '../router/Routes';
 import { InquiryCard } from './InquiryCard';
 import { InquiryListParams } from '../dto/InquiryListParams';
@@ -22,6 +23,9 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
     const { admin = false, isLive = true } = props;
     const [inquiries, setInquiries] = useState<Inquiry[]>([]);
     const [loading, setLoading] = useState<boolean | null>(null);
+    const [page, setPage] = useState(1);
+    const [perPage] = useState(InquiryPagination.PER_PAGE);
+    const [total, setTotal] = useState(0);
     const { t } = useTranslation();
 
     const attendInquiry = (inquiry: Inquiry): () => void => {
@@ -46,10 +50,19 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
 
     const getInquiries = () => {
         setLoading(true);
-        sdk.inquiries.get(props.inquiryListParams)
-            .then((inquiries: Inquiry[]) => setInquiries(inquiries))
+        sdk.inquiries.get({ ...props.inquiryListParams, page, perPage })
+            .then((data: IInquiryPaginated) => {
+                const { inquiries, total } = data;
+                setInquiries(inquiries);
+                setTotal(total);
+            })
             .finally(() => setLoading(false));
     };
+
+    useEffect((): void => {
+        setPage(1);
+        // eslint-disable-next-line
+    }, [props.inquiryListParams]);
 
     useEffect((): () => void => {
         const interval = isLive ?
@@ -58,13 +71,16 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
         return (): void => { interval && clearInterval(interval); }
 
         // eslint-disable-next-line
-    }, [props.inquiryListParams]);
+    }, [props.inquiryListParams, page]);
 
     useEffect((): void => {
         getInquiries();
         // eslint-disable-next-line
-    }, [props.inquiryListParams]);
+    }, [props.inquiryListParams, page]);
 
+    const handleChange = (event: React.ChangeEvent<any>, value: number) => {
+        setPage(value);
+    }
 
     const renderDeactivateContent = (inquiry: Inquiry): React.ReactNode => {
         if (props.inquiryListParams?.flagged) {
@@ -171,7 +187,21 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
 
     return (
         <section className="inquiry-list">
-            {inquiries.length ? renderInquiries() : renderEmptyState()}
+            {inquiries.length ? (
+                <>
+                    {renderInquiries()}
+                    {total > perPage ?
+                        (
+                            <Pagination
+                                className="inquiry-list__pagination"
+                                count={Math.ceil(total / perPage)}
+                                page={page}
+                                onChange={handleChange}
+                            />
+                        ) :
+                        null}
+                </>
+            ) : renderEmptyState()}
         </section>
     )
 };

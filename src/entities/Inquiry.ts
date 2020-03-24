@@ -1,3 +1,7 @@
+export enum InquiryPagination {
+    PER_PAGE = 100
+}
+
 export interface IInquiry {
     createdAt: string;
     age: string;
@@ -8,6 +12,11 @@ export interface IInquiry {
     time: string | null;
 }
 
+export interface IInquiryPaginated {
+    inquiries: Inquiry[];
+    total: number;
+}
+
 export interface IInquiryApiResponse {
     createdAt: string;
     age: string;
@@ -16,6 +25,11 @@ export interface IInquiryApiResponse {
     speciality: string | null;
     summary: string;
     time: string | null;
+}
+
+export interface IInquiryPaginatedApiResponse {
+    inquiries: IInquiry[];
+    total: number;
 }
 
 export class Inquiry {

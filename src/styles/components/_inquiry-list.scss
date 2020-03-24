@@ -4,4 +4,8 @@
         font-size: $font-size-xxl;
         color: $primary;
     }
+    
+    &__pagination {
+        margin-top: $spacer;
+    }
 }
