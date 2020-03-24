@@ -267,6 +267,9 @@ const resources = {
                     message: '👏👏👏👏👏👏👏👏👏👏👏👏 Un gran aplauso por todo el personal sanitario, que no dejan de ayudar ni aunque se tengan que quedar en casa!',
                     'message-alternative': 'Un gran aplauso por todo el personal sanitario, que no dejan de ayudar ni aunque se tengan que quedar en casa!'
                 }
+            },
+            'back-home': {
+                text: 'Volver a la home'
             }
         }
     }
