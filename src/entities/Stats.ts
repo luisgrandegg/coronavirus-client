@@ -5,6 +5,7 @@ export interface IStatApiResponse {
     inquiries_banned?: number;
     doctors?: number;
     doctors_validated?: number;
+    psychologists_validated?: number;
 }
 
 export interface IStatsApiResponse {
