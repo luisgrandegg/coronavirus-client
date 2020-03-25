@@ -12,6 +12,7 @@ import { Select } from './Form/Select';
 import { Checkbox } from './Form/Checkbox';
 import { SubmitButton } from './Form/SubmitButton';
 import { DoctorType } from '../entities/Doctor';
+import { UserType } from '../entities/User';
 
 export interface IRegisterDoctorFormProps {
     onRegisterSuccess: (auth: Auth) => void;
@@ -86,8 +87,8 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
     const onSubmit = async (values: IRegisterDoctorForm): Promise<void> => {
         const { firstName, surname, speciality, license, email, phone, password, confirmPassword, terms, privacy } = values;
         setLoading(true);
-        sdk.registerDoctor(new RegisterDoctorDto(
-            firstName,
+        sdk.registerDoctor(RegisterDoctorDto.deserialize({
+            name: firstName,
             surname,
             license,
             email,
@@ -96,9 +97,10 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
             confirmPassword,
             terms,
             privacy,
-            props.doctorType,
+            userType: UserType.DOCTOR,
+            doctorType: props.doctorType,
             speciality
-        )).then((auth: Auth) => {
+        })).then((auth: Auth) => {
             onRegisterSuccess(auth);
         }).catch(() => {
             setError(t('register-form.error.invalid'));
