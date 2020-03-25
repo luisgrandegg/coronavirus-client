@@ -24,6 +24,7 @@ export interface ICreateInquiryForm {
     speciality: string;
     summary: string;
     terms: boolean;
+    time: string;
     privacy: boolean;
     confirmAge: boolean;
 }
@@ -42,6 +43,7 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
         speciality: '',
         summary: '',
         terms: false,
+        time: '',
         privacy: false,
         confirmAge: false,
     };
@@ -64,6 +66,8 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
         terms: yup.bool()
             .oneOf([true], t('register-form.error.accept'))
             .required(t('register-form.error.required', { field: t('register-patient.fields.terms') })),
+        time: yup.string()
+            .required(t('register-form.error.required', { field: t('register-patient.fields.time') })),
         privacy: yup.bool()
             .oneOf([true], t('register-form.error.accept'))
             .required(t('register-form.error.required', { field: t('register-patient.fields.privacy') })),
@@ -73,7 +77,7 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
     });
 
     const onSubmit = async (values: ICreateInquiryForm): Promise<void> => {
-        const { age, email, speciality, summary, terms, privacy, confirmAge } = values;
+        const { age, email, speciality, summary, terms, time, privacy, confirmAge } = values;
         setLoading(true);
         sdk.inquiries.create(new CreateInquiryDto(
             age,
@@ -81,6 +85,7 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
             speciality,
             summary,
             terms,
+            time,
             privacy,
             confirmAge
         )).then((inquiry: Inquiry) => {
@@ -122,6 +127,11 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                         label={t('register-patient.fields.speciality')}
                         component={Select}
                         options={specialities}
+                    />
+                    <Field
+                        name="time"
+                        label={t('register-patient.fields.time')}
+                        component={TextField}
                     />
                     <Field
                         name="summary"

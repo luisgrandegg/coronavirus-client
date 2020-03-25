@@ -5,6 +5,7 @@ export interface IInquiry {
     id: string;
     speciality: string | null;
     summary: string;
+    time: string | null;
 }
 
 export interface IInquiryApiResponse {
@@ -14,6 +15,7 @@ export interface IInquiryApiResponse {
     id: string;
     speciality: string | null;
     summary: string;
+    time: string | null;
 }
 
 export class Inquiry {
@@ -24,7 +26,8 @@ export class Inquiry {
             response.email,
             response.id,
             response.speciality,
-            response.summary
+            response.summary,
+            response.time,
         );
     }
 
@@ -34,7 +37,8 @@ export class Inquiry {
         public email: string,
         public id: string,
         public speciality: string | null,
-        public summary: string
+        public summary: string,
+        public time: string | null,
     ) {}
 
     toJSON(): IInquiry {
@@ -44,7 +48,8 @@ export class Inquiry {
             email: this.email,
             id: this.id,
             speciality: this.speciality,
-            summary: this.summary
+            summary: this.summary,
+            time: this.time,
         };
     }
 }
