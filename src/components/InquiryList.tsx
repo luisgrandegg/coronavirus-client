@@ -1,9 +1,10 @@
-import { Button, Typography } from '@material-ui/core';
+import { Button, Typography, IconButton, Tooltip } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import Pagination from '@material-ui/lab/Pagination';
+import FileCopyIcon from '@material-ui/icons/FileCopy';
 
 import { sdk } from '../sdk';
 import { Inquiry, InquiryPagination, IInquiryPaginated } from '../entities/Inquiry';
@@ -27,6 +28,26 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
     const [perPage] = useState(InquiryPagination.PER_PAGE);
     const [total, setTotal] = useState(0);
     const { t } = useTranslation();
+
+    const [open, setOpen] = React.useState(false);
+    const [copied, setCopied] = React.useState(false);
+
+    const handleTooltipClose = () => {
+        setOpen(false);
+    };
+
+    const handleTooltipOpen = () => {
+        setOpen(true);
+    };
+
+    const onCopyToClipboard = () => {
+        setOpen(true);
+        setCopied(true);
+        setTimeout(() => {
+            setOpen(false);
+            setCopied(false);
+        }, 5000);
+    }
 
     const attendInquiry = (inquiry: Inquiry): () => void => {
         return (): void => { sdk.inquiries.attend(inquiry.id); }
@@ -157,10 +178,24 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
     const renderInquiries = (): React.ReactNode => inquiries.map((inquiry: Inquiry) => (
         <InquiryCard key={inquiry.id} inquiry={inquiry}>
             {props.inquiryListParams?.attended && (
-                <CopyToClipboard text={inquiry.email}>
-                    <Typography className="inquiry__email">
-                        <strong>{t('inquiry.email')}</strong> {inquiry.email}
-                    </Typography>
+                <CopyToClipboard
+                    onCopy={onCopyToClipboard}
+                    text={inquiry.email}
+                >
+                    <Tooltip
+                        open={open}
+                        onClose={handleTooltipClose}
+                        onOpen={handleTooltipOpen}
+                        interactive
+                        title={copied ? t('inquiry.email.copied') : t('inquiry.email.copy')}
+                    >
+                        <Typography className="inquiry__email">
+                            <strong>{t('inquiry.email.field')}</strong> {inquiry.email}
+                            <IconButton aria-label="copy">
+                                <FileCopyIcon/>
+                            </IconButton>
+                        </Typography>
+                    </Tooltip>
                 </CopyToClipboard>
             )}
             <div className="button-group">
