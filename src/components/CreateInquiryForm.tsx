@@ -26,6 +26,7 @@ export interface ICreateInquiryForm {
     speciality: string;
     summary: string;
     terms: boolean;
+    time: string;
     privacy: boolean;
     confirmAge: boolean;
 }
@@ -52,6 +53,7 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
         speciality: '',
         summary: '',
         terms: false,
+        time: '',
         privacy: false,
         confirmAge: false,
     };
@@ -79,6 +81,8 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
         terms: yup.bool()
             .oneOf([true], t('register-form.error.accept'))
             .required(t('register-form.error.required', { field: t('register-patient.fields.terms') })),
+        time: yup.string()
+            .required(t('register-form.error.required', { field: t('register-patient.fields.time') })),
         privacy: yup.bool()
             .oneOf([true], t('register-form.error.accept'))
             .required(t('register-form.error.required', { field: t('register-patient.fields.privacy') })),
@@ -88,7 +92,7 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
     });
 
     const onSubmit = async (values: ICreateInquiryForm): Promise<void> => {
-        const { age, email, doctorType, speciality, summary, terms, privacy, confirmAge } = values;
+        const { age, email, doctorType, speciality, summary, terms, time, privacy, confirmAge } = values;
         setLoading(true);
         sdk.inquiries.create(new CreateInquiryDto(
             age,
@@ -97,6 +101,7 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
             speciality,
             summary,
             terms,
+            time,
             privacy,
             confirmAge
         )).then((inquiry: Inquiry) => {
@@ -149,6 +154,44 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                         label={t('register-patient.fields.doctor-type')}
                         component={Select}
                         options={doctorTypes}
+                    />
+                    <Field
+                        name="time"
+                        label={t('register-patient.fields.time')}
+                        component={TextField}
+                    />
+                    <Field
+                        name="summary"
+                        label={t('register-patient.fields.summary')}
+                        placeholder={t('register-patient.fields.summary-placeholder')}
+                        component={TextField}
+                        multiline
+                        rows="5"
+                    />
+                    <Field
+                        name="terms"
+                        label={(
+                            <span dangerouslySetInnerHTML={{ __html: t('register-patient.fields.terms') }} />
+                        )}
+                        component={Checkbox}
+                    />
+                    <Field
+                        name="privacy"
+                        label={(
+                            <span dangerouslySetInnerHTML={{ __html: t('register-patient.fields.privacy') }} />
+                        )}
+                        component={Checkbox}
+                    />
+                    <Field
+                        name="confirmAge"
+                        label={(
+                            <span dangerouslySetInnerHTML={{ __html: t('register-patient.fields.confirm-age') }} />
+                        )}
+                        component={Checkbox}
+                    />
+                    <SubmitButton
+                        label={t('register-patient.fields.submit')}
+                        disabled={!formik.isValid || formik.isSubmitting || loading}
                     />
                     {formik.values.doctorType === DoctorType.REGULAR ?
                         (

@@ -32,6 +32,11 @@ export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
                 <Typography>
                     <strong>{t('inquiry.age')}</strong> {inquiry.age}
                 </Typography>
+                { inquiry?.time &&
+                    <Typography>
+                        <strong>{t('inquiry.time')}</strong> {inquiry.time}
+                    </Typography>
+                }
                 <Typography color="textSecondary">
                     {inquiry.summary}
                 </Typography>

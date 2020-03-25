@@ -52,7 +52,7 @@ const resources = {
                 },
                 'how-does-it-work': {
                     title: 'Así funciona Cita Médica en Casa',
-                    'first-paragraph': 'Ponemos en contacto a <strong>profesionales colegiados y ciudadanos</strong> a través de email o videollamada, para resolver dudas. Queremos reducir la sobrecarga de hospitales y centros de salud en consultas leves.'
+                    'first-paragraph': 'Ponemos en contacto a <strong>profesionales colegiados en medicina o psicología y ciudadanos</strong> a través de email o videollamada, para resolver dudas sin coste alguno. Queremos reducir la sobrecarga de hospitales y centros de salud en consultas leves.'
 
                 },
                 'patient': {
@@ -95,6 +95,9 @@ const resources = {
                     'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y será borrada. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
                 }
             },
+            'inquiry-list': {
+                empty: '* No hay consultas con los filtros que tienes seleccionados *'
+            },
             inquiry: {
                 attend: 'Atender petición',
                 unattend: 'Desatender petición',
@@ -104,7 +107,9 @@ const resources = {
                 flag: 'Marcar como inapropiado',
                 unflag: 'Desmarcar como inapropiado',
                 deactivate: 'Eliminar',
-                age: 'Edad (de quien necesita consejo):'
+                age: 'Edad (de quien necesita consejo):',
+                time: 'Cuanto tiempo lleva con el problema:',
+                'not-specified': 'No especificado'
             },
             'register-doctor': {
                 drawing: {
@@ -175,6 +180,7 @@ const resources = {
                     'confirm-email': 'Confirma email',
                     'doctor-type': 'Elige una opción',
                     speciality: 'Especialidad',
+                    time: '¿Cuánto tiempo lleva con el problema?',
                     summary: 'Resumen de tu problema',
                     'summary-placeholder': 'Formula tu pregunta de forma sencilla y clara. Añade información sobre tratamientos o enfermedades (diabetes, tensión alta o baja...) para que el especialista tenga contexto. No escribas aquí tus datos personales.',
                     'terms': '<a target="_blank" href="/static/consentimiento.pdf">Acepto compartir mis datos personales con el personal médico.</a>',
@@ -229,6 +235,11 @@ const resources = {
                 content: {
                     'first-paragraph': 'Cita Médica en Casa está pensada para la resolución de dudas sencillas de salud. No es un plataforma para diagnosticar o preescribir medicamentos, tampoco se atenderán preguntas sobre Coronavirus, ese tema está en manos de los canales oficiales del Estado.',
                     'second-paragraph': 'Mil gracias de nuevo por tu ayuda.'
+                },
+                filter: {
+                    'open-modal': 'Filtra por especialidad',
+                    title: '¿Qué tipo de dudas deseas atender?',
+                    'apply-button': 'Filtra por especialidad'
                 }
             },
             share: {

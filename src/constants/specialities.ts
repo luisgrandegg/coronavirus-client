@@ -43,8 +43,8 @@ export const specialities = [
     	"label": "Medicina de familia",
     	"value": "medicina_de_familia"
     }, {
-    	"label": "Medicina interna",
-    	"value": "medicina_interna"
+        "label": "Enfermedades Infecciosas/Medicina interna",
+        "value": "medicina_interna"
     }, {
     	"label": "Nefrología",
     	"value": "nefrologia"

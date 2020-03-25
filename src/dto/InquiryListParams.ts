@@ -1,6 +1,7 @@
 export interface IInquiryListParams {
     doctorId?: string;
     speciality?: string;
+    specialities?: string[];
     attended?: boolean;
     solved?: boolean;
     active?: boolean;
@@ -14,6 +15,7 @@ export class InquiryListParams {
         return new InquiryListParams(
             data.doctorId,
             data.speciality,
+            data.specialities,
             data.attended,
             data.solved,
             data.active,
@@ -24,11 +26,12 @@ export class InquiryListParams {
     constructor(
         public doctorId?: string,
         public speciality?: string,
+        public specialities?: string[],
         public attended?: boolean,
         public solved?: boolean,
         public active?: boolean,
         public flagged?: boolean
-    ) {}
+    ) { }
 
     toJSON(): IInquiryListParams {
         const params: IInquiryListParams = {};
@@ -37,6 +40,9 @@ export class InquiryListParams {
         }
         if (this.speciality) {
             params.speciality = this.speciality;
+        }
+        if (this.speciality) {
+            params.specialities = this.specialities;
         }
         if (this.attended === true || this.attended === false) {
             params.attended = this.attended;

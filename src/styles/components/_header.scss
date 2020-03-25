@@ -1,10 +1,13 @@
 .header {
     background-color: white;
     padding: $spacer 0 $spacer-s 0;
-    margin-bottom: 40px;
 
-    @media (min-width: $breakpoint-tablet) {
-        margin-bottom: initial;
+    &__rrss {
+        margin-bottom: 40px;
+
+        @media (min-width: $breakpoint-tablet) {
+            margin-bottom: initial;
+        }
     }
 
     &__title {
