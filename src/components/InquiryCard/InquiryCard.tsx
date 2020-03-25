@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import moment from '../../utils/moment';
 import { Inquiry } from '../../entities/Inquiry';
 import { getSpecialityLabel } from '../../constants/specialities';
-import { Inquiries } from '../../sdk/Inquiries';
 export interface IInquiryCardProps {
     children: React.ReactNode;
     inquiry: Inquiry;
