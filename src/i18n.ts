@@ -107,7 +107,9 @@ const resources = {
                 flag: 'Marcar como inapropiado',
                 unflag: 'Desmarcar como inapropiado',
                 deactivate: 'Eliminar',
-                age: 'Edad (de quien necesita consejo):'
+                age: 'Edad (de quien necesita consejo):',
+                time: 'Cuanto tiempo lleva con el problema:',
+                'not-specified': 'No especificado'
             },
             'register-doctor': {
                 drawing: {
@@ -175,6 +177,7 @@ const resources = {
                     email: 'Email (para enviarte la cita)',
                     'confirm-email': 'Confirma email',
                     speciality: 'Especialidad',
+                    time: '¿Cuánto tiempo lleva con el problema?',
                     summary: 'Resumen de tu problema',
                     'summary-placeholder': 'Formula tu pregunta de forma sencilla y clara. Añade información sobre tratamientos o enfermedades (diabetes, tensión alta o baja...) para que el especialista tenga contexto. No escribas aquí tus datos personales.',
                     'terms': '<a target="_blank" href="/static/consentimiento.pdf">Acepto compartir mis datos personales con el personal médico.</a>',
