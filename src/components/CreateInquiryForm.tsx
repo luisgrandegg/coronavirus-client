@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as yup from 'yup';
 
-import specialities from '../constants/specialities';
+import { inquirySpecialities } from '../constants/specialities';
 import { CreateInquiryDto } from '../dto/CreateInquiryDto';
 import { Inquiry } from '../entities/Inquiry';
 import { sdk } from '../sdk';
@@ -126,7 +126,7 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                         name="speciality"
                         label={t('register-patient.fields.speciality')}
                         component={Select}
-                        options={specialities}
+                        options={inquirySpecialities}
                     />
                     <Field
                         name="time"

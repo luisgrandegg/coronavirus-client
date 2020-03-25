@@ -14,10 +14,6 @@ export const RegisterDoctor: React.FunctionComponent = (): JSX.Element => {
         setRegisterFormSuccess(true);
     };
 
-    const onRegisterError = (): void => {
-        // TODO: Notificate error
-    };
-
     const renderConfirmation = (): React.ReactNode => (
         <>
             <header className="register-form__header">
@@ -60,7 +56,6 @@ export const RegisterDoctor: React.FunctionComponent = (): JSX.Element => {
                     </header>
                     <RegisterDoctorForm
                         onRegisterSuccess={onRegisterSuccess}
-                        onRegisterError={onRegisterError}
                     />
                 </div>
                 <p>{t('register-doctor.content.responsability')}</p>

@@ -11,7 +11,6 @@ import { TextField } from './Form/TextField';
 import { SubmitButton } from './Form/SubmitButton';
 
 export interface ILoginFormProps {
-    onLoginError: () => void,
     onLoginSuccess: (auth: Auth) => void,
 }
 
@@ -23,7 +22,9 @@ export interface ILoginForm {
 export const LoginForm: React.FunctionComponent<ILoginFormProps> = (
     props: ILoginFormProps
 ): JSX.Element => {
-    const { onLoginError, onLoginSuccess } = props;
+    const [error, setError] = useState<string | null>(null);
+
+    const { onLoginSuccess } = props;
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
@@ -50,7 +51,7 @@ export const LoginForm: React.FunctionComponent<ILoginFormProps> = (
             dispatch(login(auth));
             onLoginSuccess(auth);
         }).catch(() => {
-            onLoginError();
+            setError(t('login-form.error.invalid'));
         }).finally(() => {
             setLoading(false);
         });
@@ -76,6 +77,7 @@ export const LoginForm: React.FunctionComponent<ILoginFormProps> = (
                         component={TextField}
                         type="password"
                     />
+                    {error && <p style={{color: '#f44336'}}>{error}</p>}
                     <SubmitButton
                         label={t('login-form.submit')}
                         disabled={!formik.isValid || formik.isSubmitting || loading}

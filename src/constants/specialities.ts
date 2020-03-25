@@ -79,4 +79,5 @@ export const specialities = [
     defaultSpeciality
 ];
 
+export const inquirySpecialities = specialities.filter((speciality: ISpeciality) => speciality.value !== defaultSpeciality.value)
 export default specialities;

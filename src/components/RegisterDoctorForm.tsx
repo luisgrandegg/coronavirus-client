@@ -15,7 +15,6 @@ import { DoctorType } from '../entities/Doctor';
 
 export interface IRegisterDoctorFormProps {
     onRegisterSuccess: (auth: Auth) => void;
-    onRegisterError: () => void;
 }
 
 export interface IRegisterDoctorForm {
@@ -34,7 +33,8 @@ export interface IRegisterDoctorForm {
 export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProps> = (
     props: IRegisterDoctorFormProps
 ): JSX.Element => {
-    const { onRegisterError, onRegisterSuccess } = props;
+    const [error, setError] = useState<string | null>(null);
+    const { onRegisterSuccess } = props;
     const { t } = useTranslation();
     const [loading, setLoading] = useState(false);
 
@@ -66,7 +66,8 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
         phone: yup.string().trim()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.phone') })),
         password: yup.string()
-            .required(t('register-form.error.required', { field: t('register-doctor.fields.password') })),
+            .required(t('register-form.error.required', { field: t('register-doctor.fields.password') }))
+            .min(6, t('register-form.error.length', { length: 6 })),
         confirmPassword: yup.string()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.confirm-password') }))
             .oneOf([yup.ref('password')], t('register-form.error.confirm')),
@@ -96,7 +97,7 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
         )).then((auth: Auth) => {
             onRegisterSuccess(auth);
         }).catch(() => {
-            onRegisterError();
+            setError(t('register-form.error.invalid'));
         }).finally(() => {
             setLoading(false);
         });
@@ -137,6 +138,7 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
                         label={t('register-doctor.fields.email')}
                         component={TextField}
                     />
+                    {error && <p style={{color: '#f44336'}}>{error}</p>}
                     <Field
                         name="phone"
                         label={t('register-doctor.fields.phone')}
