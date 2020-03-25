@@ -26,13 +26,9 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
             </header>
             <section className="register-form__section">
                 <p>{t('register-patient.confirmation.content.message-1')}</p>
-<<<<<<< HEAD
                 <h3 className="register-form__title register-form__title--confirmation">{t('register-patient.confirmation.content.time.title')}</h3>
                 <p>{t('register-patient.confirmation.content.time.message')}</p>
                 <p dangerouslySetInnerHTML={{__html: t('register-patient.confirmation.content.message-2')}}/>
-=======
-                <p dangerouslySetInnerHTML={{ __html: t('register-patient.confirmation.content.message-2') }} />
->>>>>>> feat: add two step form to create inquiries.
             </section>
         </>
     );

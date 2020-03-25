@@ -1,3 +1,5 @@
+import { DoctorType } from "./Doctor";
+
 export enum InquiryPagination {
     PER_PAGE = 100
 }
@@ -7,9 +9,14 @@ export interface IInquiry {
     age: string;
     email: string;
     id: string;
-    speciality: string | null;
+    doctorType: DoctorType;
+    flagged: boolean;
+    active: boolean;
+    attended: boolean;
+    doctorId?: string;
+    speciality?: string;
     summary: string;
-    time: string | null;
+    time?: string;
 }
 
 export interface IInquiryPaginated {
@@ -22,9 +29,14 @@ export interface IInquiryApiResponse {
     age: string;
     email: string;
     id: string;
-    speciality: string | null;
+    doctorType: string;
+    flagged: boolean;
+    active: boolean;
+    attended: boolean;
+    doctorId?: string;
+    speciality?: string;
     summary: string;
-    time: string | null;
+    time?: string;
 }
 
 export interface IInquiryPaginatedApiResponse {
@@ -39,9 +51,14 @@ export class Inquiry {
             response.age,
             response.email,
             response.id,
-            response.speciality,
             response.summary,
+            response.doctorType as DoctorType,
+            response.flagged,
+            response.active,
+            response.attended,
+            response.speciality,
             response.time,
+            response.doctorId
         );
     }
 
@@ -50,9 +67,14 @@ export class Inquiry {
         public age: string,
         public email: string,
         public id: string,
-        public speciality: string | null,
         public summary: string,
-        public time: string | null,
+        public doctorType: DoctorType,
+        public flagged: boolean,
+        public active: boolean,
+        public attended: boolean,
+        public speciality?: string,
+        public time?: string,
+        public doctorId?: string
     ) {}
 
     toJSON(): IInquiry {
@@ -61,9 +83,14 @@ export class Inquiry {
             age: this.age,
             email: this.email,
             id: this.id,
+            doctorType: this.doctorType,
+            flagged: this.flagged,
+            active: this.active,
+            attended: this.attended,
             speciality: this.speciality,
             summary: this.summary,
             time: this.time,
+            doctorId: this.doctorId
         };
     }
 }

@@ -11,8 +11,12 @@ import { InquiryListParams } from '../dto/InquiryListParams';
 import { DoctorTabs } from '../components/DoctorTabs';
 
 import specialities from '../constants/specialities';
+import { useHistory } from 'react-router-dom';
+import { Inquiry } from '../entities/Inquiry';
+import { Routes } from '../router/Routes';
 
 export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
+    const history = useHistory();
     const { t } = useTranslation();
     const [selectedSpecialities, SpecialitiesFilter] = useMultipleOptionsFilter(
         t('doctor-dashboard.filter.title'),
@@ -25,6 +29,12 @@ export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
         attended: false,
         flagged: false
     });
+
+    const handleAttendEvent = (inquiry: Inquiry): void => {
+        if (inquiry.attended) {
+            history.push(Routes.INQUIRY_DETAIL.replace(':id', inquiry.id));
+        }
+    }
 
     const Content = (): JSX.Element => (
         <>
@@ -49,7 +59,7 @@ export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
                     <SpecialitiesFilter />
                     <Section
                         content={<Content />} />
-                    <InquiryList inquiryListParams={inquiryListParams} />
+                    <InquiryList inquiryListParams={inquiryListParams} onAttendEvent={handleAttendEvent}/>
                 </div>
             </main>
             <Footer />
