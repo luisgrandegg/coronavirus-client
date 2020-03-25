@@ -40,11 +40,11 @@ export const specialities = [
     	"label": "Ginecología y obstetricia",
     	"value": "ginecologia_y_obstetricia"
     }, {
-    	"label": "Infecciosas",
-    	"value": "infecciosas"
-    }, {
     	"label": "Medicina de familia",
     	"value": "medicina_de_familia"
+    }, {
+        "label": "Enfermedades Infecciosas/Medicina interna",
+        "value": "medicina_interna"
     }, {
     	"label": "Nefrología",
     	"value": "nefrologia"
