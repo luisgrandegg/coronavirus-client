@@ -11,6 +11,7 @@ import { Spinner } from './components/Spinner';
 import { DoctorDashbord } from './pages/DoctorDashboard';
 import { getAuth } from './store/selectors/status';
 import { sdk } from './sdk';
+import { HelpPatient } from './pages/HelpPatient';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { AboutUs } from './pages/AboutUs';
@@ -55,19 +56,24 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                                 <AboutUs />
                             </ScrollToTop>
                         </Route>
+                        <Route exact={true} path={Routes.HELP_PATIENT}>
+                            <ScrollToTop>
+                                <HelpPatient />
+                            </ScrollToTop>
+                        </Route>
                         <Route exact={true} path={Routes.LOGIN}>
                             <ScrollToTop>
-                                <Login />
+                                <HelpPatient />
                             </ScrollToTop>
                         </Route>
                         <Route exact={true} path={Routes.REGISTER_PSYCHOLOGIST}>
                             <ScrollToTop>
-                                <RegisterDoctor doctorType={DoctorType.PSYCHOLOGIST}/>
+                                <RegisterDoctor doctorType={DoctorType.PSYCHOLOGIST} />
                             </ScrollToTop>
                         </Route>
                         <Route exact={true} path={Routes.REGISTER_DOCTOR}>
                             <ScrollToTop>
-                                <RegisterDoctor doctorType={DoctorType.REGULAR}/>
+                                <RegisterDoctor doctorType={DoctorType.REGULAR} />
                             </ScrollToTop>
                         </Route>
                         <Route exact={true} path={Routes.REGISTER_PATIENT}>
@@ -88,10 +94,10 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                             <AdminDashboard />
                         </AdminRoute>
                         <AdminRoute exact={true} path={Routes.ADMIN_MODERATE}>
-                            <AdminModerate/>
+                            <AdminModerate />
                         </AdminRoute>
                         <AdminRoute exact={true} path={Routes.ADMIN_STATS}>
-                            <AdminStats/>
+                            <AdminStats />
                         </AdminRoute>
                         <Redirect exact={true} from={Routes.REGISTER} to={Routes.REGISTER_PATIENT} />
                         <Redirect to={Routes.ROOT} />

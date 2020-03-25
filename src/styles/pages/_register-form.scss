@@ -34,6 +34,11 @@
     &__section {
         width: 100%;
 
+        .register-form__title--confirmation {
+            font-family: $font-family--secondary;
+            color: $gray--ultradark;
+        }
+
         &--form {
             margin-top: $spacer-l;
             display: flex;

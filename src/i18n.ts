@@ -178,10 +178,10 @@ const resources = {
                     content: {
                         time: {
                             title: '¿Cuánto tardarán en responderme?',
-                            message: 'Los médicos que responden son voluntarios, tratan de hacerlo lo más rápido posible, pero se puede demorar. Si necesitas respuesta urgente debes llamar al 112.'
+                            message: 'Las personas que responden son voluntarias, tratan de hacerlo lo más rápido posible, pero se puede demorar. Si necesitas respuesta urgente debes llamar al 112.',
                         },
                         'message-1': 'Recibirás un email confimándola con un link para acceder a una consulta online, o con una respuesta a tu consulta.',
-                        'message-2': '<strong>Importante:</strong> revisa por favor el buzon de Spam de tu email, a veces las respuestas llegan allí.'
+                        'message-2': '<a href="/help/patient/">Aquí tienes más ayuda</a> sobre Cita Médica en Casa.'
                     }
                 },
                 header: {
@@ -306,7 +306,37 @@ const resources = {
             },
             'back-home': {
                 text: 'Volver a la home'
-            }
+            },
+            'help-patient': {
+                title: 'Preguntas frecuentes para ciudadanos',
+                trust: {
+                    title: '¿Cómo sé que las personas que contestan mis dudas son profesionales?',
+                    'first-paragraph': 'Tanto en el caso de la medicina como de la psicología, <strong>comprobamos uno por uno todos los números de colegiado</strong> de los profesionales que nos solicitan unirse a la plataforma. Nos tomamos muy en serio vuestra salud.',
+                },
+                'answer-time': {
+                    title: '¿Cuánto tardarán en contestarme?',
+                    'first-paragraph': 'No podemos decirte un plazo exacto. Las personas que colaboran en Cita Médica en Casa lo hacen en su tiempo libre y de forma voluntaria, ten paciencia. En cualquier caso, <strong>si tienes una urgencia médica, llama al 112 sin dudarlo</strong>, no esperes nuestra respuesta.',
+                },
+                'why-not-covid': {
+                    title: '¿Por qué no contestáis preguntas sobre el Coronavirus?',
+                    'first-paragraph': 'Cita Médica en Casa se centra en las dudas generales de salud, para descongestionar el sistema sanitario. <strong>Existen canales oficiales con información concreta sobre ese tema</strong>:',
+                    'list-item-1': '<a href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm" target="_blank">Web con los teléfonos de cada comunidad autónoma</a>',
+                    'list-item-2': '<a href="https://twitter.com/sanidadgob" target="_blank">Twitter del ministerio de Sanidad</a>',
+                },
+                'how-many-questions': {
+                    title: '¿Cuántas dudas puedo enviar?',
+                    'first-paragraph': '<strong>Las que necesites</strong>, pero ten en cuenta que la misma persona no responderá a todas tus dudas sobre medicina o psicología a la vez. Se ponen en cola y los profesionales las van contestando, así que <strong>puede que te respondan diferentes profesionales en diferentes momentos</strong>.',
+                },
+                'what-kind-of-questions': {
+                    title: '¿Qué tipo de dudas puedo plantear?',
+                    'first-paragraph': 'Todas aquellas que tengan que ver con salud. Ten en cuenta que aquí no se diagnostican enfermedades ni se prescriben tratamientos, Cita Médica en Casa no sustituye a tu médico ni al sistema de salud.',
+                },
+                'question-taxonomy': {
+                    title: '¿Cómo describo mi duda?',
+                    'first-paragraph': 'Cuando nos la cuentes en el formulario hazlo de forma concisa, dinos cuál es el problema, desde cuando te ocurre, qué sintomas tienes, si te duele cómo es el dolor y donde está localizado.',
+                    'second-paragraph': 'Dinos también si tienes alergia a algo, estás tomando alguna medicación y si tienes enfermedades como diabetes, hipertensión o te han operado recientemente por ejemplo, esos detalles ayudan a los médicos.',
+                }
+            },
         }
     }
 };
