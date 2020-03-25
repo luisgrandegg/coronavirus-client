@@ -30,10 +30,6 @@ export const Login: React.FunctionComponent = (): JSX.Element => {
         );
     };
 
-    const onLoginError = (): void => {
-
-    };
-
     return (
         <>
             <Header/>
@@ -43,7 +39,6 @@ export const Login: React.FunctionComponent = (): JSX.Element => {
                     <Section content={
                         <LoginForm
                             onLoginSuccess={onLoginSuccess}
-                            onLoginError={onLoginError}
                         />}
                     />
                 </div>

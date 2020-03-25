@@ -72,7 +72,7 @@ const resources = {
                 },
                 'what-is-not': {
                     title: '¿Qué no es Cita Médica en Casa?',
-                    'first-paragraph': '<strong>No acudas aquí</strong> si tienes síntomas asociados a al Coronavirus COVID-19 o si sospechas que puedes tenerlo, <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/20200306_Preguntas_respuestas_2019-nCoV.pdf">sigue las recomendaciones de las autoridades sanitarias</a></strong> o <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm">llama a los teléfonos habilitados por las comunidades autónomas</a></strong> para este fin <strong><a target="_blank" href="https://www.coronamadrid.com/">o utiliza www.coronamadrid.com</a></strong>.',
+                    'first-paragraph': '<strong>No acudas aquí</strong> si tienes síntomas asociados a el Coronavirus COVID-19 o si sospechas que puedes tenerlo, <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/20200306_Preguntas_respuestas_2019-nCoV.pdf">sigue las recomendaciones de las autoridades sanitarias</a></strong> o <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm">llama a los teléfonos habilitados por las comunidades autónomas</a></strong> para este fin <strong><a target="_blank" href="https://www.coronamadrid.com/">o utiliza www.coronamadrid.com</a></strong>.',
                     'second-paragraph': 'Cita Médica en Casa, <strong>no es un sustituto del Sistema Nacional de Salud ni de la cita presencial con tu médico. No es un servicio médico de diagnóstico ni de prescripción de tratamientos</strong> de ningún tipo.'
                 },
                 'what-is': {
@@ -84,7 +84,7 @@ const resources = {
                 'privacy-doctor': {
                     title: 'Si eres profesional',
                     'first-paragraph': '<strong>Nunca los cederemos a terceros</strong>, ni se utilizarán para otro fin que no sea el de esta plataforma.',
-                    'second-paragraph': '<strong>Los pacientes solo verán tu email</strong>. Si lo deseas, podrás crearte uno específico para la platafoma y preservar tu intimidad.',
+                    'second-paragraph': '<strong>Los ciudadanos solo verán tu email</strong>. Si lo deseas, podrás crearte uno específico para la platafoma y preservar tu intimidad.',
                     'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y será borrada. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
 
                 },
@@ -157,6 +157,10 @@ const resources = {
                         title: 'Solicitud recibida'
                     },
                     content: {
+                        time: {
+                            title: '¿Cuánto tardarán en responderme?',
+                            message: 'Los médicos que responden son voluntarios, tratan de hacerlo lo más rápido posible, pero se puede demorar. Si necesitas respuesta urgente debes llamar al 112.'
+                        },
                         'message-1': 'Recibirás un email confimándola con un link para acceder a una consulta online, o con una respuesta a tu consulta.',
                         'message-2': '<strong>Importante:</strong> revisa por favor el buzon de Spam de tu email, a veces las respuestas llegan allí.'
                     }
@@ -189,10 +193,12 @@ const resources = {
             'register-form': {
                 submit: 'Registrarme',
                 error: {
+                    length: ' El campo debe tener al menos {{length}} caracteres',
                     required: 'El campo es requerido',
                     format: 'El campo tiene un formato incorrecto',
                     accept: 'Es necesario aceptar los términos',
                     confirm: 'El campo no coincide',
+                    invalid: 'Ya hay una cuenta con este email'
                 }
             },
             'login-form': {
@@ -201,6 +207,7 @@ const resources = {
                     required: 'El campo es requerido',
                     format: 'El campo tiene un formato incorrecto',
                     accept: 'Es necesario aceptar los términos',
+                    invalid: 'Uy, esta no vale. Intenta otra vez'
                 },
                 fields: {
                     email: 'Email',
