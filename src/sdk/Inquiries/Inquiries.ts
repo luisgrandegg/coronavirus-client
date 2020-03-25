@@ -1,18 +1,23 @@
 import { AxiosResponse } from "axios";
 
 import { ApiClient } from "../ApiClient";
-import { Inquiry, IInquiryApiResponse } from "../../entities/Inquiry";
+import { Inquiry, IInquiryPaginated, IInquiryApiResponse, IInquiryPaginatedApiResponse } from "../../entities/Inquiry";
 import { CreateInquiryDto } from "../../dto/CreateInquiryDto";
 import { IInquiryListParams } from "../../dto/InquiryListParams";
 
 export class Inquiries {
     constructor(
         private apiClient: ApiClient
-    ) {}
+    ) { }
 
-    async get(inquiryListParams?: IInquiryListParams): Promise<Inquiry[]> {
-        return this.apiClient.get<IInquiryApiResponse[]>('/inquiries', inquiryListParams)
-            .then((response: AxiosResponse<IInquiryApiResponse[]>): Inquiry[] => response.data.map(Inquiry.createFromResponse));
+    async get(inquiryListParams?: IInquiryListParams): Promise<IInquiryPaginated> {
+        return this.apiClient.get<IInquiryPaginatedApiResponse>('/inquiries', inquiryListParams)
+            .then((response: AxiosResponse<IInquiryPaginatedApiResponse>): IInquiryPaginated => {
+                return {
+                    inquiries: response.data.inquiries.map(Inquiry.createFromResponse),
+                    total: response.data.total
+                }
+            });
     }
 
     async getOne(inquiryId: string): Promise<Inquiry> {
