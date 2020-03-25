@@ -66,6 +66,27 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
         </section>
     );
 
+    const ContentCTAPsychologist = (): JSX.Element => (
+        <section className="home__section">
+            <header className="home__section-header">
+                <h2 className="home__section-title">{t('home.psychologist.title')}</h2>
+            </header>
+            <p dangerouslySetInnerHTML={{ __html: t('home.psychologist.first-paragraph') }} />
+            <Button
+                variant="contained"
+                color="primary"
+                component={RouterLink}
+                to={Routes.REGISTER_PSYCHOLOGIST}
+            >{t('home.psychologist.register-button')}</Button>
+            <Button
+                variant="outlined"
+                color="primary"
+                component={RouterLink}
+                to={Routes.DOCTOR_DASHBOARD}
+            >{t('home.psychologist.login')}</Button>
+        </section>
+    );
+
     const ContentPrivacy = (): JSX.Element => (
         <>
             <section className="home__section">
@@ -122,7 +143,8 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
 
         const statTranslationSection = statType === 'inquiries_attended' ?
             'patient' : statType === 'doctors_validated' ?
-            'doctor': '';
+            'doctor': statType === 'psychologists_validated' ?
+            'psychologists': '';
 
         return (
             <Counter
@@ -155,6 +177,11 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
                         <Section
                             aside={renderCounter('doctors_validated', stats?.total?.doctors_validated)}
                             content={<ContentCTADoctor />}
+                        />
+                        <p className="divider"/>
+                        <Section
+                            aside={renderCounter('psychologists_validated', stats?.total?.psychologists_validated)}
+                            content={<ContentCTAPsychologist />}
                         />
                     </div>
                     <Section

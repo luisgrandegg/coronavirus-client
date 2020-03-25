@@ -48,12 +48,11 @@ const resources = {
                     alt: 'Cita Médica en Casa'
                 },
                 'claim': {
-                    title: '¿Necesitas consejo médico?<br>#QuédateEnCasa y consulta a profesionales'
+                    title: '¿Necesitas consejo médico o psicológico?<br>#QuédateEnCasa y consulta a profesionales'
                 },
                 'how-does-it-work': {
                     title: 'Así funciona Cita Médica en Casa',
-                    'first-paragraph': 'Ponemos en contacto a <strong>profesionales colegiados y ciudadanos</strong> a través de email o videollamada, para resolver dudas. Queremos reducir la sobrecarga de hospitales y centros de salud en consultas leves.'
-
+                    'first-paragraph': 'Ponemos en contacto a <strong>profesionales colegiados en medicina o psicología y ciudadanos</strong> a través de email o videollamada, para resolver dudas sin coste alguno. Queremos reducir la sobrecarga de hospitales y centros de salud en consultas leves.'
                 },
                 'patient': {
                     title: 'Para ciudadanos/as',
@@ -68,7 +67,15 @@ const resources = {
                     'register-button': 'Registrarme',
                     login: 'Acceder con mi cuenta',
                     'counter-pre': 'Ya somos',
-                    'counter-post': 'médicos'
+                    'counter-post': 'médicos/as'
+                },
+                'psychologist': {
+                    title: 'Para Psicólogos/as',
+                    'first-paragraph': 'Presta tu ayuda a personas que no pueden acudir a una consulta.',
+                    'register-button': 'Registrarme',
+                    login: 'Acceder con mi cuenta',
+                    'counter-pre': 'Ya somos',
+                    'counter-post': 'psicólogos/as'
                 },
                 'what-is-not': {
                     title: '¿Qué no es Cita Médica en Casa?',
