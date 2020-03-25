@@ -139,24 +139,24 @@ const resources = {
                 },
                 content: {
                     'list-item-1': 'Debes <strong>rellenar el formulario</strong> que verás a continuación.',
-                    'list-item-2': 'Te validamos, comprobando tu número de colegiado/a.',
-                    'list-item-3': '<strong>Puedes utilizar tu email personal o, si lo prefieres, crear una cuenta</strong> de Gsuite (Google), te enviaremos instrucciones acerca de cómo funciona.',
-                    'list-item-4': '<strong>Te damos acceso al recopilatorio de dudas</strong> de ciudadanos accedes con tu email y contraseña que has creado en el formulario.',
-                    'list-item-5': '<strong>Escoges a una duda de la lista y envías un email con una respuesta</strong> por escrito a su consulta. Si necesitas tener una videollamada con la persona que plantea la duda, escríbenos al email: <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> y te facilitaremos un enlace y los pasos a seguir',
-                    'form-header': 'Para añadirte a nuestra base de datos y que puedas atender pacientes necesitamos:',
+                    'list-item-2': 'Validaremos tu perfil <strong>comprobando tu número de colegiado/a.</strong>',
+                    'list-item-3': '<strong>Puedes utilizar tu email personal o, si lo prefieres, crear una cuenta</strong> de Gsuite (Google); te enviaremos instrucciones acerca de cómo funciona.',
+                    'list-item-4': 'Con el email y contraseña que has indicado en el formulario de registro, <strong>podrás acceder al listado de dudas de ciudadanos.</strong>',
+                    'list-item-5': '<strong>Escoge una duda de la lista</strong> (sólo verás las preguntas de tu área, medicina o psicología) </strong>y envía un email con la respuesta</strong> por escrito a su pregunta. Si necesitas tener una videollamada con la persona que plantea la duda, escríbenos al email: pati@citamedicaencasa.com y te facilitaremos un enlace y los pasos a seguir',
+                    'form-header': 'Para añadirte a nuestra base de datos y que puedas atender dudas necesitamos:',
                     'responsability': 'Recuerda que Cita Médica en Casa, no sustituye al Servicio nacional de salud, ni a la visita a tu médico y no te proporcionará un diagnóstico o un tratamiento. Cita Médica en casa no se hace responsable de los contenidos ni de las opiniones intercambiadas entre profesionales de la medicina y ciudadanos.'
                 },
                 fields: {
                     name: 'Nombre',
                     surname: 'Apellidos',
                     speciality: 'Especialidad',
-                    license: 'Número de colegiado (no será visible a los pacientes)',
-                    email: 'Email (no será visible a los pacientes)',
-                    phone: 'Teléfono (no será visible a los pacientes)',
+                    license: 'Número de colegiado (los ciudadanos no lo verán)',
+                    email: 'Email (los ciudadanos no lo verán)',
+                    phone: 'Teléfono (los ciudadanos no lo verán)',
                     password: 'Contraseña',
                     'confirm-password': 'Confirma contraseña',
                     'terms': '<a target="_blank" href="/static/consentimiento.pdf">Acepto que mis datos se incorporen a Cita médica en Casa.</a>',
-                    'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf">Me comprometo a no hacer públicos datos de pacientes.</a>',
+                    'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf">Me comprometo a no hacer públicos datos de ciudadanos.</a>',
                 }
             },
             'register-patient': {
