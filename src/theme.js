@@ -1,24 +1,30 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
 export default createMuiTheme({
-  palette: {
-    primary: {
-      main: "#20ABD6"
-    }
-  },
-  overrides: {
-    MuiButton: {
-      containedPrimary: {
-        color: "white"
-      }
+    palette: {
+        primary: {
+        main: "#20ABD6"
+        }
     },
-    MuiChip: {
-      colorPrimary: {
-        color: "white"
-      },
-      deleteIconColorPrimary: {
-        color: "white"
-      }
+    typography: {
+        fontFamily: [
+        'Open Sans',
+        'sans-serif',
+        ].join(','),
+    },
+    overrides: {
+        MuiButton: {
+        containedPrimary: {
+            color: "white"
+        }
+        },
+        MuiChip: {
+        colorPrimary: {
+            color: "white"
+        },
+        deleteIconColorPrimary: {
+            color: "white"
+        }
+        }
     }
-  },
 });

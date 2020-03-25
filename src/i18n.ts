@@ -184,13 +184,16 @@ const resources = {
                     'list-item-2': 'Estos datos se enviaran a un doctor o doctora para que concierte una videollamada contigo o para que resuelva tu consulta por email.',
                     'list-item-3': 'Te llegará un email con la respuesta o para confirmar tu videollamada.',
                     'list-item-4': 'Si se trata de una consulta online utilizaréis Hangouts de Google, te enviaremos un link.',
-                    'form-header': 'Por favor, para para plantear tu consulta dinos:',
+                    'form-step1-header': 'Por favor, para para plantear tu consulta dinos:',
+                    'form-step2-header': '¿Sobre qué trata tu ayuda?',
+                    'form-step2-description': 'Elige entre consulta médica o psicológica',
                     'responsability': 'Recuerda que Cita Médica en Casa, no sustituye al Servicio nacional de salud, ni a la visita a tu médico y no te proporcionará un diagnóstico o un tratamiento. Cita Médica en casa no se hace responsable de los contenidos ni de las opiniones intercambiadas entre profesionales de la medicina y ciudadanos.'
                 },
                 fields: {
-                    age: 'Edad (de quien necesita consejo)',
+                    age: 'Edad (tuya o de quien necesite consejo)',
                     email: 'Email (para enviarte la cita)',
                     'confirm-email': 'Confirma email',
+                    'doctor-type': 'Elige una opción',
                     speciality: 'Especialidad',
                     time: '¿Cuánto tiempo lleva con el problema?',
                     summary: 'Resumen de tu problema',
@@ -199,7 +202,11 @@ const resources = {
                     'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf">Acepto la política de privacidad y la protección de datos.</a>',
                     'confirm-age': 'Soy mayor de 18 años.',
                     'submit': 'Enviar duda'
-                }
+                },
+                'doctor-type': {
+                    regular: 'Consulta médica',
+                    psychologist: 'Consulta psicológica'
+                },
             },
             'register-form': {
                 submit: 'Registrarme',

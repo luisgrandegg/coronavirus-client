@@ -28,7 +28,7 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
                 <p>{t('register-patient.confirmation.content.message-1')}</p>
                 <h3 className="register-form__title register-form__title--confirmation">{t('register-patient.confirmation.content.time.title')}</h3>
                 <p>{t('register-patient.confirmation.content.time.message')}</p>
-                <p dangerouslySetInnerHTML={{__html: t('register-patient.confirmation.content.message-2')}}/>
+                <p dangerouslySetInnerHTML={{ __html: t('register-patient.confirmation.content.message-2') }} />
             </section>
         </>
     );
@@ -47,15 +47,10 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
                         <li className="register-form__list-item">{t('register-patient.content.list-item-4')}</li>
                     </ol>
                 </section>
-                <div className="register-form__section--form">
-                    <header className="register-form__header">
-                        <h3>{t('register-patient.content.form-header')}</h3>
-                    </header>
-                    <CreateInquiryForm
-                        onCreateSuccess={onCreateSuccess}
-                        onCreateError={onCreateError}
-                    />
-                </div>
+                <CreateInquiryForm
+                    onCreateSuccess={onCreateSuccess}
+                    onCreateError={onCreateError}
+                />
                 <p>{t('register-patient.content.responsability')}</p>
             </div>
         </div>
