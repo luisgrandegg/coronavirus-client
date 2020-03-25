@@ -9,6 +9,7 @@ export enum Routes {
     LOGIN = '/login',
     REGISTER = '/register',
     REGISTER_DOCTOR = '/register/doctor',
+    REGISTER_PSYCHOLOGIST = '/register/psychologist',
     REGISTER_PATIENT = '/register/patient',
     ROOT = '/'
 }
