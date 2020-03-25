@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Header } from '../components/Header';
+import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { Section } from '../components/Section';
 import { CreateInquiryForm } from '../components/CreateInquiryForm';
@@ -80,6 +81,7 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
             <Header />
             <main className="main register-form">
                 <div className="container">
+                    <BackHome />
                     <Section
                         aside={<Aside />}
                         content={<InquiryProcess />}

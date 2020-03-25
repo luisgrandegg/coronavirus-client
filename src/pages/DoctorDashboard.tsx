@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Header } from '../components/Header';
+import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { Section } from '../components/Section';
 import { InquiryList } from '../components/InquiryList';
@@ -44,6 +45,7 @@ export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
             </Header>
             <main className="main doctor-dashboard">
                 <div className="container">
+                    <BackHome />
                     <SpecialitiesFilter />
                     <Section
                         content={<Content />} />

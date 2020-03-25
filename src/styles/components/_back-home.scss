@@ -1,0 +1,12 @@
+.back-home {
+    margin-bottom: $spacer-s;
+    
+    a {
+        font-size: $font-size-s;
+        text-decoration: none;
+    }
+
+    &__arrow {
+        margin-right: $spacer-xxs;
+    }
+}

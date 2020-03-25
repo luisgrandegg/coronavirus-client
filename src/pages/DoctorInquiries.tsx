@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Header } from '../components/Header';
+import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { DoctorTabs } from '../components/DoctorTabs';
 import { InquiryList } from '../components/InquiryList';
@@ -25,6 +26,7 @@ export const DoctorInquiries: React.FunctionComponent = (): JSX.Element => {
             </Header>
             <main className="main doctor-inquiries">
                 <div className="container">
+                    <BackHome />
                     <InquiryList inquiryListParams={inquiryListParams}/>
                 </div>
             </main>

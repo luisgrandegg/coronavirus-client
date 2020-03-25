@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 
 import { Header } from '../components/Header';
+import { BackHome } from '../components/BackHome';
 import { AdminTabs } from '../components/AdminTabs';
 import { Footer } from '../components/Footer';
 import { DoctorList } from '../components/DoctorList';
@@ -45,6 +46,7 @@ export const AdminDashboard: React.FunctionComponent = (): JSX.Element => {
         </Header>
         <main className="main admin-dashboard">
             <div className="container">
+                <BackHome />
                 {renderLinkToDoctor()}
                 <DoctorList doctorListParams={doctorListParams}/>
             </div>

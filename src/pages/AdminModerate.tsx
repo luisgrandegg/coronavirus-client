@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Header } from '../components/Header';
+import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { InquiryList } from '../components/InquiryList';
 import { InquiryListParams } from '../dto/InquiryListParams';
@@ -19,6 +20,7 @@ export const AdminModerate: React.FunctionComponent = (): JSX.Element => {;
             </Header>
             <main className="main doctor-inquiries">
                 <div className="container">
+                    <BackHome />
                     <InquiryList inquiryListParams={inquiryListParams} isLive={false} admin={true}/>
                 </div>
             </main>

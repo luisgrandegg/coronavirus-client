@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { Header } from '../components/Header';
+import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { Section } from '../components/Section';
 import { LoginForm } from '../components/LoginForm';
@@ -38,6 +39,7 @@ export const Login: React.FunctionComponent = (): JSX.Element => {
             <Header/>
             <main className="main login-form">
                 <div className="container">
+                    <BackHome />
                     <Section content={
                         <LoginForm
                             onLoginSuccess={onLoginSuccess}
