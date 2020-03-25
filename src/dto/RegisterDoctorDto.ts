@@ -4,7 +4,7 @@ import { DoctorType } from "../entities/Doctor";
 export interface IRegisterDoctorDto {
     name: string;
     surname: string;
-    speciality: string;
+    speciality?: string;
     license: string;
     email: string;
     phone: string;
@@ -23,7 +23,6 @@ export class RegisterDoctorDto {
         return new RegisterDoctorDto(
             data.name,
             data.surname,
-            data.speciality,
             data.license,
             data.email,
             data.phone,
@@ -31,14 +30,14 @@ export class RegisterDoctorDto {
             data.confirmPassword,
             data.terms,
             data.privacy,
-            data.doctorType
+            data.doctorType,
+            data.speciality
         );
     }
 
     constructor(
         public name: string,
         public surname: string,
-        public speciality: string,
         public license: string,
         public email: string,
         public phone: string,
@@ -46,7 +45,8 @@ export class RegisterDoctorDto {
         public confirmPassword: string,
         public terms: boolean,
         public privacy: boolean,
-        public doctorType: DoctorType
+        public doctorType: DoctorType,
+        public speciality?: string
     ) {}
 
     toJSON(): IRegisterDoctorDto {

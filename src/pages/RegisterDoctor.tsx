@@ -6,8 +6,15 @@ import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { Section } from '../components/Section';
 import { RegisterDoctorForm } from '../components/RegisterDoctorForm';
+import { DoctorType } from '../entities/Doctor';
 
-export const RegisterDoctor: React.FunctionComponent = (): JSX.Element => {
+export interface IRegisterDoctorProps {
+    doctorType: DoctorType;
+}
+
+export const RegisterDoctor: React.FunctionComponent<IRegisterDoctorProps> = (
+    props: IRegisterDoctorProps
+): JSX.Element => {
     const { t } = useTranslation();
     const [registerFormSuccess, setRegisterFormSuccess] = useState(false);
     const onRegisterSuccess = (): void => {
@@ -56,6 +63,7 @@ export const RegisterDoctor: React.FunctionComponent = (): JSX.Element => {
                     </header>
                     <RegisterDoctorForm
                         onRegisterSuccess={onRegisterSuccess}
+                        doctorType={props.doctorType}
                     />
                 </div>
                 <p>{t('register-doctor.content.responsability')}</p>
