@@ -6,6 +6,8 @@ export interface IInquiryListParams {
     solved?: boolean;
     active?: boolean;
     flagged?: boolean;
+    page?: number;
+    perPage?: number;
 }
 
 export class InquiryListParams {
@@ -19,7 +21,9 @@ export class InquiryListParams {
             data.attended,
             data.solved,
             data.active,
-            data.flagged
+            data.flagged,
+            data.page,
+            data.perPage
         );
     }
 
@@ -30,7 +34,9 @@ export class InquiryListParams {
         public attended?: boolean,
         public solved?: boolean,
         public active?: boolean,
-        public flagged?: boolean
+        public flagged?: boolean,
+        public page?: number,
+        public perPage?: number
     ) { }
 
     toJSON(): IInquiryListParams {
@@ -55,6 +61,12 @@ export class InquiryListParams {
         }
         if (this.flagged === true || this.flagged === false) {
             params.flagged = this.flagged;
+        }
+        if (this.page) {
+            params.page = this.page;
+        }
+        if (this.perPage) {
+            params.perPage = this.perPage;
         }
         return params;
     }
