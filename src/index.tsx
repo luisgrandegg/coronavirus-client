@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/browser';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -8,6 +9,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { store, persistor } from './store';
 import './i18n';
+
+Sentry.init({dsn: "https://ac5293b1fd4c465aba1a0ba03f5c0c7b@sentry.io/5174319"});
 
 ReactDOM.render((
     <Provider store={store}>
