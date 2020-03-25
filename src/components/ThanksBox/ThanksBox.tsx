@@ -17,6 +17,10 @@ export const ThanksBox: React.FunctionComponent = (): JSX.Element => {
         setOpen(!open);
     };
 
+    const onTooltipClose = (): void => {
+        setOpen(false);
+    }
+
     const getClaps = (): void => { sdk.getClaps().then((claps: Stat) => setClaps(claps)); };
 
     const clap = (): void => { sdk.clap().then((claps: Stat) => setClaps(claps)); };
@@ -39,7 +43,7 @@ export const ThanksBox: React.FunctionComponent = (): JSX.Element => {
                     <span role="img" aria-label="clap">👏</span>
                 </Button>
             </div>
-            <ThanksTooltip isOpen={open} />
+            <ThanksTooltip isOpen={open} onClose={onTooltipClose}/>
         </div>
     );
 
