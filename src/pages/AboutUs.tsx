@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Header } from '../components/Header';
+import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { Section } from '../components/Section';
 
@@ -13,6 +14,7 @@ export const AboutUs: React.FunctionComponent = (): JSX.Element => {
             <Header />
             <main className="main about-us">
                 <div className="container">
+                    <BackHome />
                     <Section
                         content={(
                             <>

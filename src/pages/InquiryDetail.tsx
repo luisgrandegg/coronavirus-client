@@ -3,6 +3,7 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import { useTranslation } from 'react-i18next';
 
 import { Header } from '../components/Header';
+import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { InquiryCard } from '../components/InquiryCard';
 import { useParams } from 'react-router-dom';
@@ -41,7 +42,8 @@ export const InquiryDetail: React.FunctionComponent = (): JSX.Element => {
             </Header>
             <main className="main inquiry-detail">
                 <div className="container">
-                {inquiry && renderInquiry(inquiry)}
+                    <BackHome />
+                    {inquiry && renderInquiry(inquiry)}
                 </div>
             </main>
             <Footer/>
