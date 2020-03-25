@@ -1,5 +1,6 @@
 .inquiry {
     &__email {
+        cursor: pointer;
         padding-left: $spacer-xs;
         width: 100%;
     }

@@ -102,7 +102,11 @@ const resources = {
                 attend: 'Atender petición',
                 unattend: 'Desatender petición',
                 'created-at': 'Recibido el {{createdAtDate}} a las {{createdAtTime}}',
-                email: 'Email del ciudadano:',
+                email: {
+                    field: 'Email del ciudadano:',
+                    copied: 'Email copiado en el portapapeles',
+                    copy: 'Copiar email en el portapapeles'
+                },
                 speciality: 'Especialidad:',
                 flag: 'Marcar como inapropiado',
                 unflag: 'Desmarcar como inapropiado',
