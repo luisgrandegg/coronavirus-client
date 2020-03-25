@@ -25,6 +25,7 @@ import { AdminDashboard } from './pages/AdminDashboard';
 import { ScrollToTop } from './components/ScrollToTop';
 import { AdminModerate } from './pages/AdminModerate';
 import { AdminStats } from './pages/AdminStats';
+import { DoctorType } from './entities/Doctor';
 
 export const App: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
@@ -59,9 +60,14 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                                 <Login />
                             </ScrollToTop>
                         </Route>
+                        <Route exact={true} path={Routes.REGISTER_PSYCHOLOGIST}>
+                            <ScrollToTop>
+                                <RegisterDoctor doctorType={DoctorType.PSYCHOLOGIST}/>
+                            </ScrollToTop>
+                        </Route>
                         <Route exact={true} path={Routes.REGISTER_DOCTOR}>
                             <ScrollToTop>
-                                <RegisterDoctor />
+                                <RegisterDoctor doctorType={DoctorType.REGULAR}/>
                             </ScrollToTop>
                         </Route>
                         <Route exact={true} path={Routes.REGISTER_PATIENT}>

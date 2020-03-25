@@ -14,6 +14,11 @@ export class Doctors {
             .then((response: AxiosResponse<IDoctorApiResponse[]>): Doctor[] => response.data.map(Doctor.createFromResponse));
     }
 
+    async getOne(userId: string): Promise<Doctor> {
+        return this.apiClient.get<IDoctorApiResponse>(`/doctors/${userId}`)
+            .then((response: AxiosResponse<IDoctorApiResponse>): Doctor => Doctor.createFromResponse(response.data));
+    }
+
     async comment(id: string, comment: string): Promise<Doctor> {
         return this.apiClient.post<IDoctorApiResponse>(`/doctors/${id}/comment`, { comment })
             .then((response: AxiosResponse<IDoctorApiResponse>): Doctor => Doctor.createFromResponse(response.data));
