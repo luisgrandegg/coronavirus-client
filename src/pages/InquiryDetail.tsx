@@ -10,6 +10,8 @@ import { useParams } from 'react-router-dom';
 import { Inquiry } from '../entities/Inquiry';
 import { DoctorTabs } from '../components/DoctorTabs';
 import { sdk } from '../sdk';
+import { Tooltip, Typography, IconButton } from '@material-ui/core';
+import FileCopyIcon from '@material-ui/icons/FileCopy';
 
 interface IInquiryDetailLocationState {
     id: string;
@@ -20,11 +22,47 @@ export const InquiryDetail: React.FunctionComponent = (): JSX.Element => {
     const [inquiry, setInquiry] = useState<Inquiry | null>(null);
     const { t } = useTranslation();
 
+    const [open, setOpen] = React.useState(false);
+    const [copied, setCopied] = React.useState(false);
+
+    const handleTooltipClose = () => {
+        setOpen(false);
+    };
+
+    const handleTooltipOpen = () => {
+        setOpen(true);
+    };
+
+    const onCopyToClipboard = () => {
+        setOpen(true);
+        setCopied(true);
+        setTimeout(() => {
+            setOpen(false);
+            setCopied(false);
+        }, 5000);
+    }
+
     const renderInquiry = (inquiryToRender: Inquiry): React.ReactNode => {
         return (
             <InquiryCard inquiry={inquiryToRender}>
-                <CopyToClipboard text={inquiryToRender.email}>
-                    <span>{t('inquiry.email')} {inquiryToRender.email}</span>
+                <CopyToClipboard
+                    onCopy={onCopyToClipboard}
+                    text={inquiryToRender.email}
+                >
+                    <Tooltip
+                        open={open}
+                        onClose={handleTooltipClose}
+                        onOpen={handleTooltipOpen}
+                        interactive
+                        title={copied ? t('inquiry.email.copied') : t('inquiry.email.copy')}
+                    >
+                        <Typography className="inquiry__email">
+                            <strong>{t('inquiry.email.field')}</strong> {inquiryToRender.email}
+                            <IconButton aria-label="copy">
+                                <FileCopyIcon/>
+                            </IconButton>
+                        </Typography>
+                    </Tooltip>
                 </CopyToClipboard>
             </InquiryCard>
         );

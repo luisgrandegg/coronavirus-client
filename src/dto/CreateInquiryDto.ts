@@ -1,11 +1,11 @@
 export interface ICreateInquiryDto {
     age: string;
     email: string;
-    doctorType: string | null;
-    speciality: string | null;
+    doctorType: string;
+    speciality?: string;
     summary: string;
     terms: boolean;
-    time: string;
+    time?: string;
     privacy: boolean;
     confirmAge: boolean;
 }
@@ -15,26 +15,26 @@ export class CreateInquiryDto {
         return new CreateInquiryDto(
             data.age,
             data.email,
-            data.doctorType || null,
-            data.speciality || null,
+            data.doctorType,
             data.summary,
             data.terms,
-            data.time,
             data.privacy,
             data.confirmAge,
+            data.speciality,
+            data.time,
         );
     }
 
     constructor(
         public age: string,
         public email: string,
-        public doctorType: string | null,
-        public speciality: string | null,
+        public doctorType: string,
         public summary: string,
         public terms: boolean,
-        public time: string,
         public privacy: boolean,
         public confirmAge: boolean,
+        public time?: string,
+        public speciality?: string,
     ) { }
 
     toJSON(): ICreateInquiryDto {
