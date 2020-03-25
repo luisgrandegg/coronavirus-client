@@ -23,10 +23,10 @@ export interface ICreateInquiryForm {
     email: string;
     confirmEmail: string;
     doctorType: string;
-    speciality: string;
+    speciality?: string;
     summary: string;
     terms: boolean;
-    time: string;
+    time?: string;
     privacy: boolean;
     confirmAge: boolean;
 }
@@ -81,8 +81,11 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
         terms: yup.bool()
             .oneOf([true], t('register-form.error.accept'))
             .required(t('register-form.error.required', { field: t('register-patient.fields.terms') })),
-        time: yup.string()
-            .required(t('register-form.error.required', { field: t('register-patient.fields.time') })),
+        time: yup.string().when('doctorType', {
+            is: DoctorType.REGULAR,
+            then: yup.string().required(t('register-form.error.required', { field: t('register-patient.fields.time') })),
+            otherwise: yup.string()
+        }),
         privacy: yup.bool()
             .oneOf([true], t('register-form.error.accept'))
             .required(t('register-form.error.required', { field: t('register-patient.fields.privacy') })),
@@ -94,17 +97,17 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
     const onSubmit = async (values: ICreateInquiryForm): Promise<void> => {
         const { age, email, doctorType, speciality, summary, terms, time, privacy, confirmAge } = values;
         setLoading(true);
-        sdk.inquiries.create(new CreateInquiryDto(
+        sdk.inquiries.create(CreateInquiryDto.deserialize({
             age,
             email,
             doctorType,
-            speciality,
             summary,
             terms,
             time,
             privacy,
-            confirmAge
-        )).then((inquiry: Inquiry) => {
+            confirmAge,
+            speciality
+        })).then((inquiry: Inquiry) => {
             onCreateSuccess(inquiry);
         }).catch(() => {
             onCreateError();
@@ -157,13 +160,20 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                     />
                     {formik.values.doctorType === DoctorType.REGULAR ?
                         (
-                            <Field
-                                className="register-form__form-control"
-                                name="speciality"
-                                label={t('register-patient.fields.speciality')}
-                                component={Select}
-                                options={inquirySpecialities}
-                            />
+                            <>
+                                <Field
+                                    className="register-form__form-control"
+                                    name="speciality"
+                                    label={t('register-patient.fields.speciality')}
+                                    component={Select}
+                                    options={inquirySpecialities}
+                                />
+                                <Field
+                                    name="time"
+                                    label={t('register-patient.fields.time')}
+                                    component={TextField}
+                                />
+                            </>
                         ) : (
                             null
                         )
