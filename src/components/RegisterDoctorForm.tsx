@@ -15,12 +15,13 @@ import { DoctorType } from '../entities/Doctor';
 
 export interface IRegisterDoctorFormProps {
     onRegisterSuccess: (auth: Auth) => void;
+    doctorType: DoctorType;
 }
 
 export interface IRegisterDoctorForm {
     firstName: string;
     surname: string;
-    speciality: string;
+    speciality?: string;
     license: string;
     email: string;
     phone: string;
@@ -56,8 +57,11 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
             .required(t('register-form.error.required', { field: t('register-doctor.fields.name') })),
         surname: yup.string()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.surname') })),
-        speciality: yup.string()
-            .required(t('register-form.error.required', { field: t('register-doctor.fields.speciality') })),
+        speciality: props.doctorType === DoctorType.REGULAR ?
+            yup.string().required(
+                t('register-form.error.required', { field: t('register-doctor.fields.speciality') })
+            ) :
+            yup.string(),
         license: yup.string()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.license') })),
         email: yup.string().trim()
@@ -85,7 +89,6 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
         sdk.registerDoctor(new RegisterDoctorDto(
             firstName,
             surname,
-            speciality,
             license,
             email,
             phone,
@@ -93,7 +96,8 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
             confirmPassword,
             terms,
             privacy,
-            DoctorType.REGULAR
+            props.doctorType,
+            speciality
         )).then((auth: Auth) => {
             onRegisterSuccess(auth);
         }).catch(() => {
@@ -122,12 +126,12 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
                         label={t('register-doctor.fields.surname')}
                         component={TextField}
                     />
-                    <Field
+                    {props.doctorType === DoctorType.REGULAR && <Field
                         name="speciality"
                         label={t('register-doctor.fields.speciality')}
                         component={Select}
                         options={specialities}
-                    />
+                    />}
                     <Field
                         name="license"
                         label={t('register-doctor.fields.license')}

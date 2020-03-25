@@ -30,7 +30,10 @@
         content="Con CitaMédicaenCasa, puedes enviar tus consultas de salud y un médico voluntario te responderá por email o videollamada." />
     <script>
         window.config = {
-            apiUrl: '%REACT_APP_API_URL%'
+            apiUrl: '%REACT_APP_API_URL%',
+            sentry: {
+                enabled: %REACT_APP_SENTRY_ENABLED%
+            }
         };
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
