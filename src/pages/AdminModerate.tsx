@@ -21,7 +21,7 @@ export const AdminModerate: React.FunctionComponent = (): JSX.Element => {;
             <main className="main doctor-inquiries">
                 <div className="container">
                     <BackHome />
-                    <InquiryList inquiryListParams={inquiryListParams} isLive={false} admin={true}/>
+                    <InquiryList inquiryListParams={inquiryListParams} isLive={false} isAdmin={true}/>
                 </div>
             </main>
             <Footer/>
