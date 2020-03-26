@@ -5,7 +5,6 @@ import { Header } from '../components/Header';
 import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { Section } from '../components/Section';
-import { Typography } from '@material-ui/core';
 
 export const HelpPatient: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();

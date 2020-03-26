@@ -63,7 +63,7 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                         </Route>
                         <Route exact={true} path={Routes.LOGIN}>
                             <ScrollToTop>
-                                <HelpPatient />
+                                <Login />
                             </ScrollToTop>
                         </Route>
                         <Route exact={true} path={Routes.REGISTER_PSYCHOLOGIST}>
