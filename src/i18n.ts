@@ -244,7 +244,17 @@ const resources = {
                 invalidate: 'Invalidar',
                 activate: 'Activar',
                 deactivate: 'Desactivar',
-                'inquiries-attended': 'Consultas respondidas:'
+                'inquiries-attended': 'Consultas respondidas:',
+                'see-comments': 'Ver comentarios',
+                'add-comments': 'Añadir comentarios',
+                comment: {
+                    label: 'Comentarios sobre el médico',
+                    save: 'Guardar',
+                    close: 'Cerrar'
+                },
+                types: {
+                    psychologist: 'Psicólogo'
+                }
             },
             'doctor-dashboard': {
                 header: {

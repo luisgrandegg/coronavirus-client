@@ -14,6 +14,7 @@ export interface IDoctor {
     userId: string;
     inquiriesAttended: number;
     comment?: string;
+    doctorType: DoctorType;
 }
 
 export interface IDoctorApiResponse {
@@ -28,6 +29,7 @@ export interface IDoctorApiResponse {
     userId: string;
     inquiriesAttended: number;
     comment?: string;
+    doctorType: string;
 }
 
 export class Doctor {
@@ -43,6 +45,7 @@ export class Doctor {
             response.id,
             response.userId,
             response.inquiriesAttended,
+            response.doctorType as DoctorType,
             response.comment
         );
     }
@@ -58,7 +61,8 @@ export class Doctor {
         public id: string,
         public userId: string,
         public inquiriesAttended: number,
-        public comment?: string
+        public doctorType: DoctorType,
+        public comment?: string,
     ) {}
 
     toJSON(): IDoctor {
@@ -73,7 +77,12 @@ export class Doctor {
             phone: this.phone,
             userId: this.userId,
             inquiriesAttended: this.inquiriesAttended,
-            comment: this.comment
+            comment: this.comment,
+            doctorType: this.doctorType
         };
+    }
+
+    isPsychologist(): boolean {
+        return this.doctorType === DoctorType.PSYCHOLOGIST;
     }
 }
