@@ -144,7 +144,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
         const statTranslationSection = statType === 'inquiries_attended' ?
             'patient' : statType === 'doctors_validated' ?
             'doctor': statType === 'psychologists_validated' ?
-            'psychologists': '';
+            'psychologist': '';
 
         return (
             <Counter

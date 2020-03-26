@@ -65,7 +65,7 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
             yup.string(),
         license: yup.string()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.license') }))
-            .min(9, t('register-form.error.length', { length: 9 })),
+            .length(9, t('register-form.error.length', { length: 9 })),
         email: yup.string().trim()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.email') }))
             .email(t('register-form.error.format', { field: t('register-doctor.fields.email') })),
