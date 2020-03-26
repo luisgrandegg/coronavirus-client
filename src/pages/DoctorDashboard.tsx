@@ -14,10 +14,14 @@ import specialities from '../constants/specialities';
 import { useHistory } from 'react-router-dom';
 import { Inquiry } from '../entities/Inquiry';
 import { Routes } from '../router/Routes';
+import { useSelector } from 'react-redux';
+import { getAuth } from '../store/selectors/status';
+import { DoctorType } from '../entities/Doctor';
 
 export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
     const history = useHistory();
     const { t } = useTranslation();
+    const auth = useSelector(getAuth);
     const [selectedSpecialities, SpecialitiesFilter] = useMultipleOptionsFilter(
         t('doctor-dashboard.filter.title'),
         t('doctor-dashboard.filter.apply-button'),
@@ -58,7 +62,7 @@ export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
                     <BackHome />
                     <Section
                         content={<Content />} />
-                    <SpecialitiesFilter />
+                    {auth?.doctorType === DoctorType.REGULAR && <SpecialitiesFilter />}
                     <InquiryList inquiryListParams={inquiryListParams} onAttendEvent={handleAttendEvent}/>
                 </div>
             </main>
