@@ -219,7 +219,7 @@ const resources = {
             'register-form': {
                 submit: 'Registrarme',
                 error: {
-                    length: ' El campo debe tener al menos {{length}} caracteres',
+                    length: ' El campo debe tener {{length}} caracteres',
                     required: 'El campo es requerido',
                     format: 'El campo tiene un formato incorrecto',
                     accept: 'Es necesario aceptar los términos',
