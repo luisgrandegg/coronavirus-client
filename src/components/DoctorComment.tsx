@@ -5,6 +5,7 @@ import { SubmitButton } from './Form';
 import { sdk } from '../sdk';
 import { TextField } from './Form/TextField';
 import { Doctor } from '../entities/Doctor';
+import { useTranslation } from 'react-i18next';
 
 export interface IDoctorCommentForm {
     comment: string;
@@ -20,6 +21,7 @@ export const DoctorComment: React.FunctionComponent<IDoctorCommentProps> = (
 ): JSX.Element => {
     const { doctor } = props;
     const [editMode, setEditMode] = useState<boolean>(false);
+    const { t } = useTranslation();
 
     const toggleEditMode = (): void => {
         setEditMode(!editMode);
@@ -42,7 +44,7 @@ export const DoctorComment: React.FunctionComponent<IDoctorCommentProps> = (
                     variant="contained"
                     onClick={toggleEditMode}
                     type="button"
-                >{doctor.comment ? 'Ver comentarios' : 'Añadir Comentarios'}</Button>
+                >{doctor.comment ? t('doctor.see-comments') : t('doctor.add-comments')}</Button>
             </>
         );
     }
@@ -58,21 +60,21 @@ export const DoctorComment: React.FunctionComponent<IDoctorCommentProps> = (
                     <Form>
                         <Field
                             name="comment"
-                            label="Comentarios sobre el médico"
+                            label={t('doctor.comment.label')}
                             component={TextField}
                             multiline
                             rows="5"
                         />
                         <div className="button-group">
                             <SubmitButton
-                                label="Guardar"
+                                label={t('doctor.comment.save')}
                                 disabled={!formik.isValid || formik.isSubmitting}
                             />
                             <Button
                                 variant="contained"
                                 color="secondary"
                                 onClick={toggleEditMode}
-                            >Cerrar</Button>
+                            >{t('doctor.comment.close')}</Button>
                         </div>
                     </Form>
                 )}

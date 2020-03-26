@@ -38,13 +38,13 @@ export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
 
     const Content = (): JSX.Element => (
         <>
-            <header className="doctor-dashboard__header">
-                <h2 className="doctor-dashboard__title doctor-dashboard__title--confirmation">{t('doctor-dashboard.header.title')}</h2>
-            </header>
             <section className="doctor-dashboard__section">
                 <p>{t('doctor-dashboard.content.first-paragraph')}</p>
                 <p>{t('doctor-dashboard.content.second-paragraph')}</p>
             </section>
+            <header className="doctor-dashboard__header">
+                <h2 className="doctor-dashboard__title doctor-dashboard__title--confirmation">{t('doctor-dashboard.header.title')}</h2>
+            </header>
         </>
     );
 
@@ -56,9 +56,9 @@ export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
             <main className="main doctor-dashboard">
                 <div className="container">
                     <BackHome />
-                    <SpecialitiesFilter />
                     <Section
                         content={<Content />} />
+                    <SpecialitiesFilter />
                     <InquiryList inquiryListParams={inquiryListParams} onAttendEvent={handleAttendEvent}/>
                 </div>
             </main>
