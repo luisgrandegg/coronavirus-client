@@ -20,8 +20,8 @@ export class CreateInquiryDto {
             data.terms,
             data.privacy,
             data.confirmAge,
-            data.speciality,
             data.time,
+            data.speciality
         );
     }
 
