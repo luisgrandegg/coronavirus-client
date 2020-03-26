@@ -5,12 +5,16 @@ import { Link as RouterLink } from 'react-router-dom';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import Pagination from '@material-ui/lab/Pagination';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
+import { ISelectOptionProps } from './Form/Select'
+import MaterialTextField from '@material-ui/core/TextField'
+import MaterialMenuItem from '@material-ui/core/MenuItem'
 
 import { sdk } from '../sdk';
 import { Inquiry, InquiryPagination, IInquiryPaginated } from '../entities/Inquiry';
 import { Routes } from '../router/Routes';
 import { InquiryCard } from './InquiryCard';
 import { InquiryListParams } from '../dto/InquiryListParams';
+import specialities from '../constants/specialities';
 
 export interface IInquiryListProps {
     admin?: boolean;
@@ -67,6 +71,10 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
 
     const deactivateInquiry = (inquiry: Inquiry): () => void => {
         return (): void => { sdk.inquiries.deactivate(inquiry.id).then(() => { getInquiries(); }); }
+    };
+
+    const updateSpecialityInquiry = (inquiry: Inquiry, speciality: string): () => void => {
+        return (): void => { sdk.inquiries.updateSpeciality(inquiry.id, speciality).then(() => { getInquiries(); }); }
     };
 
     const getInquiries = () => {
@@ -175,8 +183,33 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
         }
     }
 
+    const renderInquiryCardSpecialist = (inquiry: Inquiry): React.ReactNode => {
+        return (
+            <MaterialTextField
+                select
+                onChange={e => updateSpecialityInquiry(inquiry, e.target.value)()}
+                value={inquiry.speciality}
+                size="small"
+                margin="none"
+                variant="outlined"
+            >
+                {
+                    specialities.map((item: ISelectOptionProps) => (
+                        <MaterialMenuItem key={`select-${inquiry.id}-${item.value}`} value={item.value}>
+                            {item.label}
+                        </MaterialMenuItem>
+                    ))
+                }
+            </MaterialTextField>
+        )
+    }
+
     const renderInquiries = (): React.ReactNode => inquiries.map((inquiry: Inquiry) => (
-        <InquiryCard key={inquiry.id} inquiry={inquiry}>
+        <InquiryCard
+            key={inquiry.id}
+            inquiry={inquiry}
+            specialist={renderInquiryCardSpecialist(inquiry)}
+        >
             {props.inquiryListParams?.attended && (
                 <CopyToClipboard
                     onCopy={onCopyToClipboard}

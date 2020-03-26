@@ -64,4 +64,9 @@ export class Inquiries {
         return this.apiClient.post<IInquiryApiResponse>(`inquiries/${inquiryId}/deactivate`)
             .then((response: AxiosResponse<IInquiryApiResponse>) => Inquiry.createFromResponse(response.data));
     }
+
+    async updateSpeciality(inquiryId: string, speciality: string): Promise<Inquiry> {
+        return this.apiClient.post<IInquiryApiResponse>(`/inquiries/${inquiryId}/speciality/${speciality}`)
+            .then((response: AxiosResponse<IInquiryApiResponse>) => Inquiry.createFromResponse(response.data));
+    }
 }

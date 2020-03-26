@@ -3,7 +3,7 @@ import MaterialTextField, { OutlinedTextFieldProps } from '@material-ui/core/Tex
 import MaterialMenuItem from '@material-ui/core/MenuItem'
 import { getIn, FormikProps, FieldInputProps } from 'formik'
 
-interface ISelectOptionProps {
+export interface ISelectOptionProps {
     label: string,
     value: string | number
 }
