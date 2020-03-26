@@ -5,6 +5,19 @@
         width: 100%;
     }
 
+    &__speciality-field {
+        display: flex;
+        align-items: center;
+        
+        .MuiFormControl-root {
+            margin-left: $spacer-xs;
+        }
+
+        + .MuiTypography-root {
+            margin-top: $spacer-s;
+        }
+    }
+
     & + .inquiry {
         margin-top: $spacer;
     }

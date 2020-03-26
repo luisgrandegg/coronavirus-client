@@ -5,16 +5,17 @@ import { useTranslation } from 'react-i18next';
 import moment from '../../utils/moment';
 import { Inquiry } from '../../entities/Inquiry';
 import { getSpecialityLabel } from '../../constants/specialities';
+
 export interface IInquiryCardProps {
     children: React.ReactNode;
     inquiry: Inquiry;
+    specialist?: React.ReactNode;
 }
-
 
 export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
     props: IInquiryCardProps
 ): JSX.Element => {
-    const { children, inquiry } = props;
+    const { children, inquiry, specialist } = props;
     const { t } = useTranslation();
 
     return (
@@ -26,9 +27,21 @@ export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
                         createdAtTime: moment(inquiry.createdAt).format('HH:mm')
                     })}
                 </Typography>
-                <Typography>
-                    <strong>{t('inquiry.speciality')}</strong> {getSpecialityLabel(inquiry.speciality)}
-                </Typography>
+                <>
+                    {specialist ?
+                        (
+                            <div className="inquiry__speciality-field">
+                                <label>{t('inquiry.speciality')}</label>
+                                {specialist}
+                            </div>
+                        ) :
+                        (
+                            <Typography>
+                                <strong>{t('inquiry.speciality')}</strong> {getSpecialityLabel(inquiry.speciality)}
+                            </Typography>
+                        )
+                    }
+                </>
                 <Typography>
                     <strong>{t('inquiry.age')}</strong> {inquiry.age}
                 </Typography>
