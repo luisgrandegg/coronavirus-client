@@ -1,10 +1,11 @@
 import { Card, CardContent, Typography, CardActions } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import moment from '../utils/moment';
 import { Doctor } from '../entities/Doctor';
 import { getSpecialityLabel } from '../constants/specialities';
+import { DoctorComment } from './DoctorComment';
 
 export interface IDoctorCardProps {
     children: React.ReactNode;
@@ -14,8 +15,14 @@ export interface IDoctorCardProps {
 export const DoctorCard: React.FunctionComponent<IDoctorCardProps> = (
     props: IDoctorCardProps
 ): JSX.Element => {
-    const { children, doctor } = props;
+    const [doctor, setDoctor] = useState<Doctor>(props.doctor);
+    const { children } = props;
     const { t } = useTranslation();
+
+    const handleOnSave = (comment: string): void => {
+        doctor.comment = comment;
+        setDoctor(doctor);
+    };
 
     return (
         <Card className="doctor">
@@ -47,6 +54,7 @@ export const DoctorCard: React.FunctionComponent<IDoctorCardProps> = (
                 <Typography>
                     {t('doctor.inquiries-attended')} {doctor.inquiriesAttended}
                 </Typography>
+                <DoctorComment doctor={doctor} onSave={handleOnSave}/>
             </CardContent>
             <CardActions>
                 {children}
