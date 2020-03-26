@@ -53,6 +53,16 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
         privacy: false,
     };
 
+    const getLicenseValidator = (): yup.StringSchema => {
+        const validatorSchema = yup.string().required(
+            t('register-form.error.required', { field: t('register-doctor.fields.speciality') })
+        );
+
+        if (props.doctorType === DoctorType.REGULAR) {
+            return validatorSchema.length(9, t('register-form.error.length', { length: 9 }))
+        }
+        return validatorSchema;
+    }
     const validationSchema = yup.object().shape({
         firstName: yup.string()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.name') })),
@@ -63,9 +73,7 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
                 t('register-form.error.required', { field: t('register-doctor.fields.speciality') })
             ) :
             yup.string(),
-        license: yup.string()
-            .required(t('register-form.error.required', { field: t('register-doctor.fields.license') }))
-            .length(9, t('register-form.error.length', { length: 9 })),
+        license: getLicenseValidator(),
         email: yup.string().trim()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.email') }))
             .email(t('register-form.error.format', { field: t('register-doctor.fields.email') })),
