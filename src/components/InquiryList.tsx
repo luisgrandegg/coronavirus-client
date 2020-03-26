@@ -5,9 +5,9 @@ import { Link as RouterLink } from 'react-router-dom';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import Pagination from '@material-ui/lab/Pagination';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
-import { ISelectOptionProps } from './Form/Select'
-import MaterialTextField from '@material-ui/core/TextField'
-import MaterialMenuItem from '@material-ui/core/MenuItem'
+import { ISelectOptionProps } from './Form/Select';
+import MaterialTextField from '@material-ui/core/TextField';
+import MaterialMenuItem from '@material-ui/core/MenuItem';
 
 import { sdk } from '../sdk';
 import { Inquiry, InquiryPagination, IInquiryPaginated } from '../entities/Inquiry';
