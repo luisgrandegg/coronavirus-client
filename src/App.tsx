@@ -11,6 +11,7 @@ import { Spinner } from './components/Spinner';
 import { DoctorDashbord } from './pages/DoctorDashboard';
 import { getAuth } from './store/selectors/status';
 import { sdk } from './sdk';
+import { HelpDoctor } from './pages/HelpDoctor';
 import { HelpPatient } from './pages/HelpPatient';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
@@ -59,6 +60,11 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                         <Route exact={true} path={Routes.HELP_PATIENT}>
                             <ScrollToTop>
                                 <HelpPatient />
+                            </ScrollToTop>
+                        </Route>
+                        <Route exact={true} path={Routes.HELP_DOCTOR}>
+                            <ScrollToTop>
+                                <HelpDoctor />
                             </ScrollToTop>
                         </Route>
                         <Route exact={true} path={Routes.LOGIN}>
