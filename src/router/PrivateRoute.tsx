@@ -50,9 +50,12 @@ export const AdminRoute: React.FunctionComponent<IRouteProps> = (
     props: IRouteProps
 ): JSX.Element => {
     const { children, ...rest } = props;
-
+    const userTypes = [
+        UserType.ADMIN,
+        UserType.SUPER_ADMIN
+    ];
     return (
-        <PrivateRoute userTypes={[UserType.ADMIN, UserType.DOCTOR_ADMIN]} {...rest}>
+        <PrivateRoute userTypes={userTypes} {...rest}>
             {children}
         </PrivateRoute>
     )
@@ -62,9 +65,13 @@ export const DoctorRoute: React.FunctionComponent<IRouteProps> = (
     props: IRouteProps
 ): JSX.Element => {
     const { children, ...rest } = props;
-
+    const userTypes = [
+        UserType.ADMIN,
+        UserType.DOCTOR,
+        UserType.SUPER_ADMIN
+    ];
     return (
-        <PrivateRoute userTypes={[UserType.DOCTOR, UserType.DOCTOR_ADMIN]} {...rest}>
+        <PrivateRoute userTypes={userTypes} {...rest}>
             {children}
         </PrivateRoute>
     )

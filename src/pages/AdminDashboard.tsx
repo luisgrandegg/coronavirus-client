@@ -9,7 +9,6 @@ import { AdminTabs } from '../components/AdminTabs';
 import { Footer } from '../components/Footer';
 import { DoctorList } from '../components/DoctorList';
 import { DoctorListParams } from '../dto/DoctorListParams';
-import { UserType } from '../entities/User';
 import { getAuth } from '../store/selectors/status';
 import { Link } from '@material-ui/core';
 
@@ -25,7 +24,7 @@ export const AdminDashboard: React.FunctionComponent = (): JSX.Element => {
 
     const renderLinkToDoctor = (): React.ReactNode => {
         const nonAdminPageLoaded = sessionStorage.getItem('lastNonAdminPageLoaded') || '';
-        return auth?.userType === UserType.DOCTOR_ADMIN && nonAdminPageLoaded.includes('/dashboard/doctor') ?
+        return auth?.isDoctor() && nonAdminPageLoaded.includes('/dashboard/doctor') ?
             (
                 <Link
                     component="button"

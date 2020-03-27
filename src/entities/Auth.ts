@@ -29,7 +29,7 @@ export class Auth {
         return new Auth(
             data.token,
             data.userId,
-            data.userType as UserType
+            data.userType as UserType,
             data.doctorType as DoctorType
         )
     }
@@ -50,13 +50,18 @@ export class Auth {
         }
     }
 
+    isSuperAdmin(): boolean {
+        return this.userType === UserType.SUPER_ADMIN;
+    }
+
     isAdmin(): boolean {
         return this.userType === UserType.ADMIN ||
-            this.userType === UserType.DOCTOR_ADMIN;
+            this.userType === UserType.SUPER_ADMIN;
     }
 
     isDoctor(): boolean {
         return this.userType === UserType.DOCTOR ||
-            this.userType === UserType.DOCTOR_ADMIN;
+            this.userType === UserType.ADMIN ||
+            this.userType === UserType.SUPER_ADMIN;
     }
 }

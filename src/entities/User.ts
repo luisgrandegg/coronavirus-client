@@ -1,7 +1,7 @@
 export enum UserType {
     ADMIN = 'admin',
     DOCTOR = 'doctor',
-    DOCTOR_ADMIN = 'doctor_admin'
+    SUPER_ADMIN = 'super_admin'
 }
 
 export interface IUserApiResponse {
