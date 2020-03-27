@@ -279,8 +279,13 @@ const resources = {
             },
             'about-us': {
                 'volunteers': {
-                    title: 'Somos voluntarios y voluntarias',
-                    'first-paragraph': '<strong>No somos un servicio médico.</strong> Somos un equipo formado por personas expertas en distintas disciplinas: desarrollo, diseño, experiencia de usuario, SEO, contenidos... y por supuesto: Medicina. <strong>Todos los profesionales médicos también son voluntarios y están colegiados; nos encargamos de comprobarlo uno por uno.</strong>',
+                    title: 'Somos personas preocupadas, como tú, por la situación',
+                    'first-paragraph': 'No somos un servicio médico sino un proyecto voluntario hecho por personas expertas en distintas disciplinas digitales y, por supuesto, en medicina. Todos los profesionales médicos también son voluntarios y están colegiados; nos encargamos de comprobarlo uno por uno.',
+                    'second-paragraph': 'Esta herramienta se ha creado de manera voluntaria para intentar ayudar, quienes estamos detrás tenemos otras ocupaciones:',
+                    'list-item-1': 'Rubén, Dani y Nacho trabajan en <a href="https://withattitude.design/" target="">D.W.A</a>, un estudio de diseño.',
+                    'list-item-2': 'Diego, Marta, Luis, Juanma, Rachel, Jaime y Pimen, vienen de <a href="https://www.packlink.es" target="_blank">Packlink</a>.',
+                    'list-item-3': 'Clara es nuestra doctora.',
+                    'list-item-4': 'Y Matti, Santi, Cristina, Luis y Ros vienen de otras empresas.',
                 },
                 'our-goal': {
                     title: 'Nuestro objetivo',

@@ -20,12 +20,6 @@ export const AboutUs: React.FunctionComponent = (): JSX.Element => {
                             <>
                                 <section className="about-us__section">
                                     <header className="about-us__section-header">
-                                        <h2 className="about-us__section-title">{t('about-us.volunteers.title')}</h2>
-                                    </header>
-                                    <p dangerouslySetInnerHTML={{ __html: t('about-us.volunteers.first-paragraph') }} />
-                                </section>
-                                <section className="about-us__section">
-                                    <header className="about-us__section-header">
                                         <h2 className="about-us__section-title">{t('about-us.our-goal.title')}</h2>
                                     </header>
                                     <p dangerouslySetInnerHTML={{ __html: t('about-us.our-goal.first-paragraph') }} />
@@ -44,6 +38,27 @@ export const AboutUs: React.FunctionComponent = (): JSX.Element => {
                                         <li
                                             className="about-us__list-item"
                                             dangerouslySetInnerHTML={{ __html: t('about-us.collaboration.list-item-2') }} />
+                                    </ul>
+                                </section>
+                                <section className="about-us__section">
+                                    <header className="about-us__section-header">
+                                        <h2 className="about-us__section-title">{t('about-us.volunteers.title')}</h2>
+                                    </header>
+                                    <p dangerouslySetInnerHTML={{ __html: t('about-us.volunteers.first-paragraph') }} />
+                                    <p dangerouslySetInnerHTML={{ __html: t('about-us.volunteers.second-paragraph') }} />
+                                    <ul className="about-us__list">
+                                        <li
+                                            className="about-us__list-item"
+                                            dangerouslySetInnerHTML={{ __html: t('about-us.volunteers.list-item-1') }} />
+                                        <li
+                                            className="about-us__list-item"
+                                            dangerouslySetInnerHTML={{ __html: t('about-us.volunteers.list-item-2') }} />
+                                        <li
+                                            className="about-us__list-item"
+                                            dangerouslySetInnerHTML={{ __html: t('about-us.volunteers.list-item-3') }} />
+                                        <li
+                                            className="about-us__list-item"
+                                            dangerouslySetInnerHTML={{ __html: t('about-us.volunteers.list-item-4') }} />
                                     </ul>
                                 </section>
                                 <section className="about-us__section">
