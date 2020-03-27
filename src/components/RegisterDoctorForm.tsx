@@ -158,16 +158,16 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
                         type="password"
                     />
                     <Field
-                        name="terms"
+                        name="privacy"
                         label={(
-                            <span dangerouslySetInnerHTML={{__html: t('register-doctor.fields.terms')}}/>
+                            <span dangerouslySetInnerHTML={{__html: t('register-doctor.fields.privacy')}}/>
                         )}
                         component={Checkbox}
                     />
                     <Field
-                        name="privacy"
+                        name="terms"
                         label={(
-                            <span dangerouslySetInnerHTML={{__html: t('register-doctor.fields.privacy')}}/>
+                            <span dangerouslySetInnerHTML={{__html: t('register-doctor.fields.terms')}}/>
                         )}
                         component={Checkbox}
                     />

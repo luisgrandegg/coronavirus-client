@@ -35,13 +35,16 @@ const resources = {
                     moderate: 'Moderar',
                     stats: 'Stats'
                 },
+                dashboard: 'dashboard',
                 doctor: {
                     pending: 'Pendientes',
                     own: 'Mis peticiones'
                 },
                 login: 'login',
                 title: 'Cita Médica en Casa',
-                dashboard: 'dashboard'
+                twitter: {
+                    title: 'Se abre Twitter en una ventana nueva'
+                },
             },
             home: {
                 drawing: {
@@ -72,7 +75,7 @@ const resources = {
                 },
                 'what-is-not': {
                     title: '¿Qué no es Cita Médica en Casa?',
-                    'first-paragraph': '<strong>No acudas aquí</strong> si tienes síntomas asociados a el Coronavirus COVID-19 o si sospechas que puedes tenerlo, <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/20200306_Preguntas_respuestas_2019-nCoV.pdf">sigue las recomendaciones de las autoridades sanitarias</a></strong> o <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm">llama a los teléfonos habilitados por las comunidades autónomas</a></strong> para este fin <strong><a target="_blank" href="https://www.coronamadrid.com/">o utiliza www.coronamadrid.com</a></strong>.',
+                    'first-paragraph': '<strong>No acudas aquí</strong> si tienes síntomas asociados a el Coronavirus COVID-19 o si sospechas que puedes tenerlo, <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/20200306_Preguntas_respuestas_2019-nCoV.pdf" title="Se abre en una ventana nueva">sigue las recomendaciones de las autoridades sanitarias</a></strong> o <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm" title="Se abre en una ventana nueva">llama a los teléfonos habilitados por las comunidades autónomas</a></strong> para este fin <strong><a target="_blank" href="https://www.coronamadrid.com/" title="Se abre en una ventana nueva">o utiliza www.coronamadrid.com</a></strong>.',
                     'second-paragraph': 'Cita Médica en Casa, <strong>no es un sustituto del Sistema Nacional de Salud ni de la cita presencial con tu médico. No es un servicio médico de diagnóstico ni de prescripción de tratamientos</strong> de ningún tipo.'
                 },
                 'what-is': {
@@ -148,8 +151,8 @@ const resources = {
                     phone: 'Teléfono (no será visible a los pacientes)',
                     password: 'Contraseña',
                     'confirm-password': 'Confirma contraseña',
-                    'terms': '<a target="_blank" href="/static/consentimiento.pdf">Acepto que mis datos se incorporen a Cita médica en Casa.</a>',
-                    'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf">Me comprometo a no hacer públicos datos de pacientes.</a>',
+                    'terms': '<a target="_blank" href="/static/consentimiento.pdf" title="Se abre en una ventana nueva">Acepto que mis datos se incorporen a Cita médica en Casa.</a>',
+                    'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf" title="Se abre en una ventana nueva">Me comprometo a no hacer públicos datos de pacientes.</a>',
                 }
             },
             'register-patient': {
@@ -188,8 +191,8 @@ const resources = {
                     time: '¿Cuánto tiempo lleva con el problema?',
                     summary: 'Resumen de tu problema',
                     'summary-placeholder': 'Formula tu pregunta de forma sencilla y clara. Añade información sobre tratamientos o enfermedades (diabetes, tensión alta o baja...) para que el especialista tenga contexto. No escribas aquí tus datos personales.',
-                    'terms': '<a target="_blank" href="/static/consentimiento.pdf">Acepto compartir mis datos personales con el personal médico.</a>',
-                    'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf">Acepto la política de privacidad y la protección de datos.</a>',
+                    'terms': '<a target="_blank" href="/static/consentimiento.pdf" title="Se abre en una ventana nueva">Acepto compartir mis datos personales con el personal médico.</a>',
+                    'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf" title="Se abre en una ventana nueva">Acepto la política de privacidad y la protección de datos.</a>',
                     'confirm-age': 'Soy mayor de 18 años.',
                     'submit': 'Enviar duda'
                 }
@@ -265,7 +268,7 @@ const resources = {
                     'first-paragraph': '<strong>Cita Médica en Casa no sustituye al sistema nacional de salud ni a una cita con un médico de cabecera o especialista</strong>. Admiramos la labor que está desempeñado el personal sanitario en estos momentos y queremos echar una mano aliviando su trabajo, pero nunca interfiriendo.',
                     'second-paragraph': '<strong>En Cita médica en Casa no se realizan diagnósticos ni se prescriben tratamientos</strong>. Por eso, si sospechas que tienes una patología grave, necesitas ayuda urgente, estás siguiendo un tratamiento o ya tienes cita con tu médico, no lo sustituyas por esta plataforma.',
                     'list-item-1': '<strong>En caso de urgencia llama al 112.</strong>',
-                    'list-item-2': '<strong>Si sospechas que puedes estar infectado/a por COVID-19</strong> llama a los <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm">teléfonos habilitados por las comunidades autónomas</a></strong> y si estás <strong><a target="_blank" href="https://www.coronamadrid.com/">en Madrid descarga la app oficial</a></strong>.',
+                    'list-item-2': '<strong>Si sospechas que puedes estar infectado/a por COVID-19</strong> llama a los <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm" title="Se abre en una ventana nueva">teléfonos habilitados por las comunidades autónomas</a></strong> y si estás <strong><a target="_blank" href="https://www.coronamadrid.com/" title="Se abre en una ventana nueva">en Madrid descarga la app oficial</a></strong>.',
                 },
                 'security': {
                     title: 'La seguridad de la información que nos envías',

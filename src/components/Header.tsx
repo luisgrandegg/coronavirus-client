@@ -56,6 +56,7 @@ export const Header: React.FunctionComponent<IHeaderProps> = (
                     className="twitter-link"
                     href="https://twitter.com/CitaMedicaCasa"
                     target="_blank"
+                    title={t('header.twitter.title')}
                     rel="noopener noreferrer">
                     @CitaMedicaCasa <TwitterIcon fill="currentColor" />
                 </a>

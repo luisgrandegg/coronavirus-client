@@ -141,17 +141,17 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                         multiline
                         rows="5"
                     />
-                    <Field
-                        name="terms"
+                     <Field
+                        name="privacy"
                         label={(
-                            <span dangerouslySetInnerHTML={{ __html: t('register-patient.fields.terms') }} />
+                            <span dangerouslySetInnerHTML={{ __html: t('register-patient.fields.privacy') }} />
                         )}
                         component={Checkbox}
                     />
                     <Field
-                        name="privacy"
+                        name="terms"
                         label={(
-                            <span dangerouslySetInnerHTML={{ __html: t('register-patient.fields.privacy') }} />
+                            <span dangerouslySetInnerHTML={{ __html: t('register-patient.fields.terms') }} />
                         )}
                         component={Checkbox}
                     />
