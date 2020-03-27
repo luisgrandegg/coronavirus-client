@@ -124,6 +124,13 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
                 <p dangerouslySetInnerHTML={{ __html: t('home.privacy-patient.second-paragraph') }} />
                 <p dangerouslySetInnerHTML={{ __html: t('home.privacy-patient.third-paragraph') }} />
             </section>
+            <section className="home__section">
+                <header className="home__section-header">
+                    <h2
+                        className="home__section-title"
+                        dangerouslySetInnerHTML={{ __html: t('home.help-patient.first-paragraph', { link: Routes.HELP_PATIENT }) }} />
+                </header>
+            </section>
         </>
     );
 
@@ -143,8 +150,8 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
 
         const statTranslationSection = statType === 'inquiries_attended' ?
             'patient' : statType === 'doctors_validated' ?
-            'doctor': statType === 'psychologists_validated' ?
-            'psychologist': '';
+                'doctor' : statType === 'psychologists_validated' ?
+                    'psychologist' : '';
 
         return (
             <Counter
@@ -173,12 +180,12 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
                             aside={renderCounter('inquiries_attended', stats?.total?.inquiries_attended)}
                             content={<ContentCTAPatient />}
                         />
-                        <p className="divider"/>
+                        <p className="divider" />
                         <Section
                             aside={renderCounter('doctors_validated', stats?.total?.doctors_validated)}
                             content={<ContentCTADoctor />}
                         />
-                        <p className="divider"/>
+                        <p className="divider" />
                         <Section
                             aside={renderCounter('psychologists_validated', stats?.total?.psychologists_validated)}
                             content={<ContentCTAPsychologist />}

@@ -5,6 +5,7 @@ export enum Routes {
     ADMIN_STATS = '/admin/stats',
     DOCTOR_DASHBOARD = '/dashboard/doctor',
     HELP_PATIENT = '/help/patient',
+    HELP_DOCTOR = '/help/doctor',
     DOCTOR_INQUIRIES = '/dashboard/doctor/inquiries',
     INQUIRY_DETAIL = '/dashboard/doctor/inquiry/:id',
     LOGIN = '/login',

@@ -100,6 +100,9 @@ const resources = {
                     'first-paragraph': '<strong>Nunca los cederemos a terceros</strong>, ni se utilizarán para otro fin que no sea el de esta plataforma.',
                     'second-paragraph': '<strong>Los datos del formulario que has rellenado solo los verá personal médico</strong>.',
                     'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y será borrada. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
+                },
+                'help-patient': {
+                    'first-paragraph': '<a href="{{link}}" target="_blank">Aquí tienes más información</a> acerca de cómo funciona Cita Médica en Casa.'
                 }
             },
             'inquiry-list': {
@@ -341,6 +344,64 @@ const resources = {
                     'first-paragraph': 'Cuando nos la cuentes en el formulario hazlo de forma concisa, dinos cuál es el problema, desde cuando te ocurre, qué sintomas tienes, si te duele cómo es el dolor y donde está localizado.',
                     'second-paragraph': 'Dinos también si tienes alergia a algo, estás tomando alguna medicación y si tienes enfermedades como diabetes, hipertensión o te han operado recientemente por ejemplo, esos detalles ayudan a los médicos.',
                 }
+            },
+            'help-doctor': {
+                title: 'Preguntas frecuentes para profesionales',
+                'not-my-email': {
+                    title: 'No quiero usar mi email habitual, ¿puedo crear una cuenta nueva?',
+                    'first-paragraph': 'Claro que sí. Si no recuerdas cómo se hace, es muy sencillo. Aquí te proponemos una cuenta de Gmail, porque te puede servir también para realizar videollamadas.',
+                    'list-item-1': 'Accede a https://www.google.com/gmail/about/ y haz click en “Crear cuenta”',
+                    'list-item-2': 'Rellena la información que te solicitan y haz click en siguiente',
+                    'list-item-3': 'Añade tu fecha de nacimiento y tu edad (no hace falta que sea la verdad), acepta los términos de uso.. ¡y listo!',
+                },
+                'why-do-you-need-my-number': {
+                    title: '¿Para qué necesitáis mi número del colegio de medicina o psicología?',
+                    'first-paragraph': 'Es solo para comprobar que efectivamente eres profesional de la salud, <strong>nunca lo compartiremos con nadie ni lo haremos público</strong>. Necesitamos asegurar que las dudas son respondidas por profesionales reales, <strong>está en juego</strong> la credibilidad de la plataforma y sobre todo <strong>la salud de muchas personas</strong>.',
+                },
+                'how-to-answer': {
+                    title: 'He visto una duda y creo que puedo ayudar, ¿cómo puedo contestar? ',
+                    'first-paragraph': 'Es muy sencillo:',
+                    'list-item-1': 'Haz click en “Atender” para seleccionarla; recuerda que si finalmente la eliges quedará bloqueada y nadie más podrá ver la pregunta.',
+                    'list-item-2': 'Además de la pregunta en sí, verás el email de la persona que solicita consejo. Escríbele directamente desde el email que has utilizado para acceder a la plataforma.',
+                    'list-item-3': 'Si consideras que es mejor tener una videollamada con el ciudadano, echa un vistazo a la siguiente pregunta.',
+                },
+                'videocall-tutorial': {
+                    title: 'Me gustaría proponer una videollamada, ¿cómo se crean? ',
+                    'first-paragraph': 'Dejamos en tus manos decidir qué herramienta utilizar: Hangouts meet, Skype, Whereby, Zoom... aquí te contamos cómo hacerlo con una de las más utilizadas:',
+                    hangouts: {
+                        title: 'Con Hangouts meet si utilizas Gmail:',
+                        'list-item-1': 'En un navegador web, ve a <a href="https://meet.google.com" target="_blank">https://meet.google.com</a>.',
+                        'list-item-2': 'Haz clic en “Iniciar” o “unirse a una reunión”.',
+                        'list-item-3': 'Introduce un apodo o déjalo en blanco para iniciar la llamada. Haz clic en “Continuar”.',
+                        'list-item-4': 'Haz clic en “Unirse ahora”.',
+                        'list-item-5': 'Para añadir a alguien a la reunión, elige una de estas opciones:',
+                        'list-item-5-1': 'Haz clic en “Copiar datos de acceso”  y pega la información de la reunión en un email o en otra aplicación para enviarlo.',
+                        'list-item-5-2': 'Haz clic en “Añadir personas” y en la sección Invitar, selecciona un nombre o introduce una dirección de correo electrónico y haz clic en “Enviar invitación”',
+                    },
+                    whereby: {
+                        title: 'Con Whereby',
+                        'list-item-1': 'En un navegador web, ve a <a href="https://whereby.com/" target="_blank">https://whereby.com/</a>',
+                        'list-item-2': 'Haz clic en “Get started”',
+                        'list-item-3': 'Date de alta con tu email de Google o con otro email que quieras y tu nombre.A ese email te enviarán un código de seguridad.',
+                        'list-item-4': 'Introduce ese código en la página de Whereby que tienes abierta.',
+                        'list-item-5': 'A continuación, tienes que elegir un nombre de usuario.',
+                        'list-item-6': 'Whereby te genera una una url con tu nombre de usuario, algo así: www.whereby.com / nombredeusuario',
+                        'list-item-7': 'Copia y pega esa URL por ejemplo en un email para compartirla, todo el que la tenga podrá acceder a la sala de videollamada.',
+                    },
+                    'second-paragraph': 'Si quieres “cerrar” la sala para que nadie más entre mientras habláis, tienes que pulsar en el candado arriba a la izquierda al lado de la palabra Whereby. Se abirá una ventana y tienes que pulsar en el interruptor que está al lado del icono de candado abierto, ya tienes la sala cerrada.',
+                    'third-paragraph': 'Siquieres usar <strong>Skype</strong>, <a href="https://support.skype.com/es/skype/all/" target="_blank">los tutoriales están aquí</a>.',
+                    'fourth-paragraph': 'Los tutoriales de Zoom <a href="https://support.zoom.us/hc/es/articles/201362033-Inicio-en-PC-y-Mac" target="_blank">están aquí</a>.',
+                },
+                'technical-problems': {
+                    title: 'Tengo problemas con el audio, el vídeo o el micrófono en una videollamada, ¡ayuda!',
+                    'first-paragraph': '<strong>Si una vídeollamada se entrecorta</strong>, puede ser por saturación de la red o por la velocidad de la conexión. <strong>Prueba a desactivar el vídeo</strong> para que el audio vaya más fluido (suele ser un botón con una cámara con una raya de color rojo cruzada por encima).',
+                    'second-paragraph': 'Utiliza auriculares. Los altavoces, sobre todo de los portátiles, pueden distorsionar el sonido. Si tienes auriculares con micrófono es lo ideal.',
+                    'third-paragraph': 'Otra cosa que te puede ayudar, aunque parezca obvio,  es colocarte cerca del router en caso de usar wifi.',
+                },
+                'share-citamedica': {
+                    title: '¿Quieres compartir esta iniciativa?',
+                    'first-paragraph': '<a href="/attachments/kitCitaMedica.zip" download>Aquí puedes decargar un kit</a> con imágenes para que las publiques donde tú quieras. Cuanta más gente nos conozca, más podremos ayudar.',
+                },
             },
         }
     }
