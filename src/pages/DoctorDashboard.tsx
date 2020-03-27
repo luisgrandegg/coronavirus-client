@@ -9,6 +9,7 @@ import { InquiryList } from '../components/InquiryList';
 import useMultipleOptionsFilter from '../components/useMultipleOptionsFilter';
 import { InquiryListParams } from '../dto/InquiryListParams';
 import { DoctorTabs } from '../components/DoctorTabs';
+import { SkipNav, SkipNavIds } from '../components/SkipNav';
 
 import specialities from '../constants/specialities';
 import { useHistory, Redirect } from 'react-router-dom';
@@ -50,7 +51,7 @@ export const DoctorDashbord: React.FunctionComponent<IDoctorDashBoardProps> = (
 
     const Content = (): JSX.Element => (
         <>
-            <section className="doctor-dashboard__section">
+            <section id={SkipNavIds.MAIN} className="doctor-dashboard__section">
                 <p>{t('doctor-dashboard.content.first-paragraph')}</p>
                 <p>{t('doctor-dashboard.content.second-paragraph')}</p>
             </section>
@@ -79,6 +80,7 @@ export const DoctorDashbord: React.FunctionComponent<IDoctorDashBoardProps> = (
 
     return (
         <>
+            <SkipNav navElements={[SkipNavIds.MAIN]}/>
             <Header>
                 <DoctorTabs value={0} />
             </Header>

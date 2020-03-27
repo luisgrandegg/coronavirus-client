@@ -9,6 +9,7 @@ import { LoginForm } from '../components/LoginForm';
 import { Auth } from '../entities/Auth';
 import { UserType } from '../entities/User';
 import { Routes } from '../router/Routes';
+import { SkipNav, SkipNavIds } from '../components/SkipNav';
 
 export const Login: React.FunctionComponent = (): JSX.Element => {
     const history = useHistory();
@@ -32,6 +33,7 @@ export const Login: React.FunctionComponent = (): JSX.Element => {
 
     return (
         <>
+            <SkipNav navElements={[SkipNavIds.FORM_LOGIN]}/>
             <Header/>
             <main className="main login-form">
                 <div className="container">

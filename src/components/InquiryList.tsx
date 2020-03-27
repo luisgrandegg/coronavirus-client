@@ -6,6 +6,7 @@ import { sdk } from '../sdk';
 import { Inquiry, InquiryPagination, IInquiryPaginated } from '../entities/Inquiry';
 import { InquiryCard } from './InquiryCard';
 import { InquiryListParams } from '../dto/InquiryListParams';
+import { SkipNavIds } from './SkipNav';
 
 export interface IInquiryListProps {
     isAdmin?: boolean;
@@ -88,7 +89,7 @@ export const InquiryList: React.FunctionComponent<IInquiryListProps> = (
             );
 
     return (
-        <section className="inquiry-list">
+        <section id={SkipNavIds.MAIN} className="inquiry-list">
             {inquiries.length ? (
                 <>
                     {renderInquiries()}
