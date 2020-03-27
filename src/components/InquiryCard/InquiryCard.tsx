@@ -12,7 +12,6 @@ import specialities, { getSpecialityLabel } from '../../constants/specialities';
 import { sdk } from '../../sdk';
 import { useSelector } from 'react-redux';
 import { getAuth } from '../../store/selectors/status';
-import { UserType } from '../../entities/User';
 import { ISelectOptionProps } from '../Form/Select';
 import { DoctorType } from '../../entities/Doctor';
 export interface IInquiryCardProps {
@@ -142,7 +141,7 @@ export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
     }
 
     const showEmail = (): boolean => {
-        return inquiry.attended && (inquiry.doctorId === auth?.userId || auth?.userType === UserType.DOCTOR_ADMIN);
+        return inquiry.attended && (inquiry.doctorId === auth?.userId || !!auth?.isSuperAdmin());
     }
 
     const renderInquiryCardSpecialist = (): React.ReactNode => {
@@ -190,6 +189,9 @@ export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
                         createdAtTime: moment(inquiry.createdAt).format('HH:mm')
                     })}
                 </Typography>
+                {inquiry.doctorType === DoctorType.PSYCHOLOGIST && <Typography>
+                    <strong>{t('inquiry.types.psychologist')}</strong>
+                </Typography>}
                 {inquiry.doctorType === DoctorType.REGULAR && renderSpeciality()}
                 <Typography>
                     <strong>{t('inquiry.age')}</strong> {inquiry.age}

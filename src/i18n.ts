@@ -120,7 +120,10 @@ const resources = {
                 deactivate: 'Eliminar',
                 age: 'Edad (de quien necesita consejo):',
                 time: 'Cuanto tiempo lleva con el problema:',
-                'not-specified': 'No especificado'
+                'not-specified': 'No especificado',
+                types: {
+                    psychologist: 'Psicología'
+                }
             },
             'register-doctor': {
                 drawing: {

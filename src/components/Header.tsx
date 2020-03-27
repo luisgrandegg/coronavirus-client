@@ -22,7 +22,7 @@ export const Header: React.FunctionComponent<IHeaderProps> = (
     const auth = useSelector(getAuth);
 
     const isDoctorAdmin = (): boolean => {
-        return auth?.userType === UserType.DOCTOR_ADMIN;
+        return auth?.userType === UserType.SUPER_ADMIN;
     };
 
     useEffect(() => {
