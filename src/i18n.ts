@@ -25,8 +25,8 @@ const resources = {
                 },
             },
             footer: {
-                'title': '¿Nos ayudas a difundir?',
-                'first-paragraph': 'Ayúdanos compartiendo este servicio para que podamos ayudar a más gente.',
+                'title': 'Tú también puedes ayudar',
+                'first-paragraph': 'Ayúdanos a llegar a personas que puedan necesitar el servicio. ¡Comparte!',
                 'powered-by': 'Hecho con mucho cariño en Madrid :)'
             },
             header: {
