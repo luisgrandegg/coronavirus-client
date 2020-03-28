@@ -139,6 +139,7 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                         className="register-form__form-control"
                         name="email"
                         label={t('register-citizen.fields.email')}
+                        helperText={t('register-citizen.fields.email-helper-text')}
                         component={TextField}
                     />
                     <Field

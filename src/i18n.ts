@@ -110,7 +110,7 @@ const resources = {
                 'privacy-citizen': {
                     title: 'Si eres ciudadano/a',
                     'first-paragraph': '<strong>Nunca los cederemos a terceros</strong>, ni se utilizarán para otro fin que no sea el de esta plataforma.',
-                    'second-paragraph': '<strong>Los datos del formulario que has rellenado solo los verá personal médico</strong>.',
+                    'second-paragraph': '<strong>Los datos del formulario que rellenas solo los verá personal médico y además, han sido encriptados</strong>.',
                     'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y será borrada. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
                 },
                 'help-citizen': {
@@ -174,7 +174,7 @@ const resources = {
                     password: 'Contraseña',
                     'confirm-password': 'Confirma contraseña',
                     'terms': '<a target="_blank" href="/static/consentimiento.pdf" title="Se abre en una ventana nueva">Acepto que mis datos se incorporen a Cita médica en Casa.</a>',
-                    'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf" title="Se abre en una ventana nueva">Me comprometo a no hacer públicos datos de pacientes.</a>',
+                    'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf" title="Se abre en una ventana nueva">Me comprometo a no hacer públicos datos de ciudadanos.</a>',
                 }
             },
             'register-citizen': {
@@ -210,6 +210,7 @@ const resources = {
                 fields: {
                     age: 'Edad (tuya o de quien necesite consejo)',
                     email: 'Email (para enviarte la cita)',
+                    'email-helper-text': 'Para tu tranquilidad, email y consulta están encriptados',
                     'confirm-email': 'Confirma email',
                     'doctor-type': 'Elige una opción',
                     speciality: 'Especialidad',
