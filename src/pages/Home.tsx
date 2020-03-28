@@ -30,18 +30,18 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
         </>
     );
 
-    const ContentCTAPatient = (): JSX.Element => (
+    const ContentCTACitizen = (): JSX.Element => (
         <section className="home__section">
             <header className="home__section-header">
-                <h2 className="home__section-title">{t('home.patient.title')}</h2>
+                <h2 className="home__section-title">{t('home.citizen.title')}</h2>
             </header>
-            <p dangerouslySetInnerHTML={{ __html: t('home.patient.first-paragraph') }} />
+            <p dangerouslySetInnerHTML={{ __html: t('home.citizen.first-paragraph') }} />
             <Button
                 variant="contained"
                 color="primary"
                 component={RouterLink}
-                to={Routes.REGISTER_PATIENT}
-            >{t('home.patient.cta')}</Button>
+                to={Routes.REGISTER_CITIZEN}
+            >{t('home.citizen.cta')}</Button>
         </section>
     );
 
@@ -61,7 +61,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
                 variant="outlined"
                 color="primary"
                 component={RouterLink}
-                to={Routes.DOCTOR_DASHBOARD}
+                to={Routes.DOCTOR_DASHBOARD_REGULAR}
             >{t('home.doctor.login')}</Button>
         </section>
     );
@@ -82,7 +82,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
                 variant="outlined"
                 color="primary"
                 component={RouterLink}
-                to={Routes.DOCTOR_DASHBOARD}
+                to={Routes.DOCTOR_DASHBOARD_PSYCHOLOGIST}
             >{t('home.psychologist.login')}</Button>
         </section>
     );
@@ -118,17 +118,17 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
             </section>
             <section className="home__section">
                 <header className="home__section-header">
-                    <h2 className="home__section-title">{t('home.privacy-patient.title')}</h2>
+                    <h2 className="home__section-title">{t('home.privacy-citizen.title')}</h2>
                 </header>
-                <p dangerouslySetInnerHTML={{ __html: t('home.privacy-patient.first-paragraph') }} />
-                <p dangerouslySetInnerHTML={{ __html: t('home.privacy-patient.second-paragraph') }} />
-                <p dangerouslySetInnerHTML={{ __html: t('home.privacy-patient.third-paragraph') }} />
+                <p dangerouslySetInnerHTML={{ __html: t('home.privacy-citizen.first-paragraph') }} />
+                <p dangerouslySetInnerHTML={{ __html: t('home.privacy-citizen.second-paragraph') }} />
+                <p dangerouslySetInnerHTML={{ __html: t('home.privacy-citizen.third-paragraph') }} />
             </section>
             <section className="home__section">
                 <header className="home__section-header">
                     <h2
                         className="home__section-title"
-                        dangerouslySetInnerHTML={{ __html: t('home.help-patient.first-paragraph', { link: Routes.HELP_PATIENT }) }} />
+                        dangerouslySetInnerHTML={{ __html: t('home.help-citizen.first-paragraph', { link: Routes.HELP_CITIZEN }) }} />
                 </header>
             </section>
         </>
@@ -149,7 +149,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
         }
 
         const statTranslationSection = statType === 'inquiries_attended' ?
-            'patient' : statType === 'doctors_validated' ?
+            'citizen' : statType === 'doctors_validated' ?
                 'doctor' : statType === 'psychologists_validated' ?
                     'psychologist' : '';
 
@@ -178,7 +178,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
                     <div className="home__cta">
                         <Section
                             aside={renderCounter('inquiries_attended', stats?.total?.inquiries_attended)}
-                            content={<ContentCTAPatient />}
+                            content={<ContentCTACitizen />}
                         />
                         <p className="divider" />
                         <Section

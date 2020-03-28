@@ -40,7 +40,7 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
 
     const doctorTypes = [DoctorType.REGULAR, DoctorType.PSYCHOLOGIST].map(type => (
         {
-            label: t(`register-patient.doctor-type.${type}`),
+            label: t(`register-citizen.doctor-type.${type}`),
             value: type
         }
     ));
@@ -60,38 +60,38 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
 
     const validationSchema = yup.object().shape({
         age: yup.number()
-            .required(t('register-form.error.required', { field: t('register-patient.fields.age') }))
-            .positive(t('register-form.error.required', { field: t('register-patient.fields.age') })),
+            .required(t('register-form.error.required', { field: t('register-citizen.fields.age') }))
+            .positive(t('register-form.error.required', { field: t('register-citizen.fields.age') })),
         email: yup.string().trim()
-            .required(t('register-form.error.required', { field: t('register-patient.fields.email') }))
-            .email(t('register-form.error.format', { field: t('register-patient.fields.email') })),
+            .required(t('register-form.error.required', { field: t('register-citizen.fields.email') }))
+            .email(t('register-form.error.format', { field: t('register-citizen.fields.email') })),
         confirmEmail: yup.string().trim()
-            .required(t('register-form.error.required', { field: t('register-patient.fields.email') }))
-            .email(t('register-form.error.format', { field: t('register-patient.fields.email') }))
+            .required(t('register-form.error.required', { field: t('register-citizen.fields.email') }))
+            .email(t('register-form.error.format', { field: t('register-citizen.fields.email') }))
             .oneOf([yup.ref('email')], t('register-form.error.confirm')),
         doctorType: yup.string()
-            .required(t('register-form.error.required', { field: t('register-patient.fields.inquiry-type') })),
+            .required(t('register-form.error.required', { field: t('register-citizen.fields.inquiry-type') })),
         speciality: yup.string().when('doctorType', {
             is: DoctorType.REGULAR,
-            then: yup.string().required(t('register-form.error.required', { field: t('register-patient.fields.speciality') })),
+            then: yup.string().required(t('register-form.error.required', { field: t('register-citizen.fields.speciality') })),
             otherwise: yup.string()
         }),
         summary: yup.string()
-            .required(t('register-form.error.required', { field: t('register-patient.fields.summary') })),
+            .required(t('register-form.error.required', { field: t('register-citizen.fields.summary') })),
         terms: yup.bool()
             .oneOf([true], t('register-form.error.accept'))
-            .required(t('register-form.error.required', { field: t('register-patient.fields.terms') })),
+            .required(t('register-form.error.required', { field: t('register-citizen.fields.terms') })),
         time: yup.string().when('doctorType', {
             is: DoctorType.REGULAR,
-            then: yup.string().required(t('register-form.error.required', { field: t('register-patient.fields.time') })),
+            then: yup.string().required(t('register-form.error.required', { field: t('register-citizen.fields.time') })),
             otherwise: yup.string()
         }),
         privacy: yup.bool()
             .oneOf([true], t('register-form.error.accept'))
-            .required(t('register-form.error.required', { field: t('register-patient.fields.privacy') })),
+            .required(t('register-form.error.required', { field: t('register-citizen.fields.privacy') })),
         confirmAge: yup.bool()
             .oneOf([true], t('register-form.error.accept'))
-            .required(t('register-form.error.required', { field: t('register-patient.fields.confirm-age') })),
+            .required(t('register-form.error.required', { field: t('register-citizen.fields.confirm-age') })),
     });
 
     const onSubmit = async (values: ICreateInquiryForm): Promise<void> => {
@@ -126,35 +126,35 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
             {formik => (
                 <Form className="register-form__section--form">
                     <header className="register-form__header">
-                        <h3 className="register-form__header--title">{t('register-patient.content.form-step1-header')}</h3>
+                        <h3 className="register-form__header--title">{t('register-citizen.content.form-step1-header')}</h3>
                     </header>
                     <Field
                         className="register-form__form-control"
                         name="age"
-                        label={t('register-patient.fields.age')}
+                        label={t('register-citizen.fields.age')}
                         component={TextField}
                         type="number"
                     />
                     <Field
                         className="register-form__form-control"
                         name="email"
-                        label={t('register-patient.fields.email')}
+                        label={t('register-citizen.fields.email')}
                         component={TextField}
                     />
                     <Field
                         className="register-form__form-control"
                         name="confirmEmail"
-                        label={t('register-patient.fields.confirm-email')}
+                        label={t('register-citizen.fields.confirm-email')}
                         component={TextField}
                     />
                     <div className="register-form__header">
-                        <h3 className="register-form__header--title">{t('register-patient.content.form-step2-header')}</h3>
-                        <p className="register-form__header--description">{t('register-patient.content.form-step2-description')}</p>
+                        <h3 className="register-form__header--title">{t('register-citizen.content.form-step2-header')}</h3>
+                        <p className="register-form__header--description">{t('register-citizen.content.form-step2-description')}</p>
                     </div>
                     <Field
                         className="register-form__form-control"
                         name="doctorType"
-                        label={t('register-patient.fields.doctor-type')}
+                        label={t('register-citizen.fields.doctor-type')}
                         component={Select}
                         options={doctorTypes}
                     />
@@ -164,13 +164,13 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                                 <Field
                                     className="register-form__form-control"
                                     name="speciality"
-                                    label={t('register-patient.fields.speciality')}
+                                    label={t('register-citizen.fields.speciality')}
                                     component={Select}
                                     options={inquirySpecialities}
                                 />
                                 <Field
                                     name="time"
-                                    label={t('register-patient.fields.time')}
+                                    label={t('register-citizen.fields.time')}
                                     component={TextField}
                                 />
                             </>
@@ -184,8 +184,8 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                                 <Field
                                     className="register-form__form-control"
                                     name="summary"
-                                    label={t('register-patient.fields.summary')}
-                                    placeholder={t('register-patient.fields.summary-placeholder')}
+                                    label={t('register-citizen.fields.summary')}
+                                    placeholder={t(`register-citizen.fields.summary-placeholder-${formik.values.doctorType}`)}
                                     component={TextField}
                                     multiline
                                     rows="5"
@@ -194,7 +194,7 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                                     className="register-form__form-control"
                                     name="privacy"
                                     label={(
-                                        <span dangerouslySetInnerHTML={{ __html: t('register-patient.fields.privacy') }} />
+                                        <span dangerouslySetInnerHTML={{ __html: t('register-citizen.fields.privacy') }} />
                                     )}
                                     component={Checkbox}
                                 />
@@ -202,7 +202,7 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                                     className="register-form__form-control"
                                     name="terms"
                                     label={(
-                                        <span dangerouslySetInnerHTML={{ __html: t('register-patient.fields.terms') }} />
+                                        <span dangerouslySetInnerHTML={{ __html: t('register-citizen.fields.terms') }} />
                                     )}
                                     component={Checkbox}
                                 />
@@ -210,12 +210,12 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                                     className="register-form__form-control"
                                     name="confirmAge"
                                     label={(
-                                        <span dangerouslySetInnerHTML={{ __html: t('register-patient.fields.confirm-age') }} />
+                                        <span dangerouslySetInnerHTML={{ __html: t('register-citizen.fields.confirm-age') }} />
                                     )}
                                     component={Checkbox}
                                 />
                                 <SubmitButton
-                                    label={t('register-patient.fields.submit')}
+                                    label={t('register-citizen.fields.submit')}
                                     disabled={!formik.isValid || formik.isSubmitting || loading}
                                 />
                             </>
