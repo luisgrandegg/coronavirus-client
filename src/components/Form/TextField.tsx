@@ -1,5 +1,5 @@
 import React from 'react'
-import MaterialTextField, { OutlinedTextFieldProps } from '@material-ui/core/TextField' 
+import MaterialTextField, { OutlinedTextFieldProps } from '@material-ui/core/TextField'
 import { getIn, FormikProps, FieldInputProps } from 'formik'
 
 export type ITextFieldProps = OutlinedTextFieldProps & {
@@ -8,7 +8,7 @@ export type ITextFieldProps = OutlinedTextFieldProps & {
 };
 
 export const TextField: React.FunctionComponent<ITextFieldProps> = (props: ITextFieldProps) => {
-    const { label, field, form, ...other } = props;
+    const { label, field, form, helperText, ...other } = props;
     const { touched, errors } = form;
     const errorText = getIn(errors, field.name);
     const touchedVal = getIn(touched, field.name);
@@ -18,7 +18,7 @@ export const TextField: React.FunctionComponent<ITextFieldProps> = (props: IText
         <MaterialTextField
             label={label}
             error={hasError}
-            helperText={hasError ? errorText : ''}
+            helperText={hasError ? errorText : helperText}
             fullWidth={true}
             margin={'normal'}
             variant={'outlined'}

@@ -174,7 +174,7 @@ const resources = {
                     password: 'Contraseña',
                     'confirm-password': 'Confirma contraseña',
                     'terms': '<a target="_blank" href="/static/consentimiento.pdf" title="Se abre en una ventana nueva">Acepto que mis datos se incorporen a Cita médica en Casa.</a>',
-                    'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf" title="Se abre en una ventana nueva">Me comprometo a no hacer públicos datos de pacientes.</a>',
+                    'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf" title="Se abre en una ventana nueva">Me comprometo a no hacer públicos datos de ciudadanos.</a>',
                 }
             },
             'register-citizen': {
@@ -210,6 +210,7 @@ const resources = {
                 fields: {
                     age: 'Edad (tuya o de quien necesite consejo)',
                     email: 'Email (para enviarte la cita)',
+                    'email-helper-text': 'Para tu tranquilidad, email y consulta están encriptados',
                     'confirm-email': 'Confirma email',
                     'doctor-type': 'Elige una opción',
                     speciality: 'Especialidad',
