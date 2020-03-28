@@ -22,13 +22,13 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
     const renderConfirmation = (): React.ReactNode => (
         <>
             <header className="register-form__header">
-                <h2 className="register-form__title register-form__title--confirmation">{t('register-patient.confirmation.header.title')}</h2>
+                <h2 className="register-form__title register-form__title--confirmation">{t('register-citizen.confirmation.header.title')}</h2>
             </header>
             <section className="register-form__section">
-                <p>{t('register-patient.confirmation.content.message-1')}</p>
-                <h3 className="register-form__title register-form__title--confirmation">{t('register-patient.confirmation.content.time.title')}</h3>
-                <p>{t('register-patient.confirmation.content.time.message')}</p>
-                <p dangerouslySetInnerHTML={{__html: t('register-patient.confirmation.content.message-2')}}/>
+                <p>{t('register-citizen.confirmation.content.message-1')}</p>
+                <h3 className="register-form__title register-form__title--confirmation">{t('register-citizen.confirmation.content.time.title')}</h3>
+                <p>{t('register-citizen.confirmation.content.time.message')}</p>
+                <p dangerouslySetInnerHTML={{__html: t('register-citizen.confirmation.content.message-2')}}/>
             </section>
         </>
     );
@@ -37,21 +37,21 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
         <div className="section">
             <div className="content">
                 <header className="register-form__header">
-                    <h2 className="register-form__title">{t('register-patient.header.title')}</h2>
+                    <h2 className="register-form__title">{t('register-citizen.header.title')}</h2>
                 </header>
                 <section className="register-form__section">
                     <ol className="register-form__list">
-                        <li className="register-form__list-item">{t('register-patient.content.list-item-1')}</li>
-                        <li className="register-form__list-item">{t('register-patient.content.list-item-2')}</li>
-                        <li className="register-form__list-item">{t('register-patient.content.list-item-3')}</li>
-                        <li className="register-form__list-item">{t('register-patient.content.list-item-4')}</li>
+                        <li className="register-form__list-item">{t('register-citizen.content.list-item-1')}</li>
+                        <li className="register-form__list-item">{t('register-citizen.content.list-item-2')}</li>
+                        <li className="register-form__list-item">{t('register-citizen.content.list-item-3')}</li>
+                        <li className="register-form__list-item">{t('register-citizen.content.list-item-4')}</li>
                     </ol>
                 </section>
                 <CreateInquiryForm
                     onCreateSuccess={onCreateSuccess}
                     onCreateError={onCreateError}
                 />
-                <p>{t('register-patient.content.responsability')}</p>
+                <p>{t('register-citizen.content.responsability')}</p>
             </div>
         </div>
     )

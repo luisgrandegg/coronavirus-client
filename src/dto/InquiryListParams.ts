@@ -1,3 +1,5 @@
+import { DoctorType } from "../entities/Doctor";
+
 export interface IInquiryListParams {
     doctorId?: string;
     speciality?: string;
@@ -8,6 +10,7 @@ export interface IInquiryListParams {
     flagged?: boolean;
     page?: number;
     perPage?: number;
+    doctorType?: DoctorType;
 }
 
 export class InquiryListParams {
@@ -23,7 +26,8 @@ export class InquiryListParams {
             data.active,
             data.flagged,
             data.page,
-            data.perPage
+            data.perPage,
+            data.doctorType
         );
     }
 
@@ -36,7 +40,8 @@ export class InquiryListParams {
         public active?: boolean,
         public flagged?: boolean,
         public page?: number,
-        public perPage?: number
+        public perPage?: number,
+        public doctorType?: DoctorType
     ) { }
 
     toJSON(): IInquiryListParams {
@@ -67,6 +72,9 @@ export class InquiryListParams {
         }
         if (this.perPage) {
             params.perPage = this.perPage;
+        }
+        if (this.doctorType) {
+            params.doctorType = this.doctorType;
         }
         return params;
     }

@@ -1,10 +1,14 @@
 export enum Routes {
     ABOUT_US = '/about-us',
     ADMIN_DASHBOARD = '/admin/dashboard',
+    ADMIN_DASHBOARD_REGULAR = '/admin/dashboard/regular',
+    ADMIN_DASHBOARD_PSYCHOLOGIST = '/admin/dashboard/psychologist',
     ADMIN_MODERATE = '/admin/moderate',
     ADMIN_STATS = '/admin/stats',
     DOCTOR_DASHBOARD = '/dashboard/doctor',
-    HELP_PATIENT = '/help/patient',
+    DOCTOR_DASHBOARD_REGULAR = '/dashboard/doctor/regular',
+    DOCTOR_DASHBOARD_PSYCHOLOGIST = '/dashboard/doctor/psychologist',
+    HELP_CITIZEN = '/help/citizen',
     HELP_DOCTOR = '/help/doctor',
     DOCTOR_INQUIRIES = '/dashboard/doctor/inquiries',
     INQUIRY_DETAIL = '/dashboard/doctor/inquiry/:id',
@@ -12,6 +16,6 @@ export enum Routes {
     REGISTER = '/register',
     REGISTER_DOCTOR = '/register/doctor',
     REGISTER_PSYCHOLOGIST = '/register/psychologist',
-    REGISTER_PATIENT = '/register/patient',
+    REGISTER_CITIZEN = '/register/citizen',
     ROOT = '/'
 }

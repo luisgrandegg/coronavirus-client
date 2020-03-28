@@ -15,7 +15,7 @@ export const DoctorListFilters: React.FunctionComponent<IDoctorListFilterProps> 
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const params = { ...doctorListParams, [event.target.name]: event.target.checked };
-        const changedDoctorListParams = new DoctorListParams(params.isActive, params.isValidated);
+        const changedDoctorListParams = new DoctorListParams(params.isActive, params.isValidated, props.doctorListParams.doctorType);
         setDoctorListParams(changedDoctorListParams);
         props.onChange(changedDoctorListParams);
     };
