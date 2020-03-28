@@ -332,6 +332,8 @@ const resources = {
                 'quantity-type': 'aplausos',
                 tooltip: {
                     text: 'Ayúdanos a difundir el proyecto en tu red social favorita',
+                    'first-text': 'Trá trá! vas cogiendo ritmo, ¡sigue aplaudiendo!',
+                    'second-text': 'Todos estos aplausos se enviarán a las 20:00 en redes, por quienes no tienen balcón ¡sigue aplaudiendo!',
                     message: '👏👏👏👏👏👏👏👏👏👏👏👏 Un gran aplauso por todo el personal sanitario, que no dejan de ayudar ni aunque se tengan que quedar en casa!',
                     'message-alternative': 'Un gran aplauso por todo el personal sanitario, que no dejan de ayudar ni aunque se tengan que quedar en casa!'
                 }
