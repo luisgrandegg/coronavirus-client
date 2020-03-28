@@ -110,7 +110,7 @@ const resources = {
                 'privacy-citizen': {
                     title: 'Si eres ciudadano/a',
                     'first-paragraph': '<strong>Nunca los cederemos a terceros</strong>, ni se utilizarán para otro fin que no sea el de esta plataforma.',
-                    'second-paragraph': '<strong>Los datos del formulario que has rellenado solo los verá personal médico</strong>.',
+                    'second-paragraph': '<strong>Los datos del formulario que rellenas solo los verá personal médico y además, han sido encriptados</strong>.',
                     'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y será borrada. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
                 },
                 'help-citizen': {
