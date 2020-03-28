@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Redirect, Route } from "react-router-d
 import { ThemeProvider } from '@material-ui/core/styles';
 import CookieConsent from "react-cookie-consent";
 
-import { DoctorRoute, AdminRoute } from './router/PrivateRoute';
+import { DoctorRoute, AdminRoute, SuperAdminRoute } from './router/PrivateRoute';
 import { Routes } from './router/Routes';
 import { Spinner } from './components/Spinner';
 import { DoctorDashbord } from './pages/DoctorDashboard';
@@ -102,9 +102,9 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                         <AdminRoute exact={true} path={Routes.ADMIN_MODERATE}>
                             <AdminModerate />
                         </AdminRoute>
-                        <AdminRoute exact={true} path={Routes.ADMIN_STATS}>
+                        <SuperAdminRoute exact={true} path={Routes.ADMIN_STATS}>
                             <AdminStats />
-                        </AdminRoute>
+                        </SuperAdminRoute>
                         <Redirect exact={true} from={Routes.REGISTER} to={Routes.REGISTER_PATIENT} />
                         <Redirect to={Routes.ROOT} />
                     </Switch>

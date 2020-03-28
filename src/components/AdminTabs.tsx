@@ -4,12 +4,15 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { Routes } from '../router/Routes';
+import { useSelector } from 'react-redux';
+import { getAuth } from '../store/selectors/status';
 
 interface IAdminTabsProps {
     value: number;
 }
 
 export const AdminTabs: React.FunctionComponent<IAdminTabsProps> = (props: IAdminTabsProps): JSX.Element => {
+    const auth = useSelector(getAuth);
     const { value } = props;
     const { t } = useTranslation();
     const history = useHistory();
@@ -36,7 +39,7 @@ export const AdminTabs: React.FunctionComponent<IAdminTabsProps> = (props: IAdmi
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" variant={'fullWidth'}>
             <Tab label={t('header.admin.doctors')} {...a11yProps(0)} />
             <Tab label={t('header.admin.moderate')} {...a11yProps(1)} />
-            <Tab label={t('header.admin.stats')} {...a11yProps(2)} />
+            {auth?.isSuperAdmin() && <Tab label={t('header.admin.stats')} {...a11yProps(2)} />}
         </Tabs>
     );
 };

@@ -164,13 +164,8 @@ const resources = {
                     phone: 'Teléfono (los ciudadanos no lo verán)',
                     password: 'Contraseña',
                     'confirm-password': 'Confirma contraseña',
-<<<<<<< HEAD
                     'terms': '<a target="_blank" href="/static/consentimiento.pdf" title="Se abre en una ventana nueva">Acepto que mis datos se incorporen a Cita médica en Casa.</a>',
                     'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf" title="Se abre en una ventana nueva">Me comprometo a no hacer públicos datos de pacientes.</a>',
-=======
-                    'terms': '<a target="_blank" href="/static/consentimiento.pdf">Acepto que mis datos se incorporen a Cita médica en Casa.</a>',
-                    'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf">Me comprometo a no hacer públicos datos de ciudadanos.</a>',
->>>>>>> feat: update register doctor copies.
                 }
             },
             'register-patient': {

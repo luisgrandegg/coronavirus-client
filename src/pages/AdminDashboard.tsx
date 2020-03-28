@@ -1,20 +1,19 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useHistory } from "react-router-dom";
 
 import { Header } from '../components/Header';
-import { BackHome } from '../components/BackHome';
 import { AdminTabs } from '../components/AdminTabs';
 import { Footer } from '../components/Footer';
 import { DoctorList } from '../components/DoctorList';
 import { DoctorListParams } from '../dto/DoctorListParams';
 import { getAuth } from '../store/selectors/status';
-import { Link } from '@material-ui/core';
+import { Link as RouterLink } from 'react-router-dom';
+import { Routes } from '../router/Routes';
+import { Button } from '@material-ui/core';
 
 export const AdminDashboard: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
-    const history = useHistory();
     const { t } = useTranslation();
 
     const doctorListParams: DoctorListParams = DoctorListParams.deserialize({
@@ -23,17 +22,16 @@ export const AdminDashboard: React.FunctionComponent = (): JSX.Element => {
     });
 
     const renderLinkToDoctor = (): React.ReactNode => {
-        const nonAdminPageLoaded = sessionStorage.getItem('lastNonAdminPageLoaded') || '';
-        return auth?.isDoctor() && nonAdminPageLoaded.includes('/dashboard/doctor') ?
+        return auth?.isDoctor() ?
             (
-                <Link
-                    component="button"
-                    onClick={() => history.goBack()}
+                <Button
                     color="primary"
                     className="admin-dashboard__link"
-                    >
-                     {t('admin-dashboard.container.link-to-doctor')}
-                </Link>
+                    component={RouterLink}
+                    to={Routes.DOCTOR_DASHBOARD}
+                >
+                    {t('admin-dashboard.container.link-to-doctor')}
+                </Button>
             )
             : null;
     }
@@ -45,7 +43,6 @@ export const AdminDashboard: React.FunctionComponent = (): JSX.Element => {
         </Header>
         <main className="main admin-dashboard">
             <div className="container">
-                <BackHome />
                 {renderLinkToDoctor()}
                 <DoctorList doctorListParams={doctorListParams}/>
             </div>
