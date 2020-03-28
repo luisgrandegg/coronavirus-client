@@ -46,6 +46,20 @@ export const PrivateRoute: React.FunctionComponent<IPrivateRouteProps> = (
     );
 }
 
+export const SuperAdminRoute: React.FunctionComponent<IRouteProps> = (
+    props: IRouteProps
+): JSX.Element => {
+    const { children, ...rest } = props;
+    const userTypes = [
+        UserType.SUPER_ADMIN
+    ];
+    return (
+        <PrivateRoute userTypes={userTypes} {...rest}>
+            {children}
+        </PrivateRoute>
+    )
+}
+
 export const AdminRoute: React.FunctionComponent<IRouteProps> = (
     props: IRouteProps
 ): JSX.Element => {

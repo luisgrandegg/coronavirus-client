@@ -6,7 +6,6 @@ import { Routes } from '../router/Routes';
 import { Button } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { getAuth } from '../store/selectors/status';
-import { UserType } from '../entities/User';
 
 import { TwitterIcon } from '../components/Social/Icons/TwitterIcon';
 
@@ -21,10 +20,6 @@ export const Header: React.FunctionComponent<IHeaderProps> = (
     const { t } = useTranslation();
     const auth = useSelector(getAuth);
 
-    const isDoctorAdmin = (): boolean => {
-        return auth?.userType === UserType.SUPER_ADMIN;
-    };
-
     useEffect(() => {
         const currentLocation = window && window.location.href;
         if (!currentLocation.includes('admin')) {
@@ -32,11 +27,10 @@ export const Header: React.FunctionComponent<IHeaderProps> = (
         }
     }, []);
 
-    const canRenderTwitterLink = () => (children === undefined && !isDoctorAdmin())
+    const canRenderTwitterLink = () => (children === undefined && !auth?.isAdmin())
 
-    //TODO:: pls if this grows change this
     const renderAdminButton = (): React.ReactNode =>
-        isDoctorAdmin() ?
+        auth?.isAdmin() ?
             (
                 <Button
                     className="admin-button"
