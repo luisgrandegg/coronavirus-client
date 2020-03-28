@@ -12,7 +12,7 @@ import { DoctorDashbord } from './pages/DoctorDashboard';
 import { getAuth } from './store/selectors/status';
 import { sdk } from './sdk';
 import { HelpDoctor } from './pages/HelpDoctor';
-import { HelpPatient } from './pages/HelpPatient';
+import { HelpCitizen } from './pages/HelpCitizen';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { AboutUs } from './pages/AboutUs';
@@ -28,6 +28,8 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { AdminModerate } from './pages/AdminModerate';
 import { AdminStats } from './pages/AdminStats';
 import { DoctorType } from './entities/Doctor';
+import { DoctorDashboardMain } from './pages/DoctorDashboardMain';
+import { AdminDashboardMain } from './pages/AdminDashboardMain';
 
 export const App: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
@@ -57,9 +59,9 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                                 <AboutUs />
                             </ScrollToTop>
                         </Route>
-                        <Route exact={true} path={Routes.HELP_PATIENT}>
+                        <Route exact={true} path={Routes.HELP_CITIZEN}>
                             <ScrollToTop>
-                                <HelpPatient />
+                                <HelpCitizen />
                             </ScrollToTop>
                         </Route>
                         <Route exact={true} path={Routes.HELP_DOCTOR}>
@@ -82,13 +84,19 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                                 <RegisterDoctor doctorType={DoctorType.REGULAR} />
                             </ScrollToTop>
                         </Route>
-                        <Route exact={true} path={Routes.REGISTER_PATIENT}>
+                        <Route exact={true} path={Routes.REGISTER_CITIZEN}>
                             <ScrollToTop>
                                 <CreateInquiry />
                             </ScrollToTop>
                         </Route>
                         <DoctorRoute exact={true} path={Routes.DOCTOR_DASHBOARD}>
-                            <DoctorDashbord />
+                            <DoctorDashboardMain/>
+                        </DoctorRoute>
+                        <DoctorRoute exact={true} path={Routes.DOCTOR_DASHBOARD_REGULAR}>
+                            <DoctorDashbord doctorType={DoctorType.REGULAR}/>
+                        </DoctorRoute>
+                        <DoctorRoute exact={true} path={Routes.DOCTOR_DASHBOARD_PSYCHOLOGIST}>
+                            <DoctorDashbord doctorType={DoctorType.PSYCHOLOGIST}/>
                         </DoctorRoute>
                         <DoctorRoute exact={true} path={Routes.DOCTOR_INQUIRIES}>
                             <DoctorInquiries />
@@ -97,7 +105,13 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                             <InquiryDetail />
                         </DoctorRoute>
                         <AdminRoute exact={true} path={Routes.ADMIN_DASHBOARD}>
-                            <AdminDashboard />
+                            <AdminDashboardMain />
+                        </AdminRoute>
+                        <AdminRoute exact={true} path={Routes.ADMIN_DASHBOARD_REGULAR}>
+                            <AdminDashboard doctorType={DoctorType.REGULAR}/>
+                        </AdminRoute>
+                        <AdminRoute exact={true} path={Routes.ADMIN_DASHBOARD_PSYCHOLOGIST}>
+                            <AdminDashboard doctorType={DoctorType.PSYCHOLOGIST}/>
                         </AdminRoute>
                         <AdminRoute exact={true} path={Routes.ADMIN_MODERATE}>
                             <AdminModerate />
@@ -105,7 +119,7 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                         <SuperAdminRoute exact={true} path={Routes.ADMIN_STATS}>
                             <AdminStats />
                         </SuperAdminRoute>
-                        <Redirect exact={true} from={Routes.REGISTER} to={Routes.REGISTER_PATIENT} />
+                        <Redirect exact={true} from={Routes.REGISTER} to={Routes.REGISTER_CITIZEN} />
                         <Redirect to={Routes.ROOT} />
                     </Switch>
                 </Router>

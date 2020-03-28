@@ -15,11 +15,20 @@ const resources = {
                         inquiries_attended: 'Consultas atendidas',
                         inquiries_flagged: 'Consultas flaggeadas',
                         doctors: 'Médicos',
-                        doctors_validated: 'Médicos validados'
+                        doctors_validated: 'Médicos validados',
+                        doctor_claps: 'Aplausos',
+                        psychologists: 'Psicólogos',
+                        psychologists_validated: 'Psicólogos validados',
+                        inquiries_psychologist: 'Consultas psicológicas',
+                        inquiries_attended_psychologist: 'Consultas psicológicas atendidas'
                     }
                 }
             },
             'admin-dashboard': {
+                navigation: {
+                    regular: 'Médicas',
+                    psychologist: 'Psicólogas'
+                },
                 container: {
                     'link-to-doctor': '← Volver al panel de citas',
                 },
@@ -57,7 +66,7 @@ const resources = {
                     title: 'Así funciona Cita Médica en Casa',
                     'first-paragraph': 'Ponemos en contacto a <strong>profesionales colegiados en medicina o psicología y ciudadanos</strong> a través de email o videollamada, para resolver dudas sin coste alguno. Queremos reducir la sobrecarga de hospitales y centros de salud en consultas leves.'
                 },
-                'patient': {
+                'citizen': {
                     title: 'Para ciudadanos/as',
                     'first-paragraph': 'Plantea una duda médica excepto sobre el Coronavirus. <strong>Si tienes una emergencia llama al 112</strong>, no esperes a que te atendamos en esta web.',
                     cta: 'Realizar una consulta',
@@ -98,13 +107,13 @@ const resources = {
                     'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y será borrada. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
 
                 },
-                'privacy-patient': {
+                'privacy-citizen': {
                     title: 'Si eres ciudadano/a',
                     'first-paragraph': '<strong>Nunca los cederemos a terceros</strong>, ni se utilizarán para otro fin que no sea el de esta plataforma.',
                     'second-paragraph': '<strong>Los datos del formulario que has rellenado solo los verá personal médico</strong>.',
                     'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y será borrada. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
                 },
-                'help-patient': {
+                'help-citizen': {
                     'first-paragraph': '<a href="{{link}}" target="_blank">Aquí tienes más información</a> acerca de cómo funciona Cita Médica en Casa.'
                 }
             },
@@ -168,7 +177,7 @@ const resources = {
                     'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf" title="Se abre en una ventana nueva">Me comprometo a no hacer públicos datos de pacientes.</a>',
                 }
             },
-            'register-patient': {
+            'register-citizen': {
                 drawing: {
                     alt: 'Cita Médica en Casa para ciudadanos'
                 },
@@ -182,7 +191,7 @@ const resources = {
                             message: 'Las personas que responden son voluntarias, tratan de hacerlo lo más rápido posible, pero se puede demorar. Si necesitas respuesta urgente debes llamar al 112.',
                         },
                         'message-1': 'Recibirás un email confimándola con un link para acceder a una consulta online, o con una respuesta a tu consulta.',
-                        'message-2': '<a href="/help/patient/">Aquí tienes más ayuda</a> sobre Cita Médica en Casa.'
+                        'message-2': '<a href="/help/citizen/">Aquí tienes más ayuda</a> sobre Cita Médica en Casa.'
                     }
                 },
                 header: {
@@ -206,7 +215,8 @@ const resources = {
                     speciality: 'Especialidad',
                     time: '¿Cuánto tiempo lleva con el problema?',
                     summary: 'Resumen de tu problema',
-                    'summary-placeholder': 'Formula tu pregunta de forma sencilla y clara. Añade información sobre tratamientos o enfermedades (diabetes, tensión alta o baja...) para que el especialista tenga contexto. No escribas aquí tus datos personales.',
+                    'summary-placeholder-psychologist': 'Formula tu pregunta de forma sencilla y clara. Añade información sobre tratamientos o si sigues algún tipo de terapia para poner al profesional en contexto. No escribas aquí tus datos personales.',
+                    'summary-placeholder-regular': 'Formula tu pregunta de forma sencilla y clara. Añade información sobre tratamientos o enfermedades (diabetes, tensión alta o baja...) para que el especialista tenga contexto. No escribas aquí tus datos personales.',
                     'terms': '<a target="_blank" href="/static/consentimiento.pdf" title="Se abre en una ventana nueva">Acepto compartir mis datos personales con el personal médico.</a>',
                     'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf" title="Se abre en una ventana nueva">Acepto la política de privacidad y la protección de datos.</a>',
                     'confirm-age': 'Soy mayor de 18 años.',
@@ -266,6 +276,10 @@ const resources = {
                 }
             },
             'doctor-dashboard': {
+                navigation: {
+                    regular: 'Consultas médicas',
+                    psychologist: 'Consultas psicológicas'
+                },
                 header: {
                     title: 'Listado de dudas planteadas'
                 },
@@ -323,7 +337,7 @@ const resources = {
             'back-home': {
                 text: 'Volver a la home'
             },
-            'help-patient': {
+            'help-citizen': {
                 title: 'Preguntas frecuentes para ciudadanos',
                 trust: {
                     title: '¿Cómo sé que las personas que contestan mis dudas son profesionales?',

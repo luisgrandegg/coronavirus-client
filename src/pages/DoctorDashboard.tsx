@@ -11,17 +11,23 @@ import { InquiryListParams } from '../dto/InquiryListParams';
 import { DoctorTabs } from '../components/DoctorTabs';
 
 import specialities from '../constants/specialities';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import { Inquiry } from '../entities/Inquiry';
 import { Routes } from '../router/Routes';
+import { DoctorType } from '../entities/Doctor';
 import { useSelector } from 'react-redux';
 import { getAuth } from '../store/selectors/status';
-import { DoctorType } from '../entities/Doctor';
 
-export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
+export interface IDoctorDashBoardProps {
+    doctorType: DoctorType
+}
+
+export const DoctorDashbord: React.FunctionComponent<IDoctorDashBoardProps> = (
+    props: IDoctorDashBoardProps
+): JSX.Element => {
     const history = useHistory();
     const { t } = useTranslation();
-    const auth = useSelector(getAuth);
+    const { doctorType } = props;
     const [selectedSpecialities, SpecialitiesFilter] = useMultipleOptionsFilter(
         t('doctor-dashboard.filter.title'),
         t('doctor-dashboard.filter.apply-button'),
@@ -31,8 +37,10 @@ export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
         specialities: selectedSpecialities,
         active: true,
         attended: false,
-        flagged: false
+        flagged: false,
+        doctorType: doctorType
     });
+    const auth = useSelector(getAuth);
 
     const handleAttendEvent = (inquiry: Inquiry): void => {
         if (inquiry.attended) {
@@ -52,6 +60,23 @@ export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
         </>
     );
 
+    const getDoctorDashoboard = (): Routes => {
+        switch (auth?.doctorType) {
+            case DoctorType.REGULAR:
+                return Routes.DOCTOR_DASHBOARD_REGULAR;
+            case DoctorType.PSYCHOLOGIST:
+                return Routes.DOCTOR_DASHBOARD_PSYCHOLOGIST;
+            default:
+                return Routes.LOGIN;
+        }
+    };
+
+    if (!auth?.isSuperAdmin() && auth?.doctorType !== doctorType) {
+        return (
+            <Redirect to={getDoctorDashoboard()}/>
+        )
+    }
+
     return (
         <>
             <Header>
@@ -62,7 +87,7 @@ export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
                     <BackHome />
                     <Section
                         content={<Content />} />
-                    {auth?.doctorType === DoctorType.REGULAR && <SpecialitiesFilter />}
+                    {doctorType === DoctorType.REGULAR && <SpecialitiesFilter />}
                     <InquiryList inquiryListParams={inquiryListParams} onAttendEvent={handleAttendEvent}/>
                 </div>
             </main>

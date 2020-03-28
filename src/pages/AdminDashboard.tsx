@@ -11,14 +11,23 @@ import { getAuth } from '../store/selectors/status';
 import { Link as RouterLink } from 'react-router-dom';
 import { Routes } from '../router/Routes';
 import { Button } from '@material-ui/core';
+import { DoctorType } from '../entities/Doctor';
 
-export const AdminDashboard: React.FunctionComponent = (): JSX.Element => {
+export interface IAdminDashBoardProps {
+    doctorType: DoctorType
+}
+
+export const AdminDashboard: React.FunctionComponent<IAdminDashBoardProps> = (
+    props: IAdminDashBoardProps
+): JSX.Element => {
     const auth = useSelector(getAuth);
     const { t } = useTranslation();
+    const { doctorType } = props;
 
     const doctorListParams: DoctorListParams = DoctorListParams.deserialize({
         isActive: true,
-        isValidated: false
+        isValidated: false,
+        doctorType: doctorType
     });
 
     const renderLinkToDoctor = (): React.ReactNode => {
@@ -38,16 +47,16 @@ export const AdminDashboard: React.FunctionComponent = (): JSX.Element => {
 
     return (
         <>
-        <Header>
-            <AdminTabs value={0}/>
-        </Header>
-        <main className="main admin-dashboard">
-            <div className="container">
-                {renderLinkToDoctor()}
-                <DoctorList doctorListParams={doctorListParams}/>
-            </div>
-        </main>
-        <Footer/>
-    </>
+            <Header>
+                <AdminTabs value={0}/>
+            </Header>
+            <main className="main admin-dashboard">
+                <div className="container">
+                    {renderLinkToDoctor()}
+                    <DoctorList doctorListParams={doctorListParams}/>
+                </div>
+            </main>
+            <Footer/>
+        </>
     );
 }
