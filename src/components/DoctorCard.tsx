@@ -33,15 +33,18 @@ export const DoctorCard: React.FunctionComponent<IDoctorCardProps> = (
                         createdAtTime: moment(doctor.createdAt).format('HH:mm')
                     })}
                 </Typography>
+                {doctor.isPsychologist() && <Typography>
+                    <strong>{t('doctor.types.psychologist')}</strong>
+                </Typography>}
                 <Typography>
                     {t('doctor.name')} {doctor.name}
                 </Typography>
                 <Typography>
                     {t('doctor.surname')} {doctor.surname}
                 </Typography>
-                <Typography>
+                {doctor.speciality && <Typography>
                     {t('doctor.speciality')} {getSpecialityLabel(doctor.speciality)}
-                </Typography>
+                </Typography>}
                 <Typography>
                     {t('doctor.license')} {doctor.license}
                 </Typography>

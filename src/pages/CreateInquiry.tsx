@@ -47,15 +47,10 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
                         <li className="register-form__list-item">{t('register-patient.content.list-item-4')}</li>
                     </ol>
                 </section>
-                <div className="register-form__section--form">
-                    <header className="register-form__header">
-                        <h3>{t('register-patient.content.form-header')}</h3>
-                    </header>
-                    <CreateInquiryForm
-                        onCreateSuccess={onCreateSuccess}
-                        onCreateError={onCreateError}
-                    />
-                </div>
+                <CreateInquiryForm
+                    onCreateSuccess={onCreateSuccess}
+                    onCreateError={onCreateError}
+                />
                 <p>{t('register-patient.content.responsability')}</p>
             </div>
         </div>

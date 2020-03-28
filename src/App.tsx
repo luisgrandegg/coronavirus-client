@@ -5,12 +5,14 @@ import { BrowserRouter as Router, Switch, Redirect, Route } from "react-router-d
 import { ThemeProvider } from '@material-ui/core/styles';
 import CookieConsent from "react-cookie-consent";
 
-import { DoctorRoute, AdminRoute } from './router/PrivateRoute';
+import { DoctorRoute, AdminRoute, SuperAdminRoute } from './router/PrivateRoute';
 import { Routes } from './router/Routes';
 import { Spinner } from './components/Spinner';
 import { DoctorDashbord } from './pages/DoctorDashboard';
 import { getAuth } from './store/selectors/status';
 import { sdk } from './sdk';
+import { HelpDoctor } from './pages/HelpDoctor';
+import { HelpPatient } from './pages/HelpPatient';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { AboutUs } from './pages/AboutUs';
@@ -25,6 +27,7 @@ import { AdminDashboard } from './pages/AdminDashboard';
 import { ScrollToTop } from './components/ScrollToTop';
 import { AdminModerate } from './pages/AdminModerate';
 import { AdminStats } from './pages/AdminStats';
+import { DoctorType } from './entities/Doctor';
 
 export const App: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
@@ -54,14 +57,29 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                                 <AboutUs />
                             </ScrollToTop>
                         </Route>
+                        <Route exact={true} path={Routes.HELP_PATIENT}>
+                            <ScrollToTop>
+                                <HelpPatient />
+                            </ScrollToTop>
+                        </Route>
+                        <Route exact={true} path={Routes.HELP_DOCTOR}>
+                            <ScrollToTop>
+                                <HelpDoctor />
+                            </ScrollToTop>
+                        </Route>
                         <Route exact={true} path={Routes.LOGIN}>
                             <ScrollToTop>
                                 <Login />
                             </ScrollToTop>
                         </Route>
+                        <Route exact={true} path={Routes.REGISTER_PSYCHOLOGIST}>
+                            <ScrollToTop>
+                                <RegisterDoctor doctorType={DoctorType.PSYCHOLOGIST} />
+                            </ScrollToTop>
+                        </Route>
                         <Route exact={true} path={Routes.REGISTER_DOCTOR}>
                             <ScrollToTop>
-                                <RegisterDoctor />
+                                <RegisterDoctor doctorType={DoctorType.REGULAR} />
                             </ScrollToTop>
                         </Route>
                         <Route exact={true} path={Routes.REGISTER_PATIENT}>
@@ -82,11 +100,11 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                             <AdminDashboard />
                         </AdminRoute>
                         <AdminRoute exact={true} path={Routes.ADMIN_MODERATE}>
-                            <AdminModerate/>
+                            <AdminModerate />
                         </AdminRoute>
-                        <AdminRoute exact={true} path={Routes.ADMIN_STATS}>
-                            <AdminStats/>
-                        </AdminRoute>
+                        <SuperAdminRoute exact={true} path={Routes.ADMIN_STATS}>
+                            <AdminStats />
+                        </SuperAdminRoute>
                         <Redirect exact={true} from={Routes.REGISTER} to={Routes.REGISTER_PATIENT} />
                         <Redirect to={Routes.ROOT} />
                     </Switch>

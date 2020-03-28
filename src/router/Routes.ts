@@ -4,11 +4,14 @@ export enum Routes {
     ADMIN_MODERATE = '/admin/moderate',
     ADMIN_STATS = '/admin/stats',
     DOCTOR_DASHBOARD = '/dashboard/doctor',
+    HELP_PATIENT = '/help/patient',
+    HELP_DOCTOR = '/help/doctor',
     DOCTOR_INQUIRIES = '/dashboard/doctor/inquiries',
     INQUIRY_DETAIL = '/dashboard/doctor/inquiry/:id',
     LOGIN = '/login',
     REGISTER = '/register',
     REGISTER_DOCTOR = '/register/doctor',
+    REGISTER_PSYCHOLOGIST = '/register/psychologist',
     REGISTER_PATIENT = '/register/patient',
     ROOT = '/'
 }

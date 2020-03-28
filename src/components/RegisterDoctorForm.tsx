@@ -12,15 +12,17 @@ import { Select } from './Form/Select';
 import { Checkbox } from './Form/Checkbox';
 import { SubmitButton } from './Form/SubmitButton';
 import { DoctorType } from '../entities/Doctor';
+import { UserType } from '../entities/User';
 
 export interface IRegisterDoctorFormProps {
     onRegisterSuccess: (auth: Auth) => void;
+    doctorType: DoctorType;
 }
 
 export interface IRegisterDoctorForm {
     firstName: string;
     surname: string;
-    speciality: string;
+    speciality?: string;
     license: string;
     email: string;
     phone: string;
@@ -51,16 +53,27 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
         privacy: false,
     };
 
+    const getLicenseValidator = (): yup.StringSchema => {
+        const validatorSchema = yup.string().required(
+            t('register-form.error.required', { field: t('register-doctor.fields.speciality') })
+        );
+
+        if (props.doctorType === DoctorType.REGULAR) {
+            return validatorSchema.length(9, t('register-form.error.length', { length: 9 }))
+        }
+        return validatorSchema;
+    }
     const validationSchema = yup.object().shape({
         firstName: yup.string()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.name') })),
         surname: yup.string()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.surname') })),
-        speciality: yup.string()
-            .required(t('register-form.error.required', { field: t('register-doctor.fields.speciality') })),
-        license: yup.string()
-            .required(t('register-form.error.required', { field: t('register-doctor.fields.license') }))
-            .min(9, t('register-form.error.length', { length: 9 })),
+        speciality: props.doctorType === DoctorType.REGULAR ?
+            yup.string().required(
+                t('register-form.error.required', { field: t('register-doctor.fields.speciality') })
+            ) :
+            yup.string(),
+        license: getLicenseValidator(),
         email: yup.string().trim()
             .required(t('register-form.error.required', { field: t('register-doctor.fields.email') }))
             .email(t('register-form.error.format', { field: t('register-doctor.fields.email') })),
@@ -83,10 +96,9 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
     const onSubmit = async (values: IRegisterDoctorForm): Promise<void> => {
         const { firstName, surname, speciality, license, email, phone, password, confirmPassword, terms, privacy } = values;
         setLoading(true);
-        sdk.registerDoctor(new RegisterDoctorDto(
-            firstName,
+        sdk.registerDoctor(RegisterDoctorDto.deserialize({
+            name: firstName,
             surname,
-            speciality,
             license,
             email,
             phone,
@@ -94,8 +106,10 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
             confirmPassword,
             terms,
             privacy,
-            DoctorType.REGULAR
-        )).then((auth: Auth) => {
+            userType: UserType.DOCTOR,
+            doctorType: props.doctorType,
+            speciality
+        })).then((auth: Auth) => {
             onRegisterSuccess(auth);
         }).catch(() => {
             setError(t('register-form.error.invalid'));
@@ -123,12 +137,12 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
                         label={t('register-doctor.fields.surname')}
                         component={TextField}
                     />
-                    <Field
+                    {props.doctorType === DoctorType.REGULAR && <Field
                         name="speciality"
                         label={t('register-doctor.fields.speciality')}
                         component={Select}
                         options={specialities}
-                    />
+                    />}
                     <Field
                         name="license"
                         label={t('register-doctor.fields.license')}
@@ -158,16 +172,16 @@ export const RegisterDoctorForm: React.FunctionComponent<IRegisterDoctorFormProp
                         type="password"
                     />
                     <Field
-                        name="terms"
+                        name="privacy"
                         label={(
-                            <span dangerouslySetInnerHTML={{__html: t('register-doctor.fields.terms')}}/>
+                            <span dangerouslySetInnerHTML={{__html: t('register-doctor.fields.privacy')}}/>
                         )}
                         component={Checkbox}
                     />
                     <Field
-                        name="privacy"
+                        name="terms"
                         label={(
-                            <span dangerouslySetInnerHTML={{__html: t('register-doctor.fields.privacy')}}/>
+                            <span dangerouslySetInnerHTML={{__html: t('register-doctor.fields.terms')}}/>
                         )}
                         component={Checkbox}
                     />

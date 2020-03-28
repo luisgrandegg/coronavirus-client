@@ -11,9 +11,17 @@ import { InquiryListParams } from '../dto/InquiryListParams';
 import { DoctorTabs } from '../components/DoctorTabs';
 
 import specialities from '../constants/specialities';
+import { useHistory } from 'react-router-dom';
+import { Inquiry } from '../entities/Inquiry';
+import { Routes } from '../router/Routes';
+import { useSelector } from 'react-redux';
+import { getAuth } from '../store/selectors/status';
+import { DoctorType } from '../entities/Doctor';
 
 export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
+    const history = useHistory();
     const { t } = useTranslation();
+    const auth = useSelector(getAuth);
     const [selectedSpecialities, SpecialitiesFilter] = useMultipleOptionsFilter(
         t('doctor-dashboard.filter.title'),
         t('doctor-dashboard.filter.apply-button'),
@@ -26,15 +34,21 @@ export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
         flagged: false
     });
 
+    const handleAttendEvent = (inquiry: Inquiry): void => {
+        if (inquiry.attended) {
+            history.push(Routes.INQUIRY_DETAIL.replace(':id', inquiry.id));
+        }
+    }
+
     const Content = (): JSX.Element => (
         <>
-            <header className="doctor-dashboard__header">
-                <h2 className="doctor-dashboard__title doctor-dashboard__title--confirmation">{t('doctor-dashboard.header.title')}</h2>
-            </header>
             <section className="doctor-dashboard__section">
                 <p>{t('doctor-dashboard.content.first-paragraph')}</p>
                 <p>{t('doctor-dashboard.content.second-paragraph')}</p>
             </section>
+            <header className="doctor-dashboard__header">
+                <h2 className="doctor-dashboard__title doctor-dashboard__title--confirmation">{t('doctor-dashboard.header.title')}</h2>
+            </header>
         </>
     );
 
@@ -46,10 +60,10 @@ export const DoctorDashbord: React.FunctionComponent = (): JSX.Element => {
             <main className="main doctor-dashboard">
                 <div className="container">
                     <BackHome />
-                    <SpecialitiesFilter />
                     <Section
                         content={<Content />} />
-                    <InquiryList inquiryListParams={inquiryListParams} />
+                    {auth?.doctorType === DoctorType.REGULAR && <SpecialitiesFilter />}
+                    <InquiryList inquiryListParams={inquiryListParams} onAttendEvent={handleAttendEvent}/>
                 </div>
             </main>
             <Footer />
