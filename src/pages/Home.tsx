@@ -33,7 +33,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
     const ContentCTACitizen = (): JSX.Element => (
         <section className="home__section">
             <header className="home__section-header">
-                <h2 className="home__section-title">{t('home.citizen.title')}</h2>
+                <h2 className="home__section-title" dangerouslySetInnerHTML={{ __html: t('home.citizen.title') }} />
             </header>
             <p dangerouslySetInnerHTML={{ __html: t('home.citizen.first-paragraph') }} />
             <Button
@@ -48,7 +48,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
     const ContentCTADoctor = (): JSX.Element => (
         <section className="home__section">
             <header className="home__section-header">
-                <h2 className="home__section-title">{t('home.doctor.title')}</h2>
+                <h2 className="home__section-title" dangerouslySetInnerHTML={{ __html: t('home.doctor.title') }} />
             </header>
             <p dangerouslySetInnerHTML={{ __html: t('home.doctor.first-paragraph') }} />
             <Button
@@ -69,7 +69,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
     const ContentCTAPsychologist = (): JSX.Element => (
         <section className="home__section">
             <header className="home__section-header">
-                <h2 className="home__section-title">{t('home.psychologist.title')}</h2>
+                <h2 className="home__section-title" dangerouslySetInnerHTML={{ __html: t('home.psychologist.title') }} />
             </header>
             <p dangerouslySetInnerHTML={{ __html: t('home.psychologist.first-paragraph') }} />
             <Button
@@ -118,7 +118,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
             </section>
             <section className="home__section">
                 <header className="home__section-header">
-                    <h2 className="home__section-title">{t('home.privacy-citizen.title')}</h2>
+                    <h2 className="home__section-title" dangerouslySetInnerHTML={{ __html: t('home.privacy-citizen.title') }} />
                 </header>
                 <p dangerouslySetInnerHTML={{ __html: t('home.privacy-citizen.first-paragraph') }} />
                 <p dangerouslySetInnerHTML={{ __html: t('home.privacy-citizen.second-paragraph') }} />

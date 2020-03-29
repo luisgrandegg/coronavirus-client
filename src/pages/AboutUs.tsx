@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Header } from '../components/Header';
 import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
+import { List } from '../components/List';
 import { Section } from '../components/Section';
 
 export const AboutUs: React.FunctionComponent = (): JSX.Element => {
@@ -31,14 +32,9 @@ export const AboutUs: React.FunctionComponent = (): JSX.Element => {
                                     </header>
                                     <p dangerouslySetInnerHTML={{ __html: t('about-us.collaboration.first-paragraph') }} />
                                     <p dangerouslySetInnerHTML={{ __html: t('about-us.collaboration.second-paragraph') }} />
-                                    <ul className="about-us__list">
-                                        <li
-                                            className="about-us__list-item"
-                                            dangerouslySetInnerHTML={{ __html: t('about-us.collaboration.list-item-1') }} />
-                                        <li
-                                            className="about-us__list-item"
-                                            dangerouslySetInnerHTML={{ __html: t('about-us.collaboration.list-item-2') }} />
-                                    </ul>
+                                    
+                                    <List listName="about-us" numItems={2} itemsText="about-us.collaboration" ordered={false} />
+                                    
                                 </section>
                                 <section className="about-us__section">
                                     <header className="about-us__section-header">

@@ -67,31 +67,32 @@ const resources = {
                     'first-paragraph': 'Ponemos en contacto a <strong>profesionales colegiados en medicina o psicología y ciudadanos</strong> a través de email o videollamada, para resolver dudas sin coste alguno. Queremos reducir la sobrecarga de hospitales y centros de salud en consultas leves.'
                 },
                 'citizen': {
-                    title: 'Para ciudadanos/as',
+                    title: 'Para <span aria-label="ciudadanos y ciudadanas">ciudadanos/as</span>',
                     'first-paragraph': 'Plantea una duda médica excepto sobre el Coronavirus. <strong>Si tienes una emergencia llama al 112</strong>, no esperes a que te atendamos en esta web.',
                     cta: 'Realizar una consulta',
                     'counter-pre': 'Hemos atendido',
                     'counter-post': 'consultas'
                 },
                 'doctor': {
-                    title: 'Para Médicos/as',
+                    title: 'Para <span aria-label="Médicos o Médicas">Médicos/as</span>',
                     'first-paragraph': 'Presta tu ayuda a personas que no pueden acudir a una consulta.',
                     'register-button': 'Registrarme',
                     login: 'Acceder con mi cuenta',
                     'counter-pre': 'Ya somos',
-                    'counter-post': 'médicos/as'
+                    'counter-post': '<span aria-label="médicos o médicas">médicos/as</span>'
                 },
                 'psychologist': {
-                    title: 'Para Psicólogos/as',
+                    title: 'Para <span aria-label="Psicólogos o Psicólogas">Psicólogos/as</span>',
                     'first-paragraph': 'Presta tu ayuda a personas que no pueden acudir a una consulta.',
                     'register-button': 'Registrarme',
                     login: 'Acceder con mi cuenta',
                     'counter-pre': 'Ya somos',
-                    'counter-post': 'psicólogos/as'
+                    'counter-post': '<span aria-label="psicólogos o psicólogas">psicólogos/as</span>'
+
                 },
                 'what-is-not': {
                     title: '¿Qué no es Cita Médica en Casa?',
-                    'first-paragraph': '<strong>No acudas aquí</strong> si tienes síntomas asociados a el Coronavirus COVID-19 o si sospechas que puedes tenerlo, <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/20200306_Preguntas_respuestas_2019-nCoV.pdf" title="Se abre en una ventana nueva">sigue las recomendaciones de las autoridades sanitarias</a></strong> o <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm" title="Se abre en una ventana nueva">llama a los teléfonos habilitados por las comunidades autónomas</a></strong> para este fin <strong><a target="_blank" href="https://www.coronamadrid.com/" title="Se abre en una ventana nueva">o utiliza www.coronamadrid.com</a></strong>.',
+                    'first-paragraph': '<strong>No acudas aquí</strong> si tienes síntomas asociados al Coronavirus COVID-19 o si sospechas que puedes tenerlo, <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/20200306_Preguntas_respuestas_2019-nCoV.pdf" title="Se abre en una ventana nueva">sigue las recomendaciones de las autoridades sanitarias</a></strong> o <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm" title="Se abre en una ventana nueva">llama a los teléfonos habilitados por las comunidades autónomas</a></strong> para este fin <strong><a target="_blank" href="https://www.coronamadrid.com/" title="Se abre en una ventana nueva">o utiliza www.coronamadrid.com</a></strong>.',
                     'second-paragraph': 'Cita Médica en Casa, <strong>no es un sustituto del Sistema Nacional de Salud ni de la cita presencial con tu médico. No es un servicio médico de diagnóstico ni de prescripción de tratamientos</strong> de ningún tipo.'
                 },
                 'what-is': {
@@ -108,7 +109,7 @@ const resources = {
 
                 },
                 'privacy-citizen': {
-                    title: 'Si eres ciudadano/a',
+                    title: 'Si eres <span aria-label="ciudadano o ciudadana">ciudadano/a</span>',
                     'first-paragraph': '<strong>Nunca los cederemos a terceros</strong>, ni se utilizarán para otro fin que no sea el de esta plataforma.',
                     'second-paragraph': '<strong>Los datos del formulario que rellenas solo los verá personal médico y además, han sido encriptados</strong>.',
                     'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y será borrada. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
@@ -157,7 +158,7 @@ const resources = {
                 },
                 content: {
                     'list-item-1': 'Debes <strong>rellenar el formulario</strong> que verás a continuación.',
-                    'list-item-2': 'Validaremos tu perfil <strong>comprobando tu número de colegiado/a.</strong>',
+                    'list-item-2': 'Validaremos tu perfil <strong>comprobando tu número de <span aria-label="colegiado o colegiada">colegiado/a</span>.</strong>',
                     'list-item-3': '<strong>Puedes utilizar tu email personal o, si lo prefieres, crear una cuenta</strong> de Gsuite (Google); te enviaremos instrucciones acerca de cómo funciona.',
                     'list-item-4': 'Con el email y contraseña que has indicado en el formulario de registro, <strong>podrás acceder al listado de dudas de ciudadanos.</strong>',
                     'list-item-5': '<strong>Escoge una duda de la lista</strong> (sólo verás las preguntas de tu área, medicina o psicología) </strong>y envía un email con la respuesta</strong> por escrito a su pregunta. Si necesitas tener una videollamada con la persona que plantea la duda, escríbenos al email: <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> y te facilitaremos un enlace y los pasos a seguir',
@@ -319,7 +320,7 @@ const resources = {
                     'first-paragraph': '<strong>Cita Médica en Casa no sustituye al sistema nacional de salud ni a una cita con un médico de cabecera o especialista</strong>. Admiramos la labor que está desempeñado el personal sanitario en estos momentos y queremos echar una mano aliviando su trabajo, pero nunca interfiriendo.',
                     'second-paragraph': '<strong>En Cita médica en Casa no se realizan diagnósticos ni se prescriben tratamientos</strong>. Por eso, si sospechas que tienes una patología grave, necesitas ayuda urgente, estás siguiendo un tratamiento o ya tienes cita con tu médico, no lo sustituyas por esta plataforma.',
                     'list-item-1': '<strong>En caso de urgencia llama al 112.</strong>',
-                    'list-item-2': '<strong>Si sospechas que puedes estar infectado/a por COVID-19</strong> llama a los <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm" title="Se abre en una ventana nueva">teléfonos habilitados por las comunidades autónomas</a></strong> y si estás <strong><a target="_blank" href="https://www.coronamadrid.com/" title="Se abre en una ventana nueva">en Madrid descarga la app oficial</a></strong>.',
+                    'list-item-2': '<strong>Si sospechas que puedes estar <span aria-label="infectado o infectada">infectado/a</span> por COVID-19</strong> llama a los <strong><a target="_blank" href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/telefonos.htm" title="Se abre en una ventana nueva">teléfonos habilitados por las comunidades autónomas</a></strong> y si estás <strong><a target="_blank" href="https://www.coronamadrid.com/" title="Se abre en una ventana nueva">en Madrid descarga la app oficial</a></strong>.',
                 },
                 'security': {
                     title: 'La seguridad de la información que nos envías',
@@ -328,6 +329,9 @@ const resources = {
                 }
             },
             'thanks-box': {
+                button: {
+                    label: 'Pulsar para aplaudir',
+                },
                 text: 'Manda un fuerte aplauso a todos los médicos voluntarios',
                 'quantity-type': 'aplausos',
                 tooltip: {

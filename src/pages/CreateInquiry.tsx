@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Header } from '../components/Header';
 import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
+import { List } from '../components/List';
 import { Section } from '../components/Section';
 import { CreateInquiryForm } from '../components/CreateInquiryForm';
 
@@ -40,12 +41,7 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
                     <h2 className="register-form__title">{t('register-citizen.header.title')}</h2>
                 </header>
                 <section className="register-form__section">
-                    <ol className="register-form__list">
-                        <li className="register-form__list-item">{t('register-citizen.content.list-item-1')}</li>
-                        <li className="register-form__list-item">{t('register-citizen.content.list-item-2')}</li>
-                        <li className="register-form__list-item">{t('register-citizen.content.list-item-3')}</li>
-                        <li className="register-form__list-item">{t('register-citizen.content.list-item-4')}</li>
-                    </ol>
+                    <List listName="register-form" numItems={4} itemsText="register-citizen.content" />
                 </section>
                 <CreateInquiryForm
                     onCreateSuccess={onCreateSuccess}

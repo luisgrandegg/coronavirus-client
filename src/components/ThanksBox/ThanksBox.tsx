@@ -40,7 +40,7 @@ export const ThanksBox: React.FunctionComponent = (): JSX.Element => {
                     onClick={tooltipToogle}
                     type="button"
                 >
-                    <span role="img" aria-label="clap">👏</span>
+                    <span role="img" aria-label={t('thanks-box.button.label')}>👏</span>
                 </Button>
             </div>
             <ThanksTooltip isOpen={open} onClose={onTooltipClose}/>

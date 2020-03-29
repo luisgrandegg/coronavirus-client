@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Header } from '../components/Header';
 import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
+import { List } from '../components/List';
 import { Section } from '../components/Section';
 import { RegisterDoctorForm } from '../components/RegisterDoctorForm';
 import { DoctorType } from '../entities/Doctor';
@@ -39,23 +40,7 @@ export const RegisterDoctor: React.FunctionComponent<IRegisterDoctorProps> = (
                     <h2 className="register-form__title">{t('register-doctor.header.title')}</h2>
                 </header>
                 <section className="register-form__section">
-                    <ol className="register-form__list">
-                        <li
-                            className="register-form__list-item"
-                            dangerouslySetInnerHTML={{ __html: t('register-doctor.content.list-item-1') }} />
-                        <li
-                            className="register-form__list-item"
-                            dangerouslySetInnerHTML={{ __html: t('register-doctor.content.list-item-2') }} />
-                        <li
-                            className="register-form__list-item"
-                            dangerouslySetInnerHTML={{ __html: t('register-doctor.content.list-item-3') }} />
-                        <li
-                            className="register-form__list-item"
-                            dangerouslySetInnerHTML={{ __html: t('register-doctor.content.list-item-4') }} />
-                        <li
-                            className="register-form__list-item"
-                            dangerouslySetInnerHTML={{ __html: t('register-doctor.content.list-item-5') }} />
-                    </ol>
+                    <List listName="register-form" numItems={5} itemsText="register-doctor.content" />
                 </section>
                 <div className="register-form__section--form">
                     <header className="register-form__header">
