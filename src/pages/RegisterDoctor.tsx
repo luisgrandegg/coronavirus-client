@@ -6,6 +6,7 @@ import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { List } from '../components/List';
 import { Section } from '../components/Section';
+import { Routes } from '../router/Routes';
 import { RegisterDoctorForm } from '../components/RegisterDoctorForm';
 import { DoctorType } from '../entities/Doctor';
 
@@ -28,7 +29,13 @@ export const RegisterDoctor: React.FunctionComponent<IRegisterDoctorProps> = (
                 <h2 className="register-form__title register-form__title--confirmation">{t('register-doctor.confirmation.header.title')}</h2>
             </header>
             <section className="register-form__section">
-                <p>{t('register-doctor.confirmation.content.message')}</p>
+                <p>{t('register-doctor.confirmation.content.message-1')}</p>
+                <p dangerouslySetInnerHTML={{ __html: t('register-doctor.confirmation.content.message-2', { link: Routes.HELP_DOCTOR }) }} />
+                <List
+                    listName="register-form"
+                    numItems={5}
+                    itemsText="register-doctor.confirmation.content"
+                    ordered={false} />
             </section>
         </>
     );
