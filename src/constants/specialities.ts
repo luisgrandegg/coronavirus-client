@@ -58,6 +58,9 @@ export const specialities = [
     	"label": "Oftalmología",
     	"value": "oftalmologia"
     }, {
+    	"label": "Oncología",
+    	"value": "oncologia"
+    }, {
         "label": "Cirugía",
         "value": "cirugia"
     }, {
