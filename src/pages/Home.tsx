@@ -8,6 +8,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ThanksBox } from '../components/ThanksBox/ThanksBox';
 import { Section } from '../components/Section';
+import { SkipNav, SkipNavIds } from '../components/SkipNav';
 import { Routes } from '../router/Routes';
 import { sdk } from '../sdk';
 import { IStatsApiResponse } from '../entities/Stats';
@@ -168,8 +169,9 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
 
     return (
         <>
+            <SkipNav navElements={[SkipNavIds.MAIN]}/>
             <Header />
-            <main className="main home">
+            <main id={SkipNavIds.MAIN} className="main home">
                 <div className="container">
                     <Section
                         aside={<Aside />}

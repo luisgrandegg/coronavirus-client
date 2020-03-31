@@ -6,12 +6,14 @@ import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { List } from '../components/List';
 import { Section } from '../components/Section';
+import { SkipNav, SkipNavIds } from '../components/SkipNav';
 
 export const AboutUs: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
 
     return (
         <>
+            <SkipNav navElements={[SkipNavIds.MAIN]}/>
             <Header />
             <main className="main about-us">
                 <div className="container">
@@ -19,7 +21,7 @@ export const AboutUs: React.FunctionComponent = (): JSX.Element => {
                     <Section
                         content={(
                             <>
-                                <section className="about-us__section">
+                                <section id={SkipNavIds.MAIN} className="about-us__section">
                                     <header className="about-us__section-header">
                                         <h2 className="about-us__section-title">{t('about-us.our-goal.title')}</h2>
                                     </header>

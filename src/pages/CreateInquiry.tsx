@@ -6,6 +6,7 @@ import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { List } from '../components/List';
 import { Section } from '../components/Section';
+import { SkipNav, SkipNavIds } from '../components/SkipNav';
 import { CreateInquiryForm } from '../components/CreateInquiryForm';
 
 export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
@@ -22,7 +23,7 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
 
     const renderConfirmation = (): React.ReactNode => (
         <>
-            <header className="register-form__header">
+            <header id={SkipNavIds.MAIN} className="register-form__header">
                 <h2 className="register-form__title register-form__title--confirmation">{t('register-citizen.confirmation.header.title')}</h2>
             </header>
             <section className="register-form__section">
@@ -35,7 +36,7 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
     );
 
     const renderRegisterForm = (): React.ReactNode => (
-        <div className="section">
+        <div id={SkipNavIds.MAIN} className="section">
             <div className="content">
                 <header className="register-form__header">
                     <h2 className="register-form__title">{t('register-citizen.header.title')}</h2>
@@ -71,6 +72,7 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
 
     return (
         <>
+            <SkipNav navElements={createFromSuccess ? [SkipNavIds.MAIN] : [SkipNavIds.MAIN, SkipNavIds.FORM_INQUIRY]}/>
             <Header />
             <main className="main register-form">
                 <div className="container">

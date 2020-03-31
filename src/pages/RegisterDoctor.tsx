@@ -9,6 +9,7 @@ import { Section } from '../components/Section';
 import { Routes } from '../router/Routes';
 import { RegisterDoctorForm } from '../components/RegisterDoctorForm';
 import { DoctorType } from '../entities/Doctor';
+import { SkipNav, SkipNavIds } from '../components/SkipNav';
 
 export interface IRegisterDoctorProps {
     doctorType: DoctorType;
@@ -25,7 +26,7 @@ export const RegisterDoctor: React.FunctionComponent<IRegisterDoctorProps> = (
 
     const renderConfirmation = (): React.ReactNode => (
         <>
-            <header className="register-form__header">
+            <header id={SkipNavIds.MAIN} className="register-form__header">
                 <h2 className="register-form__title register-form__title--confirmation">{t('register-doctor.confirmation.header.title')}</h2>
             </header>
             <section className="register-form__section">
@@ -41,7 +42,7 @@ export const RegisterDoctor: React.FunctionComponent<IRegisterDoctorProps> = (
     );
 
     const renderRegisterForm = (): React.ReactNode => (
-        <div className="section">
+        <div id={SkipNavIds.MAIN} className="section">
             <div className="content">
                 <header className="register-form__header">
                     <h2 className="register-form__title">{t('register-doctor.header.title')}</h2>
@@ -49,7 +50,7 @@ export const RegisterDoctor: React.FunctionComponent<IRegisterDoctorProps> = (
                 <section className="register-form__section">
                     <List listName="register-form" numItems={5} itemsText="register-doctor.content" />
                 </section>
-                <div className="register-form__section--form">
+                <div id={SkipNavIds.FORM_REGISTER} className="register-form__section--form">
                     <header className="register-form__header">
                         <h3>{t('register-doctor.content.form-header')}</h3>
                     </header>
@@ -82,6 +83,7 @@ export const RegisterDoctor: React.FunctionComponent<IRegisterDoctorProps> = (
 
     return (
         <>
+            <SkipNav navElements={registerFormSuccess ? [SkipNavIds.MAIN] : [SkipNavIds.MAIN, SkipNavIds.FORM_REGISTER]}/>
             <Header />
             <main className="main register-form">
                 <div className="container">

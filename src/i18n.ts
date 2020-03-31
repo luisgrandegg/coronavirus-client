@@ -439,6 +439,12 @@ const resources = {
                     'first-paragraph': '<a href="/attachments/kitCitaMedica.zip" download>Aquí puedes decargar un kit</a> con imágenes para que las publiques donde tú quieras. Cuanta más gente nos conozca, más podremos ayudar.',
                 },
             },
+            'skip-navigation': {
+                main: 'Ir al contenido principal',
+                'form-inquiry': 'Ir al formulario de consulta',
+                'form-register': 'Ir al formulario de registro',
+                'form-login': 'Ir al formulario de acceso'
+            }
         }
     }
 };
