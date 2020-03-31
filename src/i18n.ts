@@ -115,7 +115,7 @@ const resources = {
                     'third-paragraph': 'Una vez finalizada esta situación <strong>la plataforma Cita Médica en Casa desaparecerá</strong> y será borrada. En cualquier caso, puedes solicitar el borrado de tus datos en cualquier momento. Escribe un correo a <a href="mailto:pati@citamedicaencasa.com">pati@citamedicaencasa.com</a> solicitándolo.'
                 },
                 'help-citizen': {
-                    'first-paragraph': '<a href="{{link}}" target="_blank">Aquí tienes más información</a> acerca de cómo funciona Cita Médica en Casa.'
+                    'first-paragraph': '<a href="{{link}}">Aquí tienes más información</a> acerca de cómo funciona Cita Médica en Casa.'
                 }
             },
             'inquiry-list': {
@@ -150,7 +150,13 @@ const resources = {
                         title: 'Solicitud recibida'
                     },
                     content: {
-                        message: 'Recibirás una llamada telefónica para verificar tus datos. Muchísimas gracias por unirte a esta iniciativa.'
+                        'message-1': 'Contactaremos contigo para verificar tus datos. Muchísimas gracias por unirte a esta iniciativa.',
+                        'message-2': 'Necesitamos que leas nuestros principios de funcionamiento, puedes visitar la <a href="{{link}}">sección de ayuda</a> para más información.',
+                        'list-item-1': 'No emitimos diagnósticos ni preescribimos tratamientos. ',
+                        'list-item-2': 'No contestamos dudas sobre Coronavirus, para eso existen canales oficiales.',
+                        'list-item-3': 'Si la persona que contacta tiene una urgencia le indicamos que llame al 112.',
+                        'list-item-4': 'Nos ceñimos a problemas y dudas leves, no disponemos de seguro de responsabilidad civil más allá del que aportáis cada profesional. ',
+                        'list-item-5': 'Tu único dato visible para los ciudadanos es el email que utilices para contactar con ellos. Puedes crearte una cuenta nueva si quieres.'
                     }
                 },
                 header: {
@@ -380,7 +386,7 @@ const resources = {
                 'not-my-email': {
                     title: 'No quiero usar mi email habitual, ¿puedo crear una cuenta nueva?',
                     'first-paragraph': 'Claro que sí. Si no recuerdas cómo se hace, es muy sencillo. Aquí te proponemos una cuenta de Gmail, porque te puede servir también para realizar videollamadas.',
-                    'list-item-1': 'Accede a https://www.google.com/gmail/about/ y haz click en “Crear cuenta”',
+                    'list-item-1': 'Accede a <a href="https://www.google.com/gmail/about/" target="_blank">https://www.google.com/gmail/about/</a> y haz click en “Crear cuenta”',
                     'list-item-2': 'Rellena la información que te solicitan y haz click en siguiente',
                     'list-item-3': 'Añade tu fecha de nacimiento y tu edad (no hace falta que sea la verdad), acepta los términos de uso.. ¡y listo!',
                 },
