@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from '@material-ui/core/Button';
 
@@ -8,14 +8,10 @@ import { sdk } from '../../sdk';
 import { Stat } from '../../entities/Stat';
 
 export const ThanksBox: React.FunctionComponent = (): JSX.Element => {
-    const [claps, setClaps] = useState<Stat|null>(null);
+    const [claps, setClaps] = useState<Stat | null>(null);
     const [open, setOpen] = useState<boolean>(false);
+    const [clicked, setClicked] = useState<number>(0);
     const { t } = useTranslation();
-
-    const tooltipToogle = (): void => {
-        clap();
-        setOpen(!open);
-    };
 
     const onTooltipClose = (): void => {
         setOpen(false);
@@ -23,7 +19,11 @@ export const ThanksBox: React.FunctionComponent = (): JSX.Element => {
 
     const getClaps = (): void => { sdk.getClaps().then((claps: Stat) => setClaps(claps)); };
 
-    const clap = (): void => { sdk.clap().then((claps: Stat) => setClaps(claps)); };
+    const clap = (): void => {
+        sdk.clap().then((claps: Stat) => setClaps(claps));
+        setClicked(clicked + 1);
+        setOpen(true);
+    };
 
     useEffect((): void => {
         getClaps();
@@ -37,13 +37,16 @@ export const ThanksBox: React.FunctionComponent = (): JSX.Element => {
             </div>
             <div className="thanks-box__button">
                 <Button
-                    onClick={tooltipToogle}
+                    onClick={clap}
                     type="button"
                 >
                     <span role="img" aria-label={t('thanks-box.button.label')}>👏</span>
                 </Button>
             </div>
-            <ThanksTooltip isOpen={open} onClose={onTooltipClose}/>
+            <ThanksTooltip
+                isOpen={open}
+                clicked={clicked}
+                onClose={onTooltipClose} />
         </div>
     );
 

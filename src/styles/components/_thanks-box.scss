@@ -53,7 +53,12 @@
             line-height: 1;
             border-radius: 50%;
             background-color: white;
+            transition: transform 0.4s;
             cursor: pointer;
+
+            &:active {
+                transform: scale(1.5);
+            }
 
             &:active,
             &:hover {
