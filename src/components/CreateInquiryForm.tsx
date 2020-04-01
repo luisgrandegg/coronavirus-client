@@ -12,6 +12,7 @@ import { TextField } from './Form/TextField';
 import { Select } from './Form/Select';
 import { Checkbox } from './Form/Checkbox';
 import { SubmitButton } from './Form/SubmitButton';
+import { SkipNavIds } from './SkipNav';
 
 export interface ICreateInquiryFormProps {
     onCreateSuccess: (inquiry: Inquiry) => void;
@@ -124,7 +125,7 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
             validateOnMount={true}
         >
             {formik => (
-                <Form className="register-form__section--form">
+                <Form className="register-form__section--form" id={SkipNavIds.FORM_INQUIRY}>
                     <header className="register-form__header">
                         <h3 className="register-form__header--title">{t('register-citizen.content.form-step1-header')}</h3>
                     </header>

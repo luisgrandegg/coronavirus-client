@@ -8,6 +8,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ThanksBox } from '../components/ThanksBox/ThanksBox';
 import { Section } from '../components/Section';
+import { SkipNav, SkipNavIds } from '../components/SkipNav';
 import { Routes } from '../router/Routes';
 import { sdk } from '../sdk';
 import { IStatsApiResponse } from '../entities/Stats';
@@ -33,7 +34,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
     const ContentCTACitizen = (): JSX.Element => (
         <section className="home__section">
             <header className="home__section-header">
-                <h2 className="home__section-title">{t('home.citizen.title')}</h2>
+                <h2 className="home__section-title" dangerouslySetInnerHTML={{ __html: t('home.citizen.title') }} />
             </header>
             <p dangerouslySetInnerHTML={{ __html: t('home.citizen.first-paragraph') }} />
             <Button
@@ -48,7 +49,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
     const ContentCTADoctor = (): JSX.Element => (
         <section className="home__section">
             <header className="home__section-header">
-                <h2 className="home__section-title">{t('home.doctor.title')}</h2>
+                <h2 className="home__section-title" dangerouslySetInnerHTML={{ __html: t('home.doctor.title') }} />
             </header>
             <p dangerouslySetInnerHTML={{ __html: t('home.doctor.first-paragraph') }} />
             <Button
@@ -69,7 +70,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
     const ContentCTAPsychologist = (): JSX.Element => (
         <section className="home__section">
             <header className="home__section-header">
-                <h2 className="home__section-title">{t('home.psychologist.title')}</h2>
+                <h2 className="home__section-title" dangerouslySetInnerHTML={{ __html: t('home.psychologist.title') }} />
             </header>
             <p dangerouslySetInnerHTML={{ __html: t('home.psychologist.first-paragraph') }} />
             <Button
@@ -118,7 +119,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
             </section>
             <section className="home__section">
                 <header className="home__section-header">
-                    <h2 className="home__section-title">{t('home.privacy-citizen.title')}</h2>
+                    <h2 className="home__section-title" dangerouslySetInnerHTML={{ __html: t('home.privacy-citizen.title') }} />
                 </header>
                 <p dangerouslySetInnerHTML={{ __html: t('home.privacy-citizen.first-paragraph') }} />
                 <p dangerouslySetInnerHTML={{ __html: t('home.privacy-citizen.second-paragraph') }} />
@@ -168,8 +169,9 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
 
     return (
         <>
+            <SkipNav navElements={[SkipNavIds.MAIN]}/>
             <Header />
-            <main className="main home">
+            <main id={SkipNavIds.MAIN} className="main home">
                 <div className="container">
                     <Section
                         aside={<Aside />}

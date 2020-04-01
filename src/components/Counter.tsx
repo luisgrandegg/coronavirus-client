@@ -14,7 +14,7 @@ export const Counter: React.FunctionComponent<ICounterProps> = (props: ICounterP
             <div className="counter__content">
                 <span>{pre}</span>
                 <span className="counter__content-count">{count}</span>
-                <span>{post}</span>
+                <span dangerouslySetInnerHTML={{__html: post}} />
             </div>
         </div>
     )

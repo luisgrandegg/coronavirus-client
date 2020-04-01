@@ -9,6 +9,7 @@ import { login } from '../store/actions/status';
 import { Auth } from '../entities/Auth';
 import { TextField } from './Form/TextField';
 import { SubmitButton } from './Form/SubmitButton';
+import { SkipNavIds } from './SkipNav';
 
 export interface ILoginFormProps {
     onLoginSuccess: (auth: Auth) => void,
@@ -65,7 +66,7 @@ export const LoginForm: React.FunctionComponent<ILoginFormProps> = (
             validateOnMount={true}
         >
             {formik => (
-                <Form>
+                <Form id={SkipNavIds.FORM_LOGIN}>
                     <Field
                         name="email"
                         label={t('login-form.fields.email')}
