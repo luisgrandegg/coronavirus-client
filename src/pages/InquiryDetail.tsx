@@ -19,7 +19,7 @@ export const InquiryDetail: React.FunctionComponent = (): JSX.Element => {
     let { id: inquiryId } = useParams<IInquiryDetailLocationState>();
     const [inquiry, setInquiry] = useState<Inquiry | null>(null);
 
-    const handleAttendEvent = (inquiry: Inquiry): void => {
+    const handleInquiryUpdatedEvent = (inquiry: Inquiry): void => {
         if (!inquiry.attended) {
             history.push(Routes.DOCTOR_DASHBOARD);
         }
@@ -38,7 +38,7 @@ export const InquiryDetail: React.FunctionComponent = (): JSX.Element => {
             <main className="main inquiry-detail">
                 <div className="container">
                     <BackHome />
-                    {inquiry && <InquiryCard inquiry={inquiry} isAdmin={false} onAttendEvent={handleAttendEvent}/>}
+                    {inquiry && <InquiryCard inquiry={inquiry} isAdmin={false} onAttendEvent={handleInquiryUpdatedEvent} onUpdateSpeciality={handleInquiryUpdatedEvent} />}
                 </div>
             </main>
             <Footer/>

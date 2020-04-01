@@ -85,5 +85,16 @@ export const specialities = [
     defaultSpeciality
 ];
 
+
+export const psychologistSpecialities = [
+    {
+        "label": "Psicología",
+        "value": ""
+    }, {
+        "label": "Psiquiatría",
+        "value": "psiquiatria"
+    }
+];
+
 export const inquirySpecialities = specialities.filter((speciality: ISpeciality) => speciality.value !== defaultSpeciality.value)
 export default specialities;
