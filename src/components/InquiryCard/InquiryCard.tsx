@@ -8,7 +8,7 @@ import MaterialMenuItem from '@material-ui/core/MenuItem';
 
 import moment from '../../utils/moment';
 import { Inquiry } from '../../entities/Inquiry';
-import specialities, { getSpecialityLabel } from '../../constants/specialities';
+import { specialities, psychologistSpecialities, getSpecialityLabel, ISpeciality } from '../../constants/specialities';
 import { sdk } from '../../sdk';
 import { useSelector } from 'react-redux';
 import { getAuth } from '../../store/selectors/status';
@@ -71,8 +71,12 @@ export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
     };
 
     const updateInquirySpeciality = (inquiry: Inquiry, speciality: string): () => void => {
-        return (): void => { sdk.inquiries.updateSpeciality(inquiry.id, speciality).then((inquiry: Inquiry) => {
-            onUpdateSpeciality && onUpdateSpeciality(inquiry); });
+        return (): void => {
+            if (speciality !== '') {
+                sdk.inquiries.updateSpeciality(inquiry.id, speciality).then((inquiry: Inquiry) => {
+                    onUpdateSpeciality && onUpdateSpeciality(inquiry);
+                });
+            }
         }
     };
 
@@ -144,7 +148,7 @@ export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
         return inquiry.attended && (inquiry.doctorId === auth?.userId || !!auth?.isSuperAdmin());
     }
 
-    const renderInquiryCardSpecialist = (): React.ReactNode => {
+    const renderInquiryCardSpecialist = (specialities: ISpeciality[]): React.ReactNode => {
         return (
             <MaterialTextField
                 select
@@ -165,12 +169,12 @@ export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
         )
     }
 
-    const renderSpeciality = (): React.ReactNode => {
+    const renderDoctorSpeciality = (): React.ReactNode => {
         return auth?.isDoctor() ?
             (
                 <div className="inquiry__speciality-field">
                     <label>{t('inquiry.speciality')}</label>
-                    {renderInquiryCardSpecialist()}
+                    {renderInquiryCardSpecialist(specialities)}
                 </div>
             ) :
             (
@@ -178,6 +182,17 @@ export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
                     <strong>{t('inquiry.speciality')}</strong> {getSpecialityLabel(inquiry.speciality)}
                 </Typography>
             );
+    }
+
+    const renderPsychologistSpeciality = (): React.ReactNode => {
+        return auth?.isDoctor() ?
+            (
+                <div className="inquiry__speciality-field">
+                    <label>{t('inquiry.speciality')}</label>
+                    {renderInquiryCardSpecialist(psychologistSpecialities)}
+                </div>
+            ) :
+            null;
     }
 
     return (
@@ -192,7 +207,8 @@ export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
                 {inquiry.doctorType === DoctorType.PSYCHOLOGIST && <Typography>
                     <strong>{t('inquiry.types.psychologist')}</strong>
                 </Typography>}
-                {inquiry.doctorType === DoctorType.REGULAR && renderSpeciality()}
+                {inquiry.doctorType === DoctorType.PSYCHOLOGIST && renderPsychologistSpeciality()}
+                {inquiry.doctorType === DoctorType.REGULAR && renderDoctorSpeciality()}
                 <Typography>
                     <strong>{t('inquiry.age')}</strong> {inquiry.age}
                 </Typography>
