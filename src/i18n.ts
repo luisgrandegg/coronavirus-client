@@ -4,6 +4,12 @@ import { initReactI18next } from "react-i18next";
 const resources = {
     es: {
         translation: {
+            metas: {
+                home: {
+                    description: 'Si tienes una consulta médica, entra en Citamedicaencasa.es. Somos una plataforma de médicos y psicólogos voluntarios, responderemos a tu consulta de manera gratuita.',
+                    title: 'Consulta médica online gratis - Citamedicaencasa.es'
+                }
+            },
             admin: {
                 stats: {
                     period: {
