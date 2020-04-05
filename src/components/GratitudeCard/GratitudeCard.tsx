@@ -3,6 +3,7 @@ import React from 'react';
 
 import { Gratitude } from '../../entities/Gratitude';
 // import moment from '../../utils/moment';
+import { Image } from '../Image';
 
 export interface IGratitudeCardProps {
     gratitude: Gratitude;
@@ -19,6 +20,7 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
                 <Typography variant="h5" component="h2" gutterBottom>
                     {gratitude.title}
                 </Typography>
+                {gratitude.imagePublicId && <Image imagePublicId={gratitude.imagePublicId}/>}
                 <Typography>{gratitude.message}</Typography>
             </CardContent>
             <CardActions>

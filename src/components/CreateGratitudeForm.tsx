@@ -9,6 +9,8 @@ import { sdk } from '../sdk';
 import { TextField } from './Form/TextField';
 import { SubmitButton } from './Form/SubmitButton';
 import { SkipNavIds } from './SkipNav';
+import { ImageUpload, IImageUploadResult } from './ImageUpload';
+import { Image } from './Image';
 
 export interface ICreateGratitudeFormProps {
     onCreateSuccess: (gratitude: Gratitude) => void;
@@ -26,7 +28,8 @@ export const CreateGratitudeForm: React.FunctionComponent<ICreateGratitudeFormPr
 ): JSX.Element => {
     const { onCreateError, onCreateSuccess } = props;
     const { t } = useTranslation();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [imageUploadResult, setImageUploadResult] = useState<IImageUploadResult| null>(null);
 
     const initialValues = {
         title: '',
@@ -50,7 +53,9 @@ export const CreateGratitudeForm: React.FunctionComponent<ICreateGratitudeFormPr
         sdk.gratitudes.create(CreateGratitudeDto.deserialize({
             title,
             message,
-            name
+            name,
+            imagePublicId: imageUploadResult?.publicId,
+            imagePublicUrl: imageUploadResult?.publicUrl
         })).then((gratitude: Gratitude) => {
             onCreateSuccess(gratitude);
         }).catch(() => {
@@ -58,6 +63,10 @@ export const CreateGratitudeForm: React.FunctionComponent<ICreateGratitudeFormPr
         }).finally(() => {
             setLoading(false);
         });
+    };
+
+    const onImageUpload = (result: IImageUploadResult) => {
+        setImageUploadResult(result);
     };
 
     return (
@@ -90,6 +99,8 @@ export const CreateGratitudeForm: React.FunctionComponent<ICreateGratitudeFormPr
                         label={t('create-gratitude-form.fields.name')}
                         component={TextField}
                     />
+                    {!imageUploadResult && <ImageUpload onImageUpload={onImageUpload}/>}
+                    {imageUploadResult && <Image imagePublicId={imageUploadResult.publicId}/>}
                     <SubmitButton
                         label={t('create-gratitude-form.fields.submit')}
                         disabled={!formik.isValid || formik.isSubmitting || loading}
