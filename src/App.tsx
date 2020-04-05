@@ -30,6 +30,7 @@ import { AdminStats } from './pages/AdminStats';
 import { DoctorType } from './entities/Doctor';
 import { DoctorDashboardMain } from './pages/DoctorDashboardMain';
 import { AdminDashboardMain } from './pages/AdminDashboardMain';
+import { Gratitudes } from './pages/Gratitudes';
 
 export const App: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
@@ -67,6 +68,11 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                         <Route exact={true} path={Routes.HELP_DOCTOR}>
                             <ScrollToTop>
                                 <HelpDoctor />
+                            </ScrollToTop>
+                        </Route>
+                        <Route exact={true} path={Routes.GRATITUDES}>
+                            <ScrollToTop>
+                                <Gratitudes />
                             </ScrollToTop>
                         </Route>
                         <Route exact={true} path={Routes.LOGIN}>

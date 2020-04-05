@@ -10,10 +10,12 @@ import { Doctors } from './Doctors';
 import { IStatsApiResponse } from '../entities/Stats';
 import { Admin } from './Admin';
 import { Stat, IStat, IStatApiResponse } from '../entities/Stat';
+import { Gratitudes } from './Gratitudes';
 
 export class Sdk {
     public admin: Admin;
     public doctors: Doctors;
+    public gratitudes: Gratitudes;
     public inquiries: Inquiries;
     public users: Users;
 
@@ -22,6 +24,7 @@ export class Sdk {
     ) {
         this.admin = new Admin(apiClient);
         this.doctors = new Doctors(apiClient);
+        this.gratitudes = new Gratitudes(apiClient);
         this.inquiries = new Inquiries(apiClient);
         this.users = new Users(apiClient);
     }

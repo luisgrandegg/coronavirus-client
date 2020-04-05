@@ -8,6 +8,7 @@ export enum Routes {
     DOCTOR_DASHBOARD = '/dashboard/doctor',
     DOCTOR_DASHBOARD_REGULAR = '/dashboard/doctor/regular',
     DOCTOR_DASHBOARD_PSYCHOLOGIST = '/dashboard/doctor/psychologist',
+    GRATITUDES = '/gratitudes',
     HELP_CITIZEN = '/help/citizen',
     HELP_DOCTOR = '/help/doctor',
     DOCTOR_INQUIRIES = '/dashboard/doctor/inquiries',
