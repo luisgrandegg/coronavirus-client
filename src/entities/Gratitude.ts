@@ -3,6 +3,8 @@ export interface IGratitude {
     message: string;
     name: string;
     title: string;
+    imagePublicId: string | null;
+    imagePublicUrl: string | null;
 }
 
 export class Gratitude {
@@ -13,7 +15,9 @@ export class Gratitude {
             request.id,
             request.title,
             request.message,
-            request.name
+            request.name,
+            request.imagePublicId,
+            request.imagePublicUrl
         );
     }
 
@@ -21,6 +25,8 @@ export class Gratitude {
         public id: string,
         public title: string,
         public message: string,
-        public name: string
+        public name: string,
+        public imagePublicId: string | null,
+        public imagePublicUrl: string | null
     ) { }
 }

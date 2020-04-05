@@ -11,12 +11,14 @@ import { IStatsApiResponse } from '../entities/Stats';
 import { Admin } from './Admin';
 import { Stat, IStat, IStatApiResponse } from '../entities/Stat';
 import { Gratitudes } from './Gratitudes';
+import { Media } from './Media';
 
 export class Sdk {
     public admin: Admin;
     public doctors: Doctors;
     public gratitudes: Gratitudes;
     public inquiries: Inquiries;
+    public media: Media;
     public users: Users;
 
     constructor(
@@ -26,6 +28,7 @@ export class Sdk {
         this.doctors = new Doctors(apiClient);
         this.gratitudes = new Gratitudes(apiClient);
         this.inquiries = new Inquiries(apiClient);
+        this.media = new Media(apiClient);
         this.users = new Users(apiClient);
     }
 
@@ -56,6 +59,7 @@ export class Sdk {
         return this.apiClient.get<IStatsApiResponse>('/stats')
             .then((response: AxiosResponse<IStatsApiResponse>) => response.data)
     }
+
 
     setAuthorization(auth: Auth): void {
         this.apiClient.setAuthorization(auth);
