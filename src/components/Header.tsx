@@ -1,24 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
 
 import { Routes } from '../router/Routes';
-import { Button } from '@material-ui/core';
+import { Button, Hidden, IconButton } from '@material-ui/core';
+
+import MenuIcon from '@material-ui/icons/Menu';
 import { useSelector } from 'react-redux';
 import { getAuth } from '../store/selectors/status';
 
-import { TwitterIcon } from '../components/Social/Icons/TwitterIcon';
+import { Menu } from './Menu'
+import { Share } from './Social/Share';
 
 export interface IHeaderProps {
     children?: React.ReactNode;
+    isPublic?: boolean;
 }
 
 export const Header: React.FunctionComponent<IHeaderProps> = (
     props: IHeaderProps
 ): JSX.Element => {
-    const { children } = props;
+    const { children, isPublic = false } = props;
     const { t } = useTranslation();
     const auth = useSelector(getAuth);
+    const [state, setState] = useState<boolean>(false);
 
     useEffect(() => {
         const currentLocation = window && window.location.href;
@@ -27,7 +32,25 @@ export const Header: React.FunctionComponent<IHeaderProps> = (
         }
     }, []);
 
-    const canRenderTwitterLink = () => (children === undefined && !auth?.isAdmin())
+    const toggleMenu = (open: boolean) => {
+        setState(open);
+    };
+
+    const renderResponsiveMenu = (): React.ReactNode => (
+        <Hidden mdUp>
+            <IconButton
+                aria-label={t('header.open-menu')}
+                size="small"
+                onClick={() => toggleMenu(true)}
+            >
+                <MenuIcon />
+            </IconButton>
+            <Menu
+                onClose={() => toggleMenu(false)}
+                state={state}
+            />
+        </Hidden>
+    );
 
     const renderAdminButton = (): React.ReactNode =>
         auth?.isAdmin() ?
@@ -43,33 +66,43 @@ export const Header: React.FunctionComponent<IHeaderProps> = (
                 </Button>
             ) : null;
 
-    const renderTwitterLink = (): React.ReactNode =>
-        canRenderTwitterLink() ?
-            (
-                <a
-                    className="twitter-link"
-                    href="https://twitter.com/CitaMedicaCasa"
-                    target="_blank"
-                    title={t('header.twitter.title')}
-                    rel="noopener noreferrer">
-                    @CitaMedicaCasa <TwitterIcon fill="currentColor" />
-                </a>
-            ) : (
-                null
-            );
-
     return (
-        <header className={`header ${canRenderTwitterLink() ? 'header__rrss' : ''}`}>
-            < div className="container" >
+        <header className="header">
+            <div className="container">
                 <h1 className="header__title">
                     <RouterLink to={Routes.ROOT}>{t('header.title')}</RouterLink>
                 </h1>
-                <div className="header__actions">
-                    {renderAdminButton()}
-                    {renderTwitterLink()}
-                    {children}
-                </div>
-            </div >
+                {isPublic ? (
+                    <>
+                        <Hidden smDown>
+                            <nav className="header__nav">
+                                <ul className="header__menu">
+                                    <li className="header__menu-item">
+                                        <RouterLink to={Routes.HELP_CITIZEN}>{t('header.nav.help-citizen-item')}</RouterLink>
+                                    </li>
+                                    <li className="header__menu-item">
+                                        <RouterLink to={Routes.ABOUT_US}>{t('header.nav.about-us-item')}</RouterLink>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <Share
+                                fill="currentColor"
+                                hidden={['email']}
+                                showText={false}
+                            />
+                        </Hidden>
+                        <div className="header__actions">
+                            {renderResponsiveMenu()}
+                        </div>
+                    </>
+                ) : (
+                        <div className="header__actions">
+                            {renderAdminButton()}
+                            {children}
+                        </div>
+                    )
+                }
+            </div>
         </header >
     );
 };

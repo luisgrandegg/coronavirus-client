@@ -41,7 +41,7 @@ export const Login: React.FunctionComponent = (): JSX.Element => {
                 <meta name="description" content={t('metas.default.description')} />
             </Helmet>
             <SkipNav navElements={[SkipNavIds.FORM_LOGIN]}/>
-            <Header/>
+            <Header isPublic={true}/>
             <main className="main login-form">
                 <div className="container">
                     <BackHome />

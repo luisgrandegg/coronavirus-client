@@ -93,7 +93,7 @@ export const RegisterDoctor: React.FunctionComponent<IRegisterDoctorProps> = (
                 <meta name="description" content={t(`metas.${getMetaKey()}.description`)} />
             </Helmet>
             <SkipNav navElements={registerFormSuccess ? [SkipNavIds.MAIN] : [SkipNavIds.MAIN, SkipNavIds.FORM_REGISTER]}/>
-            <Header />
+            <Header isPublic={true}/>
             <main className="main register-form">
                 <div className="container">
                     <BackHome />

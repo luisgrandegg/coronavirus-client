@@ -19,7 +19,7 @@ export const AboutUs: React.FunctionComponent = (): JSX.Element => {
                 <meta name="description" content={t('metas.about-us.description')} />
             </Helmet>
             <SkipNav navElements={[SkipNavIds.MAIN]}/>
-            <Header />
+            <Header isPublic={true}/>
             <main className="main about-us">
                 <div className="container">
                     <BackHome />
