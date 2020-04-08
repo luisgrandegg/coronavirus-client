@@ -59,6 +59,9 @@ export const Menu: React.FunctionComponent<IMenuProps> = (props: IMenuProps): JS
                             dangerouslySetInnerHTML={{ __html: t('menu.kit-item') }} />
                         <li
                             className="menu__list-item"
+                            dangerouslySetInnerHTML={{ __html: t('menu.press-note') }} />
+                        <li
+                            className="menu__list-item"
                             dangerouslySetInnerHTML={{ __html: t('menu.privacy-item') }} />
                     </ul>
                 </div>
