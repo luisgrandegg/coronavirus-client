@@ -401,6 +401,7 @@ const resources = {
                 trust: {
                     title: '¿Cómo sé que las personas que contestan mis dudas son profesionales?',
                     'first-paragraph': 'Tanto en el caso de la medicina como de la psicología, <strong>comprobamos uno por uno todos los números de colegiado</strong> de los profesionales que nos solicitan unirse a la plataforma. Nos tomamos muy en serio vuestra salud.',
+                    cta: 'REALIZAR UNA CONSULTA'
                 },
                 'answer-time': {
                     title: '¿Cuánto tardarán en contestarme?',

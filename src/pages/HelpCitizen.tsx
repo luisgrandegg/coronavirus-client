@@ -1,11 +1,14 @@
+import { Button } from '@material-ui/core';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
+import { Link as RouterLink } from 'react-router-dom';
 
 import { Header } from '../components/Header';
 import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { Section } from '../components/Section';
-import { Helmet } from 'react-helmet';
+import { Routes } from '../router/Routes';
 
 export const HelpCitizen: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
@@ -31,6 +34,14 @@ export const HelpCitizen: React.FunctionComponent = (): JSX.Element => {
                                         <h2 className="help__section-title">{t('help-citizen.trust.title')}</h2>
                                     </header>
                                     <p dangerouslySetInnerHTML={{ __html: t('help-citizen.trust.first-paragraph') }} />
+                                    <Button
+                                        color="primary"
+                                        component={RouterLink}
+                                        to={Routes.REGISTER_CITIZEN}
+                                        variant="contained"
+                                    >
+                                        {t('help-citizen.trust.cta')}
+                                    </Button>
                                 </section>
                                 <section className="help__section">
                                     <header className="help__section-header">
