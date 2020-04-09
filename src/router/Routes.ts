@@ -14,8 +14,8 @@ export enum Routes {
     INQUIRY_DETAIL = '/dashboard/doctor/inquiry/:id',
     LOGIN = '/login',
     REGISTER = '/register',
-    REGISTER_DOCTOR = '/register/doctor',
-    REGISTER_PSYCHOLOGIST = '/register/psychologist',
+    REGISTER_DOCTOR = '/register/medicos-online',
+    REGISTER_PSYCHOLOGIST = '/register/psicologos-online',
     REGISTER_CITIZEN = '/register/citizen',
     ROOT = '/'
 }

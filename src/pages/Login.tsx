@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 
 import { Header } from '../components/Header';
@@ -10,8 +11,10 @@ import { Auth } from '../entities/Auth';
 import { UserType } from '../entities/User';
 import { Routes } from '../router/Routes';
 import { SkipNav, SkipNavIds } from '../components/SkipNav';
+import { Helmet } from 'react-helmet';
 
 export const Login: React.FunctionComponent = (): JSX.Element => {
+    const { t } = useTranslation();
     const history = useHistory();
 
     const getOnLoginRoute = (userType: UserType): Routes => {
@@ -33,6 +36,10 @@ export const Login: React.FunctionComponent = (): JSX.Element => {
 
     return (
         <>
+            <Helmet>
+                <title>{t('metas.default.title')}</title>
+                <meta name="description" content={t('metas.default.description')} />
+            </Helmet>
             <SkipNav navElements={[SkipNavIds.FORM_LOGIN]}/>
             <Header/>
             <main className="main login-form">

@@ -5,9 +5,29 @@ const resources = {
     es: {
         translation: {
             metas: {
+                default: {
+                    description: 'Si tienes una consulta médica, entra en Citamedicaencasa.es. Somos una plataforma de médicos y psicólogos voluntarios, responderemos a tu consulta de manera gratuita.',
+                    title: 'Consulta médica online gratis - Citamedicaencasa.es'
+                },
                 home: {
                     description: 'Si tienes una consulta médica, entra en Citamedicaencasa.es. Somos una plataforma de médicos y psicólogos voluntarios, responderemos a tu consulta de manera gratuita.',
                     title: 'Consulta médica online gratis - Citamedicaencasa.es'
+                },
+                'register-citizen': {
+                    description: 'Si tienes una consulta leve, puedes contactar un médico o psicologo rellenando el formulario disponible en Citamedicaencasa.es. Un médico voluntario se pondrá en contacto contigo.',
+                    title: 'Pedir una cita con un médico online - Citamedicaencasa.es'
+                },
+                'register-doctor': {
+                    description: 'Para poder responder a las consultas de los ciudadanos, regístrate como médico online en Citamedicaencasa.es',
+                    title: 'Registrate como médico online - Citamedicaencasa.es'
+                },
+                'register-psychologist': {
+                    description: 'Para poder responder a las consultas de los ciudadanos, regístrate como psicólogo online en Citamedicaencasa.es',
+                    title: 'Regístrate como psicólogo online - Citamedicaencasa.es'
+                },
+                'about-us': {
+                    description: 'Somos una plataforma que permite a los ciudadanos pedir una cita médica con unos médicos voluntarios desde su casa.',
+                    title: 'Cita médica desde tu casa - Citamedicaencasa.es'
                 }
             },
             admin: {

@@ -7,12 +7,17 @@ import { Footer } from '../components/Footer';
 import { List } from '../components/List';
 import { Section } from '../components/Section';
 import { SkipNav, SkipNavIds } from '../components/SkipNav';
+import { Helmet } from 'react-helmet';
 
 export const AboutUs: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
 
     return (
         <>
+            <Helmet>
+                <title>{t('metas.about-us.title')}</title>
+                <meta name="description" content={t('metas.about-us.description')} />
+            </Helmet>
             <SkipNav navElements={[SkipNavIds.MAIN]}/>
             <Header />
             <main className="main about-us">
@@ -34,9 +39,9 @@ export const AboutUs: React.FunctionComponent = (): JSX.Element => {
                                     </header>
                                     <p dangerouslySetInnerHTML={{ __html: t('about-us.collaboration.first-paragraph') }} />
                                     <p dangerouslySetInnerHTML={{ __html: t('about-us.collaboration.second-paragraph') }} />
-                                    
+
                                     <List listName="about-us" numItems={2} itemsText="about-us.collaboration" ordered={false} />
-                                    
+
                                 </section>
                                 <section className="about-us__section">
                                     <header className="about-us__section-header">

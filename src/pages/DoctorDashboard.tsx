@@ -18,6 +18,7 @@ import { Routes } from '../router/Routes';
 import { DoctorType } from '../entities/Doctor';
 import { useSelector } from 'react-redux';
 import { getAuth } from '../store/selectors/status';
+import { Helmet } from 'react-helmet';
 
 export interface IDoctorDashBoardProps {
     doctorType: DoctorType
@@ -80,6 +81,10 @@ export const DoctorDashbord: React.FunctionComponent<IDoctorDashBoardProps> = (
 
     return (
         <>
+            <Helmet>
+                <title>{t('metas.default.title')}</title>
+                <meta name="description" content={t('metas.default.description')} />
+            </Helmet>
             <SkipNav navElements={[SkipNavIds.MAIN]}/>
             <Header>
                 <DoctorTabs value={0} />

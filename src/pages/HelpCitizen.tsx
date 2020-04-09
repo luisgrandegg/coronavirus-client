@@ -5,12 +5,17 @@ import { Header } from '../components/Header';
 import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { Section } from '../components/Section';
+import { Helmet } from 'react-helmet';
 
 export const HelpCitizen: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
 
     return (
         <>
+            <Helmet>
+                <title>{t('metas.default.title')}</title>
+                <meta name="description" content={t('metas.default.description')} />
+            </Helmet>
             <Header />
             <main className="main help">
                 <div className="container">

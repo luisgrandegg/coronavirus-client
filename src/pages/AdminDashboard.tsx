@@ -12,6 +12,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Routes } from '../router/Routes';
 import { Button } from '@material-ui/core';
 import { DoctorType } from '../entities/Doctor';
+import { Helmet } from 'react-helmet';
 
 export interface IAdminDashBoardProps {
     doctorType: DoctorType
@@ -47,6 +48,10 @@ export const AdminDashboard: React.FunctionComponent<IAdminDashBoardProps> = (
 
     return (
         <>
+            <Helmet>
+                <title>{t('metas.default.title')}</title>
+                <meta name="description" content={t('metas.default.description')} />
+            </Helmet>
             <Header>
                 <AdminTabs value={0}/>
             </Header>

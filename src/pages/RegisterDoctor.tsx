@@ -10,6 +10,7 @@ import { Routes } from '../router/Routes';
 import { RegisterDoctorForm } from '../components/RegisterDoctorForm';
 import { DoctorType } from '../entities/Doctor';
 import { SkipNav, SkipNavIds } from '../components/SkipNav';
+import { Helmet } from 'react-helmet';
 
 export interface IRegisterDoctorProps {
     doctorType: DoctorType;
@@ -81,8 +82,16 @@ export const RegisterDoctor: React.FunctionComponent<IRegisterDoctorProps> = (
         </>
     );
 
+    const getMetaKey = () => props.doctorType === DoctorType.REGULAR ?
+        'register-doctor' :
+        'register-psychologist';
+
     return (
         <>
+            <Helmet>
+                <title>{t(`metas.${getMetaKey()}.title`)}</title>
+                <meta name="description" content={t(`metas.${getMetaKey()}.description`)} />
+            </Helmet>
             <SkipNav navElements={registerFormSuccess ? [SkipNavIds.MAIN] : [SkipNavIds.MAIN, SkipNavIds.FORM_REGISTER]}/>
             <Header />
             <main className="main register-form">
