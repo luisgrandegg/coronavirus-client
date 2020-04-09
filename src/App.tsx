@@ -14,6 +14,7 @@ import { sdk } from './sdk';
 import { HelpDoctor } from './pages/HelpDoctor';
 import { HelpCitizen } from './pages/HelpCitizen';
 import { Home } from './pages/Home';
+import { Landing } from './pages/Landing';
 import { Login } from './pages/Login';
 import { AboutUs } from './pages/AboutUs';
 import { RegisterDoctor } from './pages/RegisterDoctor';
@@ -67,6 +68,11 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                         <Route exact={true} path={Routes.HELP_DOCTOR}>
                             <ScrollToTop>
                                 <HelpDoctor />
+                            </ScrollToTop>
+                        </Route>
+                        <Route exact={true} path={Routes.LANDING}>
+                            <ScrollToTop>
+                                <Landing />
                             </ScrollToTop>
                         </Route>
                         <Route exact={true} path={Routes.LOGIN}>

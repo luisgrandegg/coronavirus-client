@@ -1,0 +1,97 @@
+.landing {
+    &__header-title {
+        color: $gray--ultradark;
+        font-size: $font-size-xxl;
+        line-height: $line-height-l;
+        margin-bottom: $spacer-xs;
+    }
+
+    &__section {
+        width: 100%;
+
+        + .landing__section {
+            margin-top: $spacer;
+        }
+    }
+
+    &__section-title {
+        color: $gray--ultradark;
+        font-size: $font-size-xxl;
+        line-height: $line-height-l;
+    }
+
+    &__card {
+        margin-top: $spacer-l;
+        padding: $spacer;
+        background-color: $primary;
+        color: white;
+
+        + .landing__section {
+            margin-top: $spacer-l;
+        }
+    }
+
+    &__card-title {
+        font-size: $font-size-xxl;
+        line-height: $line-height-l;
+        margin: $spacer-xs;
+
+        @media (min-width: $breakpoint-desktop) {
+            font-size: $font-size-xxxl;
+            line-height: $line-height-xl;
+        }
+    }
+
+    &__card-content {
+        p {
+            font-size: $font-size-l;
+            line-height: $line-height-m;
+        }
+
+        img {
+            display: none;
+            @media (min-width: $breakpoint-desktop) {
+                display: block;
+                margin-left: $spacer-xs;
+            }
+        }
+
+        @media (min-width: $breakpoint-tablet) {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+    }
+
+    &__card-link {
+        display: inline-block;
+        margin-top: $spacer-xs;
+        color: white;
+        font-family: $font-family--secondary;
+        font-size: $font-size-xxl;
+        line-height: $line-height-l;
+        text-decoration: none;
+
+        @media (min-width: $breakpoint-desktop) {
+            font-size: $font-size-xxxl;
+            line-height: $line-height-xl;
+        }
+    }
+
+    &__list {
+        padding-left: $spacer;
+    }
+
+    &__list {
+        font-size: $font-size-l;
+        line-height: $line-height-m;
+        + &__list {
+            margin-top: $spacer-xs;
+        }
+    }
+
+    &__cta {
+        text-align: center;
+        margin-top: $spacer-l;
+    }
+}

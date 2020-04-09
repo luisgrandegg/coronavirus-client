@@ -8,9 +8,9 @@
   &__content {
     display: flex;
     flex-wrap: wrap;
-    padding-right: $spacer;
 
     @media (min-width: $breakpoint-tablet) {
+        padding-right: $spacer;
         flex: 0 0  percentage(2/3);
     }
   }
