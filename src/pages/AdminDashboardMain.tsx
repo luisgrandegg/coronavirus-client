@@ -12,6 +12,7 @@ import { DoctorType } from '../entities/Doctor';
 import { Button } from '@material-ui/core';
 import { Link as RouterLink} from 'react-router-dom';
 import { AdminTabs } from '../components/AdminTabs';
+import { Helmet } from 'react-helmet';
 
 export const AdminDashboardMain: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
@@ -51,6 +52,10 @@ export const AdminDashboardMain: React.FunctionComponent = (): JSX.Element => {
 
     return (
         <>
+            <Helmet>
+                <title>{t('metas.default.title')}</title>
+                <meta name="description" content={t('metas.default.description')} />
+            </Helmet>
             <Header>
                 <AdminTabs value={0}/>
             </Header>

@@ -13,6 +13,7 @@ import { getAuth } from '../store/selectors/status';
 import { DoctorType } from '../entities/Doctor';
 import { Button } from '@material-ui/core';
 import { Link as RouterLink} from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 export const DoctorDashboardMain: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
@@ -36,6 +37,10 @@ export const DoctorDashboardMain: React.FunctionComponent = (): JSX.Element => {
     }
     return (
         <>
+            <Helmet>
+                <title>{t('metas.default.title')}</title>
+                <meta name="description" content={t('metas.default.description')} />
+            </Helmet>
             <Header>
                 <DoctorTabs value={0} />
             </Header>

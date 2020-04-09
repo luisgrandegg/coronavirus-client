@@ -5,13 +5,18 @@ import { Header } from '../components/Header';
 import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { Section } from '../components/Section';
+import { Helmet } from 'react-helmet';
 
 export const HelpDoctor: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
 
     return (
         <>
-            <Header />
+            <Helmet>
+                <title>{t('metas.default.title')}</title>
+                <meta name="description" content={t('metas.default.description')} />
+            </Helmet>
+            <Header isPublic={true}/>
             <main className="main help">
                 <div className="container">
                     <BackHome />

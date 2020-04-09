@@ -8,6 +8,7 @@ import { List } from '../components/List';
 import { Section } from '../components/Section';
 import { SkipNav, SkipNavIds } from '../components/SkipNav';
 import { CreateInquiryForm } from '../components/CreateInquiryForm';
+import { Helmet } from 'react-helmet';
 
 export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
@@ -72,8 +73,12 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
 
     return (
         <>
+            <Helmet>
+                <title>{t('metas.register-citizen.title')}</title>
+                <meta name="description" content={t('metas.register-citizen.description')} />
+            </Helmet>
             <SkipNav navElements={createFromSuccess ? [SkipNavIds.MAIN] : [SkipNavIds.MAIN, SkipNavIds.FORM_INQUIRY]}/>
-            <Header />
+            <Header isPublic={true}/>
             <main className="main register-form">
                 <div className="container">
                     <BackHome />

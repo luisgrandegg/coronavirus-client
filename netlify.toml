@@ -19,6 +19,16 @@
   force = true
 
 [[redirects]]
+  from = "/register/doctor"
+  to = "/register/medicos-online"
+  status = 301
+
+[[redirects]]
+  from = "/register/psychologist"
+  to = "/register/psicologos-online"
+  status = 301
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

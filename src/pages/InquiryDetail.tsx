@@ -9,12 +9,15 @@ import { Inquiry } from '../entities/Inquiry';
 import { DoctorTabs } from '../components/DoctorTabs';
 import { sdk } from '../sdk';
 import { Routes } from '../router/Routes';
+import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet';
 
 interface IInquiryDetailLocationState {
     id: string;
 }
 
 export const InquiryDetail: React.FunctionComponent = (): JSX.Element => {
+    const { t } = useTranslation();
     const history = useHistory();
     let { id: inquiryId } = useParams<IInquiryDetailLocationState>();
     const [inquiry, setInquiry] = useState<Inquiry | null>(null);
@@ -32,6 +35,10 @@ export const InquiryDetail: React.FunctionComponent = (): JSX.Element => {
 
     return (
         <>
+            <Helmet>
+                <title>{t('metas.default.title')}</title>
+                <meta name="description" content={t('metas.default.description')} />
+            </Helmet>
             <Header>
                 <DoctorTabs value={1}/>
             </Header>

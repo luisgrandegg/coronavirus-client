@@ -12,8 +12,11 @@ import { Auth } from '../entities/Auth';
 import { useHistory } from 'react-router-dom';
 import { Inquiry } from '../entities/Inquiry';
 import { Routes } from '../router/Routes';
+import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet';
 
 export const DoctorInquiries: React.FunctionComponent = (): JSX.Element => {
+    const { t } = useTranslation();
     const history = useHistory();
     const auth = useSelector(getAuth);
 
@@ -31,6 +34,10 @@ export const DoctorInquiries: React.FunctionComponent = (): JSX.Element => {
 
     return(
         <>
+            <Helmet>
+                <title>{t('metas.default.title')}</title>
+                <meta name="description" content={t('metas.default.description')} />
+            </Helmet>
             <Header>
                 <DoctorTabs value={1}/>
             </Header>

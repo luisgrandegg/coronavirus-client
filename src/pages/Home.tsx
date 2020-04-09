@@ -1,5 +1,6 @@
 import { Button } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
+import { Helmet } from "react-helmet";
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -169,8 +170,12 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
 
     return (
         <>
-            <SkipNav navElements={[SkipNavIds.MAIN]}/>
-            <Header />
+            <Helmet>
+                <title>{t('metas.home.title')}</title>
+                <meta name="description" content={t('metas.home.description')} />
+            </Helmet>
+            <SkipNav navElements={[SkipNavIds.MAIN]} />
+            <Header isPublic={true} />
             <main id={SkipNavIds.MAIN} className="main home">
                 <div className="container">
                     <Section

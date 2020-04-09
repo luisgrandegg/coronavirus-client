@@ -25,10 +25,10 @@ export const ThanksTooltip: React.FunctionComponent<IThanksTooltipProps> = (prop
     const shareUrl = 'https://www.citamedicaencasa.es';
 
     let tooltipText = t('thanks-box.tooltip.first-text');
-    if (clicked > 3) {
+    if (clicked > 1) {
         tooltipText = t('thanks-box.tooltip.second-text');
     }
-    if (clicked > 7) {
+    if (clicked > 2) {
         tooltipText = t('thanks-box.tooltip.text');
     }
 
@@ -42,7 +42,7 @@ export const ThanksTooltip: React.FunctionComponent<IThanksTooltipProps> = (prop
                 <div className="thanks-tooltip__content">
                     <p className="thanks-tooltip__text">{tooltipText}</p>
                 </div>
-                {clicked > 7 ?
+                {clicked > 2 ?
                     (<ul className="thanks-tooltip__share">
                         <li>
                             <TwitterShareButton
