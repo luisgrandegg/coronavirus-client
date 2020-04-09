@@ -2,12 +2,10 @@
     background-color: white;
     padding: $spacer 0 $spacer-s 0;
 
-    &__rrss {
-        margin-bottom: 40px;
-
-        @media (min-width: $breakpoint-tablet) {
-            margin-bottom: initial;
-        }
+    > .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     &__title {
@@ -27,18 +25,37 @@
         }
     }
 
+    &__nav {
+        flex: 1;
+    }
+
     &__menu {
+        display: flex;
+        align-items: center;
         list-style: none;
         margin: 0;
-        margin-left: auto;
+        margin-left: $spacer-xxl;
         padding: 0;
     }
 
+    &__menu-item {
+        margin-right: $spacer;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        a {
+            font-family: $font-family--secondary;
+            font-size: $font-size-l;
+            color: $black;
+            text-decoration: none;
+        }
+    }
+
     &__actions {
-        margin-bottom: -$spacer-s;
-        margin-left: -$spacer;
-        margin-right: -$spacer;
-        width: 100vw;
+        width: auto;
+        margin-right: -$spacer-s;
 
         @media (min-width: $breakpoint-tablet) {
             display: flex;
@@ -47,12 +64,21 @@
             margin-bottom: 0;
             margin-left: auto;
             margin-right: 0;
-            width: auto;
         }
 
         > * {
             + > * {
                 margin-left: $spacer;
+            }
+        }
+    }
+
+    .share {
+        color: $primary;
+
+        li {
+            &:last-child {
+                margin-right: 0;
             }
         }
     }
@@ -72,24 +98,6 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-        }
-    }
-
-    .twitter-link {
-        position: absolute;
-        top: 80px;
-        left: $spacer;
-        display: flex;
-        align-items: center;
-        font-family: $font-family;
-        text-decoration: none;
-
-        @media (min-width: $breakpoint-tablet) {
-            position: initial;
-        }
-
-        svg {
-            margin-left: $spacer-xs;
         }
     }
 }
