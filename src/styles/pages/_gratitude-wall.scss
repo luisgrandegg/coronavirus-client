@@ -1,0 +1,35 @@
+.gratitudes {
+    background-color: $primary;
+
+    &__header {
+        margin: auto;
+        margin-bottom: $spacer-m;
+        max-width: $spacer-base * 80;
+        text-align: center;
+
+        .MuiTypography-root {
+            color: $white;
+        }
+
+        .MuiTypography-root:first-child {
+            margin-bottom: $spacer-s;
+        }
+
+        .MuiTypography-root:nth-child(2) {
+            margin-bottom: $spacer-s;
+        }
+
+        .MuiButtonBase-root {
+            background-color: $white;
+            color: $primary;
+        }
+    }
+
+    .back-home a {
+        color: $white;
+    }
+
+    + .footer {
+        background-color: $primary;
+    }
+}

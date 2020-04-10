@@ -8,6 +8,7 @@ export class Media {
     ) {}
 
     async sign(paramsToSign: object): Promise<string> {
+        console.log(paramsToSign);
         return this.apiClient.post<{ signature: string; }>('/media/sign', paramsToSign)
             .then((response: AxiosResponse<{ signature: string; }>): string => response.data.signature);
     }

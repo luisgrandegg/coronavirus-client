@@ -1,0 +1,38 @@
+$gratitude---width: $spacer-base * 38;
+
+$gratitude__picture---max-height: $spacer-base * 20;
+
+.gratitude {
+    width: $gratitude---width;
+
+    &__picture {
+        margin: 0;
+        text-align: center;
+        width: 100%;
+
+        img {
+            max-height: $gratitude__picture---max-height;
+        }
+    }
+
+    &__title {
+        color: $gray--ultradark;
+        font-weight: bold;
+        text-align: center;
+    }
+    // &__message {
+
+    // }
+
+    &--has-picture {
+        .gratitude__title {
+            text-align: left;
+        }
+    }
+    // &--has-picture {
+    //     .gratitude__content {
+    //         display: flex;
+    //         flex-wrap: wrap;
+    //     }
+    // }
+}
