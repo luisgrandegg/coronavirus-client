@@ -44,6 +44,7 @@ export const ImageUpload: React.FunctionComponent<IImageUploadProps> = (
 
     const onSuccess = (result: CloudynarySuccessEvent): void => {
         const { info } = result;
+        console.log(info);
         onImageUpload({
             publicId: info.public_id,
             publicUrl: info.secure_url,
