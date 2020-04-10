@@ -77,7 +77,11 @@ export const CreateGratitudeForm: React.FunctionComponent<ICreateGratitudeFormPr
             validateOnMount={true}
         >
             {formik => (
-                <Form className="register-form__section--form" id={SkipNavIds.FORM_GRATITUDE}>
+                <Form
+                    className="register-form__section--form"
+                    id={SkipNavIds.FORM_GRATITUDE}
+                    style={{ marginTop: 0 }}
+                >
                     <Field
                         className="register-form__form-control"
                         name="title"
@@ -88,7 +92,7 @@ export const CreateGratitudeForm: React.FunctionComponent<ICreateGratitudeFormPr
                         className="register-form__form-control"
                         name="message"
                         label={t('create-gratitude-form.fields.message')}
-                        placeholder={t('create-gratitude-form.fields.summary-placeholder')}
+                        helperText={t('create-gratitude-form.helper.message', { chars: formik.values.message.length, maxChars: 300})}
                         component={TextField}
                         multiline
                         rows="5"
@@ -99,12 +103,16 @@ export const CreateGratitudeForm: React.FunctionComponent<ICreateGratitudeFormPr
                         label={t('create-gratitude-form.fields.name')}
                         component={TextField}
                     />
-                    {!imageUploadResult && <ImageUpload onImageUpload={onImageUpload}/>}
-                    {imageUploadResult && <Image imagePublicId={imageUploadResult.publicId}/>}
-                    <SubmitButton
-                        label={t('create-gratitude-form.fields.submit')}
-                        disabled={!formik.isValid || formik.isSubmitting || loading}
-                    />
+                    <div style={{ margin: '16px 0', width: '100%', textAlign: 'center' }}>
+                        {!imageUploadResult && <ImageUpload onImageUpload={onImageUpload}/>}
+                        {imageUploadResult && <Image imagePublicId={imageUploadResult.publicId}/>}
+                    </div>
+                    <div style={{ width: '100%', textAlign: 'center' }}>
+                        <SubmitButton
+                            label={t('create-gratitude-form.fields.submit')}
+                            disabled={!formik.isValid || formik.isSubmitting || loading}
+                        />
+                    </div>
                 </Form>
             )}
         </Formik>

@@ -1,4 +1,7 @@
+import moment from '../utils/moment';
+
 export interface IGratitude {
+    createdAt: string;
     id: string;
     message: string;
     name: string;
@@ -16,6 +19,7 @@ export class Gratitude {
             request.title,
             request.message,
             request.name,
+            moment(request.createdAt),
             request.imagePublicId,
             request.imagePublicUrl
         );
@@ -26,6 +30,7 @@ export class Gratitude {
         public title: string,
         public message: string,
         public name: string,
+        public createdAt: moment.Moment,
         public imagePublicId: string | null,
         public imagePublicUrl: string | null
     ) { }

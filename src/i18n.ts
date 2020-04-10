@@ -4,6 +4,33 @@ import { initReactI18next } from "react-i18next";
 const resources = {
     es: {
         translation: {
+            'image-upload': {
+                actions: {
+                    upload: 'Sube una foto'
+                }
+            },
+            'create-gratitude-form': {
+                fields: {
+                    title: 'Titular',
+                    message: 'Mensaje',
+                    name: 'Tu nombre',
+                    submit: 'Pulsa para dejar tu mensaje'
+                },
+                error: {
+                    'max-length': ' El campo debe tener {{maxCharacters}} caracteres como máximo',
+                    required: 'El campo es requerido',
+                },
+                helper: {
+                    message: '{{chars}}/{{maxChars}}'
+                }
+            },
+            gratitudes: {
+                create: 'Pulsa para dejar tu mensaje',
+                header: {
+                    title: 'Mensajes para nuestros voluntarios y voluntarias',
+                    subtitle: 'Puedes dejar una nota para agradecer la labor de las personas que resuelven dudas en Cita Médica en Casa. Tus mensajes les dan energía.'
+                }
+            },
             metas: {
                 default: {
                     description: 'Si tienes una consulta médica, entra en Citamedicaencasa.es. Somos una plataforma de médicos y psicólogos voluntarios, responderemos a tu consulta de manera gratuita.',

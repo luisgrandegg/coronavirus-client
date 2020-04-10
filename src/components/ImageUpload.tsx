@@ -13,6 +13,22 @@ export interface IImageUploadResult {
     publicUrl: string;
 }
 
+export enum CloudynaryEventType {
+    SUCCESS = 'success'
+}
+
+export interface ICloudynarySuccessEventInfo {
+    public_id: string;
+    secure_url: string;
+}
+
+export interface ICloudynaryEvent<U extends CloudynaryEventType = CloudynaryEventType, T = any> {
+    event: U;
+    info: T
+}
+
+export type CloudynarySuccessEvent = ICloudynaryEvent<CloudynaryEventType.SUCCESS, ICloudynarySuccessEventInfo>
+
 export const ImageUpload: React.FunctionComponent<IImageUploadProps> = (
     props: IImageUploadProps
 ): JSX.Element => {
@@ -26,6 +42,14 @@ export const ImageUpload: React.FunctionComponent<IImageUploadProps> = (
         sdk.media.sign(paramsToSign).then((signature: string) => callback(signature));
     };
 
+    const onSuccess = (result: CloudynarySuccessEvent): void => {
+        const { info } = result;
+        onImageUpload({
+            publicId: info.public_id,
+            publicUrl: info.secure_url,
+        });
+    };
+
     const widget = (window as any).cloudinary.createUploadWidget({
         api_key: '469665434294858',
         cloud_name: 'citamedicaencasa',
@@ -35,14 +59,14 @@ export const ImageUpload: React.FunctionComponent<IImageUploadProps> = (
         sources: ['local', 'url', 'camera', 'facebook', 'instagram'],
         upload_preset: 'ml_default',
         upload_signature: generateUploadSignature
-    }, (error: any, result: any) => {
+    }, (error: any, result: ICloudynaryEvent) => {
         if (error) {
             throw error;
         }
-        onImageUpload({
-            publicId: result[0].public_id,
-            publicUrl: result[0].secure_url
-        });
+        switch(result.event) {
+            case CloudynaryEventType.SUCCESS:
+                return onSuccess(result);
+        }
     });
 
     const handleClick = (): void => { widget.open() };
@@ -51,8 +75,9 @@ export const ImageUpload: React.FunctionComponent<IImageUploadProps> = (
         <Button
             onClick={handleClick}
             color="primary"
+            variant="outlined"
         >
-            {t('gratitude')}
+            {t('image-upload.actions.upload')}
         </Button>
     );
 };

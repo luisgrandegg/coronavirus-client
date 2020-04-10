@@ -8,7 +8,7 @@ import { Header } from '../components/Header';
 import { GratitudeList } from '../components/GratitudeList';
 import { CreateGratitude } from '../components/CreateGratitude';
 
-export const Gratitudes: React.FunctionComponent = (): JSX.Element => {
+export const GratitudeWall: React.FunctionComponent = (): JSX.Element => {
     const [isCreateGratitudeOpen, setIsCreateGratitudeOpen] = useState<boolean>(false);
     const { t } = useTranslation();
 
@@ -20,18 +20,26 @@ export const Gratitudes: React.FunctionComponent = (): JSX.Element => {
         setIsCreateGratitudeOpen(true);
     };
 
+    const onCloseGratitude = (): void => {
+        setIsCreateGratitudeOpen(false);
+    };
+
     return(
         <>
             <Header/>
             <main className="main gratitudes">
                 <div className="container">
                     <BackHome/>
-                    <header>
-                        <Typography>{t('gratitudes.header.title')}</Typography>
+                    <header className="gratitudes__header">
+                        <Typography variant="h5" component="h2">{t('gratitudes.header.title')}</Typography>
                         <Typography>{t('gratitudes.header.subtitle')}</Typography>
+                        <Button variant="contained" onClick={onOpenCreateGratitude}>{t('gratitudes.create')}</Button>
                     </header>
-                    <Button onClick={onOpenCreateGratitude}>{t('gratitudes.create')}</Button>
-                    <CreateGratitude isOpen={isCreateGratitudeOpen} onCreateSucces={onCreateGratitude}/>
+                    <CreateGratitude
+                        isOpen={isCreateGratitudeOpen}
+                        onClose={onCloseGratitude}
+                        onCreateSucces={onCreateGratitude}
+                    />
                     <GratitudeList/>
                 </div>
             </main>

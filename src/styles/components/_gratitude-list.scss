@@ -1,0 +1,9 @@
+
+.gratitude-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .gratitude {
+        margin: $spacer-s;
+    }
+}

@@ -1,26 +1,27 @@
-import { Dialog, DialogTitle } from '@material-ui/core';
+import { Dialog, DialogContent } from '@material-ui/core';
 import React from 'react';
+
 import { CreateGratitudeForm } from './CreateGratitudeForm';
 import { Gratitude } from '../entities/Gratitude';
 
 export interface ICreateGratitudeProps {
     isOpen: boolean;
     onCreateSucces: (gratitude: Gratitude) => void;
+    onClose: () => void;
 }
 
 export const CreateGratitude: React.FunctionComponent<ICreateGratitudeProps> = (
     props: ICreateGratitudeProps
 ): JSX.Element => {
-    const { isOpen } = props;
+    const { isOpen, onClose, onCreateSucces } = props;
 
-    const onCreateSuccess = (gratitude: Gratitude): void => {
-        props.onCreateSucces(gratitude);
-    }
+    const handleClose = (): void => { onClose(); }
 
     return (
-        <Dialog aria-labelledby="create-gratitude-dialog-title" open={isOpen}>
-            <DialogTitle id="create-gratitude-dialog-title">Set backup account</DialogTitle>
-            <CreateGratitudeForm onCreateSuccess={onCreateSuccess}/>
+        <Dialog aria-labelledby="create-gratitude-dialog-title" open={isOpen} onClose={handleClose}>
+            <DialogContent>
+                <CreateGratitudeForm onCreateSuccess={onCreateSucces}/>
+            </DialogContent>
         </Dialog>
     )
 }
