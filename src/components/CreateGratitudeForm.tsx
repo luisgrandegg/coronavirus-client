@@ -103,7 +103,7 @@ export const CreateGratitudeForm: React.FunctionComponent<ICreateGratitudeFormPr
                         label={t('create-gratitude-form.fields.name')}
                         component={TextField}
                     />
-                    <div style={{ margin: '16px 0', width: '100%', textAlign: 'center' }}>
+                    <div className="create-gratitude-form__picture">
                         {!imageUploadResult && <ImageUpload onImageUpload={onImageUpload}/>}
                         {imageUploadResult && <Image imagePublicId={imageUploadResult.publicId}/>}
                     </div>

@@ -1,0 +1,19 @@
+$create-gratitude-form__picture---max-height: $spacer-base * 20;
+
+.create-gratitude-form {
+    &__picture {
+        margin: $spacer-s 0;
+        max-height: $create-gratitude-form__picture---max-height;
+        text-align: center;
+        width: 100%;
+
+        > div {
+            height: 100%;
+        }
+
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+    }
+}

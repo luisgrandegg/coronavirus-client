@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography, CardActions } from '@material-ui/core';
+import { Card, CardContent, Typography } from '@material-ui/core';
 import classNames from 'classnames';
 import React from 'react';
 
@@ -42,10 +42,10 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
 
     const renderMessage = (): React.ReactNode => {
         return (
-            <>
+            <div className="gratitude__message">
                 {hasPicture() && renderTitle()}
                 <Typography>{gratitude.message}</Typography>
-            </>
+            </div>
         );
     };
 
@@ -65,9 +65,6 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
                     {renderMessage()}
                 </div>
             </CardContent>
-            <CardActions>
-                <Typography>{gratitude.name}</Typography>
-            </CardActions>
         </Card>
     )
 };

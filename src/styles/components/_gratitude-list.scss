@@ -2,8 +2,20 @@
 .gratitude-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 
     .gratitude {
         margin: $spacer-s;
+        width: 100%;
+
+        @media (min-width: $breakpoint-tablet) {
+            width: 48%;
+            width: calc(48% - #{$spacer-s * 2});
+        }
+
+        @media (min-width: $breakpoint-desktop) {
+            width: 31%;
+            width: calc(31% - #{$spacer-s * 2});
+        }
     }
 }
