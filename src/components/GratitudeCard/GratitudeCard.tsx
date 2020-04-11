@@ -1,22 +1,31 @@
-import { Card, CardContent, Typography } from '@material-ui/core';
+import { Card, CardContent, Typography, CardActions, Button } from '@material-ui/core';
 import classNames from 'classnames';
 import React from 'react';
 
 import { Gratitude } from '../../entities/Gratitude';
 import { Image } from '../Image';
+import { getAuth } from '../../store/selectors/status';
+import { useSelector } from 'react-redux';
+import { sdk } from '../../sdk';
 
 export interface IGratitudeCardProps {
     gratitude: Gratitude;
+    onFlagEvent: (gratitude: Gratitude) => void;
 }
 
 export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
     props: IGratitudeCardProps
 ): JSX.Element => {
-    const { gratitude } = props;
-
+    const { gratitude, onFlagEvent } = props;
+    const auth = useSelector(getAuth);
     const hasPicture = () => !!gratitude.imagePublicId;
 
-    const renderTitle = (): React.ReactNode =>(
+    const flag = (): void => {
+        sdk.gratitudes.flag(gratitude.id)
+            .then((gratitude: Gratitude) => { onFlagEvent(gratitude) });
+    };
+
+    const renderTitle = (): React.ReactNode => (
         <Typography className="gratitude__title" variant="h6" component="h3" gutterBottom>
             {gratitude.title}
         </Typography>
@@ -49,6 +58,17 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
         );
     };
 
+    const renderActions = () : React.ReactNode => (
+        <CardActions>
+            <Button
+                color="primary"
+                variant="contained"
+                onClick={flag}
+            >
+                Desactivar
+            </Button>
+        </CardActions>
+    )
     const className = classNames({
         gratitude: true,
         'gratitude--has-picture': hasPicture()
@@ -65,6 +85,7 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
                     {renderMessage()}
                 </div>
             </CardContent>
+            {auth?.isAdmin() && renderActions()}
         </Card>
     )
 };

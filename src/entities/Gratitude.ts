@@ -34,4 +34,16 @@ export class Gratitude {
         public imagePublicId: string | null,
         public imagePublicUrl: string | null
     ) { }
+
+    clone(): Gratitude {
+        return new Gratitude(
+            this.id,
+            this.title,
+            this.message,
+            this.name,
+            this.createdAt,
+            this.imagePublicId,
+            this.imagePublicUrl
+        );
+    }
 }

@@ -1,20 +1,41 @@
 import { Typography, Button } from '@material-ui/core';
-import React, { useState } from 'react';
+import removeFromArray from 'lodash.remove';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { GratitudeList } from '../components/GratitudeList';
+import GratitudeList from '../components/GratitudeList';
 import { CreateGratitude } from '../components/CreateGratitude';
+import { Gratitude } from '../entities/Gratitude';
+import { sdk } from '../sdk';
 
 export const GratitudeWall: React.FunctionComponent = (): JSX.Element => {
+    const [gratitudes, setGratitudes] = useState<Gratitude[]>([]);
     const [isCreateGratitudeOpen, setIsCreateGratitudeOpen] = useState<boolean>(false);
     const { t } = useTranslation();
 
-    const onCreateGratitude = (): void => {
-        setIsCreateGratitudeOpen(false);
+    const getGratitudes = () => {
+        sdk.gratitudes.get()
+            .then((gratitudes: Gratitude[]) => {
+                setGratitudes(gratitudes);
+            });
     };
+
+    const onCreateGratitude = (gratitude: Gratitude): void => {
+        const gratitudesToSet = gratitudes.map((mappedGratitude: Gratitude) => mappedGratitude.clone());
+        setIsCreateGratitudeOpen(false);
+        gratitudesToSet.unshift(gratitude);
+        setGratitudes(gratitudesToSet);
+    };
+
+    const onRemoveEvent = (gratitude: Gratitude): void => {
+        const gratitudesToSet = gratitudes.map((mappedGratitude: Gratitude) => mappedGratitude.clone());
+        removeFromArray(gratitudesToSet, (gratitudeInArray: Gratitude) =>
+            gratitude.id === gratitudeInArray.id);
+        setGratitudes(gratitudesToSet);
+    }
 
     const onOpenCreateGratitude = (): void => {
         setIsCreateGratitudeOpen(true);
@@ -23,6 +44,10 @@ export const GratitudeWall: React.FunctionComponent = (): JSX.Element => {
     const onCloseGratitude = (): void => {
         setIsCreateGratitudeOpen(false);
     };
+
+    useEffect((): void => {
+        getGratitudes();
+    }, []);
 
     return(
         <>
@@ -40,7 +65,7 @@ export const GratitudeWall: React.FunctionComponent = (): JSX.Element => {
                         onClose={onCloseGratitude}
                         onCreateSucces={onCreateGratitude}
                     />
-                    <GratitudeList/>
+                    <GratitudeList gratitudes={gratitudes} onRemoveEvent={onRemoveEvent}/>
                 </div>
             </main>
             <Footer/>
