@@ -18,4 +18,9 @@ export class Gratitudes {
         return this.apiClient.post<IGratitude>('/gratitudes', createGratitudeDto.toJSON())
             .then((response: AxiosResponse<IGratitude>): Gratitude => Gratitude.createFromResponse(response.data));
     }
+
+    async flag(id: string): Promise<Gratitude> {
+        return this.apiClient.post<IGratitude>(`/gratitudes/${id}/flag`)
+            .then((response: AxiosResponse<IGratitude>): Gratitude => Gratitude.createFromResponse(response.data));
+    }
 }

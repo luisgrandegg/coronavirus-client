@@ -1,26 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { LazyLoadComponent, ScrollPosition, trackWindowScroll } from 'react-lazy-load-image-component';
 
-import { sdk } from '../sdk';
 import { SkipNavIds } from './SkipNav';
 import { Gratitude } from '../entities/Gratitude';
 import { GratitudeCard } from './GratitudeCard';
 
-export const GratitudeList: React.FunctionComponent = (): JSX.Element => {
-    const [gratitudes, setGratitudes] = useState<Gratitude[]>([]);
+export interface IGratitudeListProps {
+    gratitudes: Gratitude[];
+    onRemoveEvent: (gratitude: Gratitude) => void;
+    scrollPosition: ScrollPosition;
+}
 
-    const getGratitudes = () => {
-        sdk.gratitudes.get()
-            .then((gratitudes: Gratitude[]) => {
-                setGratitudes(gratitudes);
-            });
-    };
+export const GratitudeList: React.FunctionComponent<IGratitudeListProps> = (
+    props: IGratitudeListProps
+): JSX.Element => {
+    const { gratitudes, onRemoveEvent } = props;
 
-    useEffect((): void => {
-        getGratitudes();
-    }, []);
+    const onFlagEvent = (gratitude: Gratitude): void => { onRemoveEvent(gratitude) };
 
     const renderGratitudes = (): React.ReactNode => gratitudes.map((gratitude: Gratitude) => (
-        <GratitudeCard key={gratitude.id} gratitude={gratitude}/>
+        <LazyLoadComponent key={gratitude.id} scrollPosition={props.scrollPosition}>
+            <GratitudeCard gratitude={gratitude} onFlagEvent={onFlagEvent}/>
+        </LazyLoadComponent>
     ));
 
     return (
@@ -29,3 +30,5 @@ export const GratitudeList: React.FunctionComponent = (): JSX.Element => {
         </section>
     )
 };
+
+export default trackWindowScroll(GratitudeList);
