@@ -27,12 +27,13 @@ const resources = {
                     message: '{{chars}}/{{maxChars}}'
                 }
             },
-            gratitudes: {
+            'gratitude-wall': {
                 create: 'Pulsa para dejar tu mensaje',
                 header: {
                     title: 'Firma en nuestro muro de agradecimientos',
                     subtitle: 'Escribe un mensaje de ánimo o de recuerdo al personal sanitario.'
-                }
+                },
+                share: 'Mi mensaje ya está en el muro de homenaje a todos y todas las profesionales sanitarias. Tú también puedes agradecerles todo lo que están haciendo en https://citamedicaencasa.es/gratitude-wall'
             },
             metas: {
                 default: {

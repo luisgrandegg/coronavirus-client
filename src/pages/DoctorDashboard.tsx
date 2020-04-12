@@ -102,7 +102,7 @@ export const DoctorDashbord: React.FunctionComponent<IDoctorDashBoardProps> = (
                     <Section
                         content={<Content />} />
                     <div className="doctor-dashboard__filters">
-                        <InquiryCountryFilter countries={countries} onChange={handleCountryChange}/>
+                        {false && <InquiryCountryFilter countries={countries} onChange={handleCountryChange}/>}
                         {doctorType === DoctorType.REGULAR && <SpecialitiesFilter />}
                     </div>
                     <InquiryList inquiryListParams={inquiryListParams} onAttendEvent={handleAttendEvent}/>

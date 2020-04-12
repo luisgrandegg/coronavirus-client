@@ -45,7 +45,15 @@ $gratitude__picture---max-height: $spacer-base * 20;
         }
     }
 
+    .share {
+        margin-left: auto !important;
+        margin-top: $spacer;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
     .MuiCardActions-root {
+        flex-wrap: wrap;
         margin-top: auto;
     }
 }

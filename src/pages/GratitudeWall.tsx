@@ -56,9 +56,9 @@ export const GratitudeWall: React.FunctionComponent = (): JSX.Element => {
                 <div className="container">
                     <BackHome/>
                     <header className="gratitude-wall__header">
-                        <Typography variant="h5" component="h2">{t('gratitudes.header.title')}</Typography>
-                        <Typography>{t('gratitudes.header.subtitle')}</Typography>
-                        <Button variant="contained" onClick={onOpenCreateGratitude}>{t('gratitudes.create')}</Button>
+                        <Typography variant="h5" component="h2">{t('gratitude-wall.header.title')}</Typography>
+                        <Typography>{t('gratitude-wall.header.subtitle')}</Typography>
+                        <Button variant="contained" onClick={onOpenCreateGratitude}>{t('gratitude-wall.create')}</Button>
                     </header>
                     <CreateGratitude
                         isOpen={isCreateGratitudeOpen}

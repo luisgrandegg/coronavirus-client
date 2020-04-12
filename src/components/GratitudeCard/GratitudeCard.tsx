@@ -1,12 +1,14 @@
 import { Card, CardContent, Typography, CardActions, Button } from '@material-ui/core';
 import classNames from 'classnames';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Gratitude } from '../../entities/Gratitude';
 import { Image } from '../Image';
 import { getAuth } from '../../store/selectors/status';
 import { useSelector } from 'react-redux';
 import { sdk } from '../../sdk';
+import { Share } from '../Social/Share';
 
 export interface IGratitudeCardProps {
     gratitude: Gratitude;
@@ -19,6 +21,7 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
     const { gratitude, onFlagEvent } = props;
     const auth = useSelector(getAuth);
     const hasPicture = () => !!gratitude.imagePublicId;
+    const { t } = useTranslation();
 
     const flag = (): void => {
         sdk.gratitudes.flag(gratitude.id)
@@ -72,6 +75,12 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
         'gratitude--has-picture': hasPicture()
     });
 
+    const shareTexts = {
+        facebook: t('gratitude-wall.share'),
+        twitter: t('gratitude-wall.share'),
+        whatsapp: t('gratitude-wall.share')
+    }
+
     return (
         <Card className={className}>
             <CardContent>
@@ -86,6 +95,7 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
             <CardActions>
                 {renderMetadata()}
                 {(auth?.isAdmin() && onFlagEvent) && <div>{renderActions()}</div>}
+                <Share text={shareTexts} fill="#1980A0" showText={false} hidden={['email']}/>
             </CardActions>
         </Card>
     )
