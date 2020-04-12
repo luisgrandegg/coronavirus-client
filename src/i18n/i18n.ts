@@ -14,7 +14,10 @@ const resources = {
                     title: 'Titular',
                     message: 'Mensaje',
                     name: 'Tu nombre',
-                    submit: 'Enviar mensaje'
+                    submit: 'Enviar mensaje',
+                    publish: 'Enviar mensaje',
+                    edit: 'Volver a editar',
+                    'remove-photo': 'Quitar foto'
                 },
                 error: {
                     'max-length': ' El campo debe tener {{maxCharacters}} caracteres como máximo',
