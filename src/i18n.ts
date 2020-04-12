@@ -175,6 +175,12 @@ const resources = {
                     copied: 'Email copiado en el portapapeles',
                     copy: 'Copiar email en el portapapeles'
                 },
+                gender: {
+                    male: 'Hombre',
+                    female: 'Mujer',
+                    noop: 'Prefiero no decirlo',
+                    nonBinary: 'No binario'
+                },
                 speciality: 'Especialidad:',
                 flag: 'Marcar como inapropiado',
                 unflag: 'Desmarcar como inapropiado',
@@ -265,6 +271,8 @@ const resources = {
                     'email-helper-text': 'Para tu tranquilidad, email y consulta están encriptados',
                     'confirm-email': 'Confirma email',
                     'doctor-type': 'Elige una opción',
+                    gender: 'Género',
+                    genderNonBinary: 'Género no binario',
                     speciality: 'Especialidad',
                     time: '¿Cuánto tiempo lleva con el problema?',
                     summary: 'Resumen de tu problema',
@@ -273,7 +281,8 @@ const resources = {
                     'terms': '<a target="_blank" href="/static/consentimiento.pdf" title="La información sobre el consentimiento se abrirá en una nueva ventana">Acepto compartir mis datos personales con el personal médico.</a>',
                     'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf" title="La política de privacidad se abrirá en una nueva ventana">Acepto la política de privacidad y la protección de datos.</a>',
                     'confirm-age': 'Soy mayor de 18 años.',
-                    'submit': 'Enviar duda'
+                    'submit': 'Enviar duda',
+                    'gender-helper': '¿Por qué necesitamos saberlo? En función de la especialidad, saber el género ayuda a concretar las respuestas'
                 },
                 'doctor-type': {
                     regular: 'Consulta médica',

@@ -17,6 +17,8 @@ export interface IInquiry {
     speciality?: string;
     summary: string;
     time?: string;
+    gender?: string;
+    genderNonBinary?: string;
 }
 
 export interface IInquiryPaginated {
@@ -37,6 +39,8 @@ export interface IInquiryApiResponse {
     speciality?: string;
     summary: string;
     time?: string;
+    gender?: string;
+    genderNonBinary?: string;
 }
 
 export interface IInquiryPaginatedApiResponse {
@@ -58,7 +62,9 @@ export class Inquiry {
             response.attended,
             response.speciality,
             response.time,
-            response.doctorId
+            response.doctorId,
+            response.gender,
+            response.genderNonBinary
         );
     }
 
@@ -74,7 +80,9 @@ export class Inquiry {
         public attended: boolean,
         public speciality?: string,
         public time?: string,
-        public doctorId?: string
+        public doctorId?: string,
+        public gender?: string,
+        public genderNonBinary?: string
     ) {}
 
     toJSON(): IInquiry {
@@ -90,7 +98,9 @@ export class Inquiry {
             speciality: this.speciality,
             summary: this.summary,
             time: this.time,
-            doctorId: this.doctorId
+            doctorId: this.doctorId,
+            gender: this.gender,
+            genderNonBinary: this.genderNonBinary
         };
     }
 }

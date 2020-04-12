@@ -24,6 +24,8 @@ export interface ICreateInquiryForm {
     email: string;
     confirmEmail: string;
     doctorType: string;
+    gender?: string;
+    genderNonBinary?: string;
     speciality?: string;
     summary: string;
     terms: boolean;
@@ -52,6 +54,8 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
         confirmEmail: '',
         doctorType: '',
         speciality: '',
+        gender: '',
+        genderNonBinary: '',
         summary: '',
         terms: false,
         time: '',
@@ -96,12 +100,16 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
     });
 
     const onSubmit = async (values: ICreateInquiryForm): Promise<void> => {
-        const { age, email, doctorType, speciality, summary, terms, time, privacy, confirmAge } = values;
+        const {
+            age, email, doctorType, gender, genderNonBinary, speciality, summary, terms, time, privacy, confirmAge
+        } = values;
         setLoading(true);
         sdk.inquiries.create(CreateInquiryDto.deserialize({
             age,
             email,
             doctorType,
+            gender,
+            genderNonBinary,
             summary,
             terms,
             time,
@@ -116,6 +124,20 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
             setLoading(false);
         });
     };
+
+    const genderOptions = [{
+        label: t('inquiry.gender.female'),
+        value: 'female'
+    }, {
+        label: t('inquiry.gender.male'),
+        value: 'male'
+    }, {
+        label: t('inquiry.gender.noop'),
+        value: 'noop'
+    }, {
+        label: t('inquiry.gender.nonBinary'),
+        value: 'nonBinary'
+    }];
 
     return (
         <Formik
@@ -163,6 +185,19 @@ export const CreateInquiryForm: React.FunctionComponent<ICreateInquiryFormProps>
                     {formik.values.doctorType === DoctorType.REGULAR ?
                         (
                             <>
+                                <Field
+                                    className="register-form__form-control"
+                                    name="gender"
+                                    label={t('register-citizen.fields.gender')}
+                                    component={Select}
+                                    options={genderOptions}
+                                    helperText={t('register-citizen.fields.gender-helper')}
+                                />
+                                {formik.values.gender === 'nonBinary' && <Field
+                                    name="genderNonBinary"
+                                    label={t('register-citizen.fields.genderNonBinary')}
+                                    component={TextField}
+                                />}
                                 <Field
                                     className="register-form__form-control"
                                     name="speciality"
