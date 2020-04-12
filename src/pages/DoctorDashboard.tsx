@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Header } from '../components/Header';
@@ -19,6 +19,7 @@ import { DoctorType } from '../entities/Doctor';
 import { useSelector } from 'react-redux';
 import { getAuth } from '../store/selectors/status';
 import { Helmet } from 'react-helmet';
+import { InquiryCountryFilter } from '../components/InquiryCountryFilter';
 
 export interface IDoctorDashBoardProps {
     doctorType: DoctorType
@@ -30,6 +31,7 @@ export const DoctorDashbord: React.FunctionComponent<IDoctorDashBoardProps> = (
     const history = useHistory();
     const { t } = useTranslation();
     const { doctorType } = props;
+    const [countries, setCountries] = useState<string[]>(['ALL']);
     const [selectedSpecialities, SpecialitiesFilter] = useMultipleOptionsFilter(
         t('doctor-dashboard.filter.title'),
         t('doctor-dashboard.filter.apply-button'),
@@ -37,6 +39,7 @@ export const DoctorDashbord: React.FunctionComponent<IDoctorDashBoardProps> = (
         specialities);
     const inquiryListParams: InquiryListParams = InquiryListParams.deserialize({
         specialities: selectedSpecialities,
+        countries,
         active: true,
         attended: false,
         flagged: false,
@@ -49,6 +52,10 @@ export const DoctorDashbord: React.FunctionComponent<IDoctorDashBoardProps> = (
             history.push(Routes.INQUIRY_DETAIL.replace(':id', inquiry.id));
         }
     }
+
+    const handleCountryChange = (countries: string[]): void => {
+        setCountries(countries);
+    };
 
     const Content = (): JSX.Element => (
         <>
@@ -94,7 +101,10 @@ export const DoctorDashbord: React.FunctionComponent<IDoctorDashBoardProps> = (
                     <BackHome />
                     <Section
                         content={<Content />} />
-                    {doctorType === DoctorType.REGULAR && <SpecialitiesFilter />}
+                    <div className="doctor-dashboard__filters">
+                        <InquiryCountryFilter countries={countries} onChange={handleCountryChange}/>
+                        {doctorType === DoctorType.REGULAR && <SpecialitiesFilter />}
+                    </div>
                     <InquiryList inquiryListParams={inquiryListParams} onAttendEvent={handleAttendEvent}/>
                 </div>
             </main>

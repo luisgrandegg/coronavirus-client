@@ -1,19 +1,29 @@
 .doctor-dashboard {
-  .section-wrapper {
-    + .inquiry-list {
-      margin-top: $spacer;
+    .section-wrapper {
+        + .inquiry-list {
+        margin-top: $spacer;
+        }
     }
-  }
 
-  &__title {
-      color: $gray--ultradark;
-      font-size: $font-size-xxl;
-      line-height: $line-height-l;
-  }
-
-  .multiple-options-filter {
-    + .section-wrapper {
-      margin-top: $spacer;
+    &__title {
+        color: $gray--ultradark;
+        font-size: $font-size-xxl;
+        line-height: $line-height-l;
     }
-  }
+
+    &__filters {
+        align-items: center;
+        display: flex;
+        margin-bottom: $spacer;
+
+        >.MuiFormControl-root {
+           margin-right: $spacer;
+        }
+    }
+
+    .multiple-options-filter {
+        + .section-wrapper {
+        margin-top: $spacer;
+        }
+    }
 }
