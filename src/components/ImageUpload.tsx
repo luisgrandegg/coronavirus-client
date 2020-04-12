@@ -2,8 +2,15 @@ import { Button } from '@material-ui/core';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { UploadWidget } from '../i18n';
 import { sdk } from '../sdk';
 
+export enum ImageUploadType {
+    LOCAL = 'local',
+    CAMERA = 'camera',
+    FACEBOOK = 'facebook',
+    INSTAGRAM = 'instagram'
+}
 export interface IImageUploadProps {
     onImageUpload: (imageUploadResult: IImageUploadResult) => void;
 }
@@ -33,7 +40,7 @@ export const ImageUpload: React.FunctionComponent<IImageUploadProps> = (
     props: IImageUploadProps
 ): JSX.Element => {
     const { onImageUpload } = props;
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const generateUploadSignature = async (
         callback: (signature: string) => void,
@@ -55,11 +62,13 @@ export const ImageUpload: React.FunctionComponent<IImageUploadProps> = (
         api_key: '469665434294858',
         cloud_name: 'citamedicaencasa',
         cropping: true,
+        language: i18n.language,
         multiple: false,
         secure: true,
-        sources: ['local', 'url', 'camera', 'facebook', 'instagram'],
+        sources: [ImageUploadType.LOCAL, ImageUploadType.CAMERA, ImageUploadType.FACEBOOK, ImageUploadType.INSTAGRAM],
         upload_preset: 'ml_default',
-        upload_signature: generateUploadSignature
+        upload_signature: generateUploadSignature,
+        text: UploadWidget
     }, (error: any, result: ICloudynaryEvent) => {
         if (error) {
             throw error;

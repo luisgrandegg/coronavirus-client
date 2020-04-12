@@ -26,7 +26,7 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
     };
 
     const renderTitle = (): React.ReactNode => (
-        <Typography className="gratitude__title" variant="h6" component="h3" gutterBottom>
+        <Typography className="gratitude__title" variant="subtitle1" component="h3" gutterBottom>
             {gratitude.title}
         </Typography>
     );
@@ -35,7 +35,6 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
         if (!hasPicture()) {
             return null;
         }
-        console.log(gratitude);
         return (
             <figure className="gratitude__picture">
                 <Image imagePublicId={gratitude.imagePublicId as string}/>
@@ -44,8 +43,8 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
     };
 
     const renderMetadata = (): React.ReactNode => (
-        <Typography color="primary" align="left">
-            <strong>{gratitude.name}</strong> {gratitude.createdAt.format('dddd D')}
+        <Typography variant="body2" color="primary" align="left">
+            <strong>{gratitude.name}</strong> {gratitude.createdAt.format('D/M/Y')}
         </Typography>
     );
 
@@ -53,22 +52,21 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
         return (
             <div className="gratitude__message">
                 {hasPicture() && renderTitle()}
-                <Typography>{gratitude.message}</Typography>
+                <Typography variant="body2">{gratitude.message}</Typography>
             </div>
         );
     };
 
     const renderActions = () : React.ReactNode => (
-        <CardActions>
-            <Button
-                color="primary"
-                variant="contained"
-                onClick={flag}
-            >
-                Desactivar
-            </Button>
-        </CardActions>
-    )
+        <Button
+            color="primary"
+            variant="contained"
+            onClick={flag}
+        >
+            Desactivar
+        </Button>
+    );
+
     const className = classNames({
         gratitude: true,
         'gratitude--has-picture': hasPicture()
@@ -78,14 +76,17 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
         <Card className={className}>
             <CardContent>
                 <header>
-                    {hasPicture() ? renderMetadata() : renderTitle()}
+                    {!hasPicture() && renderTitle()}
                 </header>
                 <div className="gratitude__content">
                     {renderPicture()}
                     {renderMessage()}
                 </div>
             </CardContent>
-            {auth?.isAdmin() && renderActions()}
+            <CardActions>
+                {renderMetadata()}
+                {auth?.isAdmin() && <div>{renderActions()}</div>}
+            </CardActions>
         </Card>
     )
 };

@@ -14,7 +14,7 @@ const resources = {
                     title: 'Titular',
                     message: 'Mensaje',
                     name: 'Tu nombre',
-                    submit: 'Pulsa para dejar tu mensaje'
+                    submit: 'Enviar mensaje'
                 },
                 error: {
                     'max-length': ' El campo debe tener {{maxCharacters}} caracteres como máximo',
@@ -27,8 +27,8 @@ const resources = {
             gratitudes: {
                 create: 'Pulsa para dejar tu mensaje',
                 header: {
-                    title: 'Mensajes para nuestros voluntarios y voluntarias',
-                    subtitle: 'Puedes dejar una nota para agradecer la labor de las personas que resuelven dudas en Cita Médica en Casa. Tus mensajes les dan energía.'
+                    title: 'Firma en nuestro muro de agradecimientos',
+                    subtitle: 'Escribe un mensaje de ánimo o de recuerdo al personal sanitario.'
                 }
             },
             metas: {

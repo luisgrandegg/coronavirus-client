@@ -25,6 +25,14 @@
     }
   }
 
+  &__default {
+    padding: $spacer;
+    margin-right: -$spacer;
+    margin-left: -$spacer;
+    background-color: $gray--megalight;
+    color: $primary;
+  }
+
   &__primary {
     padding: $spacer;
     margin-right: -$spacer;
