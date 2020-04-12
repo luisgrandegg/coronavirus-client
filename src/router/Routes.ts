@@ -12,6 +12,7 @@ export enum Routes {
     HELP_DOCTOR = '/help/doctor',
     DOCTOR_INQUIRIES = '/dashboard/doctor/inquiries',
     INQUIRY_DETAIL = '/dashboard/doctor/inquiry/:id',
+    LANDING = '/cita-sanitaria-online',
     LOGIN = '/login',
     REGISTER = '/register',
     REGISTER_DOCTOR = '/register/medicos-online',

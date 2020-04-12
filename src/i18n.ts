@@ -28,6 +28,10 @@ const resources = {
                 'about-us': {
                     description: 'Somos una plataforma que permite a los ciudadanos pedir una cita médica con unos médicos voluntarios desde su casa.',
                     title: 'Cita médica desde tu casa - Citamedicaencasa.es'
+                },
+                landing: {
+                    description: 'Si durante el confinamiento te ves en la necesidad de consultar a un profesional médico o necesitas apoyo psicológico, no salgas de casa. Utiliza el sistema de cita sanitaria online de citamedicaencasa. Es gratis, seguro y confidencial.',
+                    title: 'Cita Sanitaria Online durante la cuarentena - Citamedicaencasa.es'
                 }
             },
             admin: {
@@ -484,6 +488,36 @@ const resources = {
                     title: '¿Quieres compartir esta iniciativa?',
                     'first-paragraph': '<a href="/static/kitCitaMedica.zip" title="Se descarga el documento del Kit de Cita Médica en Casa" download>Aquí puedes decargar un kit</a> con imágenes para que las publiques donde tú quieras. Cuanta más gente nos conozca, más podremos ayudar.',
                 },
+            },
+            landing: {
+                intro: {
+                    title: 'Cómo tener una cita sanitaria online durante el confinamiento',
+                    'first-paragraph': 'Si durante la cuarentena te ves en la necesidad de consultar a un profesional de la medicina para resolver dudas o problemas leves no relacionadas con el coronavirus, no hace falta que salgas de casa. En citamedicaencasa.es podrás tener una <strong>cita sanitaria online gratis, confidencial y completamente segura</strong>.',
+                },
+                'how-it-works': {
+                    title: '¿Cómo funciona la cita sanitaria online a través de citamedicaencasa.es?',
+                    'first-paragraph': 'Es muy sencillo:',
+                    'list-item-1': 'Rellena un formulario con la información de la persona que necesite ayuda (puedes escribir en nombre de bebés o mayores, por ejemplo.)',
+                    'list-item-2': 'Selecciona la especialidad que necesites de medicina o de psicología.',
+                    'list-item-3': 'Tu pregunta pasará a nuestro equipo sanitario, que se pondrá en contacto personalmente contigo a través del email que hayas indicado con una posible solución o  para dar seguimiento.',
+                    cta: 'Ir a formulario de cita sanitaria online'
+                },
+                card: {
+                    header: {
+                        title: '#QuédateEnCasa, pero sal de dudas.'
+                    },
+                    content: {
+                        'first-paragraph': 'Si necesitas <strong>apoyo psicológico o resolver alguna duda médica, en citamedicaencasa.es</strong> te ponemos en contacto con profesionales voluntarios, de forma segura y gratuita.',
+                        'second-paragraph': 'Ayuda a descongestionar la sanidad, comparte para que llegue a más gente.',
+                        link: 'citamedicaencasa.es',
+                    },
+                },
+                privacy: {
+                    title: 'En citamedicaencasa.es nos importas tú y tu salud. No tus datos.',
+                    'first-paragraph': '<strong>Todas las personas que trabajamos en citamedicaencasa.es</strong>, tanto quienes montamos la plataforma como las doctoras y los doctores, <strong>lo hacemos de forma voluntaria</strong>. Nuestro objetivo es ayudar a descongestionar el sistema sanitario durante el estado de alarma y proporcionar alivio a las personas que lo necesiten a través de nuestra herramienta.  Por eso <strong>no guardaremos tus datos ni los useramos con fines promocionales</strong>. Ni ahora ni nunca. Echa un vistazo a nuestra politica de privacidad si quieres saber algo más sobre este tema.',
+                    'second-paragraph': 'Si tienes más dudas sobre cómo funciona la cita sanitaria online en nuestra web, hemos recopilado información importante en nuestra sección de ayuda. Te animamos a que pruebes el servicio y, si no te hace falta ahora mismo, nos ayudes a llegar a personas que sí lo puedan necesitar compartiéndolo en redes sociales. ¡Ánimo! #EsteVirusLoParamosUnidos.',
+                    cta: 'Ir a formulario de cita sanitaria online'
+                }
             },
             'skip-navigation': {
                 main: 'Ir al contenido principal',
