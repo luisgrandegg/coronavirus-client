@@ -63,6 +63,7 @@ export const ImageUpload: React.FunctionComponent<IImageUploadProps> = (
         cloud_name: 'citamedicaencasa',
         cropping: true,
         language: i18n.language,
+        maxFileSize: 750000,
         multiple: false,
         secure: true,
         sources: [ImageUploadType.LOCAL, ImageUploadType.CAMERA, ImageUploadType.FACEBOOK, ImageUploadType.INSTAGRAM],

@@ -10,7 +10,7 @@ import { sdk } from '../../sdk';
 
 export interface IGratitudeCardProps {
     gratitude: Gratitude;
-    onFlagEvent: (gratitude: Gratitude) => void;
+    onFlagEvent?: (gratitude: Gratitude) => void;
 }
 
 export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
@@ -22,7 +22,7 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
 
     const flag = (): void => {
         sdk.gratitudes.flag(gratitude.id)
-            .then((gratitude: Gratitude) => { onFlagEvent(gratitude) });
+            .then((gratitude: Gratitude) => { onFlagEvent && onFlagEvent(gratitude) });
     };
 
     const renderTitle = (): React.ReactNode => (
@@ -85,7 +85,7 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
             </CardContent>
             <CardActions>
                 {renderMetadata()}
-                {auth?.isAdmin() && <div>{renderActions()}</div>}
+                {(auth?.isAdmin() && onFlagEvent) && <div>{renderActions()}</div>}
             </CardActions>
         </Card>
     )

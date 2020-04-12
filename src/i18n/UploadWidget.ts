@@ -88,7 +88,7 @@ export const UploadWidget = {
 			"crop": {
 				"title": "Recortar",
 				"crop_btn": "Recortar",
-				"skip_btn": "Saltar",
+				"skip_btn": "Subir",
 				"cancel_btn": "Cancelar",
 				"reset_btn": "Reset",
 				"close_btn": "Cerrar",
