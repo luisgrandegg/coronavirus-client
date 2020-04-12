@@ -1,4 +1,4 @@
-.gratitudes {
+.gratitude-wall {
     background-color: $primary;
 
     &__header {
@@ -30,6 +30,12 @@
     }
 
     + .footer {
-        background-color: $primary;
+        // background-color: $primary;
+        margin-bottom: 0;
+
+        // .section-wrapper.section-wrapper__primary {
+        //     background: $gray--megalight;
+        //     color: $primary
+        // }
     }
 }

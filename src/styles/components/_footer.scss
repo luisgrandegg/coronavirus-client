@@ -20,4 +20,8 @@
             margin-top: $spacer;
         }
     }
+
+    &--default {
+        background-color: $primary;
+    }
 }

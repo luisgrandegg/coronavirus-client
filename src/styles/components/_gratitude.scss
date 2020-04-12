@@ -3,10 +3,13 @@ $gratitude---width: $spacer-base * 34;
 $gratitude__picture---max-height: $spacer-base * 20;
 
 .gratitude {
+    display: flex;
+    flex-direction: column;
+
     &__content {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-around;
     }
 
     &__picture {
@@ -31,11 +34,8 @@ $gratitude__picture---max-height: $spacer-base * 20;
     }
 
     &__message {
-        flex-grow: 1;
-        padding: 0 $spacer;
-
         p {
-            word-break: break-all;
+            word-break: break-word;
         }
     }
 
@@ -43,5 +43,9 @@ $gratitude__picture---max-height: $spacer-base * 20;
         .gratitude__title {
             text-align: left;
         }
+    }
+
+    .MuiCardActions-root {
+        margin-top: auto;
     }
 }
