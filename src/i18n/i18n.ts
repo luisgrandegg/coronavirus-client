@@ -117,6 +117,7 @@ const resources = {
                 },
                 'open-menu': 'Abrir el menú',
                 nav: {
+                    'gratitude-wall-item': 'Firmas',
                     'help-citizen-item': 'Ayuda para ciudadanos',
                     'about-us-item': 'El equipo',
                 },
@@ -127,6 +128,7 @@ const resources = {
                 'help-citizen-item': 'Ayuda para ciudadanos',
                 'help-doctor-item': 'Ayuda para médicos',
                 'about-us-item': 'El equipo',
+                'gratitude-wall-item': 'Firmas',
                 'kit-item': '<a href="/static/kitCitaMedica.zip" title="Se descarga el documento del Kit de Cita Médica en Casa" download>Kit de difusión</a>',
                 'privacy-item': '<a target="_blank" href="/static/politica_privacidad.pdf" title="La política de privacidad se abrirá en una nueva ventana">Política de privacidad</a>',
                 'press-note': '<a target="_blank" href="/static/nota_prensa_cita_medica.pdf" title="La nota de prensa se abrirá en una nueva ventana">Nota de prensa</a>',

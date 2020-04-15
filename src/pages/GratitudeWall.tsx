@@ -51,7 +51,7 @@ export const GratitudeWall: React.FunctionComponent = (): JSX.Element => {
 
     return(
         <>
-            <Header/>
+            <Header isPublic={true}/>
             <main className="main gratitude-wall">
                 <div className="container">
                     <BackHome/>

@@ -95,7 +95,7 @@ export const GratitudeCard: React.FunctionComponent<IGratitudeCardProps> = (
             <CardActions>
                 {renderMetadata()}
                 {(auth?.isAdmin() && onFlagEvent) && <div>{renderActions()}</div>}
-                <Share text={shareTexts} fill="#1980A0" showText={false} hidden={['email']}/>
+                {false && <Share text={shareTexts} fill="#1980A0" showText={false} hidden={['email']}/>}
             </CardActions>
         </Card>
     )

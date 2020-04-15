@@ -53,6 +53,9 @@ export const Menu: React.FunctionComponent<IMenuProps> = (props: IMenuProps): JS
                         <li className="menu__list-item menu__list-item--primary">
                             <RouterLink to={Routes.ABOUT_US}>{t('menu.about-us-item')}</RouterLink>
                         </li>
+                        <li className="menu__list-item menu__list-item--primary">
+                            <RouterLink to={Routes.GRATITUDE_WALL}>{t('menu.gratitude-wall-item')}</RouterLink>
+                        </li>
                         <hr className="menu__list-divider" />
                         <li
                             className="menu__list-item"
