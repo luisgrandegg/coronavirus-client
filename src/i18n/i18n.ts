@@ -403,9 +403,9 @@ const resources = {
                     'first-paragraph': 'No somos un servicio médico sino un proyecto voluntario hecho por personas expertas en distintas disciplinas digitales y, por supuesto, en medicina. Todos los profesionales médicos también son voluntarios y están colegiados; nos encargamos de comprobarlo uno por uno.',
                     'second-paragraph': 'Esta herramienta se ha creado de manera voluntaria para intentar ayudar, quienes estamos detrás tenemos otras ocupaciones:',
                     'list-item-1': 'Rubén, Dani y Nacho trabajan en <a href="https://withattitude.design/" title="se abrirá una nueva ventana hacia Designers With Attitude" target="_blank">D.W.A</a>, un estudio de diseño.',
-                    'list-item-2': 'Diego, Marta, Luis, Juanma, Rachel, Jaime y Pimen, vienen de <a href="https://www.packlink.es" title="se abrirá una nueva ventana hacia Packlink.es" target="_blank">Packlink</a>.',
+                    'list-item-2': 'Diego, Marta, Luis, Juanma, Rachel, Jaime y Pimentel, vienen de <a href="https://www.packlink.es" title="se abrirá una nueva ventana hacia Packlink.es" target="_blank">Packlink</a>.',
                     'list-item-3': 'Clara es nuestra doctora.',
-                    'list-item-4': 'Y Matti, Santi, Cristina, Luis y Ros vienen de otras empresas.',
+                    'list-item-4': 'Y Matti, Santi, Cristina, Luis, Ros, José, Adri y Ana vienen de otras empresas.',
                 },
                 'our-goal': {
                     title: 'Nuestro objetivo',
