@@ -4,6 +4,37 @@ import { initReactI18next } from "react-i18next";
 const resources = {
     es: {
         translation: {
+            'image-upload': {
+                actions: {
+                    upload: 'Sube una foto'
+                }
+            },
+            'create-gratitude-form': {
+                fields: {
+                    title: 'Titular',
+                    message: 'Mensaje',
+                    name: 'Tu nombre',
+                    submit: 'Enviar mensaje',
+                    publish: 'Enviar mensaje',
+                    edit: 'Volver a editar',
+                    'remove-photo': 'Quitar foto'
+                },
+                error: {
+                    'max-length': ' El campo debe tener {{maxCharacters}} caracteres como máximo',
+                    required: 'El campo es requerido',
+                },
+                helper: {
+                    message: '{{chars}}/{{maxChars}}'
+                }
+            },
+            'gratitude-wall': {
+                create: 'Pulsa para dejar tu mensaje',
+                header: {
+                    title: 'Firma en nuestro muro de agradecimientos',
+                    subtitle: 'Escribe un mensaje de ánimo o de recuerdo al personal sanitario.'
+                },
+                share: 'Mi mensaje ya está en el muro de homenaje a todos y todas las profesionales sanitarias. Tú también puedes agradecerles todo lo que están haciendo en https://citamedicaencasa.es/gratitude-wall'
+            },
             metas: {
                 default: {
                     description: 'Si tienes una consulta médica, entra en Citamedicaencasa.es. Somos una plataforma de médicos y psicólogos voluntarios, responderemos a tu consulta de manera gratuita.',
@@ -28,6 +59,10 @@ const resources = {
                 'about-us': {
                     description: 'Somos una plataforma que permite a los ciudadanos pedir una cita médica con unos médicos voluntarios desde su casa.',
                     title: 'Cita médica desde tu casa - Citamedicaencasa.es'
+                },
+                landing: {
+                    description: 'Si durante el confinamiento te ves en la necesidad de consultar a un profesional médico o necesitas apoyo psicológico, no salgas de casa. Utiliza el sistema de cita sanitaria online de citamedicaencasa. Es gratis, seguro y confidencial.',
+                    title: 'Cita Sanitaria Online durante la cuarentena - Citamedicaencasa.es'
                 }
             },
             admin: {
@@ -82,6 +117,7 @@ const resources = {
                 },
                 'open-menu': 'Abrir el menú',
                 nav: {
+                    'gratitude-wall-item': 'Firmas',
                     'help-citizen-item': 'Ayuda para ciudadanos',
                     'about-us-item': 'El equipo',
                 },
@@ -92,6 +128,7 @@ const resources = {
                 'help-citizen-item': 'Ayuda para ciudadanos',
                 'help-doctor-item': 'Ayuda para médicos',
                 'about-us-item': 'El equipo',
+                'gratitude-wall-item': 'Firmas',
                 'kit-item': '<a href="/static/kitCitaMedica.zip" title="Se descarga el documento del Kit de Cita Médica en Casa" download>Kit de difusión</a>',
                 'privacy-item': '<a target="_blank" href="/static/politica_privacidad.pdf" title="La política de privacidad se abrirá en una nueva ventana">Política de privacidad</a>',
                 'press-note': '<a target="_blank" href="/static/nota_prensa_cita_medica.pdf" title="La nota de prensa se abrirá en una nueva ventana">Nota de prensa</a>',
@@ -170,6 +207,12 @@ const resources = {
                     field: 'Email del ciudadano:',
                     copied: 'Email copiado en el portapapeles',
                     copy: 'Copiar email en el portapapeles'
+                },
+                gender: {
+                    male: 'Hombre',
+                    female: 'Mujer',
+                    noop: 'Prefiero no decirlo',
+                    nonBinary: 'No binario'
                 },
                 speciality: 'Especialidad:',
                 flag: 'Marcar como inapropiado',
@@ -261,6 +304,8 @@ const resources = {
                     'email-helper-text': 'Para tu tranquilidad, email y consulta están encriptados',
                     'confirm-email': 'Confirma email',
                     'doctor-type': 'Elige una opción',
+                    gender: 'Género',
+                    genderNonBinary: 'Género no binario',
                     speciality: 'Especialidad',
                     time: '¿Cuánto tiempo lleva con el problema?',
                     summary: 'Resumen de tu problema',
@@ -269,7 +314,8 @@ const resources = {
                     'terms': '<a target="_blank" href="/static/consentimiento.pdf" title="La información sobre el consentimiento se abrirá en una nueva ventana">Acepto compartir mis datos personales con el personal médico.</a>',
                     'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf" title="La política de privacidad se abrirá en una nueva ventana">Acepto la política de privacidad y la protección de datos.</a>',
                     'confirm-age': 'Soy mayor de 18 años.',
-                    'submit': 'Enviar duda'
+                    'submit': 'Enviar duda',
+                    'gender-helper': '¿Por qué necesitamos saberlo? En función de la especialidad, saber el género ayuda a concretar las respuestas'
                 },
                 'doctor-type': {
                     regular: 'Consulta médica',
@@ -484,6 +530,36 @@ const resources = {
                     title: '¿Quieres compartir esta iniciativa?',
                     'first-paragraph': '<a href="/static/kitCitaMedica.zip" title="Se descarga el documento del Kit de Cita Médica en Casa" download>Aquí puedes decargar un kit</a> con imágenes para que las publiques donde tú quieras. Cuanta más gente nos conozca, más podremos ayudar.',
                 },
+            },
+            landing: {
+                intro: {
+                    title: 'Cómo tener una cita sanitaria online durante el confinamiento',
+                    'first-paragraph': 'Si durante la cuarentena te ves en la necesidad de consultar a un profesional de la medicina para resolver dudas o problemas leves no relacionadas con el coronavirus, no hace falta que salgas de casa. En citamedicaencasa.es podrás tener una <strong>cita sanitaria online gratis, confidencial y completamente segura</strong>.',
+                },
+                'how-it-works': {
+                    title: '¿Cómo funciona la cita sanitaria online a través de citamedicaencasa.es?',
+                    'first-paragraph': 'Es muy sencillo:',
+                    'list-item-1': 'Rellena un formulario con la información de la persona que necesite ayuda (puedes escribir en nombre de bebés o mayores, por ejemplo.)',
+                    'list-item-2': 'Selecciona la especialidad que necesites de medicina o de psicología.',
+                    'list-item-3': 'Tu pregunta pasará a nuestro equipo sanitario, que se pondrá en contacto personalmente contigo a través del email que hayas indicado con una posible solución o  para dar seguimiento.',
+                    cta: 'Ir a formulario de cita sanitaria online'
+                },
+                card: {
+                    header: {
+                        title: '#QuédateEnCasa, pero sal de dudas.'
+                    },
+                    content: {
+                        'first-paragraph': 'Si necesitas <strong>apoyo psicológico o resolver alguna duda médica, en citamedicaencasa.es</strong> te ponemos en contacto con profesionales voluntarios, de forma segura y gratuita.',
+                        'second-paragraph': 'Ayuda a descongestionar la sanidad, comparte para que llegue a más gente.',
+                        link: 'citamedicaencasa.es',
+                    },
+                },
+                privacy: {
+                    title: 'En citamedicaencasa.es nos importas tú y tu salud. No tus datos.',
+                    'first-paragraph': '<strong>Todas las personas que trabajamos en citamedicaencasa.es</strong>, tanto quienes montamos la plataforma como las doctoras y los doctores, <strong>lo hacemos de forma voluntaria</strong>. Nuestro objetivo es ayudar a descongestionar el sistema sanitario durante el estado de alarma y proporcionar alivio a las personas que lo necesiten a través de nuestra herramienta.  Por eso <strong>no guardaremos tus datos ni los useramos con fines promocionales</strong>. Ni ahora ni nunca. Echa un vistazo a nuestra politica de privacidad si quieres saber algo más sobre este tema.',
+                    'second-paragraph': 'Si tienes más dudas sobre cómo funciona la cita sanitaria online en nuestra web, hemos recopilado información importante en nuestra sección de ayuda. Te animamos a que pruebes el servicio y, si no te hace falta ahora mismo, nos ayudes a llegar a personas que sí lo puedan necesitar compartiéndolo en redes sociales. ¡Ánimo! #EsteVirusLoParamosUnidos.',
+                    cta: 'Ir a formulario de cita sanitaria online'
+                }
             },
             'skip-navigation': {
                 main: 'Ir al contenido principal',

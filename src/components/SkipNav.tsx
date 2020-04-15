@@ -5,7 +5,8 @@ export enum SkipNavIds {
     MAIN = 'main',
     FORM_INQUIRY = 'form-inquiry',
     FORM_REGISTER = 'form-register',
-    FORM_LOGIN = 'form-login'
+    FORM_LOGIN = 'form-login',
+    FORM_GRATITUDE = 'form-gratitude'
 }
 
 export type ISkypNavProps = {

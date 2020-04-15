@@ -1,0 +1,59 @@
+$gratitude---width: $spacer-base * 34;
+
+$gratitude__picture---max-height: $spacer-base * 20;
+
+.gratitude {
+    display: flex;
+    flex-direction: column;
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    &__picture {
+        flex-shrink: 0;
+        margin: 0;
+        max-width: 100%;
+        text-align: center;
+
+        > div {
+            overflow: hidden;
+        }
+
+        img {
+            height: $gratitude__picture---max-height;
+        }
+    }
+
+    &__title {
+        color: $gray--ultradark;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    &__message {
+        p {
+            word-break: break-word;
+        }
+    }
+
+    &--has-picture {
+        .gratitude__title {
+            text-align: left;
+        }
+    }
+
+    .share {
+        margin-left: auto !important;
+        margin-top: $spacer;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .MuiCardActions-root {
+        flex-wrap: wrap;
+        margin-top: auto;
+    }
+}

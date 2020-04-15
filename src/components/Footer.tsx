@@ -1,11 +1,26 @@
+import classNames from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Share } from '../components/Social/Share';
 
+import { Share } from '../components/Social/Share';
 import { Section } from '../components/Section';
 
-export const Footer: React.FunctionComponent = (): JSX.Element => {
+export enum FooterTheme {
+    DEFAULT = 'default',
+    PRIMARY = 'primary'
+}
+
+export interface IFooterProps {
+    theme?: FooterTheme;
+}
+
+export const Footer: React.FunctionComponent<IFooterProps> = (
+    props: IFooterProps
+): JSX.Element => {
+    const { theme = FooterTheme.PRIMARY } = props;
     const { t } = useTranslation();
+
+    const shareFill = theme === FooterTheme.DEFAULT ? '#1980A0' : undefined;
 
     const Content = (): JSX.Element => (
         <div className="footer__section">
@@ -13,16 +28,21 @@ export const Footer: React.FunctionComponent = (): JSX.Element => {
             <p
                 className="footer__section-description"
                 dangerouslySetInnerHTML={{ __html: t('footer.first-paragraph') }} />
-            <Share />
+            <Share fill={shareFill}/>
         </div>
     );
 
+    const className = classNames({
+        footer: true,
+        [`footer--${theme}`]: true
+    });
+
     return (
-        <footer className="footer">
+        <footer className={className}>
             <div className="container">
                 <Section
                     content={<Content />}
-                    styleName="primary"
+                    styleName={theme}
                 />
             </div>
         </footer>

@@ -8,9 +8,9 @@
   &__content {
     display: flex;
     flex-wrap: wrap;
-    padding-right: $spacer;
 
     @media (min-width: $breakpoint-tablet) {
+        padding-right: $spacer;
         flex: 0 0  percentage(2/3);
     }
   }
@@ -23,6 +23,14 @@
     @media (min-width: $breakpoint-tablet) {
         flex: 0 0  percentage(1/3);
     }
+  }
+
+  &__default {
+    padding: $spacer;
+    margin-right: -$spacer;
+    margin-left: -$spacer;
+    background-color: $gray--megalight;
+    color: $primary;
   }
 
   &__primary {

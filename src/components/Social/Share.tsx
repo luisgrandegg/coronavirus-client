@@ -16,11 +16,23 @@ export type IShareProps = {
     fill?: string;
     showText?: boolean;
     hidden?: string[];
+    text?: {
+        twitter?: string;
+        facebook?: string;
+        whatsapp?: string;
+        email?: string;
+    }
 }
 
 export const Share: React.FunctionComponent<IShareProps> = (props: IShareProps): JSX.Element => {
     const { t } = useTranslation();
     const { fill = 'white', showText = true, hidden = [] } = props;
+    const text = {
+        twitter: props.text?.twitter || t('share.twitter'),
+        facebook: props.text?.facebook || t('share.text'),
+        whatsapp: props.text?.whatsapp || t('share.text'),
+        email: props.text?.email || t('share.text')
+    }
 
     const buttonClassName = 'share__button';
     const shareUrl = 'https://www.citamedicaencasa.es';
@@ -33,7 +45,7 @@ export const Share: React.FunctionComponent<IShareProps> = (props: IShareProps):
                         className={buttonClassName}
                         url={shareUrl}
                         via="CitaMedicaCasa"
-                        title={t('share.twitter')}
+                        title={text.twitter}
                     >
                         <TwitterIcon
                             fill={fill}
@@ -52,7 +64,7 @@ export const Share: React.FunctionComponent<IShareProps> = (props: IShareProps):
                     <FacebookShareButton
                         className={buttonClassName}
                         url={shareUrl}
-                        quote={t('share.text')}
+                        quote={text.facebook}
                     >
                         <FacebookIcon
                             fill={fill}
@@ -71,7 +83,7 @@ export const Share: React.FunctionComponent<IShareProps> = (props: IShareProps):
                     <WhatsappShareButton
                         className={buttonClassName}
                         url={shareUrl}
-                        title={t('share.text')}
+                        title={text.whatsapp}
                     >
                         <WhatsappIcon
                             fill={fill}
@@ -91,7 +103,7 @@ export const Share: React.FunctionComponent<IShareProps> = (props: IShareProps):
                         className={buttonClassName}
                         url={shareUrl}
                         subject={t('share.title')}
-                        body={t('share.text')}
+                        body={text.email}
                     >
                         <EmailIcon
                             fill={fill}

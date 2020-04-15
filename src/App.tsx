@@ -14,6 +14,7 @@ import { sdk } from './sdk';
 import { HelpDoctor } from './pages/HelpDoctor';
 import { HelpCitizen } from './pages/HelpCitizen';
 import { Home } from './pages/Home';
+import { Landing } from './pages/Landing';
 import { Login } from './pages/Login';
 import { AboutUs } from './pages/AboutUs';
 import { RegisterDoctor } from './pages/RegisterDoctor';
@@ -30,6 +31,7 @@ import { AdminStats } from './pages/AdminStats';
 import { DoctorType } from './entities/Doctor';
 import { DoctorDashboardMain } from './pages/DoctorDashboardMain';
 import { AdminDashboardMain } from './pages/AdminDashboardMain';
+import { GratitudeWall } from './pages/GratitudeWall';
 
 export const App: React.FunctionComponent = (): JSX.Element => {
     const auth = useSelector(getAuth);
@@ -67,6 +69,16 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                         <Route exact={true} path={Routes.HELP_DOCTOR}>
                             <ScrollToTop>
                                 <HelpDoctor />
+                            </ScrollToTop>
+                        </Route>
+                        <Route exact={true} path={Routes.LANDING}>
+                            <ScrollToTop>
+                                <Landing />
+                            </ScrollToTop>
+                        </Route>
+                        <Route exact={true} path={Routes.GRATITUDE_WALL}>
+                            <ScrollToTop>
+                                <GratitudeWall />
                             </ScrollToTop>
                         </Route>
                         <Route exact={true} path={Routes.LOGIN}>

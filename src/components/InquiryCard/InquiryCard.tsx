@@ -212,6 +212,9 @@ export const InquiryCard: React.FunctionComponent<IInquiryCardProps> = (
                 <Typography>
                     <strong>{t('inquiry.age')}</strong> {inquiry.age}
                 </Typography>
+                {inquiry.doctorType === DoctorType.REGULAR && inquiry.gender && <Typography>
+                    <strong>Género</strong> {[t(`inquiry.gender.${inquiry.gender}`), inquiry.genderNonBinary].join(' ')}
+                </Typography>}
                 { inquiry?.time &&
                     <Typography>
                         <strong>{t('inquiry.time')}</strong> {inquiry.time}

@@ -2,6 +2,8 @@ export interface ICreateInquiryDto {
     age: string;
     email: string;
     doctorType: string;
+    gender?: string;
+    genderNonBinary?: string;
     speciality?: string;
     summary: string;
     terms: boolean;
@@ -21,7 +23,9 @@ export class CreateInquiryDto {
             data.privacy,
             data.confirmAge,
             data.time,
-            data.speciality
+            data.speciality,
+            data.gender,
+            data.genderNonBinary
         );
     }
 
@@ -35,6 +39,8 @@ export class CreateInquiryDto {
         public confirmAge: boolean,
         public time?: string,
         public speciality?: string,
+        public gender?: string,
+        public genderNonBinary?: string
     ) { }
 
     toJSON(): ICreateInquiryDto {
@@ -42,6 +48,8 @@ export class CreateInquiryDto {
             age: this.age,
             email: this.email,
             doctorType: this.doctorType,
+            gender: this.gender,
+            genderNonBinary: this.genderNonBinary,
             speciality: this.speciality,
             summary: this.summary,
             terms: this.terms,
