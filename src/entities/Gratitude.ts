@@ -5,7 +5,6 @@ export interface IGratitude {
     id: string;
     message: string;
     name: string;
-    title: string;
     imagePublicId: string | null;
     imagePublicUrl: string | null;
 }
@@ -16,7 +15,6 @@ export class Gratitude {
     ): Gratitude {
         return new Gratitude(
             request.id,
-            request.title,
             request.message,
             request.name,
             moment(request.createdAt),
@@ -27,7 +25,6 @@ export class Gratitude {
 
     constructor(
         public id: string,
-        public title: string,
         public message: string,
         public name: string,
         public createdAt: moment.Moment,
@@ -38,7 +35,6 @@ export class Gratitude {
     clone(): Gratitude {
         return new Gratitude(
             this.id,
-            this.title,
             this.message,
             this.name,
             this.createdAt,
