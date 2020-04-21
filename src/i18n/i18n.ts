@@ -283,6 +283,10 @@ const resources = {
                         },
                         'message-1': 'Recibirás un email confimándola con un link para acceder a una consulta online, o con una respuesta a tu consulta.',
                         'message-2': '<a href="/help/citizen/" title="Acceso a las preguntas frecuentes del ciudadano">Aquí tienes más ayuda</a> sobre Cita Médica en Casa.'
+                    },
+                    'gratitude-wall': {
+                        message: 'Deja tu mensaje de agradecimiento para el personal sanitario',
+                        cta: 'Pulsa para dejar tu mensaje'
                     }
                 },
                 header: {

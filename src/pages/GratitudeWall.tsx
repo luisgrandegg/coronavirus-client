@@ -11,9 +11,16 @@ import { CreateGratitude } from '../components/CreateGratitude';
 import { Gratitude } from '../entities/Gratitude';
 import { sdk } from '../sdk';
 
-export const GratitudeWall: React.FunctionComponent = (): JSX.Element => {
+export interface IGratitudeWallProps {
+    opened?: boolean;
+}
+
+export const GratitudeWall: React.FunctionComponent<IGratitudeWallProps> = (
+    props: IGratitudeWallProps
+): JSX.Element => {
+    const { opened = false } = props;
     const [gratitudes, setGratitudes] = useState<Gratitude[]>([]);
-    const [isCreateGratitudeOpen, setIsCreateGratitudeOpen] = useState<boolean>(false);
+    const [isCreateGratitudeOpen, setIsCreateGratitudeOpen] = useState<boolean>(opened);
     const { t } = useTranslation();
 
     const getGratitudes = () => {
