@@ -32,8 +32,7 @@ const resources = {
                 header: {
                     title: 'Firma en nuestro muro de agradecimientos',
                     subtitle: 'Escribe un mensaje de ánimo o de recuerdo al personal sanitario.'
-                },
-                share: 'Mi mensaje ya está en el muro de homenaje a todos y todas las profesionales sanitarias. Tú también puedes agradecerles todo lo que están haciendo en https://citamedicaencasa.es/gratitude-wall'
+                }
             },
             metas: {
                 default: {
@@ -268,6 +267,11 @@ const resources = {
                     'privacy': '<a target="_blank" href="/static/politica_privacidad.pdf" title="La política de privacidad se abrirá en una nueva ventana">Me comprometo a no hacer públicos datos de ciudadanos.</a>',
                 }
             },
+            'gratitude-share': {
+                cta: 'Comparte',
+                title: 'Cita Médica en Casa',
+                message: 'Este es mi mensaje para agradecer al personal sanitario en citamedicaencasa.es/firmas {{message}}'
+            },
             'register-citizen': {
                 drawing: {
                     alt: 'Cita Médica en Casa para ciudadanos'
@@ -283,6 +287,10 @@ const resources = {
                         },
                         'message-1': 'Recibirás un email confimándola con un link para acceder a una consulta online, o con una respuesta a tu consulta.',
                         'message-2': '<a href="/help/citizen/" title="Acceso a las preguntas frecuentes del ciudadano">Aquí tienes más ayuda</a> sobre Cita Médica en Casa.'
+                    },
+                    'gratitude-wall': {
+                        message: 'Deja tu mensaje de agradecimiento para el personal sanitario',
+                        cta: 'Pulsa para dejar tu mensaje'
                     }
                 },
                 header: {

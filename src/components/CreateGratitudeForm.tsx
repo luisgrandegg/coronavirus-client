@@ -20,7 +20,6 @@ export interface ICreateGratitudeFormProps {
 }
 
 export interface ICreateGratitudeForm {
-    title: string;
     message: string;
     name: string;
 }
@@ -36,14 +35,11 @@ export const CreateGratitudeForm: React.FunctionComponent<ICreateGratitudeFormPr
     const [imageUploadResult, setImageUploadResult] = useState<IImageUploadResult| null>(null);
 
     const initialValues = {
-        title: gratitude?.title || '',
         message: gratitude?.message ||'',
         name: gratitude?.name ||''
     };
 
     const validationSchema = yup.object().shape({
-        title: yup.string()
-            .required(t('create-gratitude-form.error.required')),
         message: yup.string()
             .required(t('create-gratitude-form.error.required'))
             .max(300, t('create-gratitude-form.error.max-length', { maxCharacters: 300 })),
@@ -52,10 +48,9 @@ export const CreateGratitudeForm: React.FunctionComponent<ICreateGratitudeFormPr
     });
 
     const onSubmit = async (values: ICreateGratitudeForm): Promise<void> => {
-        const { title, message, name } = values;
+        const { message, name } = values;
         setPreviewMode(true);
         setGratitude(CreateGratitudeDto.deserialize({
-            title,
             message,
             name,
             imagePublicId: imageUploadResult?.publicId,
@@ -130,12 +125,6 @@ export const CreateGratitudeForm: React.FunctionComponent<ICreateGratitudeFormPr
                     id={SkipNavIds.FORM_GRATITUDE}
                     style={{ marginTop: 0 }}
                 >
-                    <Field
-                        className="register-form__form-control"
-                        name="title"
-                        label={t('create-gratitude-form.fields.title')}
-                        component={TextField}
-                    />
                     <Field
                         className="register-form__form-control"
                         name="message"

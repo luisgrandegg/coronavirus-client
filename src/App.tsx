@@ -81,6 +81,11 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                                 <GratitudeWall />
                             </ScrollToTop>
                         </Route>
+                        <Route exact={true} path={Routes.GRATITUDE_WALL_OPENED}>
+                            <ScrollToTop>
+                                <GratitudeWall opened={true}/>
+                            </ScrollToTop>
+                        </Route>
                         <Route exact={true} path={Routes.LOGIN}>
                             <ScrollToTop>
                                 <Login />

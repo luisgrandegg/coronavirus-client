@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link as RouterLink } from 'react-router-dom';
 
 import { Header } from '../components/Header';
 import { BackHome } from '../components/BackHome';
@@ -9,6 +10,8 @@ import { Section } from '../components/Section';
 import { SkipNav, SkipNavIds } from '../components/SkipNav';
 import { CreateInquiryForm } from '../components/CreateInquiryForm';
 import { Helmet } from 'react-helmet';
+import { Button } from '@material-ui/core';
+import { Routes } from '../router/Routes';
 
 export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
     const { t } = useTranslation();
@@ -32,6 +35,13 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
                 <h3 className="register-form__title register-form__title--confirmation">{t('register-citizen.confirmation.content.time.title')}</h3>
                 <p>{t('register-citizen.confirmation.content.time.message')}</p>
                 <p dangerouslySetInnerHTML={{__html: t('register-citizen.confirmation.content.message-2')}}/>
+                <p>{t('register-citizen.confirmation.gratitude-wall.message')}</p>
+                <Button
+                    color="primary"
+                    component={RouterLink}
+                    to={Routes.GRATITUDE_WALL_OPENED}
+                    variant="outlined"
+                >{t('register-citizen.confirmation.gratitude-wall.cta')}</Button>
             </section>
         </>
     );
