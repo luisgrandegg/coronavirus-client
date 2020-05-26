@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { Header } from '../components/Header';
+import { Header } from '../components/HeaderLegacy';
 import { AdminTabs } from '../components/AdminTabs';
 import { Footer } from '../components/Footer';
 import { DoctorList } from '../components/DoctorList';

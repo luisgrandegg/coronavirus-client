@@ -1,9 +1,9 @@
-import { Typography, Button } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import removeFromArray from 'lodash.remove';
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { BackHome } from '../components/BackHome';
+import { ByeBye } from '../components/ByeBye';
 import { Footer, FooterTheme } from '../components/Footer';
 import { Header } from '../components/Header';
 import GratitudeList from '../components/GratitudeList';
@@ -61,10 +61,11 @@ export const GratitudeWall: React.FunctionComponent<IGratitudeWallProps> = (
             <Header isPublic={true}/>
             <main className="main gratitude-wall">
                 <div className="container">
-                    <BackHome/>
+                    <ByeBye/>
                     <header className="gratitude-wall__header">
-                        <Typography variant="h5" component="h2">{t('gratitude-wall.header.title')}</Typography>
-                        <Typography>{t('gratitude-wall.header.subtitle')}</Typography>
+                        <p className="bye-bye-subtitle">Puedes seguir dejando tus mensajes de</p>
+                        <h2 className="bye-bye-title">AGRADECIMIENTO</h2>
+                        <p className="bye-bye-text">Aún puedes agradecer la labor que han realizado. Dejamos abierto nuestro muro para que les dejes un mensaje.</p>
                         <Button variant="contained" onClick={onOpenCreateGratitude}>{t('gratitude-wall.create')}</Button>
                     </header>
                     <CreateGratitude

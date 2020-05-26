@@ -4,7 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 import { Button } from '@material-ui/core';
 
-import { Header } from '../components/Header';
+import { Header } from '../components/HeaderLegacy';
 import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { List } from '../components/List';
