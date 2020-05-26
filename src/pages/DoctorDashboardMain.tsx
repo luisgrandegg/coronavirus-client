@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Header } from '../components/Header';
+import { Header } from '../components/HeaderLegacy';
 import { BackHome } from '../components/BackHome';
 import { Footer } from '../components/Footer';
 import { DoctorTabs } from '../components/DoctorTabs';

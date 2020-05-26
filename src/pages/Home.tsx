@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
 
 import { Counter } from '../components/Counter';
-import { Header } from '../components/Header';
+import { Header } from '../components/HeaderLegacy';
 import { Footer } from '../components/Footer';
 import { ThanksBox } from '../components/ThanksBox/ThanksBox';
 import { Section } from '../components/Section';
@@ -173,6 +173,7 @@ export const Home: React.FunctionComponent = (): JSX.Element => {
             <Helmet>
                 <title>{t('metas.home.title')}</title>
                 <meta name="description" content={t('metas.home.description')} />
+                <meta name='robots' content='noindex'/>
             </Helmet>
             <SkipNav navElements={[SkipNavIds.MAIN]} />
             <Header isPublic={true} />

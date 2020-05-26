@@ -1,0 +1,198 @@
+$bye-bye---size: 162px;
+
+.bye-bye {
+    color: $white;
+
+    &__header {
+        margin-bottom: $spacer;
+        margin-top: $spacer-l;
+
+        .MuiTypography-root {
+            font-weight: bold;
+        }
+    }
+
+    &__counter {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        max-width: 832px;
+        min-height: $bye-bye---size;
+        position: relative;
+
+        &:before,
+        &:after {
+            display: block;
+            height: $bye-bye---size;
+            width: $bye-bye---size;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+        }
+
+        &--doctor {
+            margin-top: $spacer-m;
+            padding-left: $bye-bye---size + $spacer-m * 2;
+
+            &:before {
+                left: $spacer-m;
+                content: '';
+                background-image: url('/images/bye-bye/doctor.svg');
+            }
+        }
+
+        &--citizen {
+            padding-right: $bye-bye---size + $spacer-m;
+
+            .bye-bye__counter-content {
+                margin-left: auto;
+            }
+
+            &:after {
+                right: $spacer-m;
+                top: -$spacer-m;
+                content: '';
+                background-image: url('/images/bye-bye/citizen.svg');
+            }
+        }
+    }
+
+    &__count.MuiTypography-root {
+        font-weight: bold;
+    }
+
+    &__heroes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: -$spacer-m * 3;
+    }
+
+    &__hero {
+        margin-bottom: $spacer;
+        position: relative;
+        width: 100%;
+
+        @media (min-width: $breakpoint-mobile) {
+            margin-bottom: 0;
+            width: 45%;
+        }
+
+        @media (min-width: $breakpoint-tablet) {
+            margin-bottom: 0;
+            width: 30%;
+        }
+
+        &:first-child {
+            @media (min-width: $breakpoint-mobile) {
+                margin-top: $spacer-m;
+            }
+
+            @media (min-width: $breakpoint-tablet) {
+                margin-top: $spacer-m;
+            }
+        }
+
+        &:nth-child(2) {
+            @media (min-width: $breakpoint-mobile) {
+                margin-top: $spacer-m * 2.5;
+            }
+
+            @media (min-width: $breakpoint-tablet) {
+                margin-top: $spacer-m * 2.5;
+            }
+        }
+
+        &:nth-child(3) {
+            @media (min-width: $breakpoint-mobile) {
+                margin-top: $spacer-m;
+                top: -$spacer-m * 2;
+            }
+
+            @media (min-width: $breakpoint-tablet) {
+                margin-top: $spacer-m * 5;
+                top: 0;
+            }
+        }
+
+        &:nth-child(4) {
+            @media (min-width: $breakpoint-mobile) {
+                margin-top: $spacer-m * 2.5;
+                top: -$spacer-m * 2;
+            }
+
+            @media (min-width: $breakpoint-tablet) {
+                margin-top: $spacer-m;
+                top: -$spacer-m * 4;
+            }
+        }
+
+        &:nth-child(5) {
+            @media (min-width: $breakpoint-mobile) {
+                margin-top: $spacer-m;
+                top: -$spacer-m * 4;
+            }
+
+            @media (min-width: $breakpoint-tablet) {
+                margin-top: $spacer-m * 2.5;
+                top: -$spacer-m * 4;
+            }
+        }
+
+        &:nth-child(6) {
+            @media (min-width: $breakpoint-mobile) {
+                margin-top: $spacer-m * 2.5;
+                top: -$spacer-m * 4;
+            }
+
+            @media (min-width: $breakpoint-tablet) {
+                margin-top: $spacer-m * 5;
+                top: -$spacer-m * 4;
+            }
+        }
+
+        figure {
+            background-color: $white;
+            margin: 0;
+            padding: 0;
+
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+.bye-bye-title {
+    color: white;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 63px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.bye-bye-subtitle {
+    color: white;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 32px;
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: $spacer-m;
+}
+
+.bye-bye-text {
+    color: white;
+    font-size: 16px;
+}
+
+.bye-bye-text + .bye-bye-text {
+    margin-top: -24px;
+}

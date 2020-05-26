@@ -9,7 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { useSelector } from 'react-redux';
 import { getAuth } from '../store/selectors/status';
 
-import { Menu } from './Menu'
+import { Menu } from './MenuLegacy'
 import { Share } from './Social/Share';
 
 export interface IHeaderProps {
@@ -77,6 +77,9 @@ export const Header: React.FunctionComponent<IHeaderProps> = (
                         <Hidden smDown>
                             <nav className="header__nav">
                                 <ul className="header__menu">
+                                    <li className="header__menu-item">
+                                        <RouterLink to={Routes.HELP_CITIZEN}>{t('header.nav.help-citizen-item')}</RouterLink>
+                                    </li>
                                     <li className="header__menu-item">
                                         <RouterLink to={Routes.ABOUT_US}>{t('header.nav.about-us-item')}</RouterLink>
                                     </li>

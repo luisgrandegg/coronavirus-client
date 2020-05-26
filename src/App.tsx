@@ -53,6 +53,16 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                     <Switch>
                         <Route exact={true} path={Routes.ROOT}>
                             <ScrollToTop>
+                                <GratitudeWall />
+                            </ScrollToTop>
+                        </Route>
+                        <Route exact={true} path={Routes.ROOT_OPENED}>
+                            <ScrollToTop>
+                                <GratitudeWall opened={true}/>
+                            </ScrollToTop>
+                        </Route>
+                        <Route exact={true} path={Routes.HOME}>
+                            <ScrollToTop>
                                 <Home />
                             </ScrollToTop>
                         </Route>
