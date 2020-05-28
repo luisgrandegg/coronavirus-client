@@ -20,7 +20,7 @@ export enum Routes {
     REGISTER_DOCTOR = '/006019ce8d2bdd5d91b7ddc2fafb9077/register/medicos-online',
     REGISTER_PSYCHOLOGIST = '/006019ce8d2bdd5d91b7ddc2fafb9077/register/psicologos-online',
     REGISTER_CITIZEN = '/006019ce8d2bdd5d91b7ddc2fafb9077/register/citizen',
-    ROOT = '/',
-    ROOT_OPENED = '/mensaje',
-    HOME = '/006019ce8d2bdd5d91b7ddc2fafb9077'
+    ROOT = '/006019ce8d2bdd5d91b7ddc2fafb9077',
+    HOME_OPENED = '/mensaje',
+    HOME = '/'
 }
