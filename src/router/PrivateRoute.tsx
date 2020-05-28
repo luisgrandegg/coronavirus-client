@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { getAuth } from '../store/selectors/status';
 import { UserType } from '../entities/User';
 import { ScrollToTop } from '../components/ScrollToTop';
+import { Routes } from './Routes';
 
 export interface IPrivateRouteLocationState {
     from: Location;
@@ -35,7 +36,7 @@ export const PrivateRoute: React.FunctionComponent<IPrivateRouteProps> = (
                     ) : (
                         <Redirect
                             to={{
-                                pathname: "/login",
+                                pathname: Routes.LOGIN,
                                 state: { from: location }
                             }}
                         />
