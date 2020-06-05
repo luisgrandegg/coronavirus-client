@@ -21,6 +21,7 @@ export const Landing: React.FunctionComponent = (): JSX.Element => {
             <Helmet>
                 <title>{t('metas.landing.title')}</title>
                 <meta name="description" content={t('metas.landing.description')} />
+                <meta name='robots' content='noindex'/>
             </Helmet>
             <SkipNav navElements={[SkipNavIds.MAIN]} />
             <Header isPublic={true} />

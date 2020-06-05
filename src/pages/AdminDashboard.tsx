@@ -51,6 +51,7 @@ export const AdminDashboard: React.FunctionComponent<IAdminDashBoardProps> = (
             <Helmet>
                 <title>{t('metas.default.title')}</title>
                 <meta name="description" content={t('metas.default.description')} />
+                <meta name='robots' content='noindex'/>
             </Helmet>
             <Header>
                 <AdminTabs value={0}/>

@@ -22,6 +22,7 @@ export const AdminModerate: React.FunctionComponent = (): JSX.Element => {
             <Helmet>
                 <title>{t('metas.default.title')}</title>
                 <meta name="description" content={t('metas.default.description')} />
+                <meta name='robots' content='noindex'/>
             </Helmet>
             <Header>
                 <AdminTabs value={1}/>

@@ -15,6 +15,7 @@ export const HelpDoctor: React.FunctionComponent = (): JSX.Element => {
             <Helmet>
                 <title>{t('metas.default.title')}</title>
                 <meta name="description" content={t('metas.default.description')} />
+                <meta name='robots' content='noindex'/>
             </Helmet>
             <Header isPublic={true}/>
             <main className="main help">

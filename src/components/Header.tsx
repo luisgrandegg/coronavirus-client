@@ -81,7 +81,7 @@ export const Header: React.FunctionComponent<IHeaderProps> = (
                                         <RouterLink to={Routes.ABOUT_US}>{t('header.nav.about-us-item')}</RouterLink>
                                     </li>
                                     <li className="header__menu-item">
-                                        <RouterLink to={Routes.GRATITUDE_WALL}>{t('header.nav.gratitude-wall-item')}</RouterLink>
+                                        <RouterLink to={Routes.HOME}>{t('header.nav.gratitude-wall-item')}</RouterLink>
                                     </li>
                                 </ul>
                             </nav>
