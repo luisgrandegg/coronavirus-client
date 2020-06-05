@@ -147,7 +147,7 @@ export const App: React.FunctionComponent = (): JSX.Element => {
                             <AdminStats />
                         </SuperAdminRoute>
                         <Redirect exact={true} from={Routes.REGISTER} to={Routes.REGISTER_CITIZEN} />
-                        <Redirect to={Routes.ROOT} />
+                        <Redirect to={Routes.HOME} />
                     </Switch>
                 </Router>
                 <CookieConsent
