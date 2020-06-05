@@ -86,6 +86,7 @@ export const CreateInquiry: React.FunctionComponent = (): JSX.Element => {
             <Helmet>
                 <title>{t('metas.register-citizen.title')}</title>
                 <meta name="description" content={t('metas.register-citizen.description')} />
+                <meta name='robots' content='noindex'/>
             </Helmet>
             <SkipNav navElements={createFromSuccess ? [SkipNavIds.MAIN] : [SkipNavIds.MAIN, SkipNavIds.FORM_INQUIRY]}/>
             <Header isPublic={true}/>

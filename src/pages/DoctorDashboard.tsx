@@ -91,6 +91,7 @@ export const DoctorDashbord: React.FunctionComponent<IDoctorDashBoardProps> = (
             <Helmet>
                 <title>{t('metas.default.title')}</title>
                 <meta name="description" content={t('metas.default.description')} />
+                <meta name='robots' content='noindex'/>
             </Helmet>
             <SkipNav navElements={[SkipNavIds.MAIN]}/>
             <Header>
